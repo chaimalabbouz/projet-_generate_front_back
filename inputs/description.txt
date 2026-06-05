@@ -1,0 +1,18 @@
+Stack : node js express + Prisma + React TypeScript
+
+Description :
+Nous souhaitons créer une API backend pour une petite boutique en ligne de vente de livres.
+
+L'entité principale est le Livre. Chaque livre possède : un titre, un auteur, un prix, un stock disponible (integer) et une catégorie (Roman, SF, Histoire).
+
+Nous avons des Utilisateurs (Clients).
+
+Fonctionnalités attendues :
+1. Lister tous les livres disponibles avec un filtre par catégorie.
+2. Créer une commande.
+   Règle Métier : Lors de la création, le système doit vérifier si le stock est suffisant pour chaque livre demandé.
+   - Si le stock est OK : Déduire la quantité du stock du livre et créer la commande.
+   - Si le stock est insuffisant : Retourner une erreur.
+3. Chaque commande contient une liste d'articles (Livre ID + Quantité achetée).
+4. L'utilisateur peut voir l'historique de ses commandes passées.
+5. L'administrateur peut ajouter un nouveau livre (réapprovisionnement).
