@@ -1,18 +1,60 @@
-Stack : node js express + Prisma + React TypeScript
+STACK: Python / FastAPI systems
 
-Description :
-Nous souhaitons créer une API backend pour une petite boutique en ligne de vente de livres.
+PROJECT: E-commerce platform API
 
-L'entité principale est le Livre. Chaque livre possède : un titre, un auteur, un prix, un stock disponible (integer) et une catégorie (Roman, SF, Histoire).
+DESCRIPTION:
+We are building an e-commerce platform.
+It should support customers, products, orders, and reviews.
 
-Nous avons des Utilisateurs (Clients).
+FEATURES:
 
-Fonctionnalités attendues :
-1. Lister tous les livres disponibles avec un filtre par catégorie.
-2. Créer une commande.
-   Règle Métier : Lors de la création, le système doit vérifier si le stock est suffisant pour chaque livre demandé.
-   - Si le stock est OK : Déduire la quantité du stock du livre et créer la commande.
-   - Si le stock est insuffisant : Retourner une erreur.
-3. Chaque commande contient une liste d'articles (Livre ID + Quantité achetée).
-4. L'utilisateur peut voir l'historique de ses commandes passées.
-5. L'administrateur peut ajouter un nouveau livre (réapprovisionnement).
+CUSTOMERS:
+- register customer
+- update customer profile
+- delete customer
+- get customer by id
+- list all customers
+
+PRODUCTS:
+- create product
+- update product
+- delete product
+- get product by id
+- list all products
+
+ORDERS:
+- create order (customer + list of products)
+- cancel order
+- get order by id
+- list orders by customer
+- update order status
+
+REVIEWS:
+- add review (customer + product)
+- delete review
+- list reviews by product
+
+DATA MODELS:
+
+Customer:
+- name: string
+- email: string
+- address: string
+
+Product:
+- name: string
+- price: number
+- stock: integer
+- description: string
+
+Order:
+- customerId: string
+- products: list
+- status: string
+- total: number
+
+Review:
+- customerId: string
+- productId: string
+- rating: integer
+- comment: string

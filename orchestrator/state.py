@@ -1,28 +1,46 @@
-from typing import TypedDict, List, Dict, Any, Literal
+from pydantic import BaseModel, Field
+from typing import List, Dict, Any, Optional
 
-class ElementPlan(TypedDict):
-    id: str
-    type: Literal["entity", "function", "endpoint", "test"]
-    nom: str
-    dependances: List[str]
-    statut: Literal["en_attente", "en_cours", "valide", "echoue"]
 
-class Architecture(TypedDict):
-    plan_fichiers: Dict[str, str]     # ID étape -> Chemin fichier
-    fichiers_crees: Dict[str, str]    # Chemin fichier -> Contenu code
+class GraphState(BaseModel):
 
-class Specs(TypedDict):
-    details: Dict[str, Dict[str, Any]] # ID élément -> Schéma JSON
+    # ---------------- INPUT ----------------
+    user_input: str
+    stack: Optional[str] = None
 
-class State(TypedDict):
-    description: str #description de projet 
-    stack: str  #les frawmork et langage   utilisées 
-    
-    plan: List[ElementPlan]
-    specs: Specs
-    architecture: Architecture
-    
-    current_step_id: str | None
-    erreurs: Dict[str, str]
-    
-    tentatives: Dict[str, int]
+    # ---------------- OPENAPI ----------------
+    openapi_spec: Optional[Dict[str, Any]] = None
+
+    # ---------------- PLANNING ----------------
+    dependency_graph: Optional[Dict[str, Any]] = None
+
+    file_plan: Optional[List[Dict[str, Any]]] = None
+
+    task_queue: Optional[List[Dict[str, Any]]] = None
+
+    # ---------------- CODE GENERATION ----------------
+    generated_files: Optional[Dict[str, str]] = Field(
+        default=None,
+        description="path -> generated code"
+    )
+
+    # ---------------- FILESYSTEM ----------------
+    filesystem_state: Optional[List[str]] = None
+
+    # ---------------- TESTING ----------------
+    test_results: Optional[Dict[str, Any]] = None
+
+    error_log: Optional[str] = None
+
+    # ---------------- FRONTEND ----------------
+    frontend_spec: Optional[Dict[str, Any]] = None
+
+    # ---------------- CONTROL FLOW ----------------
+    workflow_state: Optional[str] = None
+
+    retry_count: int = 0
+
+    max_retries: int = 3
+
+    # ---------------- TOOL CONTEXT ----------------
+    tool_context: Optional[Dict[str, Any]] = None

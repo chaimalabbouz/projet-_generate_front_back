@@ -1,13 +1,23 @@
 from langgraph.graph import StateGraph, END
-from orchestrator.state import State
-from agents.planner import planner_node
+from orchestrator.state import GraphState
+from agents.openApi import OpenAPIAgent
+from agents.planner import PlannerAgent
 
 def create_graph():
-    graph = StateGraph(State)
+    graph = StateGraph(GraphState)
 
-    graph.add_node("planner", planner_node)
+    openapi_agent = OpenAPIAgent()
+    planner_agent = PlannerAgent()
 
-    graph.set_entry_point("planner")
-    graph.add_edge("planner", END)
+    graph.add_node("openapi_agent", openapi_agent.run)
+    graph.add_node("planner_agent", planner_agent.run)
+
+    graph.set_entry_point("openapi_agent")
+    graph.add_edge("openapi_agent", "planner_agent")
+    graph.add_edge("planner_agent", END)
 
     return graph.compile()
+
+
+
+

@@ -1,0 +1,2908 @@
+{
+  "user_input": "STACK: Python / FastAPI systems\n\nPROJECT: E-commerce platform API\n\nDESCRIPTION:\nWe are building an e-commerce platform.\nIt should support customers, products, orders, and reviews.\n\nFEATURES:\n\nCUSTOMERS:\n- register customer\n- update customer profile\n- delete customer\n- get customer by id\n- list all customers\n\nPRODUCTS:\n- create product\n- update product\n- delete product\n- get product by id\n- list all products\n\nORDERS:\n- create order (customer + list of products)\n- cancel order\n- get order by id\n- list orders by customer\n- update order status\n\nREVIEWS:\n- add review (customer + product)\n- delete review\n- list reviews by product\n\nDATA MODELS:\n\nCustomer:\n- name: string\n- email: string\n- address: string\n\nProduct:\n- name: string\n- price: number\n- stock: integer\n- description: string\n\nOrder:\n- customerId: string\n- products: list\n- status: string\n- total: number\n\nReview:\n- customerId: string\n- productId: string\n- rating: integer\n- comment: string",
+  "openapi_spec": {
+    "openapi": "3.0.0",
+    "info": {
+      "title": "E-commerce Platform API",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:8000"
+      }
+    ],
+    "paths": {
+      "/customers": {
+        "post": {
+          "tags": [
+            "Customers"
+          ],
+          "operationId": "register_customer",
+          "summary": "Register a new customer",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerCreate"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Customer registered successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "Customers"
+          ],
+          "operationId": "list_customers",
+          "summary": "List all customers",
+          "responses": {
+            "200": {
+              "description": "List of all customers",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Customer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/customers/{customer_id}": {
+        "get": {
+          "tags": [
+            "Customers"
+          ],
+          "operationId": "get_customer_by_id",
+          "summary": "Get a customer by ID",
+          "parameters": [
+            {
+              "name": "customer_id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Customer details",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "Customers"
+          ],
+          "operationId": "update_customer",
+          "summary": "Update a customer profile",
+          "parameters": [
+            {
+              "name": "customer_id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerCreate"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Customer updated successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "Customers"
+          ],
+          "operationId": "delete_customer",
+          "summary": "Delete a customer",
+          "parameters": [
+            {
+              "name": "customer_id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Customer deleted successfully"
+            }
+          }
+        }
+      },
+      "/products": {
+        "post": {
+          "tags": [
+            "Products"
+          ],
+          "operationId": "create_product",
+          "summary": "Create a new product",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductCreate"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Product created successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "Products"
+          ],
+          "operationId": "list_products",
+          "summary": "List all products",
+          "responses": {
+            "200": {
+              "description": "List of all products",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Product"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/products/{product_id}": {
+        "get": {
+          "tags": [
+            "Products"
+          ],
+          "operationId": "get_product_by_id",
+          "summary": "Get a product by ID",
+          "parameters": [
+            {
+              "name": "product_id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Product details",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "Products"
+          ],
+          "operationId": "update_product",
+          "summary": "Update a product",
+          "parameters": [
+            {
+              "name": "product_id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductCreate"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Product updated successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "Products"
+          ],
+          "operationId": "delete_product",
+          "summary": "Delete a product",
+          "parameters": [
+            {
+              "name": "product_id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Product deleted successfully"
+            }
+          }
+        }
+      },
+      "/orders": {
+        "post": {
+          "tags": [
+            "Orders"
+          ],
+          "operationId": "create_order",
+          "summary": "Create a new order",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderCreate"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Order created successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Order"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/orders/{order_id}": {
+        "get": {
+          "tags": [
+            "Orders"
+          ],
+          "operationId": "get_order_by_id",
+          "summary": "Get an order by ID",
+          "parameters": [
+            {
+              "name": "order_id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Order details",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Order"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "Orders"
+          ],
+          "operationId": "update_order_status",
+          "summary": "Update order status",
+          "parameters": [
+            {
+              "name": "order_id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "status"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Order status updated successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Order"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "Orders"
+          ],
+          "operationId": "cancel_order",
+          "summary": "Cancel an order",
+          "parameters": [
+            {
+              "name": "order_id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Order cancelled successfully"
+            }
+          }
+        }
+      },
+      "/customers/{customer_id}/orders": {
+        "get": {
+          "tags": [
+            "Orders"
+          ],
+          "operationId": "list_orders_by_customer",
+          "summary": "List orders by customer",
+          "parameters": [
+            {
+              "name": "customer_id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "List of customer orders",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Order"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/reviews": {
+        "post": {
+          "tags": [
+            "Reviews"
+          ],
+          "operationId": "add_review",
+          "summary": "Add a new review",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewCreate"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Review added successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Review"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/reviews/{review_id}": {
+        "delete": {
+          "tags": [
+            "Reviews"
+          ],
+          "operationId": "delete_review",
+          "summary": "Delete a review",
+          "parameters": [
+            {
+              "name": "review_id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Review deleted successfully"
+            }
+          }
+        }
+      },
+      "/products/{product_id}/reviews": {
+        "get": {
+          "tags": [
+            "Reviews"
+          ],
+          "operationId": "list_reviews_by_product",
+          "summary": "List reviews by product",
+          "parameters": [
+            {
+              "name": "product_id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "List of product reviews",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Review"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "CustomerCreate": {
+          "type": "object",
+          "required": [
+            "name",
+            "email",
+            "address"
+          ],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "address": {
+              "type": "string"
+            }
+          }
+        },
+        "Customer": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "address": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "updated_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "ProductCreate": {
+          "type": "object",
+          "required": [
+            "name",
+            "price",
+            "stock",
+            "description"
+          ],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "price": {
+              "type": "number"
+            },
+            "stock": {
+              "type": "integer"
+            },
+            "description": {
+              "type": "string"
+            }
+          }
+        },
+        "Product": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "price": {
+              "type": "number"
+            },
+            "stock": {
+              "type": "integer"
+            },
+            "description": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "updated_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "OrderCreate": {
+          "type": "object",
+          "required": [
+            "customer_id",
+            "product_ids",
+            "status",
+            "total"
+          ],
+          "properties": {
+            "customer_id": {
+              "type": "integer"
+            },
+            "product_ids": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "status": {
+              "type": "string"
+            },
+            "total": {
+              "type": "number"
+            }
+          }
+        },
+        "Order": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "customer_id": {
+              "type": "integer"
+            },
+            "product_ids": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "status": {
+              "type": "string"
+            },
+            "total": {
+              "type": "number"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "updated_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "ReviewCreate": {
+          "type": "object",
+          "required": [
+            "customer_id",
+            "product_id",
+            "rating",
+            "comment"
+          ],
+          "properties": {
+            "customer_id": {
+              "type": "integer"
+            },
+            "product_id": {
+              "type": "integer"
+            },
+            "rating": {
+              "type": "integer"
+            },
+            "comment": {
+              "type": "string"
+            }
+          }
+        },
+        "Review": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "customer_id": {
+              "type": "integer"
+            },
+            "product_id": {
+              "type": "integer"
+            },
+            "rating": {
+              "type": "integer"
+            },
+            "comment": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "updated_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      }
+    }
+  },
+  "dependency_graph": {
+    "Customer": [],
+    "Product": [],
+    "Order": [
+      "Customer",
+      "Product"
+    ],
+    "Review": [
+      "Customer",
+      "Product"
+    ]
+  },
+  "file_plan": [
+    {
+      "path": "app/models/customer.py",
+      "type": "model",
+      "entity": "Customer",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "email",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "address",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        }
+      ]
+    },
+    {
+      "path": "app/schemas/customer.py",
+      "type": "schema",
+      "entity": "Customer",
+      "schemas": [
+        {
+          "name": "CustomerCreate",
+          "fields": [
+            {
+              "name": "name",
+              "type": "str"
+            },
+            {
+              "name": "email",
+              "type": "str"
+            },
+            {
+              "name": "address",
+              "type": "str"
+            }
+          ]
+        },
+        {
+          "name": "Customer",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "name",
+              "type": "str"
+            },
+            {
+              "name": "email",
+              "type": "str"
+            },
+            {
+              "name": "address",
+              "type": "str"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/services/customer.py",
+      "type": "service",
+      "entity": "Customer",
+      "functions": [
+        {
+          "name": "register_customer",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "customer_data",
+              "type": "CustomerCreate"
+            }
+          ],
+          "output_type": "Customer",
+          "description": "Register a new customer"
+        },
+        {
+          "name": "list_customers",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            }
+          ],
+          "output_type": "List[Customer]",
+          "description": "List all customers"
+        },
+        {
+          "name": "get_customer_by_id",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "customer_id",
+              "type": "int"
+            }
+          ],
+          "output_type": "Customer",
+          "description": "Get a customer by ID, raises 404 if not found"
+        },
+        {
+          "name": "update_customer",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "customer_id",
+              "type": "int"
+            },
+            {
+              "name": "customer_data",
+              "type": "CustomerCreate"
+            }
+          ],
+          "output_type": "Customer",
+          "description": "Update a customer profile, raises 404 if not found"
+        },
+        {
+          "name": "delete_customer",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "customer_id",
+              "type": "int"
+            }
+          ],
+          "output_type": "None",
+          "description": "Delete a customer, raises 404 if not found"
+        }
+      ]
+    },
+    {
+      "path": "app/routes/customer.py",
+      "type": "route",
+      "entity": "Customer",
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/customers",
+          "operationId": "register_customer",
+          "input": {
+            "body": "CustomerCreate"
+          },
+          "output": "Customer",
+          "status_code": 201,
+          "calls_service": "register_customer"
+        },
+        {
+          "method": "GET",
+          "path": "/customers",
+          "operationId": "list_customers",
+          "input": null,
+          "output": "List[Customer]",
+          "status_code": 200,
+          "calls_service": "list_customers"
+        },
+        {
+          "method": "GET",
+          "path": "/customers/{customer_id}",
+          "operationId": "get_customer_by_id",
+          "input": {
+            "path": {
+              "customer_id": "int"
+            }
+          },
+          "output": "Customer",
+          "status_code": 200,
+          "calls_service": "get_customer_by_id"
+        },
+        {
+          "method": "PUT",
+          "path": "/customers/{customer_id}",
+          "operationId": "update_customer",
+          "input": {
+            "path": {
+              "customer_id": "int"
+            },
+            "body": "CustomerCreate"
+          },
+          "output": "Customer",
+          "status_code": 200,
+          "calls_service": "update_customer"
+        },
+        {
+          "method": "DELETE",
+          "path": "/customers/{customer_id}",
+          "operationId": "delete_customer",
+          "input": {
+            "path": {
+              "customer_id": "int"
+            }
+          },
+          "output": null,
+          "status_code": 204,
+          "calls_service": "delete_customer"
+        }
+      ]
+    },
+    {
+      "path": "app/models/product.py",
+      "type": "model",
+      "entity": "Product",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "price",
+          "type": "Float",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "stock",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        }
+      ]
+    },
+    {
+      "path": "app/schemas/product.py",
+      "type": "schema",
+      "entity": "Product",
+      "schemas": [
+        {
+          "name": "ProductCreate",
+          "fields": [
+            {
+              "name": "name",
+              "type": "str"
+            },
+            {
+              "name": "price",
+              "type": "float"
+            },
+            {
+              "name": "stock",
+              "type": "int"
+            },
+            {
+              "name": "description",
+              "type": "str"
+            }
+          ]
+        },
+        {
+          "name": "Product",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "name",
+              "type": "str"
+            },
+            {
+              "name": "price",
+              "type": "float"
+            },
+            {
+              "name": "stock",
+              "type": "int"
+            },
+            {
+              "name": "description",
+              "type": "str"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/services/product.py",
+      "type": "service",
+      "entity": "Product",
+      "functions": [
+        {
+          "name": "create_product",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "product_data",
+              "type": "ProductCreate"
+            }
+          ],
+          "output_type": "Product",
+          "description": "Create a new product"
+        },
+        {
+          "name": "list_products",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            }
+          ],
+          "output_type": "List[Product]",
+          "description": "List all products"
+        },
+        {
+          "name": "get_product_by_id",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "product_id",
+              "type": "int"
+            }
+          ],
+          "output_type": "Product",
+          "description": "Get a product by ID, raises 404 if not found"
+        },
+        {
+          "name": "update_product",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "product_id",
+              "type": "int"
+            },
+            {
+              "name": "product_data",
+              "type": "ProductCreate"
+            }
+          ],
+          "output_type": "Product",
+          "description": "Update a product, raises 404 if not found"
+        },
+        {
+          "name": "delete_product",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "product_id",
+              "type": "int"
+            }
+          ],
+          "output_type": "None",
+          "description": "Delete a product, raises 404 if not found"
+        }
+      ]
+    },
+    {
+      "path": "app/routes/product.py",
+      "type": "route",
+      "entity": "Product",
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/products",
+          "operationId": "create_product",
+          "input": {
+            "body": "ProductCreate"
+          },
+          "output": "Product",
+          "status_code": 201,
+          "calls_service": "create_product"
+        },
+        {
+          "method": "GET",
+          "path": "/products",
+          "operationId": "list_products",
+          "input": null,
+          "output": "List[Product]",
+          "status_code": 200,
+          "calls_service": "list_products"
+        },
+        {
+          "method": "GET",
+          "path": "/products/{product_id}",
+          "operationId": "get_product_by_id",
+          "input": {
+            "path": {
+              "product_id": "int"
+            }
+          },
+          "output": "Product",
+          "status_code": 200,
+          "calls_service": "get_product_by_id"
+        },
+        {
+          "method": "PUT",
+          "path": "/products/{product_id}",
+          "operationId": "update_product",
+          "input": {
+            "path": {
+              "product_id": "int"
+            },
+            "body": "ProductCreate"
+          },
+          "output": "Product",
+          "status_code": 200,
+          "calls_service": "update_product"
+        },
+        {
+          "method": "DELETE",
+          "path": "/products/{product_id}",
+          "operationId": "delete_product",
+          "input": {
+            "path": {
+              "product_id": "int"
+            }
+          },
+          "output": null,
+          "status_code": 204,
+          "calls_service": "delete_product"
+        }
+      ]
+    },
+    {
+      "path": "app/models/order.py",
+      "type": "model",
+      "entity": "Order",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "customer_id",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": "Customer.id"
+        },
+        {
+          "name": "product_ids",
+          "type": "JSON",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "total",
+          "type": "Float",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        }
+      ]
+    },
+    {
+      "path": "app/schemas/order.py",
+      "type": "schema",
+      "entity": "Order",
+      "schemas": [
+        {
+          "name": "OrderCreate",
+          "fields": [
+            {
+              "name": "customer_id",
+              "type": "int"
+            },
+            {
+              "name": "product_ids",
+              "type": "List[int]"
+            },
+            {
+              "name": "status",
+              "type": "str"
+            },
+            {
+              "name": "total",
+              "type": "float"
+            }
+          ]
+        },
+        {
+          "name": "Order",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "customer_id",
+              "type": "int"
+            },
+            {
+              "name": "product_ids",
+              "type": "List[int]"
+            },
+            {
+              "name": "status",
+              "type": "str"
+            },
+            {
+              "name": "total",
+              "type": "float"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/services/order.py",
+      "type": "service",
+      "entity": "Order",
+      "functions": [
+        {
+          "name": "create_order",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "order_data",
+              "type": "OrderCreate"
+            }
+          ],
+          "output_type": "Order",
+          "description": "Create a new order"
+        },
+        {
+          "name": "get_order_by_id",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "order_id",
+              "type": "int"
+            }
+          ],
+          "output_type": "Order",
+          "description": "Get an order by ID, raises 404 if not found"
+        },
+        {
+          "name": "update_order_status",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "order_id",
+              "type": "int"
+            },
+            {
+              "name": "status",
+              "type": "str"
+            }
+          ],
+          "output_type": "Order",
+          "description": "Update order status, raises 404 if not found"
+        },
+        {
+          "name": "cancel_order",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "order_id",
+              "type": "int"
+            }
+          ],
+          "output_type": "None",
+          "description": "Cancel an order, raises 404 if not found"
+        },
+        {
+          "name": "list_orders_by_customer",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "customer_id",
+              "type": "int"
+            }
+          ],
+          "output_type": "List[Order]",
+          "description": "List orders by customer"
+        }
+      ]
+    },
+    {
+      "path": "app/routes/order.py",
+      "type": "route",
+      "entity": "Order",
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/orders",
+          "operationId": "create_order",
+          "input": {
+            "body": "OrderCreate"
+          },
+          "output": "Order",
+          "status_code": 201,
+          "calls_service": "create_order"
+        },
+        {
+          "method": "GET",
+          "path": "/orders/{order_id}",
+          "operationId": "get_order_by_id",
+          "input": {
+            "path": {
+              "order_id": "int"
+            }
+          },
+          "output": "Order",
+          "status_code": 200,
+          "calls_service": "get_order_by_id"
+        },
+        {
+          "method": "PUT",
+          "path": "/orders/{order_id}",
+          "operationId": "update_order_status",
+          "input": {
+            "path": {
+              "order_id": "int"
+            },
+            "body": {
+              "status": "str"
+            }
+          },
+          "output": "Order",
+          "status_code": 200,
+          "calls_service": "update_order_status"
+        },
+        {
+          "method": "DELETE",
+          "path": "/orders/{order_id}",
+          "operationId": "cancel_order",
+          "input": {
+            "path": {
+              "order_id": "int"
+            }
+          },
+          "output": null,
+          "status_code": 204,
+          "calls_service": "cancel_order"
+        },
+        {
+          "method": "GET",
+          "path": "/customers/{customer_id}/orders",
+          "operationId": "list_orders_by_customer",
+          "input": {
+            "path": {
+              "customer_id": "int"
+            }
+          },
+          "output": "List[Order]",
+          "status_code": 200,
+          "calls_service": "list_orders_by_customer"
+        }
+      ]
+    },
+    {
+      "path": "app/models/review.py",
+      "type": "model",
+      "entity": "Review",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "customer_id",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": "Customer.id"
+        },
+        {
+          "name": "product_id",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": "Product.id"
+        },
+        {
+          "name": "rating",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "comment",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        }
+      ]
+    },
+    {
+      "path": "app/schemas/review.py",
+      "type": "schema",
+      "entity": "Review",
+      "schemas": [
+        {
+          "name": "ReviewCreate",
+          "fields": [
+            {
+              "name": "customer_id",
+              "type": "int"
+            },
+            {
+              "name": "product_id",
+              "type": "int"
+            },
+            {
+              "name": "rating",
+              "type": "int"
+            },
+            {
+              "name": "comment",
+              "type": "str"
+            }
+          ]
+        },
+        {
+          "name": "Review",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "customer_id",
+              "type": "int"
+            },
+            {
+              "name": "product_id",
+              "type": "int"
+            },
+            {
+              "name": "rating",
+              "type": "int"
+            },
+            {
+              "name": "comment",
+              "type": "str"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/services/review.py",
+      "type": "service",
+      "entity": "Review",
+      "functions": [
+        {
+          "name": "add_review",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "review_data",
+              "type": "ReviewCreate"
+            }
+          ],
+          "output_type": "Review",
+          "description": "Add a new review"
+        },
+        {
+          "name": "delete_review",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "review_id",
+              "type": "int"
+            }
+          ],
+          "output_type": "None",
+          "description": "Delete a review, raises 404 if not found"
+        },
+        {
+          "name": "list_reviews_by_product",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "product_id",
+              "type": "int"
+            }
+          ],
+          "output_type": "List[Review]",
+          "description": "List reviews by product"
+        }
+      ]
+    },
+    {
+      "path": "app/routes/review.py",
+      "type": "route",
+      "entity": "Review",
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/reviews",
+          "operationId": "add_review",
+          "input": {
+            "body": "ReviewCreate"
+          },
+          "output": "Review",
+          "status_code": 201,
+          "calls_service": "add_review"
+        },
+        {
+          "method": "DELETE",
+          "path": "/reviews/{review_id}",
+          "operationId": "delete_review",
+          "input": {
+            "path": {
+              "review_id": "int"
+            }
+          },
+          "output": null,
+          "status_code": 204,
+          "calls_service": "delete_review"
+        },
+        {
+          "method": "GET",
+          "path": "/products/{product_id}/reviews",
+          "operationId": "list_reviews_by_product",
+          "input": {
+            "path": {
+              "product_id": "int"
+            }
+          },
+          "output": "List[Review]",
+          "status_code": 200,
+          "calls_service": "list_reviews_by_product"
+        }
+      ]
+    },
+    {
+      "path": "app/main.py",
+      "type": "main",
+      "entity": null,
+      "routers": [
+        {
+          "prefix": "/customers",
+          "router": "app.routes.customer"
+        },
+        {
+          "prefix": "/products",
+          "router": "app.routes.product"
+        },
+        {
+          "prefix": "/orders",
+          "router": "app.routes.order"
+        },
+        {
+          "prefix": "/reviews",
+          "router": "app.routes.review"
+        }
+      ]
+    }
+  ],
+  "task_queue": [
+    {
+      "order": 1,
+      "entity": "Customer",
+      "file": "app/models/customer.py",
+      "type": "model",
+      "depends_on": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "email",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "address",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "entity": "Customer",
+      "file": "app/schemas/customer.py",
+      "type": "schema",
+      "depends_on": [],
+      "schemas": [
+        {
+          "name": "CustomerCreate",
+          "fields": [
+            {
+              "name": "name",
+              "type": "str"
+            },
+            {
+              "name": "email",
+              "type": "str"
+            },
+            {
+              "name": "address",
+              "type": "str"
+            }
+          ]
+        },
+        {
+          "name": "Customer",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "name",
+              "type": "str"
+            },
+            {
+              "name": "email",
+              "type": "str"
+            },
+            {
+              "name": "address",
+              "type": "str"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "entity": "Customer",
+      "file": "app/services/customer.py",
+      "type": "service",
+      "depends_on": [],
+      "functions": [
+        {
+          "name": "register_customer",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "customer_data",
+              "type": "CustomerCreate"
+            }
+          ],
+          "output_type": "Customer",
+          "description": "Register a new customer"
+        },
+        {
+          "name": "list_customers",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            }
+          ],
+          "output_type": "List[Customer]",
+          "description": "List all customers"
+        },
+        {
+          "name": "get_customer_by_id",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "customer_id",
+              "type": "int"
+            }
+          ],
+          "output_type": "Customer",
+          "description": "Get a customer by ID, raises 404 if not found"
+        },
+        {
+          "name": "update_customer",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "customer_id",
+              "type": "int"
+            },
+            {
+              "name": "customer_data",
+              "type": "CustomerCreate"
+            }
+          ],
+          "output_type": "Customer",
+          "description": "Update a customer profile, raises 404 if not found"
+        },
+        {
+          "name": "delete_customer",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "customer_id",
+              "type": "int"
+            }
+          ],
+          "output_type": "None",
+          "description": "Delete a customer, raises 404 if not found"
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "entity": "Customer",
+      "file": "app/routes/customer.py",
+      "type": "route",
+      "depends_on": [],
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/customers",
+          "operationId": "register_customer",
+          "input": {
+            "body": "CustomerCreate"
+          },
+          "output": "Customer",
+          "status_code": 201,
+          "calls_service": "register_customer"
+        },
+        {
+          "method": "GET",
+          "path": "/customers",
+          "operationId": "list_customers",
+          "input": null,
+          "output": "List[Customer]",
+          "status_code": 200,
+          "calls_service": "list_customers"
+        },
+        {
+          "method": "GET",
+          "path": "/customers/{customer_id}",
+          "operationId": "get_customer_by_id",
+          "input": {
+            "path": {
+              "customer_id": "int"
+            }
+          },
+          "output": "Customer",
+          "status_code": 200,
+          "calls_service": "get_customer_by_id"
+        },
+        {
+          "method": "PUT",
+          "path": "/customers/{customer_id}",
+          "operationId": "update_customer",
+          "input": {
+            "path": {
+              "customer_id": "int"
+            },
+            "body": "CustomerCreate"
+          },
+          "output": "Customer",
+          "status_code": 200,
+          "calls_service": "update_customer"
+        },
+        {
+          "method": "DELETE",
+          "path": "/customers/{customer_id}",
+          "operationId": "delete_customer",
+          "input": {
+            "path": {
+              "customer_id": "int"
+            }
+          },
+          "output": null,
+          "status_code": 204,
+          "calls_service": "delete_customer"
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "entity": "Product",
+      "file": "app/models/product.py",
+      "type": "model",
+      "depends_on": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "price",
+          "type": "Float",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "stock",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "entity": "Product",
+      "file": "app/schemas/product.py",
+      "type": "schema",
+      "depends_on": [],
+      "schemas": [
+        {
+          "name": "ProductCreate",
+          "fields": [
+            {
+              "name": "name",
+              "type": "str"
+            },
+            {
+              "name": "price",
+              "type": "float"
+            },
+            {
+              "name": "stock",
+              "type": "int"
+            },
+            {
+              "name": "description",
+              "type": "str"
+            }
+          ]
+        },
+        {
+          "name": "Product",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "name",
+              "type": "str"
+            },
+            {
+              "name": "price",
+              "type": "float"
+            },
+            {
+              "name": "stock",
+              "type": "int"
+            },
+            {
+              "name": "description",
+              "type": "str"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "entity": "Product",
+      "file": "app/services/product.py",
+      "type": "service",
+      "depends_on": [],
+      "functions": [
+        {
+          "name": "create_product",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "product_data",
+              "type": "ProductCreate"
+            }
+          ],
+          "output_type": "Product",
+          "description": "Create a new product"
+        },
+        {
+          "name": "list_products",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            }
+          ],
+          "output_type": "List[Product]",
+          "description": "List all products"
+        },
+        {
+          "name": "get_product_by_id",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "product_id",
+              "type": "int"
+            }
+          ],
+          "output_type": "Product",
+          "description": "Get a product by ID, raises 404 if not found"
+        },
+        {
+          "name": "update_product",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "product_id",
+              "type": "int"
+            },
+            {
+              "name": "product_data",
+              "type": "ProductCreate"
+            }
+          ],
+          "output_type": "Product",
+          "description": "Update a product, raises 404 if not found"
+        },
+        {
+          "name": "delete_product",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "product_id",
+              "type": "int"
+            }
+          ],
+          "output_type": "None",
+          "description": "Delete a product, raises 404 if not found"
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "entity": "Product",
+      "file": "app/routes/product.py",
+      "type": "route",
+      "depends_on": [],
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/products",
+          "operationId": "create_product",
+          "input": {
+            "body": "ProductCreate"
+          },
+          "output": "Product",
+          "status_code": 201,
+          "calls_service": "create_product"
+        },
+        {
+          "method": "GET",
+          "path": "/products",
+          "operationId": "list_products",
+          "input": null,
+          "output": "List[Product]",
+          "status_code": 200,
+          "calls_service": "list_products"
+        },
+        {
+          "method": "GET",
+          "path": "/products/{product_id}",
+          "operationId": "get_product_by_id",
+          "input": {
+            "path": {
+              "product_id": "int"
+            }
+          },
+          "output": "Product",
+          "status_code": 200,
+          "calls_service": "get_product_by_id"
+        },
+        {
+          "method": "PUT",
+          "path": "/products/{product_id}",
+          "operationId": "update_product",
+          "input": {
+            "path": {
+              "product_id": "int"
+            },
+            "body": "ProductCreate"
+          },
+          "output": "Product",
+          "status_code": 200,
+          "calls_service": "update_product"
+        },
+        {
+          "method": "DELETE",
+          "path": "/products/{product_id}",
+          "operationId": "delete_product",
+          "input": {
+            "path": {
+              "product_id": "int"
+            }
+          },
+          "output": null,
+          "status_code": 204,
+          "calls_service": "delete_product"
+        }
+      ]
+    },
+    {
+      "order": 9,
+      "entity": "Order",
+      "file": "app/models/order.py",
+      "type": "model",
+      "depends_on": [
+        "Customer",
+        "Product"
+      ],
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "customer_id",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": "Customer.id"
+        },
+        {
+          "name": "product_ids",
+          "type": "JSON",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "total",
+          "type": "Float",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        }
+      ]
+    },
+    {
+      "order": 10,
+      "entity": "Order",
+      "file": "app/schemas/order.py",
+      "type": "schema",
+      "depends_on": [
+        "Customer",
+        "Product"
+      ],
+      "schemas": [
+        {
+          "name": "OrderCreate",
+          "fields": [
+            {
+              "name": "customer_id",
+              "type": "int"
+            },
+            {
+              "name": "product_ids",
+              "type": "List[int]"
+            },
+            {
+              "name": "status",
+              "type": "str"
+            },
+            {
+              "name": "total",
+              "type": "float"
+            }
+          ]
+        },
+        {
+          "name": "Order",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "customer_id",
+              "type": "int"
+            },
+            {
+              "name": "product_ids",
+              "type": "List[int]"
+            },
+            {
+              "name": "status",
+              "type": "str"
+            },
+            {
+              "name": "total",
+              "type": "float"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 11,
+      "entity": "Order",
+      "file": "app/services/order.py",
+      "type": "service",
+      "depends_on": [
+        "Customer",
+        "Product"
+      ],
+      "functions": [
+        {
+          "name": "create_order",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "order_data",
+              "type": "OrderCreate"
+            }
+          ],
+          "output_type": "Order",
+          "description": "Create a new order"
+        },
+        {
+          "name": "get_order_by_id",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "order_id",
+              "type": "int"
+            }
+          ],
+          "output_type": "Order",
+          "description": "Get an order by ID, raises 404 if not found"
+        },
+        {
+          "name": "update_order_status",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "order_id",
+              "type": "int"
+            },
+            {
+              "name": "status",
+              "type": "str"
+            }
+          ],
+          "output_type": "Order",
+          "description": "Update order status, raises 404 if not found"
+        },
+        {
+          "name": "cancel_order",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "order_id",
+              "type": "int"
+            }
+          ],
+          "output_type": "None",
+          "description": "Cancel an order, raises 404 if not found"
+        },
+        {
+          "name": "list_orders_by_customer",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "customer_id",
+              "type": "int"
+            }
+          ],
+          "output_type": "List[Order]",
+          "description": "List orders by customer"
+        }
+      ]
+    },
+    {
+      "order": 12,
+      "entity": "Order",
+      "file": "app/routes/order.py",
+      "type": "route",
+      "depends_on": [
+        "Customer",
+        "Product"
+      ],
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/orders",
+          "operationId": "create_order",
+          "input": {
+            "body": "OrderCreate"
+          },
+          "output": "Order",
+          "status_code": 201,
+          "calls_service": "create_order"
+        },
+        {
+          "method": "GET",
+          "path": "/orders/{order_id}",
+          "operationId": "get_order_by_id",
+          "input": {
+            "path": {
+              "order_id": "int"
+            }
+          },
+          "output": "Order",
+          "status_code": 200,
+          "calls_service": "get_order_by_id"
+        },
+        {
+          "method": "PUT",
+          "path": "/orders/{order_id}",
+          "operationId": "update_order_status",
+          "input": {
+            "path": {
+              "order_id": "int"
+            },
+            "body": {
+              "status": "str"
+            }
+          },
+          "output": "Order",
+          "status_code": 200,
+          "calls_service": "update_order_status"
+        },
+        {
+          "method": "DELETE",
+          "path": "/orders/{order_id}",
+          "operationId": "cancel_order",
+          "input": {
+            "path": {
+              "order_id": "int"
+            }
+          },
+          "output": null,
+          "status_code": 204,
+          "calls_service": "cancel_order"
+        },
+        {
+          "method": "GET",
+          "path": "/customers/{customer_id}/orders",
+          "operationId": "list_orders_by_customer",
+          "input": {
+            "path": {
+              "customer_id": "int"
+            }
+          },
+          "output": "List[Order]",
+          "status_code": 200,
+          "calls_service": "list_orders_by_customer"
+        }
+      ]
+    },
+    {
+      "order": 13,
+      "entity": "Review",
+      "file": "app/models/review.py",
+      "type": "model",
+      "depends_on": [
+        "Customer",
+        "Product"
+      ],
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "customer_id",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": "Customer.id"
+        },
+        {
+          "name": "product_id",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": "Product.id"
+        },
+        {
+          "name": "rating",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "comment",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": null
+        }
+      ]
+    },
+    {
+      "order": 14,
+      "entity": "Review",
+      "file": "app/schemas/review.py",
+      "type": "schema",
+      "depends_on": [
+        "Customer",
+        "Product"
+      ],
+      "schemas": [
+        {
+          "name": "ReviewCreate",
+          "fields": [
+            {
+              "name": "customer_id",
+              "type": "int"
+            },
+            {
+              "name": "product_id",
+              "type": "int"
+            },
+            {
+              "name": "rating",
+              "type": "int"
+            },
+            {
+              "name": "comment",
+              "type": "str"
+            }
+          ]
+        },
+        {
+          "name": "Review",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "customer_id",
+              "type": "int"
+            },
+            {
+              "name": "product_id",
+              "type": "int"
+            },
+            {
+              "name": "rating",
+              "type": "int"
+            },
+            {
+              "name": "comment",
+              "type": "str"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 15,
+      "entity": "Review",
+      "file": "app/services/review.py",
+      "type": "service",
+      "depends_on": [
+        "Customer",
+        "Product"
+      ],
+      "functions": [
+        {
+          "name": "add_review",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "review_data",
+              "type": "ReviewCreate"
+            }
+          ],
+          "output_type": "Review",
+          "description": "Add a new review"
+        },
+        {
+          "name": "delete_review",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "review_id",
+              "type": "int"
+            }
+          ],
+          "output_type": "None",
+          "description": "Delete a review, raises 404 if not found"
+        },
+        {
+          "name": "list_reviews_by_product",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "product_id",
+              "type": "int"
+            }
+          ],
+          "output_type": "List[Review]",
+          "description": "List reviews by product"
+        }
+      ]
+    },
+    {
+      "order": 16,
+      "entity": "Review",
+      "file": "app/routes/review.py",
+      "type": "route",
+      "depends_on": [
+        "Customer",
+        "Product"
+      ],
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/reviews",
+          "operationId": "add_review",
+          "input": {
+            "body": "ReviewCreate"
+          },
+          "output": "Review",
+          "status_code": 201,
+          "calls_service": "add_review"
+        },
+        {
+          "method": "DELETE",
+          "path": "/reviews/{review_id}",
+          "operationId": "delete_review",
+          "input": {
+            "path": {
+              "review_id": "int"
+            }
+          },
+          "output": null,
+          "status_code": 204,
+          "calls_service": "delete_review"
+        },
+        {
+          "method": "GET",
+          "path": "/products/{product_id}/reviews",
+          "operationId": "list_reviews_by_product",
+          "input": {
+            "path": {
+              "product_id": "int"
+            }
+          },
+          "output": "List[Review]",
+          "status_code": 200,
+          "calls_service": "list_reviews_by_product"
+        }
+      ]
+    },
+    {
+      "order": 17,
+      "entity": null,
+      "file": "app/main.py",
+      "type": "main",
+      "depends_on": [
+        "Customer",
+        "Product",
+        "Order",
+        "Review"
+      ],
+      "routers": [
+        {
+          "prefix": "/customers",
+          "router": "app.routes.customer"
+        },
+        {
+          "prefix": "/products",
+          "router": "app.routes.product"
+        },
+        {
+          "prefix": "/orders",
+          "router": "app.routes.order"
+        },
+        {
+          "prefix": "/reviews",
+          "router": "app.routes.review"
+        }
+      ]
+    }
+  ],
+  "workflow_state": "planning_done",
+  "retry_count": 0,
+  "max_retries": 3
+}

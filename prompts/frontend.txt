@@ -1,0 +1,109 @@
+import json
+import os
+import time
+from groq import Groq
+from config.settings import GROQ_API_KEY, PLANNER_MODEL, PROMPTS_PATH
+from state import GraphState
+
+
+class OpenAPIAgent:
+    def __init__(self):
+        self.client = Groq(api_key=GROQ_API_KEY)
+        self.model = PLANNER_MODEL
+
+        prompt_path = os.path.join(PROMPTS_PATH, "openapi.txt")
+        with open(prompt_path, "r", encoding="utf-8") as f:
+            self.system_prompt = f.read()
+
+    # =========================
+    # MAIN NODE (LANGGRAPH)
+    # =========================
+    def run(self, state: GraphState) -> GraphState:
+
+        try:
+            openapi_json = self._call_llm(state.user_input)
+
+            # validation minimale OpenAPI
+            self._validate_openapi(openapi_json)
+
+            state.openapi_spec = openapi_json
+            state.workflow_state = "openapi_done"
+
+        except Exception as e:
+            state.openapi_spec = None
+            state.workflow_state = "openapi_failed"
+
+            if state.error_log is None:
+                state.error_log = ""
+
+            state.error_log += f"\n[OpenAPI ERROR] {str(e)}"
+
+        return state
+
+    # =========================
+    # LLM CALL WITH RETRY
+    # =========================
+    def _call_llm(self, user_input: str) -> dict:
+
+        messages = [
+            {"role": "system", "content": self.system_prompt},
+            {"role": "user", "content": user_input}
+        ]
+
+        max_retries = 3
+
+        for attempt in range(max_retries):
+            try:
+                response = self.client.chat.completions.create(
+                    model=self.model,
+                    messages=messages,
+                    temperature=0.2
+                )
+
+                raw_output = response.choices[0].message.content
+
+                return self._parse_json(raw_output)
+
+            except Exception as e:
+                if attempt == max_retries - 1:
+                    raise Exception(f"LLM call failed after retries: {str(e)}")
+
+                time.sleep(1)  # simple backoff
+
+        raise Exception("Unexpected error in LLM call")
+
+    # =========================
+    # SAFE JSON PARSING
+    # =========================
+    def _parse_json(self, text: str) -> dict:
+        try:
+            return json.loads(text)
+        except json.JSONDecodeError:
+            cleaned = self._extract_json(text)
+            return json.loads(cleaned)
+
+    def _extract_json(self, text: str) -> str:
+        start = text.find("{")
+        end = text.rfind("}")
+
+        if start == -1 or end == -1:
+            raise ValueError("No valid JSON found in LLM output")
+
+        return text[start:end + 1]
+
+    # =========================
+    # BASIC OPENAPI VALIDATION
+    # =========================
+    def _validate_openapi(self, data: dict):
+
+        required_keys = ["openapi", "paths", "components"]
+
+        for key in required_keys:
+            if key not in data:
+                raise ValueError(f"Missing OpenAPI key: {key}")
+
+        if "schemas" not in data.get("components", {}):
+            raise ValueError("Missing components.schemas in OpenAPI")
+
+        if not isinstance(data["paths"], dict):
+            raise ValueError("paths must be a dictionary")
