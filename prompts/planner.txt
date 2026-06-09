@@ -91,12 +91,14 @@ TASK QUEUE RULES
 - After all entities are done, add main.py as the last task
 - Each task must be fully self-contained with all info needed to generate the file
 - The backend agent must never need to read the OpenAPI spec directly
+- Every task must have a "status" field set to "pending" by default
 
 Task format:
 {
   "order": 1,
   "entity": "Patient",
   "file": "app/models/patient.py",
+  "status": "pending",
   "type": "model",
   "depends_on": [],
   "fields": [...],          ← for models

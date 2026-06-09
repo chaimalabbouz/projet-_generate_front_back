@@ -90,3 +90,23 @@ Ce document décrit l'ensemble du système nécessaire à la mise en œuvre du g
 
 
 ne donner pas de code ou rien juste essayer de comprendre c est tout 
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+*****************On comprend  les element se state :
+-workflow_state:si le node setup marche bien en met "setup_done" snn on met  "setup_failed"
+-filesystem_state:contient la liste es fichiers créer:
+[
+    "app/database.py",
+    "requirements.txt",
+    "app/__init__.py",
+    ...
+]
+-error_log: contoent les message de erreur de system
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+*****************On comprend  les node de graph :
+-setup node: initialise le porjet en environement py/fast api
