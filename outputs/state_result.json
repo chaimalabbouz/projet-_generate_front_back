@@ -1,9 +1,9 @@
 {
-  "user_input": "STACK: Python / FastAPI systems\n\nPROJECT: Simple Todo API\n\nDESCRIPTION:\nA simple todo list API.\nIt should support todos only.\n\nFEATURES:\n\nTODOS:\n- create todo\n- get todo by id\n- list all todos\n- update todo\n- delete todo\n\nDATA MODELS:\n\nTodo:\n- title: string\n- description: string\n- done: boolean",
+  "user_input": "STACK: Python / FastAPI systems\n\nPROJECT: Simple Blog API\n\nDESCRIPTION:\nA simple blog API.\nIt should support users and posts only.\n\nFEATURES:\n\nUSERS:\n- create user\n- get user by id\n- list all users\n- delete user\n\nPOSTS:\n- create post (belongs to a user)\n- get post by id\n- list all posts\n- list posts by user\n- delete post\n\nDATA MODELS:\n\nUser:\n- username: string\n- email: string\n\nPost:\n- title: string\n- content: string\n- userId: integer",
   "openapi_spec": {
     "openapi": "3.0.0",
     "info": {
-      "title": "Simple Todo API",
+      "title": "Simple Blog API",
       "version": "1.0.0"
     },
     "servers": [
@@ -12,30 +12,30 @@
       }
     ],
     "paths": {
-      "/todos": {
+      "/users": {
         "post": {
           "tags": [
-            "Todos"
+            "Users"
           ],
-          "operationId": "create_todo",
-          "summary": "Create a todo",
+          "operationId": "create_user",
+          "summary": "Create a user",
           "requestBody": {
             "required": true,
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TodoCreate"
+                  "$ref": "#/components/schemas/UserCreate"
                 }
               }
             }
           },
           "responses": {
             "201": {
-              "description": "Todo created successfully",
+              "description": "User created successfully",
               "content": {
                 "application/json": {
                   "schema": {
-                    "$ref": "#/components/schemas/Todo"
+                    "$ref": "#/components/schemas/User"
                   }
                 }
               }
@@ -44,19 +44,19 @@
         },
         "get": {
           "tags": [
-            "Todos"
+            "Users"
           ],
-          "operationId": "list_todos",
-          "summary": "List all todos",
+          "operationId": "list_users",
+          "summary": "List all users",
           "responses": {
             "200": {
-              "description": "List of all todos",
+              "description": "List of all users",
               "content": {
                 "application/json": {
                   "schema": {
                     "type": "array",
                     "items": {
-                      "$ref": "#/components/schemas/Todo"
+                      "$ref": "#/components/schemas/User"
                     }
                   }
                 }
@@ -65,13 +65,13 @@
           }
         }
       },
-      "/todos/{id}": {
+      "/users/{id}": {
         "get": {
           "tags": [
-            "Todos"
+            "Users"
           ],
-          "operationId": "get_todo_by_id",
-          "summary": "Get a todo by id",
+          "operationId": "get_user_by_id",
+          "summary": "Get a user by id",
           "parameters": [
             {
               "name": "id",
@@ -84,50 +84,11 @@
           ],
           "responses": {
             "200": {
-              "description": "Todo details",
+              "description": "User details",
               "content": {
                 "application/json": {
                   "schema": {
-                    "$ref": "#/components/schemas/Todo"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "put": {
-          "tags": [
-            "Todos"
-          ],
-          "operationId": "update_todo",
-          "summary": "Update a todo",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              }
-            }
-          ],
-          "requestBody": {
-            "required": true,
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TodoCreate"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Todo updated successfully",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Todo"
+                    "$ref": "#/components/schemas/User"
                   }
                 }
               }
@@ -136,10 +97,10 @@
         },
         "delete": {
           "tags": [
-            "Todos"
+            "Users"
           ],
-          "operationId": "delete_todo",
-          "summary": "Delete a todo",
+          "operationId": "delete_user",
+          "summary": "Delete a user",
           "parameters": [
             {
               "name": "id",
@@ -152,7 +113,147 @@
           ],
           "responses": {
             "204": {
-              "description": "Todo deleted successfully"
+              "description": "User deleted successfully"
+            }
+          }
+        }
+      },
+      "/posts": {
+        "post": {
+          "tags": [
+            "Posts"
+          ],
+          "operationId": "create_post",
+          "summary": "Create a post",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostCreate"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Post created successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Post"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "Posts"
+          ],
+          "operationId": "list_posts",
+          "summary": "List all posts",
+          "responses": {
+            "200": {
+              "description": "List of all posts",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Post"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/posts/{id}": {
+        "get": {
+          "tags": [
+            "Posts"
+          ],
+          "operationId": "get_post_by_id",
+          "summary": "Get a post by id",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Post details",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Post"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "Posts"
+          ],
+          "operationId": "delete_post",
+          "summary": "Delete a post",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Post deleted successfully"
+            }
+          }
+        }
+      },
+      "/users/{id}/posts": {
+        "get": {
+          "tags": [
+            "Posts"
+          ],
+          "operationId": "list_posts_by_user",
+          "summary": "List posts by user",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "List of user posts",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Post"
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -160,25 +261,63 @@
     },
     "components": {
       "schemas": {
-        "TodoCreate": {
+        "UserCreate": {
+          "type": "object",
+          "required": [
+            "username",
+            "email"
+          ],
+          "properties": {
+            "username": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "User": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "username": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "updated_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "PostCreate": {
           "type": "object",
           "required": [
             "title",
-            "done"
+            "content",
+            "user_id"
           ],
           "properties": {
             "title": {
               "type": "string"
             },
-            "description": {
+            "content": {
               "type": "string"
             },
-            "done": {
-              "type": "boolean"
+            "user_id": {
+              "type": "integer"
             }
           }
         },
-        "Todo": {
+        "Post": {
           "type": "object",
           "properties": {
             "id": {
@@ -187,11 +326,11 @@
             "title": {
               "type": "string"
             },
-            "description": {
+            "content": {
               "type": "string"
             },
-            "done": {
-              "type": "boolean"
+            "user_id": {
+              "type": "integer"
             },
             "created_at": {
               "type": "string",
@@ -207,115 +346,97 @@
     }
   },
   "dependency_graph": {
-    "Todo": []
+    "User": [],
+    "Post": [
+      "User"
+    ]
   },
   "file_plan": [
     {
-      "path": "app/models/todo.py",
+      "path": "app/models/user.py",
       "type": "model",
-      "entity": "Todo",
+      "entity": "User",
       "fields": [
         {
           "name": "id",
           "type": "Integer",
           "primary_key": true,
-          "nullable": false,
-          "foreign_key": null
+          "nullable": false
         },
         {
-          "name": "title",
+          "name": "username",
           "type": "String",
           "primary_key": false,
-          "nullable": false,
-          "foreign_key": null
+          "nullable": false
         },
         {
-          "name": "description",
+          "name": "email",
           "type": "String",
           "primary_key": false,
-          "nullable": true,
-          "foreign_key": null
-        },
-        {
-          "name": "done",
-          "type": "Boolean",
-          "primary_key": false,
-          "nullable": false,
-          "foreign_key": null
+          "nullable": false
         },
         {
           "name": "created_at",
           "type": "DateTime",
           "primary_key": false,
           "nullable": false,
-          "foreign_key": null
+          "default": "func.now()"
         },
         {
           "name": "updated_at",
           "type": "DateTime",
           "primary_key": false,
           "nullable": false,
-          "foreign_key": null
+          "default": "func.now()",
+          "onupdate": "func.now()"
         }
       ]
     },
     {
-      "path": "app/schemas/todo.py",
+      "path": "app/schemas/user.py",
       "type": "schema",
-      "entity": "Todo",
+      "entity": "User",
       "schemas": [
         {
-          "name": "TodoBase",
+          "name": "UserBase",
           "fields": [
             {
-              "name": "title",
+              "name": "username",
               "type": "str"
             },
             {
-              "name": "description",
-              "type": "Optional[str]"
-            },
-            {
-              "name": "done",
-              "type": "bool"
+              "name": "email",
+              "type": "str"
             }
           ]
         },
         {
-          "name": "TodoCreate",
+          "name": "UserCreate",
           "fields": [
             {
-              "name": "title",
+              "name": "username",
               "type": "str"
             },
             {
-              "name": "description",
-              "type": "Optional[str]"
-            },
-            {
-              "name": "done",
-              "type": "bool"
+              "name": "email",
+              "type": "str"
             }
           ]
         },
         {
-          "name": "Todo",
+          "name": "User",
           "fields": [
             {
               "name": "id",
               "type": "int"
             },
             {
-              "name": "title",
+              "name": "username",
               "type": "str"
             },
             {
-              "name": "description",
-              "type": "Optional[str]"
-            },
-            {
-              "name": "done",
-              "type": "bool"
+              "name": "email",
+              "type": "str"
             },
             {
               "name": "created_at",
@@ -330,116 +451,97 @@
       ]
     },
     {
-      "path": "app/services/todo.py",
+      "path": "app/services/user.py",
       "type": "service",
-      "entity": "Todo",
+      "entity": "User",
       "functions": [
         {
-          "name": "create_todo",
+          "name": "create_user",
           "input_parameters": [
             {
               "name": "db",
               "type": "Session"
             },
             {
-              "name": "todo_data",
-              "type": "TodoCreate"
+              "name": "user",
+              "type": "UserCreate"
             }
           ],
-          "output_type": "Todo",
-          "description": "Create a new todo item"
+          "output_type": "User",
+          "description": "Create a new user in the database"
         },
         {
-          "name": "list_todos",
+          "name": "list_users",
           "input_parameters": [
             {
               "name": "db",
               "type": "Session"
             }
           ],
-          "output_type": "List[Todo]",
-          "description": "List all todo items"
+          "output_type": "List[User]",
+          "description": "List all users from the database"
         },
         {
-          "name": "get_todo_by_id",
+          "name": "get_user_by_id",
           "input_parameters": [
             {
               "name": "db",
               "type": "Session"
             },
             {
-              "name": "todo_id",
+              "name": "user_id",
               "type": "int"
             }
           ],
-          "output_type": "Todo",
-          "description": "Get a todo item by its ID, raises 404 if not found"
+          "output_type": "User",
+          "description": "Get a user by ID, raises 404 if not found"
         },
         {
-          "name": "update_todo",
+          "name": "delete_user",
           "input_parameters": [
             {
               "name": "db",
               "type": "Session"
             },
             {
-              "name": "todo_id",
-              "type": "int"
-            },
-            {
-              "name": "todo_data",
-              "type": "TodoCreate"
-            }
-          ],
-          "output_type": "Todo",
-          "description": "Update a todo item by its ID, raises 404 if not found"
-        },
-        {
-          "name": "delete_todo",
-          "input_parameters": [
-            {
-              "name": "db",
-              "type": "Session"
-            },
-            {
-              "name": "todo_id",
+              "name": "user_id",
               "type": "int"
             }
           ],
           "output_type": "None",
-          "description": "Delete a todo item by its ID, raises 404 if not found"
+          "description": "Delete a user by ID, raises 404 if not found"
         }
       ]
     },
     {
-      "path": "app/routes/todo.py",
+      "path": "app/routes/user.py",
       "type": "route",
-      "entity": "Todo",
-      "functions": [
+      "entity": "User",
+      "endpoints": [
         {
           "method": "POST",
-          "path": "/todos",
-          "operationId": "create_todo",
+          "path": "/users",
+          "operationId": "create_user",
           "input": {
-            "body": "TodoCreate"
+            "body": "UserCreate"
           },
-          "output": "Todo",
+          "output": "User",
           "status_code": 201,
-          "calls_service": "create_todo"
+          "calls_service": "create_user"
         },
         {
           "method": "GET",
-          "path": "/todos",
-          "operationId": "list_todos",
+          "path": "/users",
+          "operationId": "list_users",
           "input": {},
-          "output": "List[Todo]",
+          "output": "List[User]",
           "status_code": 200,
-          "calls_service": "list_todos"
+          "calls_service": "list_users"
         },
         {
           "method": "GET",
-          "path": "/todos/{id}",
-          "operationId": "get_todo_by_id",
+          "path": "/users/{id}",
+          "operationId": "get_user_by_id",
           "input": {
             "path_params": [
               {
@@ -448,31 +550,14 @@
               }
             ]
           },
-          "output": "Todo",
+          "output": "User",
           "status_code": 200,
-          "calls_service": "get_todo_by_id"
-        },
-        {
-          "method": "PUT",
-          "path": "/todos/{id}",
-          "operationId": "update_todo",
-          "input": {
-            "path_params": [
-              {
-                "name": "id",
-                "type": "int"
-              }
-            ],
-            "body": "TodoCreate"
-          },
-          "output": "Todo",
-          "status_code": 200,
-          "calls_service": "update_todo"
+          "calls_service": "get_user_by_id"
         },
         {
           "method": "DELETE",
-          "path": "/todos/{id}",
-          "operationId": "delete_todo",
+          "path": "/users/{id}",
+          "operationId": "delete_user",
           "input": {
             "path_params": [
               {
@@ -483,118 +568,98 @@
           },
           "output": null,
           "status_code": 204,
-          "calls_service": "delete_todo"
+          "calls_service": "delete_user"
         }
       ]
     },
     {
-      "path": "app/main.py",
-      "type": "main",
-      "entity": null,
-      "routers": [
-        "app.routes.todo"
-      ]
-    }
-  ],
-  "task_queue": [
-    {
-      "order": 1,
-      "entity": "Todo",
-      "file": "app/models/todo.py",
-      "status": "done",
+      "path": "app/models/post.py",
       "type": "model",
-      "depends_on": [],
+      "entity": "Post",
       "fields": [
         {
           "name": "id",
           "type": "Integer",
           "primary_key": true,
-          "nullable": false,
-          "foreign_key": null
+          "nullable": false
         },
         {
           "name": "title",
           "type": "String",
           "primary_key": false,
-          "nullable": false,
-          "foreign_key": null
+          "nullable": false
         },
         {
-          "name": "description",
+          "name": "content",
           "type": "String",
           "primary_key": false,
-          "nullable": true,
-          "foreign_key": null
+          "nullable": false
         },
         {
-          "name": "done",
-          "type": "Boolean",
+          "name": "user_id",
+          "type": "Integer",
           "primary_key": false,
           "nullable": false,
-          "foreign_key": null
+          "foreign_key": "User.id"
         },
         {
           "name": "created_at",
           "type": "DateTime",
           "primary_key": false,
           "nullable": false,
-          "foreign_key": null
+          "default": "func.now()"
         },
         {
           "name": "updated_at",
           "type": "DateTime",
           "primary_key": false,
           "nullable": false,
-          "foreign_key": null
+          "default": "func.now()",
+          "onupdate": "func.now()"
         }
       ]
     },
     {
-      "order": 2,
-      "entity": "Todo",
-      "file": "app/schemas/todo.py",
-      "status": "done",
+      "path": "app/schemas/post.py",
       "type": "schema",
-      "depends_on": [
-        "app/models/todo.py"
-      ],
+      "entity": "Post",
       "schemas": [
         {
-          "name": "TodoBase",
+          "name": "PostBase",
           "fields": [
             {
               "name": "title",
               "type": "str"
             },
             {
-              "name": "description",
-              "type": "Optional[str]"
+              "name": "content",
+              "type": "str"
             },
             {
-              "name": "done",
-              "type": "bool"
+              "name": "user_id",
+              "type": "int"
             }
           ]
         },
         {
-          "name": "TodoCreate",
+          "name": "PostCreate",
           "fields": [
             {
               "name": "title",
               "type": "str"
             },
             {
-              "name": "description",
-              "type": "Optional[str]"
+              "name": "content",
+              "type": "str"
             },
             {
-              "name": "done",
-              "type": "bool"
+              "name": "user_id",
+              "type": "int"
             }
           ]
         },
         {
-          "name": "Todo",
+          "name": "Post",
           "fields": [
             {
               "name": "id",
@@ -605,12 +670,288 @@
               "type": "str"
             },
             {
-              "name": "description",
-              "type": "Optional[str]"
+              "name": "content",
+              "type": "str"
             },
             {
-              "name": "done",
-              "type": "bool"
+              "name": "user_id",
+              "type": "int"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/services/post.py",
+      "type": "service",
+      "entity": "Post",
+      "functions": [
+        {
+          "name": "create_post",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "post",
+              "type": "PostCreate"
+            }
+          ],
+          "output_type": "Post",
+          "description": "Create a new post in the database"
+        },
+        {
+          "name": "list_posts",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            }
+          ],
+          "output_type": "List[Post]",
+          "description": "List all posts from the database"
+        },
+        {
+          "name": "get_post_by_id",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "post_id",
+              "type": "int"
+            }
+          ],
+          "output_type": "Post",
+          "description": "Get a post by ID, raises 404 if not found"
+        },
+        {
+          "name": "delete_post",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "post_id",
+              "type": "int"
+            }
+          ],
+          "output_type": "None",
+          "description": "Delete a post by ID, raises 404 if not found"
+        },
+        {
+          "name": "list_posts_by_user",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "user_id",
+              "type": "int"
+            }
+          ],
+          "output_type": "List[Post]",
+          "description": "List all posts by a specific user"
+        }
+      ]
+    },
+    {
+      "path": "app/routes/post.py",
+      "type": "route",
+      "entity": "Post",
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/posts",
+          "operationId": "create_post",
+          "input": {
+            "body": "PostCreate"
+          },
+          "output": "Post",
+          "status_code": 201,
+          "calls_service": "create_post"
+        },
+        {
+          "method": "GET",
+          "path": "/posts",
+          "operationId": "list_posts",
+          "input": {},
+          "output": "List[Post]",
+          "status_code": 200,
+          "calls_service": "list_posts"
+        },
+        {
+          "method": "GET",
+          "path": "/posts/{id}",
+          "operationId": "get_post_by_id",
+          "input": {
+            "path_params": [
+              {
+                "name": "id",
+                "type": "int"
+              }
+            ]
+          },
+          "output": "Post",
+          "status_code": 200,
+          "calls_service": "get_post_by_id"
+        },
+        {
+          "method": "DELETE",
+          "path": "/posts/{id}",
+          "operationId": "delete_post",
+          "input": {
+            "path_params": [
+              {
+                "name": "id",
+                "type": "int"
+              }
+            ]
+          },
+          "output": null,
+          "status_code": 204,
+          "calls_service": "delete_post"
+        },
+        {
+          "method": "GET",
+          "path": "/users/{id}/posts",
+          "operationId": "list_posts_by_user",
+          "input": {
+            "path_params": [
+              {
+                "name": "id",
+                "type": "int"
+              }
+            ]
+          },
+          "output": "List[Post]",
+          "status_code": 200,
+          "calls_service": "list_posts_by_user"
+        }
+      ]
+    },
+    {
+      "path": "app/main.py",
+      "type": "main",
+      "entity": null,
+      "routers": [
+        {
+          "prefix": "/users",
+          "router": "app.routes.user"
+        },
+        {
+          "prefix": "/posts",
+          "router": "app.routes.post"
+        }
+      ]
+    }
+  ],
+  "task_queue": [
+    {
+      "order": 1,
+      "entity": "User",
+      "file": "app/models/user.py",
+      "status": "done",
+      "type": "model",
+      "depends_on": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false
+        },
+        {
+          "name": "username",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "email",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()",
+          "onupdate": "func.now()"
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "entity": "User",
+      "file": "app/schemas/user.py",
+      "status": "done",
+      "type": "schema",
+      "depends_on": [
+        "app/models/user.py"
+      ],
+      "schemas": [
+        {
+          "name": "UserBase",
+          "fields": [
+            {
+              "name": "username",
+              "type": "str"
+            },
+            {
+              "name": "email",
+              "type": "str"
+            }
+          ]
+        },
+        {
+          "name": "UserCreate",
+          "fields": [
+            {
+              "name": "username",
+              "type": "str"
+            },
+            {
+              "name": "email",
+              "type": "str"
+            }
+          ]
+        },
+        {
+          "name": "User",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "username",
+              "type": "str"
+            },
+            {
+              "name": "email",
+              "type": "str"
             },
             {
               "name": "created_at",
@@ -626,127 +967,107 @@
     },
     {
       "order": 3,
-      "entity": "Todo",
-      "file": "app/services/todo.py",
+      "entity": "User",
+      "file": "app/services/user.py",
       "status": "done",
       "type": "service",
       "depends_on": [
-        "app/models/todo.py",
-        "app/schemas/todo.py"
+        "app/schemas/user.py"
       ],
       "functions": [
         {
-          "name": "create_todo",
+          "name": "create_user",
           "input_parameters": [
             {
               "name": "db",
               "type": "Session"
             },
             {
-              "name": "todo_data",
-              "type": "TodoCreate"
+              "name": "user",
+              "type": "UserCreate"
             }
           ],
-          "output_type": "Todo",
-          "description": "Create a new todo item"
+          "output_type": "User",
+          "description": "Create a new user in the database"
         },
         {
-          "name": "list_todos",
+          "name": "list_users",
           "input_parameters": [
             {
               "name": "db",
               "type": "Session"
             }
           ],
-          "output_type": "List[Todo]",
-          "description": "List all todo items"
+          "output_type": "List[User]",
+          "description": "List all users from the database"
         },
         {
-          "name": "get_todo_by_id",
+          "name": "get_user_by_id",
           "input_parameters": [
             {
               "name": "db",
               "type": "Session"
             },
             {
-              "name": "todo_id",
+              "name": "user_id",
               "type": "int"
             }
           ],
-          "output_type": "Todo",
-          "description": "Get a todo item by its ID, raises 404 if not found"
+          "output_type": "User",
+          "description": "Get a user by ID, raises 404 if not found"
         },
         {
-          "name": "update_todo",
+          "name": "delete_user",
           "input_parameters": [
             {
               "name": "db",
               "type": "Session"
             },
             {
-              "name": "todo_id",
-              "type": "int"
-            },
-            {
-              "name": "todo_data",
-              "type": "TodoCreate"
-            }
-          ],
-          "output_type": "Todo",
-          "description": "Update a todo item by its ID, raises 404 if not found"
-        },
-        {
-          "name": "delete_todo",
-          "input_parameters": [
-            {
-              "name": "db",
-              "type": "Session"
-            },
-            {
-              "name": "todo_id",
+              "name": "user_id",
               "type": "int"
             }
           ],
           "output_type": "None",
-          "description": "Delete a todo item by its ID, raises 404 if not found"
+          "description": "Delete a user by ID, raises 404 if not found"
         }
       ]
     },
     {
       "order": 4,
-      "entity": "Todo",
-      "file": "app/routes/todo.py",
+      "entity": "User",
+      "file": "app/routes/user.py",
       "status": "done",
+      "test_status": "passed",
       "type": "route",
       "depends_on": [
-        "app/services/todo.py",
-        "app/schemas/todo.py"
+        "app/services/user.py"
       ],
       "functions": [
         {
           "method": "POST",
-          "path": "/todos",
-          "operationId": "create_todo",
+          "path": "/users",
+          "operationId": "create_user",
           "input": {
-            "body": "TodoCreate"
+            "body": "UserCreate"
           },
-          "output": "Todo",
+          "output": "User",
           "status_code": 201,
-          "calls_service": "create_todo"
+          "calls_service": "create_user"
         },
         {
           "method": "GET",
-          "path": "/todos",
-          "operationId": "list_todos",
+          "path": "/users",
+          "operationId": "list_users",
           "input": {},
-          "output": "List[Todo]",
+          "output": "List[User]",
           "status_code": 200,
-          "calls_service": "list_todos"
+          "calls_service": "list_users"
         },
         {
           "method": "GET",
-          "path": "/todos/{id}",
-          "operationId": "get_todo_by_id",
+          "path": "/users/{id}",
+          "operationId": "get_user_by_id",
           "input": {
             "path_params": [
               {
@@ -755,31 +1076,14 @@
               }
             ]
           },
-          "output": "Todo",
+          "output": "User",
           "status_code": 200,
-          "calls_service": "get_todo_by_id"
-        },
-        {
-          "method": "PUT",
-          "path": "/todos/{id}",
-          "operationId": "update_todo",
-          "input": {
-            "path_params": [
-              {
-                "name": "id",
-                "type": "int"
-              }
-            ],
-            "body": "TodoCreate"
-          },
-          "output": "Todo",
-          "status_code": 200,
-          "calls_service": "update_todo"
+          "calls_service": "get_user_by_id"
         },
         {
           "method": "DELETE",
-          "path": "/todos/{id}",
-          "operationId": "delete_todo",
+          "path": "/users/{id}",
+          "operationId": "delete_user",
           "input": {
             "path_params": [
               {
@@ -790,31 +1094,348 @@
           },
           "output": null,
           "status_code": 204,
-          "calls_service": "delete_todo"
+          "calls_service": "delete_user"
         }
       ]
     },
     {
       "order": 5,
+      "entity": "Post",
+      "file": "app/models/post.py",
+      "status": "done",
+      "type": "model",
+      "depends_on": [
+        "app/models/user.py"
+      ],
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "content",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "user_id",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": "User.id"
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()",
+          "onupdate": "func.now()"
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "entity": "Post",
+      "file": "app/schemas/post.py",
+      "status": "done",
+      "type": "schema",
+      "depends_on": [
+        "app/models/post.py"
+      ],
+      "schemas": [
+        {
+          "name": "PostBase",
+          "fields": [
+            {
+              "name": "title",
+              "type": "str"
+            },
+            {
+              "name": "content",
+              "type": "str"
+            },
+            {
+              "name": "user_id",
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "name": "PostCreate",
+          "fields": [
+            {
+              "name": "title",
+              "type": "str"
+            },
+            {
+              "name": "content",
+              "type": "str"
+            },
+            {
+              "name": "user_id",
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "name": "Post",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "title",
+              "type": "str"
+            },
+            {
+              "name": "content",
+              "type": "str"
+            },
+            {
+              "name": "user_id",
+              "type": "int"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "entity": "Post",
+      "file": "app/services/post.py",
+      "status": "done",
+      "type": "service",
+      "depends_on": [
+        "app/schemas/post.py"
+      ],
+      "functions": [
+        {
+          "name": "create_post",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "post",
+              "type": "PostCreate"
+            }
+          ],
+          "output_type": "Post",
+          "description": "Create a new post in the database"
+        },
+        {
+          "name": "list_posts",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            }
+          ],
+          "output_type": "List[Post]",
+          "description": "List all posts from the database"
+        },
+        {
+          "name": "get_post_by_id",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "post_id",
+              "type": "int"
+            }
+          ],
+          "output_type": "Post",
+          "description": "Get a post by ID, raises 404 if not found"
+        },
+        {
+          "name": "delete_post",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "post_id",
+              "type": "int"
+            }
+          ],
+          "output_type": "None",
+          "description": "Delete a post by ID, raises 404 if not found"
+        },
+        {
+          "name": "list_posts_by_user",
+          "input_parameters": [
+            {
+              "name": "db",
+              "type": "Session"
+            },
+            {
+              "name": "user_id",
+              "type": "int"
+            }
+          ],
+          "output_type": "List[Post]",
+          "description": "List all posts by a specific user"
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "entity": "Post",
+      "file": "app/routes/post.py",
+      "status": "done",
+      "test_status": "passed",
+      "type": "route",
+      "depends_on": [
+        "app/services/post.py"
+      ],
+      "functions": [
+        {
+          "method": "POST",
+          "path": "/posts",
+          "operationId": "create_post",
+          "input": {
+            "body": "PostCreate"
+          },
+          "output": "Post",
+          "status_code": 201,
+          "calls_service": "create_post"
+        },
+        {
+          "method": "GET",
+          "path": "/posts",
+          "operationId": "list_posts",
+          "input": {},
+          "output": "List[Post]",
+          "status_code": 200,
+          "calls_service": "list_posts"
+        },
+        {
+          "method": "GET",
+          "path": "/posts/{id}",
+          "operationId": "get_post_by_id",
+          "input": {
+            "path_params": [
+              {
+                "name": "id",
+                "type": "int"
+              }
+            ]
+          },
+          "output": "Post",
+          "status_code": 200,
+          "calls_service": "get_post_by_id"
+        },
+        {
+          "method": "DELETE",
+          "path": "/posts/{id}",
+          "operationId": "delete_post",
+          "input": {
+            "path_params": [
+              {
+                "name": "id",
+                "type": "int"
+              }
+            ]
+          },
+          "output": null,
+          "status_code": 204,
+          "calls_service": "delete_post"
+        },
+        {
+          "method": "GET",
+          "path": "/users/{id}/posts",
+          "operationId": "list_posts_by_user",
+          "input": {
+            "path_params": [
+              {
+                "name": "id",
+                "type": "int"
+              }
+            ]
+          },
+          "output": "List[Post]",
+          "status_code": 200,
+          "calls_service": "list_posts_by_user"
+        }
+      ]
+    },
+    {
+      "order": 9,
       "entity": null,
       "file": "app/main.py",
-      "status": "pending",
+      "status": "done",
       "type": "main",
       "depends_on": [
-        "app/routes/todo.py"
+        "app/routes/user.py",
+        "app/routes/post.py"
       ],
       "routers": [
-        "app.routes.todo"
+        {
+          "prefix": "/users",
+          "router": "app.routes.user"
+        },
+        {
+          "prefix": "/posts",
+          "router": "app.routes.post"
+        }
       ]
     }
   ],
   "generated_files": {
-    "app/models/todo.py": "from sqlalchemy import Column, Integer, String, Boolean, DateTime\nfrom sqlalchemy.orm import relationship\nfrom app.database import Base\nfrom datetime import datetime\n\nclass Todo(Base):\n    __tablename__ = \"todos\"\n\n    id = Column(Integer, primary_key=True, index=True)\n    title = Column(String, nullable=False)\n    description = Column(String, nullable=True)\n    done = Column(Boolean, nullable=False, default=False)\n    created_at = Column(DateTime, default=datetime.utcnow)\n    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)",
-    "app/schemas/todo.py": "from pydantic import BaseModel, ConfigDict\nfrom datetime import datetime\nfrom typing import Optional\n\nclass TodoBase(BaseModel):\n    title: str\n    description: Optional[str] = None\n    done: bool\n\nclass TodoCreate(TodoBase):\n    pass\n\nclass Todo(TodoBase):\n    id: int\n    created_at: datetime\n    updated_at: datetime\n\n    model_config = ConfigDict(from_attributes=True)",
-    "app/services/todo.py": "from sqlalchemy.orm import Session\nfrom fastapi import HTTPException\nfrom app.models.todo import Todo\nfrom app.schemas.todo import TodoCreate\n\ndef create_todo(db: Session, todo_data: TodoCreate) -> Todo:\n    db_todo = Todo(**todo_data.model_dump())\n    db.add(db_todo)\n    db.commit()\n    db.refresh(db_todo)\n    return db_todo\n\ndef list_todos(db: Session) -> list[Todo]:\n    return db.query(Todo).all()\n\ndef get_todo_by_id(db: Session, todo_id: int) -> Todo:\n    todo = db.query(Todo).filter(Todo.id == todo_id).first()\n    if todo is None:\n        raise HTTPException(status_code=404, detail=\"Todo not found\")\n    return todo\n\ndef update_todo(db: Session, todo_id: int, todo_data: TodoCreate) -> Todo:\n    db_todo = db.query(Todo).filter(Todo.id == todo_id).first()\n    if db_todo is None:\n        raise HTTPException(status_code=404, detail=\"Todo not found\")\n    for key, value in todo_data.model_dump().items():\n        setattr(db_todo, key, value)\n    db.commit()\n    db.refresh(db_todo)\n    return db_todo\n\ndef delete_todo(db: Session, todo_id: int) -> None:\n    db_todo = db.query(Todo).filter(Todo.id == todo_id).first()\n    if db_todo is None:\n        raise HTTPException(status_code=404, detail=\"Todo not found\")\n    db.delete(db_todo)\n    db.commit()",
-    "app/routes/todo.py": "from fastapi import APIRouter, Depends, HTTPException\nfrom sqlalchemy.orm import Session\nfrom typing import List\nfrom app.database import get_db\nfrom app.schemas.todo import TodoCreate, Todo\nfrom app.services.todo import create_todo as create_todo_service\nfrom app.services.todo import list_todos as list_todos_service\nfrom app.services.todo import get_todo_by_id as get_todo_by_id_service\nfrom app.services.todo import update_todo as update_todo_service\nfrom app.services.todo import delete_todo as delete_todo_service\n\nrouter = APIRouter()\n\n@router.post(\"/todos\", response_model=Todo, status_code=201)\ndef create_todo(todo: TodoCreate, db: Session = Depends(get_db)):\n    return create_todo_service(db, todo)\n\n@router.get(\"/todos\", response_model=List[Todo])\ndef list_todos(db: Session = Depends(get_db)):\n    return list_todos_service(db)\n\n@router.get(\"/todos/{id}\", response_model=Todo)\ndef get_todo_by_id(id: int, db: Session = Depends(get_db)):\n    return get_todo_by_id_service(db, id)\n\n@router.put(\"/todos/{id}\", response_model=Todo)\ndef update_todo(id: int, todo: TodoCreate, db: Session = Depends(get_db)):\n    return update_todo_service(db, id, todo)\n\n@router.delete(\"/todos/{id}\", status_code=204, response_model=None)\ndef delete_todo(id: int, db: Session = Depends(get_db)):\n    delete_todo_service(db, id)\n    return None"
+    "app/models/user.py": "from sqlalchemy import Column, Integer, String, DateTime\nfrom sqlalchemy.sql import func\nfrom sqlalchemy.orm import relationship\nfrom app.database import Base\n\nclass User(Base):\n    __tablename__ = \"users\"\n\n    id = Column(Integer, primary_key=True, index=True)\n    username = Column(String, nullable=False)\n    email = Column(String, nullable=False)\n    created_at = Column(DateTime, default=func.now())\n    updated_at = Column(DateTime, default=func.now(), onupdate=func.now())\n\n    posts = relationship(\"Post\", back_populates=\"user\")",
+    "app/schemas/user.py": "from pydantic import BaseModel\nfrom datetime import datetime\nfrom typing import Optional\n\nclass UserBase(BaseModel):\n    username: str\n    email: str\n\nclass UserCreate(UserBase):\n    pass\n\nclass User(UserBase):\n    id: int\n    created_at: datetime\n    updated_at: datetime\n\n    model_config = {\n        \"from_attributes\": True\n    }",
+    "app/services/user.py": "from sqlalchemy.orm import Session\nfrom fastapi import HTTPException\nfrom app.models.user import User\nfrom app.schemas.user import UserCreate\n\ndef create_user(db: Session, user: UserCreate) -> User:\n    db_user = User(**user.model_dump())\n    db.add(db_user)\n    db.commit()\n    db.refresh(db_user)\n    return db_user\n\ndef list_users(db: Session) -> list[User]:\n    return db.query(User).all()\n\ndef get_user_by_id(db: Session, user_id: int) -> User:\n    user = db.query(User).filter(User.id == user_id).first()\n    if not user:\n        raise HTTPException(status_code=404, detail=\"User not found\")\n    return user\n\ndef delete_user(db: Session, user_id: int) -> None:\n    user = db.query(User).filter(User.id == user_id).first()\n    if not user:\n        raise HTTPException(status_code=404, detail=\"User not found\")\n    db.delete(user)\n    db.commit()",
+    "app/routes/user.py": "from fastapi import APIRouter, Depends, HTTPException\nfrom sqlalchemy.orm import Session\nfrom typing import List\nfrom app.database import get_db\nfrom app.schemas.user import UserCreate, User\nfrom app.services.user import create_user as create_user_service\nfrom app.services.user import list_users as list_users_service\nfrom app.services.user import get_user_by_id as get_user_by_id_service\nfrom app.services.user import delete_user as delete_user_service\n\nrouter = APIRouter()\n\n@router.post(\"/users\", response_model=User, status_code=201)\ndef create_user(user: UserCreate, db: Session = Depends(get_db)):\n    return create_user_service(db, user)\n\n@router.get(\"/users\", response_model=List[User])\ndef list_users(db: Session = Depends(get_db)):\n    return list_users_service(db)\n\n@router.get(\"/users/{id}\", response_model=User)\ndef get_user_by_id(id: int, db: Session = Depends(get_db)):\n    return get_user_by_id_service(db, id)\n\n@router.delete(\"/users/{id}\", status_code=204, response_model=None)\ndef delete_user(id: int, db: Session = Depends(get_db)):\n    delete_user_service(db, id)\n    return None",
+    "app/models/post.py": "from sqlalchemy import Column, Integer, String, DateTime, ForeignKey\nfrom sqlalchemy.orm import relationship\nfrom app.database import Base\nfrom datetime import datetime\n\nclass Post(Base):\n    __tablename__ = \"posts\"\n\n    id = Column(Integer, primary_key=True, index=True)\n    title = Column(String, nullable=False)\n    content = Column(String, nullable=False)\n    user_id = Column(Integer, ForeignKey(\"users.id\"), nullable=False)\n    created_at = Column(DateTime, default=datetime.utcnow)\n    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)\n\n    user = relationship(\"User\", back_populates=\"posts\")",
+    "app/schemas/post.py": "from pydantic import BaseModel\nfrom datetime import datetime\nfrom typing import Optional\n\nclass PostBase(BaseModel):\n    title: str\n    content: str\n    user_id: int\n\nclass PostCreate(PostBase):\n    pass\n\nclass Post(PostBase):\n    id: int\n    created_at: datetime\n    updated_at: datetime\n\n    model_config = {\n        \"from_attributes\": True\n    }",
+    "app/services/post.py": "from sqlalchemy.orm import Session\nfrom fastapi import HTTPException\nfrom app.models.post import Post\nfrom app.schemas.post import PostCreate\n\ndef create_post(db: Session, post: PostCreate) -> Post:\n    db_post = Post(**post.model_dump())\n    db.add(db_post)\n    db.commit()\n    db.refresh(db_post)\n    return db_post\n\ndef list_posts(db: Session) -> list[Post]:\n    return db.query(Post).all()\n\ndef get_post_by_id(db: Session, post_id: int) -> Post:\n    post = db.query(Post).filter(Post.id == post_id).first()\n    if not post:\n        raise HTTPException(status_code=404, detail=\"Post not found\")\n    return post\n\ndef delete_post(db: Session, post_id: int) -> None:\n    post = db.query(Post).filter(Post.id == post_id).first()\n    if not post:\n        raise HTTPException(status_code=404, detail=\"Post not found\")\n    db.delete(post)\n    db.commit()\n\ndef list_posts_by_user(db: Session, user_id: int) -> list[Post]:\n    return db.query(Post).filter(Post.user_id == user_id).all()",
+    "app/routes/post.py": "from fastapi import APIRouter, Depends, HTTPException\nfrom sqlalchemy.orm import Session\nfrom typing import List\nfrom app.database import get_db\nfrom app.schemas.post import PostCreate, Post\nfrom app.services.post import create_post as create_post_service\nfrom app.services.post import list_posts as list_posts_service\nfrom app.services.post import get_post_by_id as get_post_by_id_service\nfrom app.services.post import delete_post as delete_post_service\nfrom app.services.post import list_posts_by_user as list_posts_by_user_service\n\nrouter = APIRouter()\n\n@router.post(\"/posts\", response_model=Post, status_code=201)\ndef create_post(post: PostCreate, db: Session = Depends(get_db)):\n    return create_post_service(db, post)\n\n@router.get(\"/posts\", response_model=List[Post])\ndef list_posts(db: Session = Depends(get_db)):\n    return list_posts_service(db)\n\n@router.get(\"/posts/{id}\", response_model=Post)\ndef get_post_by_id(id: int, db: Session = Depends(get_db)):\n    return get_post_by_id_service(db, id)\n\n@router.delete(\"/posts/{id}\", status_code=204, response_model=None)\ndef delete_post(id: int, db: Session = Depends(get_db)):\n    delete_post_service(db, id)\n    return None\n\n@router.get(\"/users/{id}/posts\", response_model=List[Post])\ndef list_posts_by_user(id: int, db: Session = Depends(get_db)):\n    return list_posts_by_user_service(db, id)",
+    "app/main.py": "from fastapi import FastAPI\nfrom app.database import engine, Base\nfrom app.routes.user import router as user_router\nfrom app.routes.post import router as post_router\n\napp = FastAPI()\n\n@app.on_event(\"startup\")\ndef startup():\n    Base.metadata.create_all(bind=engine)\n\napp.include_router(user_router, prefix=\"/users\")\napp.include_router(post_router, prefix=\"/posts\")"
   },
-  "workflow_state": "entity_done:Todo",
-  "retry_count": 0,
+  "test_results": {
+    "User": {
+      "status": "passed",
+      "output": "============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 6 items\n\ntests/test_user.py::test_create_user PASSED                              [ 16%]\ntests/test_user.py::test_list_users PASSED                               [ 33%]\ntests/test_user.py::test_get_user_by_id PASSED                           [ 50%]\ntests/test_user.py::test_get_user_by_id_not_found PASSED                 [ 66%]\ntests/test_user.py::test_delete_user PASSED                              [ 83%]\ntests/test_user.py::test_delete_user_not_found PASSED                    [100%]\n\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================== 6 passed, 2 warnings in 7.02s ========================\n",
+      "errors": null
+    },
+    "Post": {
+      "status": "passed",
+      "output": "============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 6 items\n\ntests/test_post.py::test_create_post PASSED                              [ 16%]\ntests/test_post.py::test_list_posts PASSED                               [ 33%]\ntests/test_post.py::test_get_post_by_id PASSED                           [ 50%]\ntests/test_post.py::test_get_post_by_id_not_found PASSED                 [ 66%]\ntests/test_post.py::test_delete_post PASSED                              [ 83%]\ntests/test_post.py::test_delete_post_not_found PASSED                    [100%]\n\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\ntests/test_post.py: 10 warnings\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\sqlalchemy\\sql\\schema.py:3623: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    return util.wrap_callable(lambda ctx: fn(), fn)  # type: ignore\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================= 6 passed, 12 warnings in 1.02s ========================\n",
+      "errors": null
+    }
+  },
+  "error_log": "\n[TEST ERROR] Post:\n============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 7 items\n\ntests/test_post.py::test_create_post ERROR                               [ 14%]\ntests/test_post.py::test_list_posts ERROR                                [ 28%]\ntests/test_post.py::test_get_post_by_id ERROR                            [ 42%]\ntests/test_post.py::test_get_post_by_id_not_found ERROR                  [ 57%]\ntests/test_post.py::test_update_post ERROR                               [ 71%]\ntests/test_post.py::test_delete_post ERROR                               [ 85%]\ntests/test_post.py::test_delete_post_not_found ERROR                     [100%]\n\n=================================== ERRORS ====================================\n_____________________ ERROR at setup of test_create_post ______________________\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:2532: in get_property\n    return self._props[key]\n           ^^^^^^^^^^^^^^^^\nE   KeyError: 'posts'\n\nThe above exception was the direct cause of the following exception:\ntests\\test_post.py:34: in setup_database\n    db.add(User(id=1, username=\"testuser\", email=\"test@example.com\"))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<string>:4: in __init__\n    ???\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\state.py:591: in _initialize_instance\n    manager.dispatch.init(self, args, kwargs)\nvenv\\Lib\\site-packages\\sqlalchemy\\event\\attr.py:516: in __call__\n    fn(*args, **kw)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4420: in _event_on_init\n    instrumenting_mapper._check_configure()\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:2411: in _check_configure\n    _configure_registries({self.registry}, cascade=True)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4228: in _configure_registries\n    _do_configure_registries(registries, cascade)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4269: in _do_configure_registries\n    mapper._post_configure_properties()\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:2428: in _post_configure_properties\n    prop.init()\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\interfaces.py:595: in init\n    self.do_init()\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\relationships.py:1661: in do_init\n    self._generate_backref()\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\relationships.py:2145: in _generate_backref\n    self._add_reverse_property(self.back_populates)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\relationships.py:1592: in _add_reverse_property\n    other = self.mapper.get_property(key, _configure_mappers=False)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:2534: in get_property\n    raise sa_exc.InvalidRequestError(\nE   sqlalchemy.exc.InvalidRequestError: Mapper 'Mapper[User(users)]' has no property 'posts'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.\n______________________ ERROR at setup of test_list_posts ______________________\ntests\\test_post.py:34: in setup_database\n    db.add(User(id=1, username=\"testuser\", email=\"test@example.com\"))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<string>:4: in __init__\n    ???\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\state.py:591: in _initialize_instance\n    manager.dispatch.init(self, args, kwargs)\nvenv\\Lib\\site-packages\\sqlalchemy\\event\\attr.py:516: in __call__\n    fn(*args, **kw)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4420: in _event_on_init\n    instrumenting_mapper._check_configure()\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:2411: in _check_configure\n    _configure_registries({self.registry}, cascade=True)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4228: in _configure_registries\n    _do_configure_registries(registries, cascade)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4265: in _do_configure_registries\n    raise e\nE   sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[Post(posts)]'. Original exception was: Mapper 'Mapper[User(users)]' has no property 'posts'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.\n____________________ ERROR at setup of test_get_post_by_id ____________________\ntests\\test_post.py:34: in setup_database\n    db.add(User(id=1, username=\"testuser\", email=\"test@example.com\"))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<string>:4: in __init__\n    ???\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\state.py:591: in _initialize_instance\n    manager.dispatch.init(self, args, kwargs)\nvenv\\Lib\\site-packages\\sqlalchemy\\event\\attr.py:516: in __call__\n    fn(*args, **kw)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4420: in _event_on_init\n    instrumenting_mapper._check_configure()\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:2411: in _check_configure\n    _configure_registries({self.registry}, cascade=True)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4228: in _configure_registries\n    _do_configure_registries(registries, cascade)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4265: in _do_configure_registries\n    raise e\nE   sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[Post(posts)]'. Original exception was: Mapper 'Mapper[User(users)]' has no property 'posts'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.\n_______________ ERROR at setup of test_get_post_by_id_not_found _______________\ntests\\test_post.py:34: in setup_database\n    db.add(User(id=1, username=\"testuser\", email=\"test@example.com\"))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<string>:4: in __init__\n    ???\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\state.py:591: in _initialize_instance\n    manager.dispatch.init(self, args, kwargs)\nvenv\\Lib\\site-packages\\sqlalchemy\\event\\attr.py:516: in __call__\n    fn(*args, **kw)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4420: in _event_on_init\n    instrumenting_mapper._check_configure()\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:2411: in _check_configure\n    _configure_registries({self.registry}, cascade=True)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4228: in _configure_registries\n    _do_configure_registries(registries, cascade)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4265: in _do_configure_registries\n    raise e\nE   sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[Post(posts)]'. Original exception was: Mapper 'Mapper[User(users)]' has no property 'posts'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.\n_____________________ ERROR at setup of test_update_post ______________________\ntests\\test_post.py:34: in setup_database\n    db.add(User(id=1, username=\"testuser\", email=\"test@example.com\"))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<string>:4: in __init__\n    ???\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\state.py:591: in _initialize_instance\n    manager.dispatch.init(self, args, kwargs)\nvenv\\Lib\\site-packages\\sqlalchemy\\event\\attr.py:516: in __call__\n    fn(*args, **kw)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4420: in _event_on_init\n    instrumenting_mapper._check_configure()\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:2411: in _check_configure\n    _configure_registries({self.registry}, cascade=True)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4228: in _configure_registries\n    _do_configure_registries(registries, cascade)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4265: in _do_configure_registries\n    raise e\nE   sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[Post(posts)]'. Original exception was: Mapper 'Mapper[User(users)]' has no property 'posts'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.\n_____________________ ERROR at setup of test_delete_post ______________________\ntests\\test_post.py:34: in setup_database\n    db.add(User(id=1, username=\"testuser\", email=\"test@example.com\"))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<string>:4: in __init__\n    ???\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\state.py:591: in _initialize_instance\n    manager.dispatch.init(self, args, kwargs)\nvenv\\Lib\\site-packages\\sqlalchemy\\event\\attr.py:516: in __call__\n    fn(*args, **kw)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4420: in _event_on_init\n    instrumenting_mapper._check_configure()\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:2411: in _check_configure\n    _configure_registries({self.registry}, cascade=True)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4228: in _configure_registries\n    _do_configure_registries(registries, cascade)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4265: in _do_configure_registries\n    raise e\nE   sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[Post(posts)]'. Original exception was: Mapper 'Mapper[User(users)]' has no property 'posts'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.\n________________ ERROR at setup of test_delete_post_not_found _________________\ntests\\test_post.py:34: in setup_database\n    db.add(User(id=1, username=\"testuser\", email=\"test@example.com\"))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<string>:4: in __init__\n    ???\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\state.py:591: in _initialize_instance\n    manager.dispatch.init(self, args, kwargs)\nvenv\\Lib\\site-packages\\sqlalchemy\\event\\attr.py:516: in __call__\n    fn(*args, **kw)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4420: in _event_on_init\n    instrumenting_mapper._check_configure()\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:2411: in _check_configure\n    _configure_registries({self.registry}, cascade=True)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4228: in _configure_registries\n    _do_configure_registries(registries, cascade)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4265: in _do_configure_registries\n    raise e\nE   sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[Post(posts)]'. Original exception was: Mapper 'Mapper[User(users)]' has no property 'posts'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nERROR tests/test_post.py::test_create_post - sqlalchemy.exc.InvalidRequestErr...\nERROR tests/test_post.py::test_list_posts - sqlalchemy.exc.InvalidRequestErro...\nERROR tests/test_post.py::test_get_post_by_id - sqlalchemy.exc.InvalidRequest...\nERROR tests/test_post.py::test_get_post_by_id_not_found - sqlalchemy.exc.Inva...\nERROR tests/test_post.py::test_update_post - sqlalchemy.exc.InvalidRequestErr...\nERROR tests/test_post.py::test_delete_post - sqlalchemy.exc.InvalidRequestErr...\nERROR tests/test_post.py::test_delete_post_not_found - sqlalchemy.exc.Invalid...\n======================== 2 warnings, 7 errors in 1.65s ========================\n",
+  "workflow_state": "testing_done",
+  "retry_count": 1,
   "max_retries": 3
 }

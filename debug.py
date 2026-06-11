@@ -11,3 +11,9 @@ print(json.dumps(result["dependency_graph"], indent=2))
 
 print("\n=== TASK QUEUE ===")
 print(json.dumps(result["task_queue"], indent=2))
+
+
+with open("outputs/state_result.json", "r", encoding="utf-8") as f:
+    result = json.load(f)
+
+print(result["test_results"]["Post"]["output"])

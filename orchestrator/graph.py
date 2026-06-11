@@ -3,7 +3,31 @@ from orchestrator.state import GraphState
 from agents.openApi import OpenAPIAgent
 from agents.planner import PlannerAgent
 from agents.backend import BackendAgent
+from agents.tester import TesterAgent
+from agents.fixer import FixerAgent
 from setup.project_initializer import initialize_project
+
+
+def route_after_backend(state: GraphState) -> str:
+    if state.workflow_state and "entity_done" in state.workflow_state:
+        return "tester_agent"
+    return END
+
+def route_after_tester(state: GraphState) -> str:
+    if state.workflow_state and "failed" in state.workflow_state:
+        return "fixer_agent"
+
+    pending = [t for t in state.task_queue if t.get("status") == "pending"]
+    if pending:
+        return "backend_agent"
+    return END
+
+
+def route_after_fixer(state: GraphState) -> str:
+    if state.workflow_state in ["fixer_max_retries", "fixer_error"]:
+        return END
+    return "tester_agent"
+
 
 
 def create_graph():
@@ -13,12 +37,17 @@ def create_graph():
     openapi_agent = OpenAPIAgent()
     planner_agent = PlannerAgent()
     backend_agent = BackendAgent()
+    tester_agent = TesterAgent()
+    fixer_agent = FixerAgent()
 
     #node
     graph.add_node("openapi_agent", openapi_agent.run)
     graph.add_node("planner_agent", planner_agent.run)
     graph.add_node("setup_node", initialize_project)
     graph.add_node("backend_agent", backend_agent.run)
+    graph.add_node("tester_agent", tester_agent.run)
+    graph.add_node("fixer_agent", fixer_agent.run)
+
 
     #edge
     graph.set_entry_point("openapi_agent")
@@ -26,7 +55,34 @@ def create_graph():
     #graph.add_edge("planner_agent", "setup_node")
     #graph.add_edge("setup_node", END)
     graph.add_edge("planner_agent","backend_agent")
-    graph.add_edge("backend_agent", END)
+    graph.add_conditional_edges(
+        "backend_agent",
+        route_after_backend,
+        {
+            "tester_agent": "tester_agent",
+            END: END
+        }
+    )
+
+    graph.add_conditional_edges(
+        "tester_agent",
+        route_after_tester,
+        {
+           "fixer_agent": "fixer_agent",
+           "backend_agent": "backend_agent",
+           END: END
+        }
+    )
+
+    graph.add_conditional_edges(
+       "fixer_agent",
+        route_after_fixer,
+        {
+           "tester_agent": "tester_agent",
+           END: END
+        }
+    )
+
 
 
     return graph.compile()

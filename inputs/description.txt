@@ -1,23 +1,33 @@
 STACK: Python / FastAPI systems
 
-PROJECT: Simple Todo API
+PROJECT: Simple Blog API
 
 DESCRIPTION:
-A simple todo list API.
-It should support todos only.
+A simple blog API.
+It should support users and posts only.
 
 FEATURES:
 
-TODOS:
-- create todo
-- get todo by id
-- list all todos
-- update todo
-- delete todo
+USERS:
+- create user
+- get user by id
+- list all users
+- delete user
+
+POSTS:
+- create post (belongs to a user)
+- get post by id
+- list all posts
+- list posts by user
+- delete post
 
 DATA MODELS:
 
-Todo:
+User:
+- username: string
+- email: string
+
+Post:
 - title: string
-- description: string
-- done: boolean
+- content: string
+- userId: integer

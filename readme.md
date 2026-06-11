@@ -105,8 +105,9 @@ ne donner pas de code ou rien juste essayer de comprendre c est tout
     ...
 ]
 -error_log: contoent les message de erreur de system
-
+-test_results:indique si le test fait par le test  agent a marcher ou bien non: pass or fail 
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 *****************On comprend  les node de graph :
 -setup node: initialise le porjet en environement py/fast api
+

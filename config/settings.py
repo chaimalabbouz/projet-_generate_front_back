@@ -9,6 +9,7 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 PLANNER_MODEL ="llama-3.3-70b-versatile"#cette model fait le raisonement mais on a fait un clean pour que il ne l affiche pas 
 _OpenApi_PLANNER_MODEL = "mistral-medium-3.5"
 BACKEND_MODEL = "codestral-latest"
+TESTER_MODEL = "codestral-latest"
 
 ####path
 PROMPTS_PATH = "prompts" 
