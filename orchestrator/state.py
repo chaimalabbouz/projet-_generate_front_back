@@ -33,7 +33,15 @@ class GraphState(BaseModel):
     error_log: Optional[str] = None
 
     # ---------------- FRONTEND ----------------
-    frontend_spec: Optional[Dict[str, Any]] = None
+    frontend_pages: Optional[Dict[str, str]] = Field(
+        default=None,
+        description="page filename -> modified page code"
+    )
+
+    frontend_api_service: Optional[str] = Field(
+        default=None,
+        description="generated api.ts service code"
+    )
 
     # ---------------- CONTROL FLOW ----------------
     workflow_state: Optional[str] = None

@@ -1,33 +1,21 @@
 STACK: Python / FastAPI systems
 
-PROJECT: Simple Blog API
+PROJECT: Portfolio Contact Form API
 
 DESCRIPTION:
-A simple blog API.
-It should support users and posts only.
+A simple API to handle contact form submissions from a portfolio website.
 
 FEATURES:
 
-USERS:
-- create user
-- get user by id
-- list all users
-- delete user
-
-POSTS:
-- create post (belongs to a user)
-- get post by id
-- list all posts
-- list posts by user
-- delete post
+CONTACTS:
+- submit contact form
 
 DATA MODELS:
 
-User:
-- username: string
+Contact:
+- name: string
 - email: string
-
-Post:
-- title: string
-- content: string
-- userId: integer
+- location: string
+- budget: string
+- subject: string
+- message: string

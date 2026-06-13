@@ -1,9 +1,9 @@
 {
-  "user_input": "STACK: Python / FastAPI systems\n\nPROJECT: Simple Blog API\n\nDESCRIPTION:\nA simple blog API.\nIt should support users and posts only.\n\nFEATURES:\n\nUSERS:\n- create user\n- get user by id\n- list all users\n- delete user\n\nPOSTS:\n- create post (belongs to a user)\n- get post by id\n- list all posts\n- list posts by user\n- delete post\n\nDATA MODELS:\n\nUser:\n- username: string\n- email: string\n\nPost:\n- title: string\n- content: string\n- userId: integer",
+  "user_input": "STACK: Python / FastAPI systems\n\nPROJECT: Portfolio Contact Form API\n\nDESCRIPTION:\nA simple API to handle contact form submissions from a portfolio website.\n\nFEATURES:\n\nCONTACTS:\n- submit contact form\n\nDATA MODELS:\n\nContact:\n- name: string\n- email: string\n- location: string\n- budget: string\n- subject: string\n- message: string",
   "openapi_spec": {
     "openapi": "3.0.0",
     "info": {
-      "title": "Simple Blog API",
+      "title": "Portfolio Contact Form API",
       "version": "1.0.0"
     },
     "servers": [
@@ -12,30 +12,30 @@
       }
     ],
     "paths": {
-      "/users": {
+      "/contacts": {
         "post": {
           "tags": [
-            "Users"
+            "Contacts"
           ],
-          "operationId": "create_user",
-          "summary": "Create a user",
+          "operationId": "create_contact",
+          "summary": "Submit a contact form",
           "requestBody": {
             "required": true,
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserCreate"
+                  "$ref": "#/components/schemas/ContactCreate"
                 }
               }
             }
           },
           "responses": {
             "201": {
-              "description": "User created successfully",
+              "description": "Contact form submitted successfully",
               "content": {
                 "application/json": {
                   "schema": {
-                    "$ref": "#/components/schemas/User"
+                    "$ref": "#/components/schemas/Contact"
                   }
                 }
               }
@@ -44,19 +44,19 @@
         },
         "get": {
           "tags": [
-            "Users"
+            "Contacts"
           ],
-          "operationId": "list_users",
-          "summary": "List all users",
+          "operationId": "list_contacts",
+          "summary": "List all contact submissions",
           "responses": {
             "200": {
-              "description": "List of all users",
+              "description": "List of all contact submissions",
               "content": {
                 "application/json": {
                   "schema": {
                     "type": "array",
                     "items": {
-                      "$ref": "#/components/schemas/User"
+                      "$ref": "#/components/schemas/Contact"
                     }
                   }
                 }
@@ -65,13 +65,13 @@
           }
         }
       },
-      "/users/{id}": {
+      "/contacts/{id}": {
         "get": {
           "tags": [
-            "Users"
+            "Contacts"
           ],
-          "operationId": "get_user_by_id",
-          "summary": "Get a user by id",
+          "operationId": "get_contact_by_id",
+          "summary": "Get a contact submission by id",
           "parameters": [
             {
               "name": "id",
@@ -84,11 +84,11 @@
           ],
           "responses": {
             "200": {
-              "description": "User details",
+              "description": "Contact submission details",
               "content": {
                 "application/json": {
                   "schema": {
-                    "$ref": "#/components/schemas/User"
+                    "$ref": "#/components/schemas/Contact"
                   }
                 }
               }
@@ -97,10 +97,10 @@
         },
         "delete": {
           "tags": [
-            "Users"
+            "Contacts"
           ],
-          "operationId": "delete_user",
-          "summary": "Delete a user",
+          "operationId": "delete_contact",
+          "summary": "Delete a contact submission",
           "parameters": [
             {
               "name": "id",
@@ -113,147 +113,7 @@
           ],
           "responses": {
             "204": {
-              "description": "User deleted successfully"
-            }
-          }
-        }
-      },
-      "/posts": {
-        "post": {
-          "tags": [
-            "Posts"
-          ],
-          "operationId": "create_post",
-          "summary": "Create a post",
-          "requestBody": {
-            "required": true,
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PostCreate"
-                }
-              }
-            }
-          },
-          "responses": {
-            "201": {
-              "description": "Post created successfully",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Post"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "get": {
-          "tags": [
-            "Posts"
-          ],
-          "operationId": "list_posts",
-          "summary": "List all posts",
-          "responses": {
-            "200": {
-              "description": "List of all posts",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Post"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/posts/{id}": {
-        "get": {
-          "tags": [
-            "Posts"
-          ],
-          "operationId": "get_post_by_id",
-          "summary": "Get a post by id",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Post details",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Post"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "delete": {
-          "tags": [
-            "Posts"
-          ],
-          "operationId": "delete_post",
-          "summary": "Delete a post",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              }
-            }
-          ],
-          "responses": {
-            "204": {
-              "description": "Post deleted successfully"
-            }
-          }
-        }
-      },
-      "/users/{id}/posts": {
-        "get": {
-          "tags": [
-            "Posts"
-          ],
-          "operationId": "list_posts_by_user",
-          "summary": "List posts by user",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "List of user posts",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Post"
-                    }
-                  }
-                }
-              }
+              "description": "Contact submission deleted successfully"
             }
           }
         }
@@ -261,76 +121,57 @@
     },
     "components": {
       "schemas": {
-        "UserCreate": {
+        "ContactCreate": {
           "type": "object",
           "required": [
-            "username",
-            "email"
+            "name",
+            "email",
+            "message"
           ],
           "properties": {
-            "username": {
-              "type": "string"
-            },
-            "email": {
-              "type": "string"
-            }
-          }
-        },
-        "User": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "integer"
-            },
-            "username": {
+            "name": {
               "type": "string"
             },
             "email": {
               "type": "string"
             },
-            "created_at": {
-              "type": "string",
-              "format": "date-time"
+            "location": {
+              "type": "string"
             },
-            "updated_at": {
-              "type": "string",
-              "format": "date-time"
+            "budget": {
+              "type": "string"
+            },
+            "subject": {
+              "type": "string"
+            },
+            "message": {
+              "type": "string"
             }
           }
         },
-        "PostCreate": {
-          "type": "object",
-          "required": [
-            "title",
-            "content",
-            "user_id"
-          ],
-          "properties": {
-            "title": {
-              "type": "string"
-            },
-            "content": {
-              "type": "string"
-            },
-            "user_id": {
-              "type": "integer"
-            }
-          }
-        },
-        "Post": {
+        "Contact": {
           "type": "object",
           "properties": {
             "id": {
               "type": "integer"
             },
-            "title": {
+            "name": {
               "type": "string"
             },
-            "content": {
+            "email": {
               "type": "string"
             },
-            "user_id": {
-              "type": "integer"
+            "location": {
+              "type": "string"
+            },
+            "budget": {
+              "type": "string"
+            },
+            "subject": {
+              "type": "string"
+            },
+            "message": {
+              "type": "string"
             },
             "created_at": {
               "type": "string",
@@ -346,16 +187,13 @@
     }
   },
   "dependency_graph": {
-    "User": [],
-    "Post": [
-      "User"
-    ]
+    "Contact": []
   },
   "file_plan": [
     {
-      "path": "app/models/user.py",
+      "path": "app/models/contact.py",
       "type": "model",
-      "entity": "User",
+      "entity": "Contact",
       "fields": [
         {
           "name": "id",
@@ -364,7 +202,7 @@
           "nullable": false
         },
         {
-          "name": "username",
+          "name": "name",
           "type": "String",
           "primary_key": false,
           "nullable": false
@@ -376,66 +214,139 @@
           "nullable": false
         },
         {
+          "name": "location",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "budget",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "subject",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "message",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
           "name": "created_at",
           "type": "DateTime",
           "primary_key": false,
           "nullable": false,
-          "default": "func.now()"
+          "default": "datetime.utcnow"
         },
         {
           "name": "updated_at",
           "type": "DateTime",
           "primary_key": false,
           "nullable": false,
-          "default": "func.now()",
-          "onupdate": "func.now()"
+          "default": "datetime.utcnow",
+          "onupdate": "datetime.utcnow"
         }
       ]
     },
     {
-      "path": "app/schemas/user.py",
+      "path": "app/schemas/contact.py",
       "type": "schema",
-      "entity": "User",
+      "entity": "Contact",
       "schemas": [
         {
-          "name": "UserBase",
+          "name": "ContactBase",
           "fields": [
             {
-              "name": "username",
+              "name": "name",
               "type": "str"
             },
             {
               "name": "email",
               "type": "str"
+            },
+            {
+              "name": "location",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "budget",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "subject",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "message",
+              "type": "str"
             }
           ]
         },
         {
-          "name": "UserCreate",
+          "name": "ContactCreate",
           "fields": [
             {
-              "name": "username",
+              "name": "name",
               "type": "str"
             },
             {
               "name": "email",
               "type": "str"
+            },
+            {
+              "name": "location",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "budget",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "subject",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "message",
+              "type": "str"
             }
-          ]
+          ],
+          "inherits": "ContactBase"
         },
         {
-          "name": "User",
+          "name": "Contact",
           "fields": [
             {
               "name": "id",
               "type": "int"
             },
             {
-              "name": "username",
+              "name": "name",
               "type": "str"
             },
             {
               "name": "email",
+              "type": "str"
+            },
+            {
+              "name": "location",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "budget",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "subject",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "message",
               "type": "str"
             },
             {
@@ -446,102 +357,103 @@
               "name": "updated_at",
               "type": "datetime"
             }
-          ]
+          ],
+          "inherits": "ContactBase"
         }
       ]
     },
     {
-      "path": "app/services/user.py",
+      "path": "app/services/contact.py",
       "type": "service",
-      "entity": "User",
+      "entity": "Contact",
       "functions": [
         {
-          "name": "create_user",
+          "name": "create_contact",
           "input_parameters": [
             {
               "name": "db",
               "type": "Session"
             },
             {
-              "name": "user",
-              "type": "UserCreate"
+              "name": "contact_data",
+              "type": "ContactCreate"
             }
           ],
-          "output_type": "User",
-          "description": "Create a new user in the database"
+          "output_type": "Contact",
+          "description": "Create a new contact submission"
         },
         {
-          "name": "list_users",
+          "name": "list_contacts",
           "input_parameters": [
             {
               "name": "db",
               "type": "Session"
             }
           ],
-          "output_type": "List[User]",
-          "description": "List all users from the database"
+          "output_type": "List[Contact]",
+          "description": "List all contact submissions"
         },
         {
-          "name": "get_user_by_id",
+          "name": "get_contact_by_id",
           "input_parameters": [
             {
               "name": "db",
               "type": "Session"
             },
             {
-              "name": "user_id",
+              "name": "contact_id",
               "type": "int"
             }
           ],
-          "output_type": "User",
-          "description": "Get a user by ID, raises 404 if not found"
+          "output_type": "Contact",
+          "description": "Get a contact submission by ID, raises 404 if not found"
         },
         {
-          "name": "delete_user",
+          "name": "delete_contact",
           "input_parameters": [
             {
               "name": "db",
               "type": "Session"
             },
             {
-              "name": "user_id",
+              "name": "contact_id",
               "type": "int"
             }
           ],
           "output_type": "None",
-          "description": "Delete a user by ID, raises 404 if not found"
+          "description": "Delete a contact submission by ID, raises 404 if not found"
         }
       ]
     },
     {
-      "path": "app/routes/user.py",
+      "path": "app/routes/contact.py",
       "type": "route",
-      "entity": "User",
-      "endpoints": [
+      "entity": "Contact",
+      "functions": [
         {
           "method": "POST",
-          "path": "/users",
-          "operationId": "create_user",
+          "path": "/contacts",
+          "operationId": "create_contact",
           "input": {
-            "body": "UserCreate"
+            "body": "ContactCreate"
           },
-          "output": "User",
+          "output": "Contact",
           "status_code": 201,
-          "calls_service": "create_user"
+          "calls_service": "create_contact"
         },
         {
           "method": "GET",
-          "path": "/users",
-          "operationId": "list_users",
+          "path": "/contacts",
+          "operationId": "list_contacts",
           "input": {},
-          "output": "List[User]",
+          "output": "List[Contact]",
           "status_code": 200,
-          "calls_service": "list_users"
+          "calls_service": "list_contacts"
         },
         {
           "method": "GET",
-          "path": "/users/{id}",
-          "operationId": "get_user_by_id",
+          "path": "/contacts/{id}",
+          "operationId": "get_contact_by_id",
           "input": {
             "path_params": [
               {
@@ -550,14 +462,14 @@
               }
             ]
           },
-          "output": "User",
+          "output": "Contact",
           "status_code": 200,
-          "calls_service": "get_user_by_id"
+          "calls_service": "get_contact_by_id"
         },
         {
           "method": "DELETE",
-          "path": "/users/{id}",
-          "operationId": "delete_user",
+          "path": "/contacts/{id}",
+          "operationId": "delete_contact",
           "input": {
             "path_params": [
               {
@@ -568,277 +480,7 @@
           },
           "output": null,
           "status_code": 204,
-          "calls_service": "delete_user"
-        }
-      ]
-    },
-    {
-      "path": "app/models/post.py",
-      "type": "model",
-      "entity": "Post",
-      "fields": [
-        {
-          "name": "id",
-          "type": "Integer",
-          "primary_key": true,
-          "nullable": false
-        },
-        {
-          "name": "title",
-          "type": "String",
-          "primary_key": false,
-          "nullable": false
-        },
-        {
-          "name": "content",
-          "type": "String",
-          "primary_key": false,
-          "nullable": false
-        },
-        {
-          "name": "user_id",
-          "type": "Integer",
-          "primary_key": false,
-          "nullable": false,
-          "foreign_key": "User.id"
-        },
-        {
-          "name": "created_at",
-          "type": "DateTime",
-          "primary_key": false,
-          "nullable": false,
-          "default": "func.now()"
-        },
-        {
-          "name": "updated_at",
-          "type": "DateTime",
-          "primary_key": false,
-          "nullable": false,
-          "default": "func.now()",
-          "onupdate": "func.now()"
-        }
-      ]
-    },
-    {
-      "path": "app/schemas/post.py",
-      "type": "schema",
-      "entity": "Post",
-      "schemas": [
-        {
-          "name": "PostBase",
-          "fields": [
-            {
-              "name": "title",
-              "type": "str"
-            },
-            {
-              "name": "content",
-              "type": "str"
-            },
-            {
-              "name": "user_id",
-              "type": "int"
-            }
-          ]
-        },
-        {
-          "name": "PostCreate",
-          "fields": [
-            {
-              "name": "title",
-              "type": "str"
-            },
-            {
-              "name": "content",
-              "type": "str"
-            },
-            {
-              "name": "user_id",
-              "type": "int"
-            }
-          ]
-        },
-        {
-          "name": "Post",
-          "fields": [
-            {
-              "name": "id",
-              "type": "int"
-            },
-            {
-              "name": "title",
-              "type": "str"
-            },
-            {
-              "name": "content",
-              "type": "str"
-            },
-            {
-              "name": "user_id",
-              "type": "int"
-            },
-            {
-              "name": "created_at",
-              "type": "datetime"
-            },
-            {
-              "name": "updated_at",
-              "type": "datetime"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "path": "app/services/post.py",
-      "type": "service",
-      "entity": "Post",
-      "functions": [
-        {
-          "name": "create_post",
-          "input_parameters": [
-            {
-              "name": "db",
-              "type": "Session"
-            },
-            {
-              "name": "post",
-              "type": "PostCreate"
-            }
-          ],
-          "output_type": "Post",
-          "description": "Create a new post in the database"
-        },
-        {
-          "name": "list_posts",
-          "input_parameters": [
-            {
-              "name": "db",
-              "type": "Session"
-            }
-          ],
-          "output_type": "List[Post]",
-          "description": "List all posts from the database"
-        },
-        {
-          "name": "get_post_by_id",
-          "input_parameters": [
-            {
-              "name": "db",
-              "type": "Session"
-            },
-            {
-              "name": "post_id",
-              "type": "int"
-            }
-          ],
-          "output_type": "Post",
-          "description": "Get a post by ID, raises 404 if not found"
-        },
-        {
-          "name": "delete_post",
-          "input_parameters": [
-            {
-              "name": "db",
-              "type": "Session"
-            },
-            {
-              "name": "post_id",
-              "type": "int"
-            }
-          ],
-          "output_type": "None",
-          "description": "Delete a post by ID, raises 404 if not found"
-        },
-        {
-          "name": "list_posts_by_user",
-          "input_parameters": [
-            {
-              "name": "db",
-              "type": "Session"
-            },
-            {
-              "name": "user_id",
-              "type": "int"
-            }
-          ],
-          "output_type": "List[Post]",
-          "description": "List all posts by a specific user"
-        }
-      ]
-    },
-    {
-      "path": "app/routes/post.py",
-      "type": "route",
-      "entity": "Post",
-      "endpoints": [
-        {
-          "method": "POST",
-          "path": "/posts",
-          "operationId": "create_post",
-          "input": {
-            "body": "PostCreate"
-          },
-          "output": "Post",
-          "status_code": 201,
-          "calls_service": "create_post"
-        },
-        {
-          "method": "GET",
-          "path": "/posts",
-          "operationId": "list_posts",
-          "input": {},
-          "output": "List[Post]",
-          "status_code": 200,
-          "calls_service": "list_posts"
-        },
-        {
-          "method": "GET",
-          "path": "/posts/{id}",
-          "operationId": "get_post_by_id",
-          "input": {
-            "path_params": [
-              {
-                "name": "id",
-                "type": "int"
-              }
-            ]
-          },
-          "output": "Post",
-          "status_code": 200,
-          "calls_service": "get_post_by_id"
-        },
-        {
-          "method": "DELETE",
-          "path": "/posts/{id}",
-          "operationId": "delete_post",
-          "input": {
-            "path_params": [
-              {
-                "name": "id",
-                "type": "int"
-              }
-            ]
-          },
-          "output": null,
-          "status_code": 204,
-          "calls_service": "delete_post"
-        },
-        {
-          "method": "GET",
-          "path": "/users/{id}/posts",
-          "operationId": "list_posts_by_user",
-          "input": {
-            "path_params": [
-              {
-                "name": "id",
-                "type": "int"
-              }
-            ]
-          },
-          "output": "List[Post]",
-          "status_code": 200,
-          "calls_service": "list_posts_by_user"
+          "calls_service": "delete_contact"
         }
       ]
     },
@@ -847,22 +489,15 @@
       "type": "main",
       "entity": null,
       "routers": [
-        {
-          "prefix": "/users",
-          "router": "app.routes.user"
-        },
-        {
-          "prefix": "/posts",
-          "router": "app.routes.post"
-        }
+        "app.routes.contact"
       ]
     }
   ],
   "task_queue": [
     {
       "order": 1,
-      "entity": "User",
-      "file": "app/models/user.py",
+      "entity": "Contact",
+      "file": "app/models/contact.py",
       "status": "done",
       "type": "model",
       "depends_on": [],
@@ -874,7 +509,7 @@
           "nullable": false
         },
         {
-          "name": "username",
+          "name": "name",
           "type": "String",
           "primary_key": false,
           "nullable": false
@@ -886,71 +521,144 @@
           "nullable": false
         },
         {
+          "name": "location",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "budget",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "subject",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "message",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
           "name": "created_at",
           "type": "DateTime",
           "primary_key": false,
           "nullable": false,
-          "default": "func.now()"
+          "default": "datetime.utcnow"
         },
         {
           "name": "updated_at",
           "type": "DateTime",
           "primary_key": false,
           "nullable": false,
-          "default": "func.now()",
-          "onupdate": "func.now()"
+          "default": "datetime.utcnow",
+          "onupdate": "datetime.utcnow"
         }
       ]
     },
     {
       "order": 2,
-      "entity": "User",
-      "file": "app/schemas/user.py",
+      "entity": "Contact",
+      "file": "app/schemas/contact.py",
       "status": "done",
       "type": "schema",
       "depends_on": [
-        "app/models/user.py"
+        "app/models/contact.py"
       ],
       "schemas": [
         {
-          "name": "UserBase",
+          "name": "ContactBase",
           "fields": [
             {
-              "name": "username",
+              "name": "name",
               "type": "str"
             },
             {
               "name": "email",
               "type": "str"
+            },
+            {
+              "name": "location",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "budget",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "subject",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "message",
+              "type": "str"
             }
           ]
         },
         {
-          "name": "UserCreate",
+          "name": "ContactCreate",
           "fields": [
             {
-              "name": "username",
+              "name": "name",
               "type": "str"
             },
             {
               "name": "email",
               "type": "str"
+            },
+            {
+              "name": "location",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "budget",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "subject",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "message",
+              "type": "str"
             }
-          ]
+          ],
+          "inherits": "ContactBase"
         },
         {
-          "name": "User",
+          "name": "Contact",
           "fields": [
             {
               "name": "id",
               "type": "int"
             },
             {
-              "name": "username",
+              "name": "name",
               "type": "str"
             },
             {
               "name": "email",
+              "type": "str"
+            },
+            {
+              "name": "location",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "budget",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "subject",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "message",
               "type": "str"
             },
             {
@@ -961,113 +669,116 @@
               "name": "updated_at",
               "type": "datetime"
             }
-          ]
+          ],
+          "inherits": "ContactBase"
         }
       ]
     },
     {
       "order": 3,
-      "entity": "User",
-      "file": "app/services/user.py",
+      "entity": "Contact",
+      "file": "app/services/contact.py",
       "status": "done",
       "type": "service",
       "depends_on": [
-        "app/schemas/user.py"
+        "app/schemas/contact.py",
+        "app/models/contact.py"
       ],
       "functions": [
         {
-          "name": "create_user",
+          "name": "create_contact",
           "input_parameters": [
             {
               "name": "db",
               "type": "Session"
             },
             {
-              "name": "user",
-              "type": "UserCreate"
+              "name": "contact_data",
+              "type": "ContactCreate"
             }
           ],
-          "output_type": "User",
-          "description": "Create a new user in the database"
+          "output_type": "Contact",
+          "description": "Create a new contact submission"
         },
         {
-          "name": "list_users",
+          "name": "list_contacts",
           "input_parameters": [
             {
               "name": "db",
               "type": "Session"
             }
           ],
-          "output_type": "List[User]",
-          "description": "List all users from the database"
+          "output_type": "List[Contact]",
+          "description": "List all contact submissions"
         },
         {
-          "name": "get_user_by_id",
+          "name": "get_contact_by_id",
           "input_parameters": [
             {
               "name": "db",
               "type": "Session"
             },
             {
-              "name": "user_id",
+              "name": "contact_id",
               "type": "int"
             }
           ],
-          "output_type": "User",
-          "description": "Get a user by ID, raises 404 if not found"
+          "output_type": "Contact",
+          "description": "Get a contact submission by ID, raises 404 if not found"
         },
         {
-          "name": "delete_user",
+          "name": "delete_contact",
           "input_parameters": [
             {
               "name": "db",
               "type": "Session"
             },
             {
-              "name": "user_id",
+              "name": "contact_id",
               "type": "int"
             }
           ],
           "output_type": "None",
-          "description": "Delete a user by ID, raises 404 if not found"
+          "description": "Delete a contact submission by ID, raises 404 if not found"
         }
       ]
     },
     {
       "order": 4,
-      "entity": "User",
-      "file": "app/routes/user.py",
+      "entity": "Contact",
+      "file": "app/routes/contact.py",
       "status": "done",
       "test_status": "passed",
       "type": "route",
       "depends_on": [
-        "app/services/user.py"
+        "app/services/contact.py",
+        "app/schemas/contact.py"
       ],
       "functions": [
         {
           "method": "POST",
-          "path": "/users",
-          "operationId": "create_user",
+          "path": "/contacts",
+          "operationId": "create_contact",
           "input": {
-            "body": "UserCreate"
+            "body": "ContactCreate"
           },
-          "output": "User",
+          "output": "Contact",
           "status_code": 201,
-          "calls_service": "create_user"
+          "calls_service": "create_contact"
         },
         {
           "method": "GET",
-          "path": "/users",
-          "operationId": "list_users",
+          "path": "/contacts",
+          "operationId": "list_contacts",
           "input": {},
-          "output": "List[User]",
+          "output": "List[Contact]",
           "status_code": 200,
-          "calls_service": "list_users"
+          "calls_service": "list_contacts"
         },
         {
           "method": "GET",
-          "path": "/users/{id}",
-          "operationId": "get_user_by_id",
+          "path": "/contacts/{id}",
+          "operationId": "get_contact_by_id",
           "input": {
             "path_params": [
               {
@@ -1076,14 +787,14 @@
               }
             ]
           },
-          "output": "User",
+          "output": "Contact",
           "status_code": 200,
-          "calls_service": "get_user_by_id"
+          "calls_service": "get_contact_by_id"
         },
         {
           "method": "DELETE",
-          "path": "/users/{id}",
-          "operationId": "delete_user",
+          "path": "/contacts/{id}",
+          "operationId": "delete_contact",
           "input": {
             "path_params": [
               {
@@ -1094,348 +805,44 @@
           },
           "output": null,
           "status_code": 204,
-          "calls_service": "delete_user"
+          "calls_service": "delete_contact"
         }
       ]
     },
     {
       "order": 5,
-      "entity": "Post",
-      "file": "app/models/post.py",
-      "status": "done",
-      "type": "model",
-      "depends_on": [
-        "app/models/user.py"
-      ],
-      "fields": [
-        {
-          "name": "id",
-          "type": "Integer",
-          "primary_key": true,
-          "nullable": false
-        },
-        {
-          "name": "title",
-          "type": "String",
-          "primary_key": false,
-          "nullable": false
-        },
-        {
-          "name": "content",
-          "type": "String",
-          "primary_key": false,
-          "nullable": false
-        },
-        {
-          "name": "user_id",
-          "type": "Integer",
-          "primary_key": false,
-          "nullable": false,
-          "foreign_key": "User.id"
-        },
-        {
-          "name": "created_at",
-          "type": "DateTime",
-          "primary_key": false,
-          "nullable": false,
-          "default": "func.now()"
-        },
-        {
-          "name": "updated_at",
-          "type": "DateTime",
-          "primary_key": false,
-          "nullable": false,
-          "default": "func.now()",
-          "onupdate": "func.now()"
-        }
-      ]
-    },
-    {
-      "order": 6,
-      "entity": "Post",
-      "file": "app/schemas/post.py",
-      "status": "done",
-      "type": "schema",
-      "depends_on": [
-        "app/models/post.py"
-      ],
-      "schemas": [
-        {
-          "name": "PostBase",
-          "fields": [
-            {
-              "name": "title",
-              "type": "str"
-            },
-            {
-              "name": "content",
-              "type": "str"
-            },
-            {
-              "name": "user_id",
-              "type": "int"
-            }
-          ]
-        },
-        {
-          "name": "PostCreate",
-          "fields": [
-            {
-              "name": "title",
-              "type": "str"
-            },
-            {
-              "name": "content",
-              "type": "str"
-            },
-            {
-              "name": "user_id",
-              "type": "int"
-            }
-          ]
-        },
-        {
-          "name": "Post",
-          "fields": [
-            {
-              "name": "id",
-              "type": "int"
-            },
-            {
-              "name": "title",
-              "type": "str"
-            },
-            {
-              "name": "content",
-              "type": "str"
-            },
-            {
-              "name": "user_id",
-              "type": "int"
-            },
-            {
-              "name": "created_at",
-              "type": "datetime"
-            },
-            {
-              "name": "updated_at",
-              "type": "datetime"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "order": 7,
-      "entity": "Post",
-      "file": "app/services/post.py",
-      "status": "done",
-      "type": "service",
-      "depends_on": [
-        "app/schemas/post.py"
-      ],
-      "functions": [
-        {
-          "name": "create_post",
-          "input_parameters": [
-            {
-              "name": "db",
-              "type": "Session"
-            },
-            {
-              "name": "post",
-              "type": "PostCreate"
-            }
-          ],
-          "output_type": "Post",
-          "description": "Create a new post in the database"
-        },
-        {
-          "name": "list_posts",
-          "input_parameters": [
-            {
-              "name": "db",
-              "type": "Session"
-            }
-          ],
-          "output_type": "List[Post]",
-          "description": "List all posts from the database"
-        },
-        {
-          "name": "get_post_by_id",
-          "input_parameters": [
-            {
-              "name": "db",
-              "type": "Session"
-            },
-            {
-              "name": "post_id",
-              "type": "int"
-            }
-          ],
-          "output_type": "Post",
-          "description": "Get a post by ID, raises 404 if not found"
-        },
-        {
-          "name": "delete_post",
-          "input_parameters": [
-            {
-              "name": "db",
-              "type": "Session"
-            },
-            {
-              "name": "post_id",
-              "type": "int"
-            }
-          ],
-          "output_type": "None",
-          "description": "Delete a post by ID, raises 404 if not found"
-        },
-        {
-          "name": "list_posts_by_user",
-          "input_parameters": [
-            {
-              "name": "db",
-              "type": "Session"
-            },
-            {
-              "name": "user_id",
-              "type": "int"
-            }
-          ],
-          "output_type": "List[Post]",
-          "description": "List all posts by a specific user"
-        }
-      ]
-    },
-    {
-      "order": 8,
-      "entity": "Post",
-      "file": "app/routes/post.py",
-      "status": "done",
-      "test_status": "passed",
-      "type": "route",
-      "depends_on": [
-        "app/services/post.py"
-      ],
-      "functions": [
-        {
-          "method": "POST",
-          "path": "/posts",
-          "operationId": "create_post",
-          "input": {
-            "body": "PostCreate"
-          },
-          "output": "Post",
-          "status_code": 201,
-          "calls_service": "create_post"
-        },
-        {
-          "method": "GET",
-          "path": "/posts",
-          "operationId": "list_posts",
-          "input": {},
-          "output": "List[Post]",
-          "status_code": 200,
-          "calls_service": "list_posts"
-        },
-        {
-          "method": "GET",
-          "path": "/posts/{id}",
-          "operationId": "get_post_by_id",
-          "input": {
-            "path_params": [
-              {
-                "name": "id",
-                "type": "int"
-              }
-            ]
-          },
-          "output": "Post",
-          "status_code": 200,
-          "calls_service": "get_post_by_id"
-        },
-        {
-          "method": "DELETE",
-          "path": "/posts/{id}",
-          "operationId": "delete_post",
-          "input": {
-            "path_params": [
-              {
-                "name": "id",
-                "type": "int"
-              }
-            ]
-          },
-          "output": null,
-          "status_code": 204,
-          "calls_service": "delete_post"
-        },
-        {
-          "method": "GET",
-          "path": "/users/{id}/posts",
-          "operationId": "list_posts_by_user",
-          "input": {
-            "path_params": [
-              {
-                "name": "id",
-                "type": "int"
-              }
-            ]
-          },
-          "output": "List[Post]",
-          "status_code": 200,
-          "calls_service": "list_posts_by_user"
-        }
-      ]
-    },
-    {
-      "order": 9,
       "entity": null,
       "file": "app/main.py",
       "status": "done",
       "type": "main",
       "depends_on": [
-        "app/routes/user.py",
-        "app/routes/post.py"
+        "app/routes/contact.py"
       ],
       "routers": [
-        {
-          "prefix": "/users",
-          "router": "app.routes.user"
-        },
-        {
-          "prefix": "/posts",
-          "router": "app.routes.post"
-        }
+        "app.routes.contact"
       ]
     }
   ],
   "generated_files": {
-    "app/models/user.py": "from sqlalchemy import Column, Integer, String, DateTime\nfrom sqlalchemy.sql import func\nfrom sqlalchemy.orm import relationship\nfrom app.database import Base\n\nclass User(Base):\n    __tablename__ = \"users\"\n\n    id = Column(Integer, primary_key=True, index=True)\n    username = Column(String, nullable=False)\n    email = Column(String, nullable=False)\n    created_at = Column(DateTime, default=func.now())\n    updated_at = Column(DateTime, default=func.now(), onupdate=func.now())\n\n    posts = relationship(\"Post\", back_populates=\"user\")",
-    "app/schemas/user.py": "from pydantic import BaseModel\nfrom datetime import datetime\nfrom typing import Optional\n\nclass UserBase(BaseModel):\n    username: str\n    email: str\n\nclass UserCreate(UserBase):\n    pass\n\nclass User(UserBase):\n    id: int\n    created_at: datetime\n    updated_at: datetime\n\n    model_config = {\n        \"from_attributes\": True\n    }",
-    "app/services/user.py": "from sqlalchemy.orm import Session\nfrom fastapi import HTTPException\nfrom app.models.user import User\nfrom app.schemas.user import UserCreate\n\ndef create_user(db: Session, user: UserCreate) -> User:\n    db_user = User(**user.model_dump())\n    db.add(db_user)\n    db.commit()\n    db.refresh(db_user)\n    return db_user\n\ndef list_users(db: Session) -> list[User]:\n    return db.query(User).all()\n\ndef get_user_by_id(db: Session, user_id: int) -> User:\n    user = db.query(User).filter(User.id == user_id).first()\n    if not user:\n        raise HTTPException(status_code=404, detail=\"User not found\")\n    return user\n\ndef delete_user(db: Session, user_id: int) -> None:\n    user = db.query(User).filter(User.id == user_id).first()\n    if not user:\n        raise HTTPException(status_code=404, detail=\"User not found\")\n    db.delete(user)\n    db.commit()",
-    "app/routes/user.py": "from fastapi import APIRouter, Depends, HTTPException\nfrom sqlalchemy.orm import Session\nfrom typing import List\nfrom app.database import get_db\nfrom app.schemas.user import UserCreate, User\nfrom app.services.user import create_user as create_user_service\nfrom app.services.user import list_users as list_users_service\nfrom app.services.user import get_user_by_id as get_user_by_id_service\nfrom app.services.user import delete_user as delete_user_service\n\nrouter = APIRouter()\n\n@router.post(\"/users\", response_model=User, status_code=201)\ndef create_user(user: UserCreate, db: Session = Depends(get_db)):\n    return create_user_service(db, user)\n\n@router.get(\"/users\", response_model=List[User])\ndef list_users(db: Session = Depends(get_db)):\n    return list_users_service(db)\n\n@router.get(\"/users/{id}\", response_model=User)\ndef get_user_by_id(id: int, db: Session = Depends(get_db)):\n    return get_user_by_id_service(db, id)\n\n@router.delete(\"/users/{id}\", status_code=204, response_model=None)\ndef delete_user(id: int, db: Session = Depends(get_db)):\n    delete_user_service(db, id)\n    return None",
-    "app/models/post.py": "from sqlalchemy import Column, Integer, String, DateTime, ForeignKey\nfrom sqlalchemy.orm import relationship\nfrom app.database import Base\nfrom datetime import datetime\n\nclass Post(Base):\n    __tablename__ = \"posts\"\n\n    id = Column(Integer, primary_key=True, index=True)\n    title = Column(String, nullable=False)\n    content = Column(String, nullable=False)\n    user_id = Column(Integer, ForeignKey(\"users.id\"), nullable=False)\n    created_at = Column(DateTime, default=datetime.utcnow)\n    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)\n\n    user = relationship(\"User\", back_populates=\"posts\")",
-    "app/schemas/post.py": "from pydantic import BaseModel\nfrom datetime import datetime\nfrom typing import Optional\n\nclass PostBase(BaseModel):\n    title: str\n    content: str\n    user_id: int\n\nclass PostCreate(PostBase):\n    pass\n\nclass Post(PostBase):\n    id: int\n    created_at: datetime\n    updated_at: datetime\n\n    model_config = {\n        \"from_attributes\": True\n    }",
-    "app/services/post.py": "from sqlalchemy.orm import Session\nfrom fastapi import HTTPException\nfrom app.models.post import Post\nfrom app.schemas.post import PostCreate\n\ndef create_post(db: Session, post: PostCreate) -> Post:\n    db_post = Post(**post.model_dump())\n    db.add(db_post)\n    db.commit()\n    db.refresh(db_post)\n    return db_post\n\ndef list_posts(db: Session) -> list[Post]:\n    return db.query(Post).all()\n\ndef get_post_by_id(db: Session, post_id: int) -> Post:\n    post = db.query(Post).filter(Post.id == post_id).first()\n    if not post:\n        raise HTTPException(status_code=404, detail=\"Post not found\")\n    return post\n\ndef delete_post(db: Session, post_id: int) -> None:\n    post = db.query(Post).filter(Post.id == post_id).first()\n    if not post:\n        raise HTTPException(status_code=404, detail=\"Post not found\")\n    db.delete(post)\n    db.commit()\n\ndef list_posts_by_user(db: Session, user_id: int) -> list[Post]:\n    return db.query(Post).filter(Post.user_id == user_id).all()",
-    "app/routes/post.py": "from fastapi import APIRouter, Depends, HTTPException\nfrom sqlalchemy.orm import Session\nfrom typing import List\nfrom app.database import get_db\nfrom app.schemas.post import PostCreate, Post\nfrom app.services.post import create_post as create_post_service\nfrom app.services.post import list_posts as list_posts_service\nfrom app.services.post import get_post_by_id as get_post_by_id_service\nfrom app.services.post import delete_post as delete_post_service\nfrom app.services.post import list_posts_by_user as list_posts_by_user_service\n\nrouter = APIRouter()\n\n@router.post(\"/posts\", response_model=Post, status_code=201)\ndef create_post(post: PostCreate, db: Session = Depends(get_db)):\n    return create_post_service(db, post)\n\n@router.get(\"/posts\", response_model=List[Post])\ndef list_posts(db: Session = Depends(get_db)):\n    return list_posts_service(db)\n\n@router.get(\"/posts/{id}\", response_model=Post)\ndef get_post_by_id(id: int, db: Session = Depends(get_db)):\n    return get_post_by_id_service(db, id)\n\n@router.delete(\"/posts/{id}\", status_code=204, response_model=None)\ndef delete_post(id: int, db: Session = Depends(get_db)):\n    delete_post_service(db, id)\n    return None\n\n@router.get(\"/users/{id}/posts\", response_model=List[Post])\ndef list_posts_by_user(id: int, db: Session = Depends(get_db)):\n    return list_posts_by_user_service(db, id)",
-    "app/main.py": "from fastapi import FastAPI\nfrom app.database import engine, Base\nfrom app.routes.user import router as user_router\nfrom app.routes.post import router as post_router\n\napp = FastAPI()\n\n@app.on_event(\"startup\")\ndef startup():\n    Base.metadata.create_all(bind=engine)\n\napp.include_router(user_router, prefix=\"/users\")\napp.include_router(post_router, prefix=\"/posts\")"
+    "app/models/contact.py": "from sqlalchemy import Column, Integer, String, DateTime\nfrom sqlalchemy.orm import relationship\nfrom app.database import Base\nfrom datetime import datetime\n\nclass Contact(Base):\n    __tablename__ = \"contacts\"\n\n    id = Column(Integer, primary_key=True, index=True)\n    name = Column(String, nullable=False)\n    email = Column(String, nullable=False)\n    location = Column(String, nullable=True)\n    budget = Column(String, nullable=True)\n    subject = Column(String, nullable=True)\n    message = Column(String, nullable=False)\n    created_at = Column(DateTime, default=datetime.utcnow)\n    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)",
+    "app/schemas/contact.py": "from pydantic import BaseModel\nfrom datetime import datetime\nfrom typing import Optional\n\nclass ContactBase(BaseModel):\n    name: str\n    email: str\n    location: Optional[str] = None\n    budget: Optional[str] = None\n    subject: Optional[str] = None\n    message: str\n\nclass ContactCreate(ContactBase):\n    pass\n\nclass Contact(ContactBase):\n    id: int\n    created_at: datetime\n    updated_at: datetime\n\n    model_config = {\n        \"from_attributes\": True\n    }",
+    "app/services/contact.py": "from sqlalchemy.orm import Session\nfrom fastapi import HTTPException\nfrom app.models.contact import Contact\nfrom app.schemas.contact import ContactCreate\n\ndef create_contact(db: Session, contact_data: ContactCreate) -> Contact:\n    db_contact = Contact(**contact_data.model_dump())\n    db.add(db_contact)\n    db.commit()\n    db.refresh(db_contact)\n    return db_contact\n\ndef list_contacts(db: Session) -> list[Contact]:\n    return db.query(Contact).all()\n\ndef get_contact_by_id(db: Session, contact_id: int) -> Contact:\n    contact = db.query(Contact).filter(Contact.id == contact_id).first()\n    if not contact:\n        raise HTTPException(status_code=404, detail=\"Contact not found\")\n    return contact\n\ndef update_contact(db: Session, contact_id: int, contact_data: ContactCreate) -> Contact:\n    contact = db.query(Contact).filter(Contact.id == contact_id).first()\n    if not contact:\n        raise HTTPException(status_code=404, detail=\"Contact not found\")\n    for key, value in contact_data.model_dump().items():\n        setattr(contact, key, value)\n    db.commit()\n    db.refresh(contact)\n    return contact\n\ndef delete_contact(db: Session, contact_id: int) -> None:\n    contact = db.query(Contact).filter(Contact.id == contact_id).first()\n    if not contact:\n        raise HTTPException(status_code=404, detail=\"Contact not found\")\n    db.delete(contact)\n    db.commit()",
+    "app/routes/contact.py": "from fastapi import APIRouter, Depends, HTTPException\nfrom sqlalchemy.orm import Session\nfrom app.database import get_db\nfrom app.schemas.contact import ContactCreate, Contact\nfrom app.services.contact import create_contact as create_contact_service\nfrom app.services.contact import list_contacts as list_contacts_service\nfrom app.services.contact import get_contact_by_id as get_contact_by_id_service\nfrom app.services.contact import update_contact as update_contact_service\nfrom app.services.contact import delete_contact as delete_contact_service\nfrom typing import List\n\nrouter = APIRouter()\n\n@router.post(\"/contacts\", response_model=Contact, status_code=201)\ndef create_contact(contact: ContactCreate, db: Session = Depends(get_db)):\n    return create_contact_service(db, contact)\n\n@router.get(\"/contacts\", response_model=List[Contact])\ndef list_contacts(db: Session = Depends(get_db)):\n    return list_contacts_service(db)\n\n@router.get(\"/contacts/{id}\", response_model=Contact)\ndef get_contact_by_id(id: int, db: Session = Depends(get_db)):\n    return get_contact_by_id_service(db, id)\n\n@router.put(\"/contacts/{id}\", response_model=Contact)\ndef update_contact(id: int, contact: ContactCreate, db: Session = Depends(get_db)):\n    return update_contact_service(db, id, contact)\n\n@router.delete(\"/contacts/{id}\", status_code=204, response_model=None)\ndef delete_contact(id: int, db: Session = Depends(get_db)):\n    delete_contact_service(db, id)\n    return None",
+    "app/main.py": "from fastapi import FastAPI\nfrom app.database import engine, Base\nfrom app.routes.contact import router as contact_router\n\napp = FastAPI()\n\n@app.on_event(\"startup\")\nasync def startup_event():\n    Base.metadata.create_all(bind=engine)\n\napp.include_router(contact_router, prefix=\"/api/contacts\", tags=[\"contacts\"])"
   },
   "test_results": {
-    "User": {
+    "Contact": {
       "status": "passed",
-      "output": "============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 6 items\n\ntests/test_user.py::test_create_user PASSED                              [ 16%]\ntests/test_user.py::test_list_users PASSED                               [ 33%]\ntests/test_user.py::test_get_user_by_id PASSED                           [ 50%]\ntests/test_user.py::test_get_user_by_id_not_found PASSED                 [ 66%]\ntests/test_user.py::test_delete_user PASSED                              [ 83%]\ntests/test_user.py::test_delete_user_not_found PASSED                    [100%]\n\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================== 6 passed, 2 warnings in 7.02s ========================\n",
-      "errors": null
-    },
-    "Post": {
-      "status": "passed",
-      "output": "============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 6 items\n\ntests/test_post.py::test_create_post PASSED                              [ 16%]\ntests/test_post.py::test_list_posts PASSED                               [ 33%]\ntests/test_post.py::test_get_post_by_id PASSED                           [ 50%]\ntests/test_post.py::test_get_post_by_id_not_found PASSED                 [ 66%]\ntests/test_post.py::test_delete_post PASSED                              [ 83%]\ntests/test_post.py::test_delete_post_not_found PASSED                    [100%]\n\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\ntests/test_post.py: 10 warnings\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\sqlalchemy\\sql\\schema.py:3623: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    return util.wrap_callable(lambda ctx: fn(), fn)  # type: ignore\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================= 6 passed, 12 warnings in 1.02s ========================\n",
+      "output": "============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 7 items\n\ntests/test_contact.py::test_create_contact PASSED                        [ 14%]\ntests/test_contact.py::test_list_contacts PASSED                         [ 28%]\ntests/test_contact.py::test_get_contact_by_id PASSED                     [ 42%]\ntests/test_contact.py::test_get_contact_by_id_not_found PASSED           [ 57%]\ntests/test_contact.py::test_update_contact PASSED                        [ 71%]\ntests/test_contact.py::test_delete_contact PASSED                        [ 85%]\ntests/test_contact.py::test_delete_contact_not_found PASSED              [100%]\n\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\ntests/test_contact.py: 13 warnings\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\sqlalchemy\\sql\\schema.py:3623: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    return util.wrap_callable(lambda ctx: fn(), fn)  # type: ignore\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================= 7 passed, 15 warnings in 0.72s ========================\n",
       "errors": null
     }
   },
-  "error_log": "\n[TEST ERROR] Post:\n============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 7 items\n\ntests/test_post.py::test_create_post ERROR                               [ 14%]\ntests/test_post.py::test_list_posts ERROR                                [ 28%]\ntests/test_post.py::test_get_post_by_id ERROR                            [ 42%]\ntests/test_post.py::test_get_post_by_id_not_found ERROR                  [ 57%]\ntests/test_post.py::test_update_post ERROR                               [ 71%]\ntests/test_post.py::test_delete_post ERROR                               [ 85%]\ntests/test_post.py::test_delete_post_not_found ERROR                     [100%]\n\n=================================== ERRORS ====================================\n_____________________ ERROR at setup of test_create_post ______________________\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:2532: in get_property\n    return self._props[key]\n           ^^^^^^^^^^^^^^^^\nE   KeyError: 'posts'\n\nThe above exception was the direct cause of the following exception:\ntests\\test_post.py:34: in setup_database\n    db.add(User(id=1, username=\"testuser\", email=\"test@example.com\"))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<string>:4: in __init__\n    ???\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\state.py:591: in _initialize_instance\n    manager.dispatch.init(self, args, kwargs)\nvenv\\Lib\\site-packages\\sqlalchemy\\event\\attr.py:516: in __call__\n    fn(*args, **kw)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4420: in _event_on_init\n    instrumenting_mapper._check_configure()\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:2411: in _check_configure\n    _configure_registries({self.registry}, cascade=True)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4228: in _configure_registries\n    _do_configure_registries(registries, cascade)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4269: in _do_configure_registries\n    mapper._post_configure_properties()\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:2428: in _post_configure_properties\n    prop.init()\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\interfaces.py:595: in init\n    self.do_init()\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\relationships.py:1661: in do_init\n    self._generate_backref()\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\relationships.py:2145: in _generate_backref\n    self._add_reverse_property(self.back_populates)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\relationships.py:1592: in _add_reverse_property\n    other = self.mapper.get_property(key, _configure_mappers=False)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:2534: in get_property\n    raise sa_exc.InvalidRequestError(\nE   sqlalchemy.exc.InvalidRequestError: Mapper 'Mapper[User(users)]' has no property 'posts'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.\n______________________ ERROR at setup of test_list_posts ______________________\ntests\\test_post.py:34: in setup_database\n    db.add(User(id=1, username=\"testuser\", email=\"test@example.com\"))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<string>:4: in __init__\n    ???\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\state.py:591: in _initialize_instance\n    manager.dispatch.init(self, args, kwargs)\nvenv\\Lib\\site-packages\\sqlalchemy\\event\\attr.py:516: in __call__\n    fn(*args, **kw)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4420: in _event_on_init\n    instrumenting_mapper._check_configure()\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:2411: in _check_configure\n    _configure_registries({self.registry}, cascade=True)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4228: in _configure_registries\n    _do_configure_registries(registries, cascade)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4265: in _do_configure_registries\n    raise e\nE   sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[Post(posts)]'. Original exception was: Mapper 'Mapper[User(users)]' has no property 'posts'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.\n____________________ ERROR at setup of test_get_post_by_id ____________________\ntests\\test_post.py:34: in setup_database\n    db.add(User(id=1, username=\"testuser\", email=\"test@example.com\"))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<string>:4: in __init__\n    ???\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\state.py:591: in _initialize_instance\n    manager.dispatch.init(self, args, kwargs)\nvenv\\Lib\\site-packages\\sqlalchemy\\event\\attr.py:516: in __call__\n    fn(*args, **kw)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4420: in _event_on_init\n    instrumenting_mapper._check_configure()\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:2411: in _check_configure\n    _configure_registries({self.registry}, cascade=True)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4228: in _configure_registries\n    _do_configure_registries(registries, cascade)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4265: in _do_configure_registries\n    raise e\nE   sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[Post(posts)]'. Original exception was: Mapper 'Mapper[User(users)]' has no property 'posts'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.\n_______________ ERROR at setup of test_get_post_by_id_not_found _______________\ntests\\test_post.py:34: in setup_database\n    db.add(User(id=1, username=\"testuser\", email=\"test@example.com\"))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<string>:4: in __init__\n    ???\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\state.py:591: in _initialize_instance\n    manager.dispatch.init(self, args, kwargs)\nvenv\\Lib\\site-packages\\sqlalchemy\\event\\attr.py:516: in __call__\n    fn(*args, **kw)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4420: in _event_on_init\n    instrumenting_mapper._check_configure()\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:2411: in _check_configure\n    _configure_registries({self.registry}, cascade=True)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4228: in _configure_registries\n    _do_configure_registries(registries, cascade)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4265: in _do_configure_registries\n    raise e\nE   sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[Post(posts)]'. Original exception was: Mapper 'Mapper[User(users)]' has no property 'posts'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.\n_____________________ ERROR at setup of test_update_post ______________________\ntests\\test_post.py:34: in setup_database\n    db.add(User(id=1, username=\"testuser\", email=\"test@example.com\"))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<string>:4: in __init__\n    ???\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\state.py:591: in _initialize_instance\n    manager.dispatch.init(self, args, kwargs)\nvenv\\Lib\\site-packages\\sqlalchemy\\event\\attr.py:516: in __call__\n    fn(*args, **kw)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4420: in _event_on_init\n    instrumenting_mapper._check_configure()\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:2411: in _check_configure\n    _configure_registries({self.registry}, cascade=True)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4228: in _configure_registries\n    _do_configure_registries(registries, cascade)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4265: in _do_configure_registries\n    raise e\nE   sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[Post(posts)]'. Original exception was: Mapper 'Mapper[User(users)]' has no property 'posts'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.\n_____________________ ERROR at setup of test_delete_post ______________________\ntests\\test_post.py:34: in setup_database\n    db.add(User(id=1, username=\"testuser\", email=\"test@example.com\"))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<string>:4: in __init__\n    ???\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\state.py:591: in _initialize_instance\n    manager.dispatch.init(self, args, kwargs)\nvenv\\Lib\\site-packages\\sqlalchemy\\event\\attr.py:516: in __call__\n    fn(*args, **kw)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4420: in _event_on_init\n    instrumenting_mapper._check_configure()\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:2411: in _check_configure\n    _configure_registries({self.registry}, cascade=True)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4228: in _configure_registries\n    _do_configure_registries(registries, cascade)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4265: in _do_configure_registries\n    raise e\nE   sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[Post(posts)]'. Original exception was: Mapper 'Mapper[User(users)]' has no property 'posts'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.\n________________ ERROR at setup of test_delete_post_not_found _________________\ntests\\test_post.py:34: in setup_database\n    db.add(User(id=1, username=\"testuser\", email=\"test@example.com\"))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<string>:4: in __init__\n    ???\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\state.py:591: in _initialize_instance\n    manager.dispatch.init(self, args, kwargs)\nvenv\\Lib\\site-packages\\sqlalchemy\\event\\attr.py:516: in __call__\n    fn(*args, **kw)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4420: in _event_on_init\n    instrumenting_mapper._check_configure()\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:2411: in _check_configure\n    _configure_registries({self.registry}, cascade=True)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4228: in _configure_registries\n    _do_configure_registries(registries, cascade)\nvenv\\Lib\\site-packages\\sqlalchemy\\orm\\mapper.py:4265: in _do_configure_registries\n    raise e\nE   sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[Post(posts)]'. Original exception was: Mapper 'Mapper[User(users)]' has no property 'posts'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nERROR tests/test_post.py::test_create_post - sqlalchemy.exc.InvalidRequestErr...\nERROR tests/test_post.py::test_list_posts - sqlalchemy.exc.InvalidRequestErro...\nERROR tests/test_post.py::test_get_post_by_id - sqlalchemy.exc.InvalidRequest...\nERROR tests/test_post.py::test_get_post_by_id_not_found - sqlalchemy.exc.Inva...\nERROR tests/test_post.py::test_update_post - sqlalchemy.exc.InvalidRequestErr...\nERROR tests/test_post.py::test_delete_post - sqlalchemy.exc.InvalidRequestErr...\nERROR tests/test_post.py::test_delete_post_not_found - sqlalchemy.exc.Invalid...\n======================== 2 warnings, 7 errors in 1.65s ========================\n",
-  "workflow_state": "testing_done",
+  "error_log": "\n[TEST ERROR] Contact:\n============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 7 items\n\ntests/test_contact.py::test_create_contact PASSED                        [ 14%]\ntests/test_contact.py::test_list_contacts PASSED                         [ 28%]\ntests/test_contact.py::test_get_contact_by_id PASSED                     [ 42%]\ntests/test_contact.py::test_get_contact_by_id_not_found PASSED           [ 57%]\ntests/test_contact.py::test_update_contact FAILED                        [ 71%]\ntests/test_contact.py::test_delete_contact PASSED                        [ 85%]\ntests/test_contact.py::test_delete_contact_not_found PASSED              [100%]\n\n================================== FAILURES ===================================\n_____________________________ test_update_contact _____________________________\ntests\\test_contact.py:107: in test_update_contact\n    assert update_response.status_code == 200\nE   assert 405 == 200\nE    +  where 405 = <Response [405 Method Not Allowed]>.status_code\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\ntests/test_contact.py: 12 warnings\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\sqlalchemy\\sql\\schema.py:3623: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    return util.wrap_callable(lambda ctx: fn(), fn)  # type: ignore\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nFAILED tests/test_contact.py::test_update_contact - assert 405 == 200\n================== 1 failed, 6 passed, 14 warnings in 5.39s ===================\n",
+  "frontend_pages": {
+    "Homepage.tsx": "import React, { useEffect, useState } from 'react';\nimport AddressCard from '../components/AddressCard';\nimport Blog from '../components/Blog';\nimport Button from '../components/Button';\nimport Logo from '../components/Logo';\nimport Pagination from '../components/Pagination';\nimport Project from '../components/Project';\nimport SocialMediaCard from '../components/SocialMediaCard';\nimport WhatIDoCard from '../components/WhatIDoCard';\nimport WorkProcessCard from '../components/WorkProcessCard';\nimport API_BASE_URL from '../config/api';\n\nexport default function Homepage() {\n  const [scale, setScale] = useState(1);\n  const [formData, setFormData] = useState({\n    name: '',\n    email: '',\n    location: '',\n    budget: '',\n    subject: '',\n    message: ''\n  });\n  const [isSubmitting, setIsSubmitting] = useState(false);\n  const [submitStatus, setSubmitStatus] = useState<{ success: boolean; message: string } | null>(null);\n\n  useEffect(() => {\n    const updateScale = () => {\n      const screenWidth = window.innerWidth;\n      const designWidth = 1920;\n      const newScale = Math.min(1, screenWidth / designWidth);\n      setScale(newScale);\n    };\n\n    updateScale();\n    window.addEventListener('resize', updateScale);\n    return () => window.removeEventListener('resize', updateScale);\n  }, []);\n\n  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {\n    const { name, value } = e.target;\n    setFormData(prev => ({\n      ...prev,\n      [name]: value\n    }));\n  };\n\n  const handleSubmit = async (e: React.FormEvent) => {\n    e.preventDefault();\n    setIsSubmitting(true);\n    setSubmitStatus(null);\n\n    try {\n      const response = await fetch(`${API_BASE_URL}/contacts`, {\n        method: 'POST',\n        headers: {\n          'Content-Type': 'application/json',\n        },\n        body: JSON.stringify(formData),\n      });\n\n      if (response.ok) {\n        setSubmitStatus({ success: true, message: 'Message sent successfully!' });\n        setFormData({\n          name: '',\n          email: '',\n          location: '',\n          budget: '',\n          subject: '',\n          message: ''\n        });\n      } else {\n        const errorData = await response.json();\n        setSubmitStatus({ success: false, message: errorData.detail || 'Failed to send message' });\n      }\n    } catch (error) {\n      setSubmitStatus({ success: false, message: 'Network error. Please try again.' });\n    } finally {\n      setIsSubmitting(false);\n    }\n  };\n\n  return (\n    <div\n      className=\"w-full overflow-x-hidden flex justify-center bg-[#ffffff]\"\n      style={{ minHeight: `${8368 * scale}px` }}\n    >\n      <div\n        className=\"relative flex-shrink-0\"\n        style={{\n          width: `1920px`,\n          height: `8368px`,\n          transform: `scale(${scale})`,\n          transformOrigin: 'top center',\n        }}\n      >\n        {/* Section: BG */}\n        <div id=\"figma-135-1114\">\n        <div className=\"relative\">\n          <div className=\"w-[1481px] h-[1481px] absolute top-[1671px] left-[388px]\"></div>\n          <div className=\"w-[1481px] h-[1482px] absolute top-[7452px] left-[388px]\"></div>\n          <div className=\"w-[581.52px] h-[466.22px] absolute top-[2269px] left-[61px]\"></div>\n          <div className=\"w-[581.52px] h-[466.22px] absolute top-[9056px] left-[0px]\"></div>\n\n        </div>\n        </div>\n\n        {/* Section: Frame 40 */}\n        <div id=\"figma-135-727\">\n        <div className=\"flex flex-row justify-between gap-[385px] px-[300px] py-[20px] w-[1920px] h-fit bg-[#ffffff]\">\n          <div id=\"figma-135-728\" className=\"w-fit h-fit\">\n          <Logo b=\"B\" brooklyn=\"Brooklyn\" />\n        </div>\n          <div className=\"flex flex-row w-fit h-fit\">\n            <div className=\"flex flex-row justify-center items-center gap-[10px] px-[24px] py-[12px] w-fit h-fit\">\n              <span className=\"font-['Work Sans'] text-[16px] font-medium text-[#333333] text-left leading-[24px] w-[46px] h-[24px]\">Home</span>\n            </div>\n            <div className=\"flex flex-row justify-center items-center gap-[10px] px-[24px] py-[12px] w-fit h-fit\">\n              <span className=\"font-['Work Sans'] text-[16px] font-medium text-[#333333] text-left leading-[24px] w-[47px] h-[24px]\">About</span>\n            </div>\n            <div className=\"flex flex-row justify-center items-center gap-[10px] px-[24px] py-[12px] w-fit h-fit\">\n              <span className=\"font-['Work Sans'] text-[16px] font-medium text-[#333333] text-left leading-[24px] w-[62px] h-[24px]\">Process</span>\n            </div>\n            <div className=\"flex flex-row justify-center items-center gap-[10px] px-[24px] py-[12px] w-fit h-fit\">\n              <span className=\"font-['Work Sans'] text-[16px] font-medium text-[#333333] text-left leading-[24px] w-[68px] h-[24px]\">Portfolio</span>\n            </div>\n            <div className=\"flex flex-row justify-center items-center gap-[10px] px-[24px] py-[12px] w-fit h-fit\">\n              <span className=\"font-['Work Sans'] text-[16px] font-medium text-[#333333] text-left leading-[24px] w-[34px] h-[24px]\">Blog</span>\n            </div>\n            <div className=\"flex flex-row justify-center items-center gap-[10px] px-[24px] py-[12px] w-fit h-fit\">\n              <span className=\"font-['Work Sans'] text-[16px] font-medium text-[#333333] text-left leading-[24px] w-[66px] h-[24px]\">Services</span>\n            </div>\n            <div id=\"figma-135-742\" className=\"w-fit h-fit\">\n          <Button property1=\"Normal\" button=\"Contact\" />\n        </div>\n          </div>\n        </div>\n        </div>\n\n        {/* Section: unsplash:wKOKidNT14w */}\n        <div id=\"figma-135-710\">\n        <img src=\"/src/assets/c78149f6f59250b6b8cb1b0e75f260c837bd67f9.png\" alt=\"unsplash:wKOKidNT14w\" className=\"w-[536px] h-[636px] bg-[#ffffff] rounded-[25px] shadow-[0px_24px_116px_rgba(43,56,76,0.09)]\" />\n        </div>\n\n        {/* Section: Frame 15 */}\n        <div id=\"figma-135-704\">\n        <div className=\"flex flex-col gap-[24px] w-fit h-fit\">\n          <div className=\"flex flex-col gap-[16px] w-fit h-fit\">\n            <div className=\"flex flex-col w-fit h-fit\">\n              <span className=\"font-['Work Sans'] text-[72px] font-semibold text-[#132238] text-left leading-[84px] w-[579px] h-[168px]\">Hello, I’m\n        Brooklyn Gilbert</span>\n            </div>\n          </div>\n          <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#556070] text-left leading-[24px] w-[648px] h-[72px]\">I'm a Freelance UI/UX Designer and Developer based in London, England. I strives to build immersive and beautiful web applications through carefully crafted code and user-centric design.</span>\n          <div id=\"figma-135-709\" className=\"w-fit h-fit\">\n          <Button  property1=\"Normal\" button=\"Say Hello!\" />\n        </div>\n        </div>\n        </div>\n\n        {/* Section: Rectangle 32 */}\n        <div id=\"figma-135-702\">\n        <div className=\"w-[133px] h-[6px] bg-[#ffc8c8]\"></div>\n        </div>\n\n        {/* Section: Rectangle 33 */}\n        <div id=\"figma-135-703\">\n        <div className=\"w-[92px] h-[6px] bg-[#ffc8c8]\"></div>\n        </div>\n\n        {/* Section: Frame 1 */}\n        <div id=\"figma-135-711\">\n        <div className=\"flex flex-row justify-center items-center gap-[12px] w-fit h-fit bg-[rgba(237,216,255,0.5)] rounded-[6px] border-[1px] border-[#ffffff]\">\n          <div className=\"flex flex-col gap-[8px] w-fit h-fit\">\n            <span className=\"font-['Work Sans'] text-[32px] font-semibold text-[#424e60] text-center leading-[40px] w-[200px] h-[40px]\">15 Y.</span>\n            <span className=\"font-['Work Sans'] text-[16px] font-normal text-[#697484] text-center leading-[24px] w-[200px] h-[24px]\">Experience</span>\n          </div>\n          <div className=\"w-[0px] h-[106px] border-[3px] border-[#ffffff]\"></div>\n          <div className=\"flex flex-col gap-[8px] w-fit h-fit\">\n            <span className=\"font-['Work Sans'] text-[32px] font-semibold text-[#424e60] text-center leading-[40px] w-[200px] h-[40px]\">250+</span>\n            <span className=\"font-['Work Sans'] text-[16px] font-normal text-[#697484] text-center leading-[24px] w-[200px] h-[24px]\">Project Completed</span>\n          </div>\n          <div className=\"w-[0px] h-[106px] border-[3px] border-[#ffffff]\"></div>\n          <div className=\"flex flex-col gap-[8px] w-fit h-fit\">\n            <span className=\"font-['Work Sans'] text-[32px] font-semibold text-[#424e60] text-center leading-[40px] w-[200px] h-[40px]\">58</span>\n            <span className=\"font-['Work Sans'] text-[16px] font-normal text-[#697484] text-center leading-[24px] w-[200px] h-[24px]\">Happy Client</span>\n          </div>\n        </div>\n        </div>\n\n        {/* Section: Frame 288 */}\n        <div id=\"figma-231-1338\">\n        <div className=\"flex flex-col w-fit h-fit\">\n          <div className=\"h-[1608px] relative\">\n            <div className=\"flex flex-col gap-[10px] pl-[300px] pr-[300px] pt-[248px] pb-[140px] w-fit h-fit bg-[#f0f1f3] absolute top-[620px] left-[0px]\">\n              <div className=\"flex flex-row items-center gap-[143px] w-fit h-fit\">\n                <div className=\"flex flex-col gap-[24px] w-fit h-fit\">\n                  <span className=\"font-['Work Sans'] text-[48px] font-semibold text-[#132238] text-left leading-[56px] w-[323px] h-[56px]\">Work Process</span>\n                  <div className=\"flex flex-col gap-[16px] w-fit h-fit\">\n                    <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#697484] text-left leading-[24px] w-[529px] h-[96px]\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum. Suspendis imperdiet,</span>\n                    <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#697484] text-left leading-[24px] w-[529px] h-[48px]\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non.</span>\n                  </div>\n                </div>\n                <div className=\"w-[648px] h-[600px] relative rounded-[12px]\">\n                  <div id=\"figma-135-788\" className=\"w-fit h-fit absolute top-[300px] left-[0px]\">\n          <WorkProcessCard property1=\"Hover\" researchText=\"2. Design\" descriptionText=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu.\" />\n        </div>\n                  <div id=\"figma-135-790\" className=\"w-fit h-fit absolute top-[24px] left-[336px]\">\n          <WorkProcessCard property1=\"Hover\" researchText=\"2. Analyze\" descriptionText=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu.\" />\n        </div>\n                  <div id=\"figma-135-791\" className=\"w-fit h-fit absolute top-[324px] left-[336px]\">\n          <WorkProcessCard property1=\"Hover\" researchText=\"4. Launch\" descriptionText=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu.\" />\n        </div>\n                  <div id=\"figma-135-787\" className=\"w-fit h-fit absolute top-[0px] left-[0px]\">\n          <WorkProcessCard property1=\"Hover\" researchText=\"1. Research\" descriptionText=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu.\" />\n        </div>\n                </div>\n              </div>\n            </div>\n            <div className=\"flex flex-row justify-center items-center gap-[136px] p-[112px] w-fit h-fit bg-[#ffffff] absolute top-[0px] left-[300px] z-[11] rounded-[16px] shadow-[0px_36px_105px_rgba(43,56,76,0.1)]\">\n              <div className=\"relative\">\n                <div className=\"w-[424px] h-[468px] absolute top-[0px] left-[0px] rounded-[10px]\">\n                  <img src=\"/src/assets/3b89fbcc5d09a9dcfed718b9441002088571183e.png\" alt=\"Rectangle 30\" className=\"w-[424px] h-[468px] bg-[#f0f1f3] absolute top-[0px] left-[0px] rounded-[10px] border-[1px] border-[#f0f1f3]\" />\n                </div>\n                <div id=\"figma-135-769\" className=\"w-fit h-fit absolute top-[432px] left-[80px]\">\n          <SocialMediaCard property1=\"Normal\" />\n        </div>\n              </div>\n              <div className=\"flex flex-col gap-[32px] w-fit h-fit\">\n                <span className=\"font-['Work Sans'] text-[38px] font-semibold text-[#132238] text-left leading-[50px] w-[536px] h-[100px]\">I am Professional User Experience Designer</span>\n                <div className=\"flex flex-col gap-[16px] w-fit h-fit\">\n                  <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#556070] text-left leading-[24px] w-[536px] h-[72px]\">I design and develop services for customers specializing creating stylish, modern websites, web services and online stores. My passion is to design digital user experiences.</span>\n                  <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#556070] text-left leading-[24px] w-[536px] h-[48px]\">I design and develop services for customers specializing creating stylish, modern websites, web services.</span>\n                </div>\n                <div className=\"flex flex-row gap-[16px] w-fit h-fit\">\n                  <div id=\"figma-135-776\" className=\"w-fit h-fit\">\n          <Button property1=\"Normal\" button=\"My Project\" />\n        </div>\n                  <div id=\"figma-135-777\" className=\"w-fit h-fit\">\n          <Button  property1=\"Normal\" button=\"Download CV\" />\n        </div>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div className=\"flex flex-col justify-end items-center gap-[50px] py-[100px] w-fit h-fit\">\n            <div className=\"flex flex-col gap-[70px] w-fit h-fit\">\n              <div className=\"flex flex-col justify-between items-center gap-[24px] px-[300px] w-[1920px] h-[128px]\">\n                <span className=\"font-['Work Sans'] text-[48px] font-semibold text-[#132238] text-left leading-[56px] w-[205px] h-[56px]\">Portfolio</span>\n                <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#87909d] text-center leading-[24px] w-[577px] h-[48px]\">There are many variations of passages of Lorem Ipsum available,\n        but the majority have suffered alteration.</span>\n              </div>\n              <div className=\"flex flex-col justify-center items-center gap-[24px] px-[300px] w-fit h-fit\">\n                <div className=\"flex flex-row gap-[24px] w-fit h-fit\">\n                  <div id=\"figma-135-799\" className=\"w-fit h-fit\">\n          <Project property1=\"Normal\" uIUXDESIGN=\"UI-UX DESIGN\" productAdminDashboard=\"Product Admin Dashboard\" vivamusEleifendConvallisAnteNonPharetraLiberoMolestieLaoreetDonecIdImperdietLacus=\"Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.\" button=\"Case Study\" unsplash9anj7QWy2gUrl=\"/src/assets/8f107a905f0e2c2a0cc5bae15845adf0de3205ca.png\" />\n        </div>\n                  <div id=\"figma-135-800\" className=\"w-fit h-fit\">\n          <Project  property1=\"Normal\" uIUXDESIGN=\"UI-UX DESIGN\" productAdminDashboard=\"Product Admin Dashboard\" vivamusEleifendConvallisAnteNonPharetraLiberoMolestieLaoreetDonecIdImperdietLacus=\"Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.\" button=\"Case Study\" unsplash9anj7QWy2gUrl=\"/src/assets/f9342afb7c1cf7f650c9ef0b35c8f6585d27e980.png\" />\n        </div>\n                  <div id=\"figma-135-801\" className=\"w-fit h-fit\">\n          <Project  property1=\"Normal\" uIUXDESIGN=\"UI-UX DESIGN\" productAdminDashboard=\"Product Admin Dashboard\" vivamusEleifendConvallisAnteNonPharetraLiberoMolestieLaoreetDonecIdImperdietLacus=\"Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.\" button=\"Case Study\" unsplash9anj7QWy2gUrl=\"/src/assets/2da37f82fa800f0711d0ad48045ab742c6f8daf5.png\" />\n        </div>\n                </div>\n                <div className=\"flex flex-row gap-[24px] w-fit h-fit\">\n                  <div id=\"figma-135-803\" className=\"w-fit h-fit\">\n          <Project property1=\"Normal\"  uIUXDESIGN=\"UI-UX DESIGN\" productAdminDashboard=\"Product Admin Dashboard\" vivamusEleifendConvallisAnteNonPharetraLiberoMolestieLaoreetDonecIdImperdietLacus=\"Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.\" button=\"Case Study\" unsplash9anj7QWy2gUrl=\"/src/assets/ead171064222333091f36ac1c03c25f06480e9df.png\" />\n        </div>\n                  <div id=\"figma-135-804\" className=\"w-fit h-fit\">\n          <Project  property1=\"Normal\"  uIUXDESIGN=\"UI-UX DESIGN\" productAdminDashboard=\"Product Admin Dashboard\" vivamusEleifendConvallisAnteNonPharetraLiberoMolestieLaoreetDonecIdImperdietLacus=\"Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.\" button=\"Case Study\" unsplash9anj7QWy2gUrl=\"/src/assets/01120caf35209da234d0ce9c533b0ea0cacd38d4.png\" />\n        </div>\n                  <div id=\"figma-135-805\" className=\"w-fit h-fit\">\n          <Project property1=\"Normal\" uIUXDESIGN=\"UI-UX DESIGN\" productAdminDashboard=\"Product Admin Dashboard\" vivamusEleifendConvallisAnteNonPharetraLiberoMolestieLaoreetDonecIdImperdietLacus=\"Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.\" button=\"Case Study\" unsplash9anj7QWy2gUrl=\"/src/assets/3da3ab315a91b5f2dd6f1061e5b0be3e60938f12.png\" />\n        </div>\n                </div>\n              </div>\n            </div>\n            <div id=\"figma-135-806\" className=\"w-fit h-fit\">\n          <Button property1=\"Normal\" button=\"More Project\" />\n        </div>\n          </div>\n          <div className=\"flex flex-col justify-center items-center gap-[32px] px-[650px] py-[100px] w-fit h-fit bg-[#132238]\">\n            <span className=\"font-['Work Sans'] text-[48px] font-semibold text-[#ffffff] text-center leading-[56px] w-[621px] h-[112px]\">Do you have Project Idia?\n        Let's discuss your project!</span>\n            <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#a5acb5] text-center leading-[24px] w-[581px] h-[48px]\">There are many variations of passages of Lorem Ipsum available,\n        but the majority have suffered alteration.</span>\n            <div id=\"figma-135-811\" className=\"w-fit h-fit\">\n          <Button property1=\"Normal\" letSWorkTogether=\"Let’s work Together\" />\n        </div>\n          </div>\n          <div className=\"flex flex-col justify-end items-center gap-[24px] py-[100px] w-fit h-fit\">\n            <div className=\"flex flex-col justify-center items-center gap-[70px] px-[300px] w-fit h-fit\">\n              <div className=\"flex flex-col items-center gap-[24px] w-fit h-fit\">\n                <span className=\"font-['Poppins'] text-[48px] font-semibold text-[#132238] text-left leading-[56px] w-[108px] h-[56px]\">Blog</span>\n                <span className=\"font-['Public Sans'] text-[18px] font-normal text-[#87909d] text-center leading-[26px] w-[540px] h-[52px]\">There are many variations of passages of Lorem Ipsum available,\n        but the majority have suffered alteration.</span>\n              </div>\n              <div className=\"flex flex-row justify-center items-center gap-[24px] w-fit h-fit\">\n                <div id=\"figma-135-818\" className=\"w-fit h-fit\">\n          <Blog  property1=\"Hover\" _22Oct2020=\"22 Oct, 2020\" value=\"/\" _246Comments=\"246 Comments\" loremIpsumDolorSitConseaNullaPurusArcu=\"Lorem ipsum dolor sit consea. Nulla purus arcu\" unsplashHh0OAiyeF1YUrl=\"/src/assets/46c1b0b7047e0794dd8853d66cdde08771fd30d1.png\" />\n        </div>\n                <div id=\"figma-135-819\" className=\"w-fit h-fit\">\n          <Blog property1=\"Hover\" _22Oct2020=\"22 Oct, 2020\" value=\"/\" _246Comments=\"246 Comments\" loremIpsumDolorSitConseaNullaPurusArcu=\"Lorem ipsum dolor sit consea. Nulla purus arcu\" unsplashHh0OAiyeF1YUrl=\"/src/assets/6256b708bb0c4a6fd8a44b369112956ce0963c34.png\" />\n        </div>\n                <div id=\"figma-135-820\" className=\"w-fit h-fit\">\n          <Blog  property1=\"Hover\" _22Oct2020=\"22 Oct, 2020\" value=\"/\" _246Comments=\"246 Comments\" loremIpsumDolorSitConseaNullaPurusArcu=\"Lorem ipsum dolor sit consea. Nulla purus arcu\" unsplashHh0OAiyeF1YUrl=\"/src/assets/e2b8fe341e5180e7839d7d0d049b6900cd354219.png\" />\n        </div>\n                <div id=\"figma-135-821\" className=\"w-fit h-fit\">\n          <Blog property1=\"Hover\" _22Oct2020=\"22 Oct, 2020\" value=\"/\" _246Comments=\"246 Comments\" loremIpsumDolorSitConseaNullaPurusArcu=\"Lorem ipsum dolor sit consea. Nulla purus arcu\" unsplashHh0OAiyeF1YUrl=\"/src/assets/d85394fd2c31f590ee6e19eb4d05f39feb09abd5.png\" />\n        </div>\n              </div>\n            </div>\n            <div id=\"figma-135-822\" className=\"w-fit h-fit\">\n          <Pagination />\n        </div>\n          </div>\n          <div className=\"flex flex-row items-center gap-[143px] px-[300px] py-[150px] w-fit h-fit bg-[#f0f1f3]\">\n            <div className=\"flex flex-col gap-[50px] w-fit h-fit\">\n              <div className=\"flex flex-col gap-[24px] w-fit h-fit\">\n                <span className=\"font-['Work Sans'] text-[48px] font-semibold text-[#333333] text-left leading-[56px] w-[254px] h-[56px]\">What I do?</span>\n                <div className=\"flex flex-col gap-[16px] w-fit h-fit\">\n                  <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#87909d] text-left leading-[24px] w-[529px] h-[96px]\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum. Suspendis imperdiet,</span>\n                  <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#87909d] text-left leading-[24px] w-[529px] h-[48px]\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non.</span>\n                </div>\n              </div>\n              <div id=\"figma-135-830\" className=\"w-fit h-fit\">\n          <Button property1=\"Normal\" button=\"Say Hello!\" />\n        </div>\n            </div>\n            <div className=\"flex flex-col gap-[24px] w-fit h-fit\">\n              <div id=\"figma-135-832\" className=\"w-fit h-fit\">\n          <WhatIDoCard  property1=\"Normal\" userExperienceUX=\"User Experience (UX)\" loremIpsumDolorSitAmetConsecteturAdipiscingElitNullaPurusArcuVariusEgetVelitNonLaoreetImperdietOrciMaurisUltricesEgetLoremAcVestibulum=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum.\" />\n        </div>\n              <div id=\"figma-135-833\" className=\"w-fit h-fit\">\n          <WhatIDoCard  property1=\"Normal\" userExperienceUX=\"User Interface (UI)\" loremIpsumDolorSitAmetConsecteturAdipiscingElitNullaPurusArcuVariusEgetVelitNonLaoreetImperdietOrciMaurisUltricesEgetLoremAcVestibulum=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum.\" />\n        </div>\n              <div id=\"figma-135-834\" className=\"w-fit h-fit\">\n          <WhatIDoCard property1=\"Normal\" userExperienceUX=\"Web Development\" loremIpsumDolorSitAmetConsecteturAdipiscingElitNullaPurusArcuVariusEgetVelitNonLaoreetImperdietOrciMaurisUltricesEgetLoremAcVestibulum=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum.\" />\n        </div>\n            </div>\n          </div>\n          <div className=\"flex flex-col items-center gap-[24px] px-[300px] py-[100px] w-fit h-fit\">\n            <div className=\"flex flex-col justify-center items-center gap-[24px] w-fit h-fit\">\n              <span className=\"font-['Work Sans'] text-[48px] font-semibold text-[#132238] text-center leading-[56px] w-[327px] h-[56px]\">Happy Clients</span>\n              <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#87909d] text-center leading-[24px] w-[577px] h-[48px]\">There are many variations of passages of Lorem Ipsum available,\n        but the majority have suffered alteration.</span>\n            </div>\n            <div className=\"flex flex-row gap-[24px] w-fit h-fit\">\n              <div className=\"grid grid-cols-2 w-[200px] h-[200px]\">\n                <div className=\"w-[35px] h-[35px] bg-[#b8bcc2]\"></div>\n                <div className=\"w-[5px] h-[34px] bg-[#b8bcc2]\"></div>\n                <div className=\"w-[23px] h-[23px] bg-[#b8bcc2]\"></div>\n                <div className=\"w-[23px] h-[23px] bg-[#b8bcc2]\"></div>\n                <div className=\"w-[22px] h-[33px] bg-[#b8bcc2]\"></div>\n                <div className=\"w-[21px] h-[23px] bg-[#b8bcc2]\"></div>\n              </div>\n              <div className=\"w-[200px] h-[200px] relative\">\n                <div className=\"w-[140px] h-[35px] bg-[#b8bcc2] absolute top-[82px] left-[30px]\"></div>\n              </div>\n              <div className=\"w-[200px] h-[200px] relative\">\n                <div className=\"w-[37px] h-[37px] bg-[#006699] absolute top-[82px] left-[133px]\"></div>\n                <div className=\"w-[63px] h-[25px] bg-[#000000] absolute top-[88px] left-[30px]\"></div>\n                <div className=\"w-[37px] h-[24px] bg-[#000000] absolute top-[89px] left-[91px]\"></div>\n                <div className=\"w-[26px] h-[25px] bg-[#ffffff] absolute top-[88px] left-[138px]\"></div>\n              </div>\n              <div className=\"w-[200px] h-[200px] relative\">\n                <div className=\"w-[140px] h-[25px] bg-[#b8bcc2] absolute top-[94px] left-[30px]\"></div>\n                <div className=\"grid grid-cols-2 absolute top-[119.3px] left-[50px]\">\n                  <div className=\"w-[13.87px] h-[13.59px] bg-[#b8bcc2]\"></div>\n                  <div className=\"w-[67.55px] h-[15.13px] bg-[#b8bcc2]\"></div>\n                </div>\n              </div>\n              <div className=\"w-[200px] h-[200px] relative\">\n                <div className=\"w-[140px] h-[28px] bg-[#b8bcc2] absolute top-[86px] left-[30px]\"></div>\n              </div>\n              <div className=\"w-[200px] h-[200px] relative\">\n                <div className=\"w-[140px] h-[42px] bg-[#b8bcc2] absolute top-[79px] left-[30px]\"></div>\n              </div>\n            </div>\n          </div>\n          <div className=\"flex flex-col items-center gap-[50px] pl-[524px] pr-[524px] pb-[100px] w-fit h-fit\">\n            <div className=\"flex flex-col justify-center items-center gap-[70px] w-fit h-fit\">\n              <div className=\"flex flex-col items-center gap-[24px] w-fit h-fit\">\n                <span className=\"font-['Work Sans'] text-[48px] font-semibold text-[#333333] text-center leading-[56px] w-[274px] h-[56px]\">Testimonial</span>\n                <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#87909d] text-center leading-[24px] w-[577px] h-[48px]\">There are many variations of passages of Lorem Ipsum available,\n        but the majority have suffered alteration.</span>\n              </div>\n              <div className=\"flex flex-col justify-center items-center gap-[24px] w-fit h-fit\">\n                <span className=\"font-['Work Sans'] text-[18px] font-medium text-[#2b384c] text-center leading-[24px] w-[872px] h-[96px]\">“Nulla efficitur nisl sit amet velit malesuada dapibus. Duis mollis felis turpis, nec semper odio convallis at. Curabitur imperdiet semper arcu, a finibus arcu suscipit in. Donec quis placerat nibh. Maecenas est purus, eleifend ac cursus sed, tincidunt ut sapien.\n        Morbi ornare elit at libero suscipit porta.”</span>\n                <div className=\"flex flex-col justify-center items-center gap-[8px] w-fit h-fit\">\n                  <div className=\"flex flex-row justify-center items-center gap-[24px] w-fit h-fit\">\n                    <span className=\"font-['Poppins'] text-[18px] font-medium text-[#000000] text-left leading-[26px] w-[131px] h-[26px]\">Esther Howard</span>\n                  </div>\n                  <span className=\"font-['Poppins'] text-[16px] font-light text-[#000000] text-left leading-[24px] w-[268px] h-[24px]\">Managing Director, ABC company</span>\n                </div>\n              </div>\n            </div>\n            <div id=\"figma-135-874\" className=\"w-fit h-fit\">\n          <Pagination />\n        </div>\n          </div>\n          <div className=\"h-[990px] relative\">\n            <div className=\"absolute top-[660px] left-[0px]\">\n              <div className=\"w-[1920px] h-[330px] bg-[#2b384c] absolute top-[0px] left-[0px]\"></div>\n              <div className=\"flex flex-row justify-center items-center gap-[182px] px-[300px] w-fit h-[120px] bg-[#2b384c] absolute top-[160px] left-[0px]\">\n                <div id=\"figma-135-747\" className=\"w-fit h-fit\">\n          <Logo b=\"B\" brooklyn=\"Brooklyn\" />\n        </div>\n                <div className=\"flex flex-row w-fit h-fit\">\n                  <div className=\"flex flex-row justify-center items-center gap-[10px] p-[12px] w-fit h-fit\">\n                    <span className=\"font-['Work Sans'] text-[16px] font-normal text-[#f0f1f3] text-left leading-[24px] w-[46px] h-[24px]\">Home</span>\n                  </div>\n                  <div className=\"flex flex-row justify-center items-center gap-[10px] p-[12px] w-fit h-fit\">\n                    <span className=\"font-['Work Sans'] text-[16px] font-normal text-[#f0f1f3] text-left leading-[24px] w-[47px] h-[24px]\">About</span>\n                  </div>\n                  <div className=\"flex flex-row justify-center items-center gap-[10px] p-[12px] w-fit h-fit\">\n                    <span className=\"font-['Work Sans'] text-[16px] font-normal text-[#f0f1f3] text-left leading-[24px] w-[66px] h-[24px]\">Services</span>\n                  </div>\n                  <div className=\"flex flex-row justify-center items-center gap-[10px] p-[12px] w-fit h-fit\">\n                    <span className=\"font-['Work Sans'] text-[16px] font-normal text-[#f0f1f3] text-left leading-[24px] w-[61px] h-[24px]\">Process</span>\n                  </div>\n                  <div className=\"flex flex-row justify-center items-center gap-[10px] p-[12px] w-fit h-fit\">\n                    <span className=\"font-['Work Sans'] text-[16px] font-normal text-[#f0f1f3] text-left leading-[24px] w-[67px] h-[24px]\">Portfolio</span>\n                  </div>\n                  <div className=\"flex flex-row justify-center items-center gap-[10px] p-[12px] w-fit h-fit\">\n                    <span className=\"font-['Work Sans'] text-[16px] font-normal text-[#f0f1f3] text-left leading-[24px] w-[34px] h-[24px]\">Blog</span>\n                  </div>\n                  <div className=\"flex flex-row justify-center items-center gap-[10px] p-[12px] w-fit h-fit\">\n                    <span className=\"font-['Work Sans'] text-[16px] font-normal text-[#f0f1f3] text-left leading-[24px] w-[62px] h-[24px]\">Contact</span>\n                  </div>\n                </div>\n                <span className=\"font-['Work Sans'] text-[16px] font-normal text-[#ffffff] text-left leading-[24px] w-[186px] h-[24px]\">Copyright © 2022 Picto.</span>\n              </div>\n            </div>\n            <div className=\"flex flex-row justify-between items-center gap-[24px] p-[88px] w-[1320px] h-fit bg-[#ffffff] absolute top-[0px] left-[300px] z-[11] rounded-[15px] shadow-[0px_59px_124px_rgba(0,0,0,0.12)]\">\n              <div className=\"flex flex-col gap-[35px] w-fit h-fit\">\n                <div className=\"flex flex-col gap-[16px] w-[481px] h-fit\">\n                  <span className=\"font-['Work Sans'] text-[38px] font-semibold text-[#132238] text-left leading-[50px] w-[481px] h-[50px]\">Let’s discuss your Project</span>\n                  <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#87909d] text-left leading-[24px] w-[481px] h-[48px]\">There are many variations of passages of Lorem Ipsu available. but the majority have suffered alte.</span>\n                </div>\n                <div className=\"flex flex-col gap-[12px] w-fit h-fit\">\n                  <div id=\"figma-135-881\" className=\"w-[336px] h-fit\">\n          <AddressCard  property1=\"Normal\" address=\"Address:\" newMexico31134=\"New Mexico 31134\" />\n        </div>\n                  <div id=\"figma-135-882\" className=\"w-[336px] h-fit\">\n          <AddressCard  property1=\"Normal\" address=\"My Email:\" newMexico31134=\"mymail@mail.com\" />\n        </div>\n                  <div id=\"figma-135-883\" className=\"w-[336px] h-fit\">\n          <AddressCard property1=\"Normal\" address=\"Call Me Now:\" newMexico31134=\"00-1234 00000\" />\n        </div>\n                </div>\n                <div className=\"flex flex-row gap-[12px] w-fit h-fit\">\n                  <div id=\"figma-135-885\" className=\"w-fit h-fit\">\n          <SocialMediaCard property1=\"Normal\" />\n        </div>\n                  <div id=\"figma-135-886\" className=\"w-fit h-fit\">\n          <SocialMediaCard property1=\"Normal\" />\n        </div>\n                  <div id=\"figma-135-887\" className=\"w-fit h-fit\">\n          <SocialMediaCard property1=\"Normal\" />\n        </div>\n                  <div id=\"figma-135-888\" className=\"w-fit h-fit\">\n          <SocialMediaCard property1=\"Normal\" />\n        </div>\n                  <div id=\"figma-135-889\" className=\"w-fit h-fit\">\n          <SocialMediaCard property1=\"Normal\" />\n        </div>\n                </div>\n              </div>\n              <div className=\"flex flex-col gap-[50px] w-fit h-fit\">\n                <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#87909d] text-left leading-[24px] w-[560px] h-[48px]\">There are many variations of passages of Lorem Ipsu available,\nbut the majority have suffered alte.</span>\n                <form onSubmit={handleSubmit} className=\"flex flex-col gap-[50px] w-fit h-fit\">\n                  <div className=\"flex flex-col gap-[24px] w-fit h-fit\">\n                    <div className=\"flex flex-col gap-[14px] w-fit h-fit\">\n                      <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#a53dff] text-center leading-[24px] w-[61px] h-[24px]\">Name*</span>\n                      <input\n                        type=\"text\"\n                        name=\"name\"\n                        value={formData.name}\n                        onChange={handleInputChange}\n                        placeholder=\"Votre nom\"\n                        className=\"w-[560px] p-3 border-[1.5px] border-[#a53dff] rounded-md bg-white focus:outline-none focus:border-[#a53dff] focus:ring-1 focus:ring-[#a53dff]\"\n                        style={{ fontSize: '16px' }}\n                        required\n                      />\n                    </div>\n                    <div className=\"flex flex-col gap-[14px] w-fit h-fit\">\n                      <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#697484] text-center leading-[24px] w-[59px] h-[24px]\">Email*</span>\n                      <input\n                        type=\"email\"\n                        name=\"email\"\n                        value={formData.email}\n                        onChange={handleInputChange}\n                        placeholder=\"votre@email.com\"\n                        className=\"w-[560px] p-3 border-[1.5px] border-[#e6e8eb] rounded-md bg-white focus:outline-none focus:border-[#a53dff] focus:ring-1 focus:ring-[#a53dff]\"\n                        style={{ fontSize: '16px' }}\n                        required\n                      />\n                    </div>\n                    <div className=\"flex flex-col gap-[14px] w-fit h-fit\">\n                      <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#697484] text-center leading-[24px] w-[76px] h-[24px]\">Location</span>\n                      <input\n                        type=\"text\"\n                        name=\"location\"\n                        value={formData.location}\n                        onChange={handleInputChange}\n                        placeholder=\"Votre localisation\"\n                        className=\"w-[560px] p-3 border-[1.5px] border-[#e6e8eb] rounded-md bg-white focus:outline-none focus:border-[#a53dff] focus:ring-1 focus:ring-[#a53dff]\"\n                        style={{ fontSize: '16px' }}\n                      />\n                    </div>\n                    <div className=\"flex flex-row gap-[24px] w-fit h-fit\">\n                      <div className=\"flex flex-col gap-[14px] w-fit h-fit\">\n                        <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#697484] text-center leading-[24px] w-[73px] h-[24px]\">Budget*</span>\n                        <input\n                          type=\"text\"\n                          name=\"budget\"\n                          value={formData.budget}\n                          onChange={handleInputChange}\n                          placeholder=\"Votre budget\"\n                          className=\"w-[200px] p-3 border-[1.5px] border-[#e6e8eb] rounded-md bg-white focus:outline-none focus:border-[#a53dff] focus:ring-1 focus:ring-[#a53dff]\"\n                          style={{ fontSize: '16px' }}\n                          required\n                        />\n                      </div>\n                      <div className=\"flex flex-col gap-[14px] w-fit h-fit\">\n                        <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#697484] text-center leading-[24px] w-[78px] h-[24px]\">Subject*</span>\n                        <input\n                          type=\"text\"\n                          name=\"subject\"\n                          value={formData.subject}\n                          onChange={handleInputChange}\n                          placeholder=\"Sujet\"\n                          className=\"w-[336px] p-3 border-[1.5px] border-[#e6e8eb] rounded-md bg-white focus:outline-none focus:border-[#a53dff] focus:ring-1 focus:ring-[#a53dff]\"\n                          style={{ fontSize: '16px' }}\n                          required\n                        />\n                      </div>\n                    </div>\n\n                    <div className=\"flex flex-col gap-[14px] w-fit h-fit\">\n                      <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#697484] text-center leading-[24px] w-[86px] h-[24px]\">Message*</span>\n                      <textarea\n                        name=\"message\"\n                        value={formData.message}\n                        onChange={handleInputChange}\n                        placeholder=\"Votre message...\"\n                        rows={4}\n                        className=\"w-[560px] p-3 border-[1.5px] border-[#e6e8eb] rounded-md bg-white focus:outline-none focus:border-[#a53dff] focus:ring-1 focus:ring-[#a53dff] resize-y\"\n                        style={{ fontSize: '16px' }}\n                        required\n                      />\n                    </div>\n                  </div>\n                  <button\n                    type=\"submit\"\n                    disabled={isSubmitting}\n                    className=\"w-fit h-fit\"\n                  >\n                    <div id=\"figma-135-913\" className=\"w-fit h-fit\">\n                      <Button property1=\"Normal\" letSWorkTogether=\"Submit\" />\n                    </div>\n                  </button>\n                  {submitStatus && (\n                    <div className={`font-['Work Sans'] text-[16px] ${submitStatus.success ? 'text-green-600' : 'text-red-600'}`}>\n                      {submitStatus.message}\n                    </div>\n                  )}\n                </form>\n              </div>\n            </div>\n          </div>\n        </div>\n        </div>\n\n        {/* Section: Text */}\n        <div id=\"figma-135-743\">\n        <span className=\"font-['Poppins'] text-[20px] font-semibold text-[#000000] text-left leading-[24px] w-[0px] h-[24px]\"> </span>\n        </div>\n\n        {/* Section: Icon */}\n        <div id=\"figma-135-723\">\n        <div className=\"flex flex-row gap-[10px] p-[16px] w-fit h-fit bg-[#ffffff] rounded-[4px]\">\n          <div className=\"grid grid-cols-2 w-[24px] h-[24px]\">\n            <div className=\"w-[24px] h-[24px]\"></div>\n            <div className=\"w-[16.5px] h-[16.99px] border-[1.5px] border-[#363a3d]\"></div>\n          </div>\n        </div>\n        </div>\n\n        {/* Section: Icon */}\n        <div id=\"figma-135-725\">\n        <div className=\"flex flex-row gap-[10px] p-[16px] w-fit h-fit bg-[#ffffff] rounded-[5px]\">\n          <div className=\"grid grid-cols-3 w-[24px] h-[24px]\">\n            <div className=\"w-[24px] h-[24px]\"></div>\n            <div className=\"w-[5.31px] h-[5.31px] border-[1.5px] border-[#1b1d1f]\"></div>\n            <div className=\"w-[3.19px] h-[3.19px] border-[1.5px] border-[#1b1d1f]\"></div>\n            <div className=\"w-[17.22px] h-[17.22px] border-[1.5px] border-[#1b1d1f]\"></div>\n          </div>\n        </div>\n        </div>\n      </div>\n    </div>\n  );\n}"
+  },
+  "frontend_api_service": "import API_BASE_URL from \"../config/api\";\n\n\nasync function request(method: string, path: string, body?: any) {\n  const options: RequestInit = {\n    method,\n    headers: { \"Content-Type\": \"application/json\" },\n  };\n  if (body) options.body = JSON.stringify(body);\n  const response = await fetch(`${API_BASE_URL}${path}`, options);\n  if (!response.ok) throw new Error(`HTTP error: ${response.status}`);\n  if (response.status === 204) return null;\n  return response.json();\n}\n\n\n// Submit a contact form\nexport async function create_contact(, data: any) {\n  return request(\"POST\", `/contacts`, data);\n}\n\n// List all contact submissions\nexport async function list_contacts() {\n  return request(\"GET\", `/contacts`);\n}\n\n// Get a contact submission by id\nexport async function get_contact_by_id(id: number | string) {\n  return request(\"GET\", `/contacts/${}`);\n}\n\n// Delete a contact submission\nexport async function delete_contact(id: number | string) {\n  return request(\"DELETE\", `/contacts/${}`);\n}",
+  "workflow_state": "frontend_done",
   "retry_count": 1,
   "max_retries": 3
 }
