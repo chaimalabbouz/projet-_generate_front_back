@@ -11,6 +11,7 @@ class GraphState(BaseModel):
     # ---------------- OPENAPI ----------------
     openapi_spec: Optional[Dict[str, Any]] = None
 
+
     # ---------------- PLANNING ----------------
     dependency_graph: Optional[Dict[str, Any]] = None
 

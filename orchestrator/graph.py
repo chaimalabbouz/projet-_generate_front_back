@@ -7,7 +7,7 @@ from agents.tester import TesterAgent
 from agents.fixer import FixerAgent
 from agents.frontend import FrontendAgent
 from setup.project_initializer import initialize_project
-
+from agents.figma_generator import FigmaGeneratorAgent
 
 # =========================
 # ROUTING FUNCTIONS
@@ -21,12 +21,10 @@ def route_after_backend(state: GraphState) -> str:
 def route_after_tester(state: GraphState) -> str:
     if state.workflow_state and "failed" in state.workflow_state:
         return "fixer_agent"
-
     pending = [t for t in state.task_queue if t.get("status") == "pending"]
     if pending:
         return "backend_agent"
-
-    return "frontend_agent"
+    return "figma_generator_agent"   
 
 
 def route_after_fixer(state: GraphState) -> str:
@@ -48,6 +46,7 @@ def create_graph():
     tester_agent = TesterAgent()
     fixer_agent = FixerAgent()
     frontend_agent = FrontendAgent()
+    figma_generator_agent = FigmaGeneratorAgent()
 
     # nodes
     graph.add_node("openapi_agent", openapi_agent.run)
@@ -57,6 +56,8 @@ def create_graph():
     graph.add_node("tester_agent", tester_agent.run)
     graph.add_node("fixer_agent", fixer_agent.run)
     graph.add_node("frontend_agent", frontend_agent.run)
+    graph.add_node("figma_generator_agent", figma_generator_agent.run)
+
 
     # edges
     graph.set_entry_point("openapi_agent")
@@ -79,7 +80,7 @@ def create_graph():
         {
             "fixer_agent": "fixer_agent",
             "backend_agent": "backend_agent",
-            "frontend_agent": "frontend_agent",
+            "figma_generator_agent": "figma_generator_agent",
             END: END
         }
     )
@@ -93,6 +94,7 @@ def create_graph():
         }
     )
 
+    graph.add_edge("figma_generator_agent", "frontend_agent")
     graph.add_edge("frontend_agent", END)
 
     return graph.compile()

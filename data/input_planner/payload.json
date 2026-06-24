@@ -1,0 +1,455 @@
+{
+  "figma_tree": {
+    "max_depth": 3,
+    "total_canvases": 1,
+    "document": {
+      "children": [
+        {
+          "id": "2:5",
+          "name": "🎯  Design",
+          "type": "CANVAS",
+          "children": [
+            {
+              "id": "135:701",
+              "name": "Homepage",
+              "type": "FRAME",
+              "children": [
+                {
+                  "id": "135:1120",
+                  "name": "Ellipse 5",
+                  "type": "ELLIPSE"
+                },
+                {
+                  "id": "135:1119",
+                  "name": "Ellipse 4",
+                  "type": "ELLIPSE"
+                },
+                {
+                  "id": "135:1114",
+                  "name": "BG",
+                  "type": "GROUP",
+                  "children": [
+                    {
+                      "id": "135:1115",
+                      "name": "Ellipse 1",
+                      "type": "ELLIPSE"
+                    },
+                    {
+                      "id": "135:1122",
+                      "name": "Ellipse 5",
+                      "type": "ELLIPSE"
+                    },
+                    {
+                      "id": "135:1116",
+                      "name": "Ellipse 2",
+                      "type": "ELLIPSE"
+                    },
+                    {
+                      "id": "135:1123",
+                      "name": "Ellipse 6",
+                      "type": "ELLIPSE"
+                    },
+                    {
+                      "id": "135:1117",
+                      "name": "Ellipse 3",
+                      "type": "ELLIPSE"
+                    },
+                    {
+                      "id": "135:1118",
+                      "name": "Ellipse 4",
+                      "type": "VECTOR"
+                    }
+                  ]
+                },
+                {
+                  "id": "135:702",
+                  "name": "Rectangle 32",
+                  "type": "RECTANGLE"
+                },
+                {
+                  "id": "135:703",
+                  "name": "Rectangle 33",
+                  "type": "RECTANGLE"
+                },
+                {
+                  "id": "135:704",
+                  "name": "Frame 15",
+                  "type": "FRAME",
+                  "layoutMode": "VERTICAL",
+                  "children": [
+                    {
+                      "id": "135:705",
+                      "name": "Frame 13",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 1
+                    },
+                    {
+                      "id": "135:708",
+                      "name": "I'm a Freelance UI/UX Designer and Developer based in London, England. I strives to build immersive and beautiful web applications through carefully crafted code and user-centric design.",
+                      "type": "TEXT",
+                      "characters": "I'm a Freelance UI/UX Designer and Developer based in London, England. I strives to build immersive and beautiful web applications through carefully crafted code and user-centric design."
+                    },
+                    {
+                      "id": "135:709",
+                      "name": "Button",
+                      "type": "INSTANCE",
+                      "layoutMode": "HORIZONTAL",
+                      "componentId": "89:7226",
+                      "has_children": true,
+                      "children_count": 1
+                    }
+                  ]
+                },
+                {
+                  "id": "135:710",
+                  "name": "unsplash:wKOKidNT14w",
+                  "type": "FRAME"
+                },
+                {
+                  "id": "135:711",
+                  "name": "Frame 1",
+                  "type": "FRAME",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "id": "135:712",
+                      "name": "Frame 17",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "135:715",
+                      "name": "Line 1",
+                      "type": "LINE"
+                    },
+                    {
+                      "id": "135:716",
+                      "name": "Frame 18",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "135:719",
+                      "name": "Line 2",
+                      "type": "LINE"
+                    },
+                    {
+                      "id": "135:720",
+                      "name": "Frame 19",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 2
+                    }
+                  ]
+                },
+                {
+                  "id": "135:723",
+                  "name": "Icon",
+                  "type": "FRAME",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "id": "135:724",
+                      "name": "House",
+                      "type": "INSTANCE",
+                      "componentId": "17:465",
+                      "has_children": true,
+                      "children_count": 2
+                    }
+                  ]
+                },
+                {
+                  "id": "135:725",
+                  "name": "Icon",
+                  "type": "FRAME",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "id": "135:726",
+                      "name": "PhoneCall",
+                      "type": "INSTANCE",
+                      "componentId": "17:493",
+                      "has_children": true,
+                      "children_count": 4
+                    }
+                  ]
+                },
+                {
+                  "id": "135:727",
+                  "name": "Frame 40",
+                  "type": "FRAME",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "id": "135:728",
+                      "name": "Logo",
+                      "type": "INSTANCE",
+                      "layoutMode": "HORIZONTAL",
+                      "componentId": "94:658",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "135:729",
+                      "name": "Frame 39",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 7
+                    }
+                  ]
+                },
+                {
+                  "id": "135:743",
+                  "name": "Text",
+                  "type": "TEXT",
+                  "characters": " "
+                },
+                {
+                  "id": "231:1338",
+                  "name": "Frame 288",
+                  "type": "FRAME",
+                  "layoutMode": "VERTICAL",
+                  "children": [
+                    {
+                      "id": "231:1337",
+                      "name": "Group 1",
+                      "type": "GROUP",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "135:792",
+                      "name": "Portfolio",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "135:807",
+                      "name": "Call to action",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 3
+                    },
+                    {
+                      "id": "135:812",
+                      "name": "Blog",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "135:823",
+                      "name": "What I do?",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "135:835",
+                      "name": "Hapyy Clients",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "135:863",
+                      "name": "Testimonial",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "231:1339",
+                      "name": "Group 2",
+                      "type": "GROUP",
+                      "has_children": true,
+                      "children_count": 2
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "reusable_components": [
+    {
+      "component_id": "89:7213",
+      "name": "Social Media card",
+      "kind": "standalone"
+    },
+    {
+      "component_id": "89:7181",
+      "name": "Pagination",
+      "kind": "standalone"
+    },
+    {
+      "component_id": "94:658",
+      "name": "Logo",
+      "kind": "standalone"
+    },
+    {
+      "component_set_id": "89:7039",
+      "name": "Project",
+      "kind": "variant_set",
+      "variant_component_ids": [
+        "89:7038",
+        "89:7040"
+      ],
+      "variant_props": {
+        "Property 1": [
+          "Hover",
+          "Normal"
+        ]
+      }
+    },
+    {
+      "component_set_id": "89:7154",
+      "name": "Blog",
+      "kind": "variant_set",
+      "variant_component_ids": [
+        "89:7108",
+        "89:7155"
+      ],
+      "variant_props": {
+        "Property 1": [
+          "Normal",
+          "Hover"
+        ]
+      }
+    },
+    {
+      "component_set_id": "89:7165",
+      "name": "Work Process Card",
+      "kind": "variant_set",
+      "variant_component_ids": [
+        "89:7163",
+        "89:7164"
+      ],
+      "variant_props": {
+        "Property 1": [
+          "Hover",
+          "Normal"
+        ]
+      }
+    },
+    {
+      "component_set_id": "89:7168",
+      "name": "Address Card",
+      "kind": "variant_set",
+      "variant_component_ids": [
+        "89:7166",
+        "89:7167"
+      ],
+      "variant_props": {
+        "Property 1": [
+          "Hover",
+          "Normal"
+        ]
+      }
+    },
+    {
+      "component_set_id": "89:7171",
+      "name": "What I do card",
+      "kind": "variant_set",
+      "variant_component_ids": [
+        "89:7169",
+        "89:7170"
+      ],
+      "variant_props": {
+        "Property 1": [
+          "Hover",
+          "Normal"
+        ]
+      }
+    },
+    {
+      "component_set_id": "89:7180",
+      "name": "Social Media card",
+      "kind": "variant_set",
+      "variant_component_ids": [
+        "89:7178",
+        "89:7179"
+      ],
+      "variant_props": {
+        "Property 1": [
+          "Hover",
+          "Normal"
+        ]
+      }
+    },
+    {
+      "component_set_id": "89:7182",
+      "name": "Social",
+      "kind": "variant_set",
+      "variant_component_ids": [
+        "89:7177",
+        "89:7176",
+        "89:7175",
+        "89:7174",
+        "89:7173"
+      ],
+      "variant_props": {
+        "Property 1": [
+          "Behance",
+          "Dribbble",
+          "Facebook",
+          "Instagram",
+          "Linkdin"
+        ]
+      }
+    },
+    {
+      "component_set_id": "89:7227",
+      "name": "Button",
+      "kind": "variant_set",
+      "variant_component_ids": [
+        "89:7226",
+        "89:7221",
+        "89:7224",
+        "89:7222",
+        "89:7219",
+        "89:7225",
+        "123:493",
+        "123:499",
+        "123:495",
+        "123:526",
+        "123:530",
+        "123:509"
+      ],
+      "variant_props": {
+        "Property 1": [
+          "Right Icon Hover",
+          "Normal",
+          "Hover",
+          "Left Icon Normal",
+          "Left Icon Hover",
+          "Right Icon Normal",
+          "Border Normal Button",
+          "Letf Icon Border Button",
+          "Border Hover Button",
+          "Left Icon Border Hover Button",
+          "Right Icon Bordar normal",
+          "Right Icon Bordar Hover"
+        ]
+      }
+    }
+  ]
+}

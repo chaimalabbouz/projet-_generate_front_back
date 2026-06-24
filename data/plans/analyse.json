@@ -1,0 +1,35 @@
+{
+  "pages": [
+    {
+      "id": "135:701",
+      "name": "Homepage",
+      "suggested_file": "src/pages/Homepage.tsx",
+      "components_used": [
+        "Button",
+        "Logo"
+      ]
+    }
+  ],
+  "project_structure": {
+    "src/pages": [
+      "Homepage.tsx"
+    ],
+    "src/components": [
+      "Button.tsx",
+      "Logo.tsx",
+      "SocialMediaCard.tsx",
+      "Pagination.tsx",
+      "Project.tsx",
+      "Blog.tsx",
+      "WorkProcessCard.tsx",
+      "AddressCard.tsx",
+      "WhatIDoCard.tsx",
+      "SocialMediaCard.tsx",
+      "Social.tsx"
+    ]
+  },
+  "summary": {
+    "total_pages": 1,
+    "total_components": 11
+  }
+}

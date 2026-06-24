@@ -18,9 +18,13 @@ class FrontendAgent:
             temperature=0.1,
         )
 
-        prompt_path = os.path.join(PROMPTS_PATH, "frontend.txt")
-        with open(prompt_path, "r", encoding="utf-8") as f:
-            self.system_prompt_template = f.read()
+        clean_prompt_path = os.path.join(PROMPTS_PATH, "frontend_clean.txt")
+        with open(clean_prompt_path, "r", encoding="utf-8") as f:
+            self.clean_prompt_template = f.read()
+
+        connect_prompt_path = os.path.join(PROMPTS_PATH, "frontend_connect.txt")
+        with open(connect_prompt_path, "r", encoding="utf-8") as f:
+            self.connect_prompt_template = f.read()
 
     # =========================
     # MAIN NODE (LANGGRAPH)
@@ -52,10 +56,14 @@ class FrontendAgent:
                 with open(page_path, "r", encoding="utf-8") as f:
                     page_code = f.read()
 
-                modified_code = self._call_llm(filename, page_code, endpoints)
+                print(f"  → Pass 1 cleaning: {filename}")
+                cleaned_code = self._call_clean_llm(filename, page_code)
 
-                self._write_file(f"src/pages/{filename}", modified_code)
-                state.frontend_pages[filename] = modified_code
+                print(f"  → Pass 2 connecting: {filename}")
+                connected_code = self._call_connect_llm(filename, cleaned_code, endpoints)
+
+                self._write_file(f"src/pages/{filename}", connected_code)
+                state.frontend_pages[filename] = connected_code
                 print(f"  ✓ Modified: src/pages/{filename}")
 
             state.workflow_state = "frontend_done"
@@ -114,16 +122,13 @@ async function request(method: string, path: string, body?: any) {
             summary = endpoint.get("summary", "")
 
             path_params = re.findall(r"\{(\w+)\}", path)
-
             params = ", ".join([f"{p}: number | string" for p in path_params])
             if method in ["POST", "PUT", "PATCH"]:
                 params = f"{params}, {'data: any' if params else 'data: any'}"
 
-            ts_path = re.sub(r"\{(\w+)\}", r"${\\1}", path)
-            ts_path = ts_path.replace("\\1", "")
-
+            ts_path = path
             for p in path_params:
-                ts_path = ts_path.replace(f"${{{p.replace('', '')}}}", f"${{{p}}}")
+                ts_path = ts_path.replace(f"{{{p}}}", f"${{{p}}}")
 
             body_arg = ", data" if method in ["POST", "PUT", "PATCH"] else ""
 
@@ -137,12 +142,10 @@ export async function {operation_id}({params}) {{
         return "\n".join(functions)
 
     # =========================
-    # LLM CALL
+    # PASS 1 - CLEAN LLM CALL
     # =========================
-    def _call_llm(self, filename: str, page_code: str, endpoints: list) -> str:
-        system_prompt = self.system_prompt_template.replace(
-            "{endpoints}", json.dumps(endpoints, indent=2)
-        ).replace(
+    def _call_clean_llm(self, filename: str, page_code: str) -> str:
+        system_prompt = self.clean_prompt_template.replace(
             "{filename}", filename
         ).replace(
             "{page_code}", page_code
@@ -150,7 +153,7 @@ export async function {operation_id}({params}) {{
 
         messages = [
             SystemMessage(content=system_prompt),
-            HumanMessage(content=f"Analyze the page '{filename}' and connect it to the backend API. Return ONLY the complete modified TypeScript React code, no explanation, no markdown, no backticks.")
+            HumanMessage(content=f"Clean and improve the semantic structure of '{filename}'. Return ONLY the complete improved TypeScript React code, no explanation, no markdown, no backticks.")
         ]
 
         max_retries = 3
@@ -164,7 +167,37 @@ export async function {operation_id}({params}) {{
                 last_error = e
                 continue
 
-        raise Exception(f"LLM call failed after 3 retries: {str(last_error)}")
+        raise Exception(f"Clean LLM call failed after 3 retries: {str(last_error)}")
+
+    # =========================
+    # PASS 2 - CONNECT LLM CALL
+    # =========================
+    def _call_connect_llm(self, filename: str, page_code: str, endpoints: list) -> str:
+        system_prompt = self.connect_prompt_template.replace(
+            "{endpoints}", json.dumps(endpoints, indent=2)
+        ).replace(
+            "{filename}", filename
+        ).replace(
+            "{page_code}", page_code
+        )
+
+        messages = [
+            SystemMessage(content=system_prompt),
+            HumanMessage(content=f"Connect '{filename}' to the backend API. Return ONLY the complete modified TypeScript React code, no explanation, no markdown, no backticks.")
+        ]
+
+        max_retries = 3
+        last_error = None
+
+        for attempt in range(max_retries):
+            try:
+                response = self.llm.invoke(messages)
+                return self._clean_code(response.content)
+            except Exception as e:
+                last_error = e
+                continue
+
+        raise Exception(f"Connect LLM call failed after 3 retries: {str(last_error)}")
 
     # =========================
     # CLEAN CODE
