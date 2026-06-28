@@ -112,26 +112,26 @@ def _create_backend_folders():
 
 
 def _create_init_files():
-    print("[SETUP] Creating __init__.py files...")
+    #print("[SETUP] Creating __init__.py files...")
     for init_file in INIT_FILES:
         full_path = os.path.join(GENERATED_PROJECT_PATH, init_file)
         with open(full_path, "w", encoding="utf-8") as f:
             f.write("")
-        print(f"  ✓ {full_path}")
+        #print(f"  ✓ {full_path}")
 
 
 def _create_venv():
-    print("[SETUP] Creating backend virtual environment...")
+    #print("[SETUP] Creating backend virtual environment...")
     venv_path = os.path.join(GENERATED_PROJECT_PATH, "venv")
     subprocess.run(
         [sys.executable, "-m", "venv", venv_path],
         check=True
     )
-    print(f"  ✓ venv created at {venv_path}")
+    #print(f"  ✓ venv created at {venv_path}")
 
 
 def _install_backend_dependencies():
-    print("[SETUP] Installing backend dependencies...")
+    #print("[SETUP] Installing backend dependencies...")
     if os.name == "nt":
         pip_path = os.path.join(GENERATED_PROJECT_PATH, "venv", "Scripts", "pip")
     else:
@@ -141,30 +141,30 @@ def _install_backend_dependencies():
         [pip_path, "install"] + BACKEND_DEPENDENCIES,
         check=True
     )
-    print(f"  ✓ Backend dependencies installed")
+    #print(f"  ✓ Backend dependencies installed")
 
 
 def _create_database_file():
-    print("[SETUP] Creating database.py...")
+    #print("[SETUP] Creating database.py...")
     full_path = os.path.join(GENERATED_PROJECT_PATH, "app", "database.py")
     with open(full_path, "w", encoding="utf-8") as f:
         f.write(DATABASE_PY)
-    print(f"  ✓ {full_path}")
+    #print(f"  ✓ {full_path}")
 
 
 def _create_requirements_file():
-    print("[SETUP] Creating requirements.txt...")
+    #print("[SETUP] Creating requirements.txt...")
     full_path = os.path.join(GENERATED_PROJECT_PATH, "requirements.txt")
     with open(full_path, "w", encoding="utf-8") as f:
         f.write(REQUIREMENTS_TXT)
-    print(f"  ✓ {full_path}")
+    #print(f"  ✓ {full_path}")
 
 
 # =========================
 # FRONTEND STEPS
 # =========================
 def _create_vite_project():
-    print("[SETUP] Creating Vite React project...")
+    #print("[SETUP] Creating Vite React project...")
     os.makedirs(GENERATED_PROJECT_PATH, exist_ok=True)
 
     subprocess.run(
@@ -173,7 +173,7 @@ def _create_vite_project():
         check=True,
         shell=True
     )
-    print(f"  ✓ Vite project created at {FRONTEND_PATH}")
+    #print(f"  ✓ Vite project created at {FRONTEND_PATH}")
 
 
 def _install_frontend_dependencies():
@@ -184,11 +184,11 @@ def _install_frontend_dependencies():
         check=True,
         shell=True
     )
-    print(f"  ✓ Frontend dependencies installed")
+    #print(f"  ✓ Frontend dependencies installed")
 
 
 def _copy_frontend_files():
-    print("[SETUP] Copying frontend files...")
+    #print("[SETUP] Copying frontend files...")
 
     components_src = os.path.join(INPUTS_FRONTEND_PATH, "components")
     components_dst = os.path.join(FRONTEND_PATH, "src", "components")
@@ -200,7 +200,7 @@ def _copy_frontend_files():
                 os.path.join(components_src, file),
                 os.path.join(components_dst, file)
             )
-            print(f"  ✓ Copied component: {file}")
+            #print(f"  ✓ Copied component: {file}")
 
     pages_src = os.path.join(INPUTS_FRONTEND_PATH, "pages")
     pages_dst = os.path.join(FRONTEND_PATH, "src", "pages")
@@ -212,11 +212,11 @@ def _copy_frontend_files():
                 os.path.join(pages_src, file),
                 os.path.join(pages_dst, file)
             )
-            print(f"  ✓ Copied page: {file}")
+            #print(f"  ✓ Copied page: {file}")
 
 
 def _create_api_config():
-    print("[SETUP] Creating API config...")
+    #print("[SETUP] Creating API config...")
     config_dir = os.path.join(FRONTEND_PATH, "src", "config")
     os.makedirs(config_dir, exist_ok=True)
     full_path = os.path.join(config_dir, "api.ts")

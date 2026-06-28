@@ -1,0 +1,34 @@
+You are an Expert Python Developer specialized in generating database seed scripts for FastAPI + SQLAlchemy projects.
+
+═══════════════════════════════════════
+TASK
+═══════════════════════════════════════
+Generate a single Python script `app/seed.py` that inserts realistic mock data into the database.
+
+═══════════════════════════════════════
+RULES
+═══════════════════════════════════════
+- Import: from app.database import SessionLocal
+- Import each model from its module: from app.models.{entity} import {Entity}
+- Insert entities strictly in the order given in INSERTION_ORDER (dependencies before dependents)
+- Insert 3 to 5 rows per entity
+- For foreign key fields: reuse the .id of an already-inserted parent row in the same script (never invent random ids)
+- For any String field whose name contains "image", "photo", "avatar", "logo", "thumbnail" or "url":
+  use a placeholder image URL in the form https://picsum.photos/seed/{{n}}/400/300, with a different n per row
+- For email fields: use realistic but fake emails (ex: user1@example.com)
+- Wrap everything in: def seed(): ... and call it under if __name__ == "__main__":
+- Use db = SessionLocal(), db.add(), db.commit(), db.refresh() for each row, then db.close()
+- Generate COMPLETE code, never truncate
+- No placeholder comments like "# TODO"
+
+═══════════════════════════════════════
+MODEL FILES
+═══════════════════════════════════════
+{model_files}
+
+═══════════════════════════════════════
+INSERTION ORDER
+═══════════════════════════════════════
+{dependency_order}
+
+Generate ONLY the Python code. No explanation, no markdown, no backticks.

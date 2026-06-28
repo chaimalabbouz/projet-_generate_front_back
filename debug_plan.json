@@ -1,0 +1,2368 @@
+{
+  "dependency_graph": {
+    "Category": [],
+    "Product": [
+      "Category"
+    ],
+    "Customer": [],
+    "Order": [
+      "Customer"
+    ],
+    "OrderItem": [
+      "Order",
+      "Product"
+    ]
+  },
+  "file_plan": [
+    {
+      "path": "app/models/category.py",
+      "type": "model",
+      "entity": "Category",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "is_active",
+          "type": "Boolean",
+          "primary_key": false,
+          "nullable": false,
+          "default": true
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()",
+          "onupdate": "func.now()"
+        }
+      ]
+    },
+    {
+      "path": "app/schemas/category.py",
+      "type": "schema",
+      "entity": "Category",
+      "schemas": [
+        {
+          "name": "CategoryCreate",
+          "fields": [
+            {
+              "name": "name",
+              "type": "str"
+            },
+            {
+              "name": "description",
+              "type": "Optional[str]",
+              "default": null
+            },
+            {
+              "name": "is_active",
+              "type": "bool",
+              "default": true
+            }
+          ]
+        },
+        {
+          "name": "Category",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "name",
+              "type": "str"
+            },
+            {
+              "name": "description",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "is_active",
+              "type": "bool"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/services/category.py",
+      "type": "service",
+      "entity": "Category",
+      "functions": [
+        {
+          "name": "create_category",
+          "input": [
+            "db: Session",
+            "category_data: CategoryCreate"
+          ],
+          "output": "Category",
+          "description": "Create a new category"
+        },
+        {
+          "name": "list_categories",
+          "input": [
+            "db: Session"
+          ],
+          "output": "List[Category]",
+          "description": "List all categories"
+        },
+        {
+          "name": "get_category_by_id",
+          "input": [
+            "db: Session",
+            "category_id: int"
+          ],
+          "output": "Category",
+          "description": "Get a category by ID, raise 404 if not found"
+        },
+        {
+          "name": "update_category",
+          "input": [
+            "db: Session",
+            "category_id: int",
+            "category_data: CategoryCreate"
+          ],
+          "output": "Category",
+          "description": "Update a category by ID, raise 404 if not found"
+        }
+      ]
+    },
+    {
+      "path": "app/routes/category.py",
+      "type": "route",
+      "entity": "Category",
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/categories",
+          "operationId": "create_category",
+          "input": "CategoryCreate",
+          "output": "Category",
+          "status_code": 201,
+          "calls_service": "create_category"
+        },
+        {
+          "method": "GET",
+          "path": "/categories",
+          "operationId": "list_categories",
+          "input": null,
+          "output": "List[Category]",
+          "status_code": 200,
+          "calls_service": "list_categories"
+        },
+        {
+          "method": "GET",
+          "path": "/categories/{id}",
+          "operationId": "get_category_by_id",
+          "input": "int: id",
+          "output": "Category",
+          "status_code": 200,
+          "calls_service": "get_category_by_id"
+        },
+        {
+          "method": "PUT",
+          "path": "/categories/{id}",
+          "operationId": "update_category",
+          "input": [
+            "int: id",
+            "CategoryCreate"
+          ],
+          "output": "Category",
+          "status_code": 200,
+          "calls_service": "update_category"
+        }
+      ]
+    },
+    {
+      "path": "app/models/product.py",
+      "type": "model",
+      "entity": "Product",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "price",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "stock_quantity",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "default": 0
+        },
+        {
+          "name": "is_available",
+          "type": "Boolean",
+          "primary_key": false,
+          "nullable": false,
+          "default": true
+        },
+        {
+          "name": "category_id",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": "Category.id"
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()",
+          "onupdate": "func.now()"
+        }
+      ]
+    },
+    {
+      "path": "app/schemas/product.py",
+      "type": "schema",
+      "entity": "Product",
+      "schemas": [
+        {
+          "name": "ProductCreate",
+          "fields": [
+            {
+              "name": "name",
+              "type": "str"
+            },
+            {
+              "name": "description",
+              "type": "Optional[str]",
+              "default": null
+            },
+            {
+              "name": "price",
+              "type": "int"
+            },
+            {
+              "name": "stock_quantity",
+              "type": "int",
+              "default": 0
+            },
+            {
+              "name": "is_available",
+              "type": "bool",
+              "default": true
+            },
+            {
+              "name": "category_id",
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "name": "Product",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "name",
+              "type": "str"
+            },
+            {
+              "name": "description",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "price",
+              "type": "int"
+            },
+            {
+              "name": "stock_quantity",
+              "type": "int"
+            },
+            {
+              "name": "is_available",
+              "type": "bool"
+            },
+            {
+              "name": "category_id",
+              "type": "int"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/services/product.py",
+      "type": "service",
+      "entity": "Product",
+      "functions": [
+        {
+          "name": "create_product",
+          "input": [
+            "db: Session",
+            "product_data: ProductCreate"
+          ],
+          "output": "Product",
+          "description": "Create a new product"
+        },
+        {
+          "name": "list_products",
+          "input": [
+            "db: Session"
+          ],
+          "output": "List[Product]",
+          "description": "List all products"
+        },
+        {
+          "name": "get_product_by_id",
+          "input": [
+            "db: Session",
+            "product_id: int"
+          ],
+          "output": "Product",
+          "description": "Get a product by ID, raise 404 if not found"
+        },
+        {
+          "name": "update_product",
+          "input": [
+            "db: Session",
+            "product_id: int",
+            "product_data: ProductCreate"
+          ],
+          "output": "Product",
+          "description": "Update a product by ID, raise 404 if not found"
+        },
+        {
+          "name": "delete_product",
+          "input": [
+            "db: Session",
+            "product_id: int"
+          ],
+          "output": "None",
+          "description": "Delete a product by ID, raise 404 if not found"
+        },
+        {
+          "name": "list_products_by_category",
+          "input": [
+            "db: Session",
+            "category_id: int"
+          ],
+          "output": "List[Product]",
+          "description": "List products by category ID"
+        }
+      ]
+    },
+    {
+      "path": "app/routes/product.py",
+      "type": "route",
+      "entity": "Product",
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/products",
+          "operationId": "create_product",
+          "input": "ProductCreate",
+          "output": "Product",
+          "status_code": 201,
+          "calls_service": "create_product"
+        },
+        {
+          "method": "GET",
+          "path": "/products",
+          "operationId": "list_products",
+          "input": null,
+          "output": "List[Product]",
+          "status_code": 200,
+          "calls_service": "list_products"
+        },
+        {
+          "method": "GET",
+          "path": "/products/{id}",
+          "operationId": "get_product_by_id",
+          "input": "int: id",
+          "output": "Product",
+          "status_code": 200,
+          "calls_service": "get_product_by_id"
+        },
+        {
+          "method": "PUT",
+          "path": "/products/{id}",
+          "operationId": "update_product",
+          "input": [
+            "int: id",
+            "ProductCreate"
+          ],
+          "output": "Product",
+          "status_code": 200,
+          "calls_service": "update_product"
+        },
+        {
+          "method": "DELETE",
+          "path": "/products/{id}",
+          "operationId": "delete_product",
+          "input": "int: id",
+          "output": null,
+          "status_code": 204,
+          "calls_service": "delete_product"
+        },
+        {
+          "method": "GET",
+          "path": "/categories/{id}/products",
+          "operationId": "list_products_by_category",
+          "input": "int: id",
+          "output": "List[Product]",
+          "status_code": 200,
+          "calls_service": "list_products_by_category"
+        }
+      ]
+    },
+    {
+      "path": "app/models/customer.py",
+      "type": "model",
+      "entity": "Customer",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false
+        },
+        {
+          "name": "full_name",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "email",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "phone",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "is_premium",
+          "type": "Boolean",
+          "primary_key": false,
+          "nullable": false,
+          "default": false
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()",
+          "onupdate": "func.now()"
+        }
+      ]
+    },
+    {
+      "path": "app/schemas/customer.py",
+      "type": "schema",
+      "entity": "Customer",
+      "schemas": [
+        {
+          "name": "CustomerCreate",
+          "fields": [
+            {
+              "name": "full_name",
+              "type": "str"
+            },
+            {
+              "name": "email",
+              "type": "str"
+            },
+            {
+              "name": "phone",
+              "type": "Optional[str]",
+              "default": null
+            },
+            {
+              "name": "is_premium",
+              "type": "bool",
+              "default": false
+            }
+          ]
+        },
+        {
+          "name": "Customer",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "full_name",
+              "type": "str"
+            },
+            {
+              "name": "email",
+              "type": "str"
+            },
+            {
+              "name": "phone",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "is_premium",
+              "type": "bool"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/services/customer.py",
+      "type": "service",
+      "entity": "Customer",
+      "functions": [
+        {
+          "name": "create_customer",
+          "input": [
+            "db: Session",
+            "customer_data: CustomerCreate"
+          ],
+          "output": "Customer",
+          "description": "Create a new customer"
+        },
+        {
+          "name": "list_customers",
+          "input": [
+            "db: Session"
+          ],
+          "output": "List[Customer]",
+          "description": "List all customers"
+        },
+        {
+          "name": "get_customer_by_id",
+          "input": [
+            "db: Session",
+            "customer_id: int"
+          ],
+          "output": "Customer",
+          "description": "Get a customer by ID, raise 404 if not found"
+        },
+        {
+          "name": "update_customer",
+          "input": [
+            "db: Session",
+            "customer_id: int",
+            "customer_data: CustomerCreate"
+          ],
+          "output": "Customer",
+          "description": "Update a customer by ID, raise 404 if not found"
+        }
+      ]
+    },
+    {
+      "path": "app/routes/customer.py",
+      "type": "route",
+      "entity": "Customer",
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/customers",
+          "operationId": "create_customer",
+          "input": "CustomerCreate",
+          "output": "Customer",
+          "status_code": 201,
+          "calls_service": "create_customer"
+        },
+        {
+          "method": "GET",
+          "path": "/customers",
+          "operationId": "list_customers",
+          "input": null,
+          "output": "List[Customer]",
+          "status_code": 200,
+          "calls_service": "list_customers"
+        },
+        {
+          "method": "GET",
+          "path": "/customers/{id}",
+          "operationId": "get_customer_by_id",
+          "input": "int: id",
+          "output": "Customer",
+          "status_code": 200,
+          "calls_service": "get_customer_by_id"
+        },
+        {
+          "method": "PUT",
+          "path": "/customers/{id}",
+          "operationId": "update_customer",
+          "input": [
+            "int: id",
+            "CustomerCreate"
+          ],
+          "output": "Customer",
+          "status_code": 200,
+          "calls_service": "update_customer"
+        }
+      ]
+    },
+    {
+      "path": "app/models/order.py",
+      "type": "model",
+      "entity": "Order",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false
+        },
+        {
+          "name": "order_number",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "total_amount",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "customer_id",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": "Customer.id"
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()",
+          "onupdate": "func.now()"
+        }
+      ]
+    },
+    {
+      "path": "app/schemas/order.py",
+      "type": "schema",
+      "entity": "Order",
+      "schemas": [
+        {
+          "name": "OrderCreate",
+          "fields": [
+            {
+              "name": "order_number",
+              "type": "str"
+            },
+            {
+              "name": "total_amount",
+              "type": "int"
+            },
+            {
+              "name": "status",
+              "type": "str"
+            },
+            {
+              "name": "customer_id",
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "name": "Order",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "order_number",
+              "type": "str"
+            },
+            {
+              "name": "total_amount",
+              "type": "int"
+            },
+            {
+              "name": "status",
+              "type": "str"
+            },
+            {
+              "name": "customer_id",
+              "type": "int"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/services/order.py",
+      "type": "service",
+      "entity": "Order",
+      "functions": [
+        {
+          "name": "create_order",
+          "input": [
+            "db: Session",
+            "order_data: OrderCreate"
+          ],
+          "output": "Order",
+          "description": "Create a new order"
+        },
+        {
+          "name": "list_orders",
+          "input": [
+            "db: Session"
+          ],
+          "output": "List[Order]",
+          "description": "List all orders"
+        },
+        {
+          "name": "get_order_by_id",
+          "input": [
+            "db: Session",
+            "order_id: int"
+          ],
+          "output": "Order",
+          "description": "Get an order by ID, raise 404 if not found"
+        },
+        {
+          "name": "delete_order",
+          "input": [
+            "db: Session",
+            "order_id: int"
+          ],
+          "output": "None",
+          "description": "Delete an order by ID, raise 404 if not found"
+        },
+        {
+          "name": "list_orders_by_customer",
+          "input": [
+            "db: Session",
+            "customer_id: int"
+          ],
+          "output": "List[Order]",
+          "description": "List orders by customer ID"
+        }
+      ]
+    },
+    {
+      "path": "app/routes/order.py",
+      "type": "route",
+      "entity": "Order",
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/orders",
+          "operationId": "create_order",
+          "input": "OrderCreate",
+          "output": "Order",
+          "status_code": 201,
+          "calls_service": "create_order"
+        },
+        {
+          "method": "GET",
+          "path": "/orders",
+          "operationId": "list_orders",
+          "input": null,
+          "output": "List[Order]",
+          "status_code": 200,
+          "calls_service": "list_orders"
+        },
+        {
+          "method": "GET",
+          "path": "/orders/{id}",
+          "operationId": "get_order_by_id",
+          "input": "int: id",
+          "output": "Order",
+          "status_code": 200,
+          "calls_service": "get_order_by_id"
+        },
+        {
+          "method": "DELETE",
+          "path": "/orders/{id}",
+          "operationId": "delete_order",
+          "input": "int: id",
+          "output": null,
+          "status_code": 204,
+          "calls_service": "delete_order"
+        },
+        {
+          "method": "GET",
+          "path": "/customers/{id}/orders",
+          "operationId": "list_orders_by_customer",
+          "input": "int: id",
+          "output": "List[Order]",
+          "status_code": 200,
+          "calls_service": "list_orders_by_customer"
+        }
+      ]
+    },
+    {
+      "path": "app/models/order_item.py",
+      "type": "model",
+      "entity": "OrderItem",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false
+        },
+        {
+          "name": "quantity",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "unit_price",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "order_id",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": "Order.id"
+        },
+        {
+          "name": "product_id",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": "Product.id"
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()",
+          "onupdate": "func.now()"
+        }
+      ]
+    },
+    {
+      "path": "app/schemas/order_item.py",
+      "type": "schema",
+      "entity": "OrderItem",
+      "schemas": [
+        {
+          "name": "OrderItemCreate",
+          "fields": [
+            {
+              "name": "quantity",
+              "type": "int"
+            },
+            {
+              "name": "unit_price",
+              "type": "int"
+            },
+            {
+              "name": "order_id",
+              "type": "int"
+            },
+            {
+              "name": "product_id",
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "name": "OrderItem",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "quantity",
+              "type": "int"
+            },
+            {
+              "name": "unit_price",
+              "type": "int"
+            },
+            {
+              "name": "order_id",
+              "type": "int"
+            },
+            {
+              "name": "product_id",
+              "type": "int"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/services/order_item.py",
+      "type": "service",
+      "entity": "OrderItem",
+      "functions": [
+        {
+          "name": "create_order_item",
+          "input": [
+            "db: Session",
+            "order_item_data: OrderItemCreate"
+          ],
+          "output": "OrderItem",
+          "description": "Create a new order item"
+        },
+        {
+          "name": "list_order_items",
+          "input": [
+            "db: Session"
+          ],
+          "output": "List[OrderItem]",
+          "description": "List all order items"
+        },
+        {
+          "name": "get_order_item_by_id",
+          "input": [
+            "db: Session",
+            "order_item_id: int"
+          ],
+          "output": "OrderItem",
+          "description": "Get an order item by ID, raise 404 if not found"
+        },
+        {
+          "name": "list_order_items_by_order",
+          "input": [
+            "db: Session",
+            "order_id: int"
+          ],
+          "output": "List[OrderItem]",
+          "description": "List order items by order ID"
+        },
+        {
+          "name": "list_order_items_by_product",
+          "input": [
+            "db: Session",
+            "product_id: int"
+          ],
+          "output": "List[OrderItem]",
+          "description": "List order items by product ID"
+        }
+      ]
+    },
+    {
+      "path": "app/routes/order_item.py",
+      "type": "route",
+      "entity": "OrderItem",
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/order_items",
+          "operationId": "create_order_item",
+          "input": "OrderItemCreate",
+          "output": "OrderItem",
+          "status_code": 201,
+          "calls_service": "create_order_item"
+        },
+        {
+          "method": "GET",
+          "path": "/order_items",
+          "operationId": "list_order_items",
+          "input": null,
+          "output": "List[OrderItem]",
+          "status_code": 200,
+          "calls_service": "list_order_items"
+        },
+        {
+          "method": "GET",
+          "path": "/order_items/{id}",
+          "operationId": "get_order_item_by_id",
+          "input": "int: id",
+          "output": "OrderItem",
+          "status_code": 200,
+          "calls_service": "get_order_item_by_id"
+        },
+        {
+          "method": "GET",
+          "path": "/orders/{id}/items",
+          "operationId": "list_order_items_by_order",
+          "input": "int: id",
+          "output": "List[OrderItem]",
+          "status_code": 200,
+          "calls_service": "list_order_items_by_order"
+        },
+        {
+          "method": "GET",
+          "path": "/products/{id}/order_items",
+          "operationId": "list_order_items_by_product",
+          "input": "int: id",
+          "output": "List[OrderItem]",
+          "status_code": 200,
+          "calls_service": "list_order_items_by_product"
+        }
+      ]
+    },
+    {
+      "path": "app/main.py",
+      "type": "main",
+      "entity": null,
+      "routers": [
+        "category.router",
+        "product.router",
+        "customer.router",
+        "order.router",
+        "order_item.router"
+      ]
+    }
+  ],
+  "task_queue": [
+    {
+      "order": 1,
+      "entity": "Category",
+      "file": "app/models/category.py",
+      "status": "pending",
+      "test_status": "pending",
+      "type": "model",
+      "depends_on": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "is_active",
+          "type": "Boolean",
+          "primary_key": false,
+          "nullable": false,
+          "default": true
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()",
+          "onupdate": "func.now()"
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "entity": "Category",
+      "file": "app/schemas/category.py",
+      "status": "pending",
+      "test_status": "pending",
+      "type": "schema",
+      "depends_on": [],
+      "schemas": [
+        {
+          "name": "CategoryCreate",
+          "fields": [
+            {
+              "name": "name",
+              "type": "str"
+            },
+            {
+              "name": "description",
+              "type": "Optional[str]",
+              "default": null
+            },
+            {
+              "name": "is_active",
+              "type": "bool",
+              "default": true
+            }
+          ]
+        },
+        {
+          "name": "Category",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "name",
+              "type": "str"
+            },
+            {
+              "name": "description",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "is_active",
+              "type": "bool"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "entity": "Category",
+      "file": "app/services/category.py",
+      "status": "pending",
+      "test_status": "pending",
+      "type": "service",
+      "depends_on": [],
+      "functions": [
+        {
+          "name": "create_category",
+          "input": [
+            "db: Session",
+            "category_data: CategoryCreate"
+          ],
+          "output": "Category",
+          "description": "Create a new category"
+        },
+        {
+          "name": "list_categories",
+          "input": [
+            "db: Session"
+          ],
+          "output": "List[Category]",
+          "description": "List all categories"
+        },
+        {
+          "name": "get_category_by_id",
+          "input": [
+            "db: Session",
+            "category_id: int"
+          ],
+          "output": "Category",
+          "description": "Get a category by ID, raise 404 if not found"
+        },
+        {
+          "name": "update_category",
+          "input": [
+            "db: Session",
+            "category_id: int",
+            "category_data: CategoryCreate"
+          ],
+          "output": "Category",
+          "description": "Update a category by ID, raise 404 if not found"
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "entity": "Category",
+      "file": "app/routes/category.py",
+      "status": "pending",
+      "test_status": "pending",
+      "type": "route",
+      "depends_on": [],
+      "functions": [
+        {
+          "method": "POST",
+          "path": "/categories",
+          "operationId": "create_category",
+          "input": "CategoryCreate",
+          "output": "Category",
+          "status_code": 201,
+          "calls_service": "create_category"
+        },
+        {
+          "method": "GET",
+          "path": "/categories",
+          "operationId": "list_categories",
+          "input": null,
+          "output": "List[Category]",
+          "status_code": 200,
+          "calls_service": "list_categories"
+        },
+        {
+          "method": "GET",
+          "path": "/categories/{id}",
+          "operationId": "get_category_by_id",
+          "input": "int: id",
+          "output": "Category",
+          "status_code": 200,
+          "calls_service": "get_category_by_id"
+        },
+        {
+          "method": "PUT",
+          "path": "/categories/{id}",
+          "operationId": "update_category",
+          "input": [
+            "int: id",
+            "CategoryCreate"
+          ],
+          "output": "Category",
+          "status_code": 200,
+          "calls_service": "update_category"
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "entity": "Customer",
+      "file": "app/models/customer.py",
+      "status": "pending",
+      "test_status": "pending",
+      "type": "model",
+      "depends_on": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false
+        },
+        {
+          "name": "full_name",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "email",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "phone",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "is_premium",
+          "type": "Boolean",
+          "primary_key": false,
+          "nullable": false,
+          "default": false
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()",
+          "onupdate": "func.now()"
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "entity": "Customer",
+      "file": "app/schemas/customer.py",
+      "status": "pending",
+      "test_status": "pending",
+      "type": "schema",
+      "depends_on": [],
+      "schemas": [
+        {
+          "name": "CustomerCreate",
+          "fields": [
+            {
+              "name": "full_name",
+              "type": "str"
+            },
+            {
+              "name": "email",
+              "type": "str"
+            },
+            {
+              "name": "phone",
+              "type": "Optional[str]",
+              "default": null
+            },
+            {
+              "name": "is_premium",
+              "type": "bool",
+              "default": false
+            }
+          ]
+        },
+        {
+          "name": "Customer",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "full_name",
+              "type": "str"
+            },
+            {
+              "name": "email",
+              "type": "str"
+            },
+            {
+              "name": "phone",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "is_premium",
+              "type": "bool"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "entity": "Customer",
+      "file": "app/services/customer.py",
+      "status": "pending",
+      "test_status": "pending",
+      "type": "service",
+      "depends_on": [],
+      "functions": [
+        {
+          "name": "create_customer",
+          "input": [
+            "db: Session",
+            "customer_data: CustomerCreate"
+          ],
+          "output": "Customer",
+          "description": "Create a new customer"
+        },
+        {
+          "name": "list_customers",
+          "input": [
+            "db: Session"
+          ],
+          "output": "List[Customer]",
+          "description": "List all customers"
+        },
+        {
+          "name": "get_customer_by_id",
+          "input": [
+            "db: Session",
+            "customer_id: int"
+          ],
+          "output": "Customer",
+          "description": "Get a customer by ID, raise 404 if not found"
+        },
+        {
+          "name": "update_customer",
+          "input": [
+            "db: Session",
+            "customer_id: int",
+            "customer_data: CustomerCreate"
+          ],
+          "output": "Customer",
+          "description": "Update a customer by ID, raise 404 if not found"
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "entity": "Customer",
+      "file": "app/routes/customer.py",
+      "status": "pending",
+      "test_status": "pending",
+      "type": "route",
+      "depends_on": [],
+      "functions": [
+        {
+          "method": "POST",
+          "path": "/customers",
+          "operationId": "create_customer",
+          "input": "CustomerCreate",
+          "output": "Customer",
+          "status_code": 201,
+          "calls_service": "create_customer"
+        },
+        {
+          "method": "GET",
+          "path": "/customers",
+          "operationId": "list_customers",
+          "input": null,
+          "output": "List[Customer]",
+          "status_code": 200,
+          "calls_service": "list_customers"
+        },
+        {
+          "method": "GET",
+          "path": "/customers/{id}",
+          "operationId": "get_customer_by_id",
+          "input": "int: id",
+          "output": "Customer",
+          "status_code": 200,
+          "calls_service": "get_customer_by_id"
+        },
+        {
+          "method": "PUT",
+          "path": "/customers/{id}",
+          "operationId": "update_customer",
+          "input": [
+            "int: id",
+            "CustomerCreate"
+          ],
+          "output": "Customer",
+          "status_code": 200,
+          "calls_service": "update_customer"
+        }
+      ]
+    },
+    {
+      "order": 9,
+      "entity": "Product",
+      "file": "app/models/product.py",
+      "status": "pending",
+      "test_status": "pending",
+      "type": "model",
+      "depends_on": [
+        "Category"
+      ],
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "price",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "stock_quantity",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "default": 0
+        },
+        {
+          "name": "is_available",
+          "type": "Boolean",
+          "primary_key": false,
+          "nullable": false,
+          "default": true
+        },
+        {
+          "name": "category_id",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": "Category.id"
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()",
+          "onupdate": "func.now()"
+        }
+      ]
+    },
+    {
+      "order": 10,
+      "entity": "Product",
+      "file": "app/schemas/product.py",
+      "status": "pending",
+      "test_status": "pending",
+      "type": "schema",
+      "depends_on": [
+        "Category"
+      ],
+      "schemas": [
+        {
+          "name": "ProductCreate",
+          "fields": [
+            {
+              "name": "name",
+              "type": "str"
+            },
+            {
+              "name": "description",
+              "type": "Optional[str]",
+              "default": null
+            },
+            {
+              "name": "price",
+              "type": "int"
+            },
+            {
+              "name": "stock_quantity",
+              "type": "int",
+              "default": 0
+            },
+            {
+              "name": "is_available",
+              "type": "bool",
+              "default": true
+            },
+            {
+              "name": "category_id",
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "name": "Product",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "name",
+              "type": "str"
+            },
+            {
+              "name": "description",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "price",
+              "type": "int"
+            },
+            {
+              "name": "stock_quantity",
+              "type": "int"
+            },
+            {
+              "name": "is_available",
+              "type": "bool"
+            },
+            {
+              "name": "category_id",
+              "type": "int"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 11,
+      "entity": "Product",
+      "file": "app/services/product.py",
+      "status": "pending",
+      "test_status": "pending",
+      "type": "service",
+      "depends_on": [
+        "Category"
+      ],
+      "functions": [
+        {
+          "name": "create_product",
+          "input": [
+            "db: Session",
+            "product_data: ProductCreate"
+          ],
+          "output": "Product",
+          "description": "Create a new product"
+        },
+        {
+          "name": "list_products",
+          "input": [
+            "db: Session"
+          ],
+          "output": "List[Product]",
+          "description": "List all products"
+        },
+        {
+          "name": "get_product_by_id",
+          "input": [
+            "db: Session",
+            "product_id: int"
+          ],
+          "output": "Product",
+          "description": "Get a product by ID, raise 404 if not found"
+        },
+        {
+          "name": "update_product",
+          "input": [
+            "db: Session",
+            "product_id: int",
+            "product_data: ProductCreate"
+          ],
+          "output": "Product",
+          "description": "Update a product by ID, raise 404 if not found"
+        },
+        {
+          "name": "delete_product",
+          "input": [
+            "db: Session",
+            "product_id: int"
+          ],
+          "output": "None",
+          "description": "Delete a product by ID, raise 404 if not found"
+        },
+        {
+          "name": "list_products_by_category",
+          "input": [
+            "db: Session",
+            "category_id: int"
+          ],
+          "output": "List[Product]",
+          "description": "List products by category ID"
+        }
+      ]
+    },
+    {
+      "order": 12,
+      "entity": "Product",
+      "file": "app/routes/product.py",
+      "status": "pending",
+      "test_status": "pending",
+      "type": "route",
+      "depends_on": [
+        "Category"
+      ],
+      "functions": [
+        {
+          "method": "POST",
+          "path": "/products",
+          "operationId": "create_product",
+          "input": "ProductCreate",
+          "output": "Product",
+          "status_code": 201,
+          "calls_service": "create_product"
+        },
+        {
+          "method": "GET",
+          "path": "/products",
+          "operationId": "list_products",
+          "input": null,
+          "output": "List[Product]",
+          "status_code": 200,
+          "calls_service": "list_products"
+        },
+        {
+          "method": "GET",
+          "path": "/products/{id}",
+          "operationId": "get_product_by_id",
+          "input": "int: id",
+          "output": "Product",
+          "status_code": 200,
+          "calls_service": "get_product_by_id"
+        },
+        {
+          "method": "PUT",
+          "path": "/products/{id}",
+          "operationId": "update_product",
+          "input": [
+            "int: id",
+            "ProductCreate"
+          ],
+          "output": "Product",
+          "status_code": 200,
+          "calls_service": "update_product"
+        },
+        {
+          "method": "DELETE",
+          "path": "/products/{id}",
+          "operationId": "delete_product",
+          "input": "int: id",
+          "output": null,
+          "status_code": 204,
+          "calls_service": "delete_product"
+        },
+        {
+          "method": "GET",
+          "path": "/categories/{id}/products",
+          "operationId": "list_products_by_category",
+          "input": "int: id",
+          "output": "List[Product]",
+          "status_code": 200,
+          "calls_service": "list_products_by_category"
+        }
+      ]
+    },
+    {
+      "order": 13,
+      "entity": "Order",
+      "file": "app/models/order.py",
+      "status": "pending",
+      "test_status": "pending",
+      "type": "model",
+      "depends_on": [
+        "Customer"
+      ],
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false
+        },
+        {
+          "name": "order_number",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "total_amount",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "customer_id",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": "Customer.id"
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()",
+          "onupdate": "func.now()"
+        }
+      ]
+    },
+    {
+      "order": 14,
+      "entity": "Order",
+      "file": "app/schemas/order.py",
+      "status": "pending",
+      "test_status": "pending",
+      "type": "schema",
+      "depends_on": [
+        "Customer"
+      ],
+      "schemas": [
+        {
+          "name": "OrderCreate",
+          "fields": [
+            {
+              "name": "order_number",
+              "type": "str"
+            },
+            {
+              "name": "total_amount",
+              "type": "int"
+            },
+            {
+              "name": "status",
+              "type": "str"
+            },
+            {
+              "name": "customer_id",
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "name": "Order",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "order_number",
+              "type": "str"
+            },
+            {
+              "name": "total_amount",
+              "type": "int"
+            },
+            {
+              "name": "status",
+              "type": "str"
+            },
+            {
+              "name": "customer_id",
+              "type": "int"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 15,
+      "entity": "Order",
+      "file": "app/services/order.py",
+      "status": "pending",
+      "test_status": "pending",
+      "type": "service",
+      "depends_on": [
+        "Customer"
+      ],
+      "functions": [
+        {
+          "name": "create_order",
+          "input": [
+            "db: Session",
+            "order_data: OrderCreate"
+          ],
+          "output": "Order",
+          "description": "Create a new order"
+        },
+        {
+          "name": "list_orders",
+          "input": [
+            "db: Session"
+          ],
+          "output": "List[Order]",
+          "description": "List all orders"
+        },
+        {
+          "name": "get_order_by_id",
+          "input": [
+            "db: Session",
+            "order_id: int"
+          ],
+          "output": "Order",
+          "description": "Get an order by ID, raise 404 if not found"
+        },
+        {
+          "name": "delete_order",
+          "input": [
+            "db: Session",
+            "order_id: int"
+          ],
+          "output": "None",
+          "description": "Delete an order by ID, raise 404 if not found"
+        },
+        {
+          "name": "list_orders_by_customer",
+          "input": [
+            "db: Session",
+            "customer_id: int"
+          ],
+          "output": "List[Order]",
+          "description": "List orders by customer ID"
+        }
+      ]
+    },
+    {
+      "order": 16,
+      "entity": "Order",
+      "file": "app/routes/order.py",
+      "status": "pending",
+      "test_status": "pending",
+      "type": "route",
+      "depends_on": [
+        "Customer"
+      ],
+      "functions": [
+        {
+          "method": "POST",
+          "path": "/orders",
+          "operationId": "create_order",
+          "input": "OrderCreate",
+          "output": "Order",
+          "status_code": 201,
+          "calls_service": "create_order"
+        },
+        {
+          "method": "GET",
+          "path": "/orders",
+          "operationId": "list_orders",
+          "input": null,
+          "output": "List[Order]",
+          "status_code": 200,
+          "calls_service": "list_orders"
+        },
+        {
+          "method": "GET",
+          "path": "/orders/{id}",
+          "operationId": "get_order_by_id",
+          "input": "int: id",
+          "output": "Order",
+          "status_code": 200,
+          "calls_service": "get_order_by_id"
+        },
+        {
+          "method": "DELETE",
+          "path": "/orders/{id}",
+          "operationId": "delete_order",
+          "input": "int: id",
+          "output": null,
+          "status_code": 204,
+          "calls_service": "delete_order"
+        },
+        {
+          "method": "GET",
+          "path": "/customers/{id}/orders",
+          "operationId": "list_orders_by_customer",
+          "input": "int: id",
+          "output": "List[Order]",
+          "status_code": 200,
+          "calls_service": "list_orders_by_customer"
+        }
+      ]
+    },
+    {
+      "order": 17,
+      "entity": "OrderItem",
+      "file": "app/models/order_item.py",
+      "status": "pending",
+      "test_status": "pending",
+      "type": "model",
+      "depends_on": [
+        "Order",
+        "Product"
+      ],
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false
+        },
+        {
+          "name": "quantity",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "unit_price",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "order_id",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": "Order.id"
+        },
+        {
+          "name": "product_id",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": "Product.id"
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()",
+          "onupdate": "func.now()"
+        }
+      ]
+    },
+    {
+      "order": 18,
+      "entity": "OrderItem",
+      "file": "app/schemas/order_item.py",
+      "status": "pending",
+      "test_status": "pending",
+      "type": "schema",
+      "depends_on": [
+        "Order",
+        "Product"
+      ],
+      "schemas": [
+        {
+          "name": "OrderItemCreate",
+          "fields": [
+            {
+              "name": "quantity",
+              "type": "int"
+            },
+            {
+              "name": "unit_price",
+              "type": "int"
+            },
+            {
+              "name": "order_id",
+              "type": "int"
+            },
+            {
+              "name": "product_id",
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "name": "OrderItem",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "quantity",
+              "type": "int"
+            },
+            {
+              "name": "unit_price",
+              "type": "int"
+            },
+            {
+              "name": "order_id",
+              "type": "int"
+            },
+            {
+              "name": "product_id",
+              "type": "int"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 19,
+      "entity": "OrderItem",
+      "file": "app/services/order_item.py",
+      "status": "pending",
+      "test_status": "pending",
+      "type": "service",
+      "depends_on": [
+        "Order",
+        "Product"
+      ],
+      "functions": [
+        {
+          "name": "create_order_item",
+          "input": [
+            "db: Session",
+            "order_item_data: OrderItemCreate"
+          ],
+          "output": "OrderItem",
+          "description": "Create a new order item"
+        },
+        {
+          "name": "list_order_items",
+          "input": [
+            "db: Session"
+          ],
+          "output": "List[OrderItem]",
+          "description": "List all order items"
+        },
+        {
+          "name": "get_order_item_by_id",
+          "input": [
+            "db: Session",
+            "order_item_id: int"
+          ],
+          "output": "OrderItem",
+          "description": "Get an order item by ID, raise 404 if not found"
+        },
+        {
+          "name": "list_order_items_by_order",
+          "input": [
+            "db: Session",
+            "order_id: int"
+          ],
+          "output": "List[OrderItem]",
+          "description": "List order items by order ID"
+        },
+        {
+          "name": "list_order_items_by_product",
+          "input": [
+            "db: Session",
+            "product_id: int"
+          ],
+          "output": "List[OrderItem]",
+          "description": "List order items by product ID"
+        }
+      ]
+    },
+    {
+      "order": 20,
+      "entity": "OrderItem",
+      "file": "app/routes/order_item.py",
+      "status": "pending",
+      "test_status": "pending",
+      "type": "route",
+      "depends_on": [
+        "Order",
+        "Product"
+      ],
+      "functions": [
+        {
+          "method": "POST",
+          "path": "/order_items",
+          "operationId": "create_order_item",
+          "input": "OrderItemCreate",
+          "output": "OrderItem",
+          "status_code": 201,
+          "calls_service": "create_order_item"
+        },
+        {
+          "method": "GET",
+          "path": "/order_items",
+          "operationId": "list_order_items",
+          "input": null,
+          "output": "List[OrderItem]",
+          "status_code": 200,
+          "calls_service": "list_order_items"
+        },
+        {
+          "method": "GET",
+          "path": "/order_items/{id}",
+          "operationId": "get_order_item_by_id",
+          "input": "int: id",
+          "output": "OrderItem",
+          "status_code": 200,
+          "calls_service": "get_order_item_by_id"
+        },
+        {
+          "method": "GET",
+          "path": "/orders/{id}/items",
+          "operationId": "list_order_items_by_order",
+          "input": "int: id",
+          "output": "List[OrderItem]",
+          "status_code": 200,
+          "calls_service": "list_order_items_by_order"
+        },
+        {
+          "method": "GET",
+          "path": "/products/{id}/order_items",
+          "operationId": "list_order_items_by_product",
+          "input": "int: id",
+          "output": "List[OrderItem]",
+          "status_code": 200,
+          "calls_service": "list_order_items_by_product"
+        }
+      ]
+    },
+    {
+      "order": 21,
+      "entity": null,
+      "file": "app/main.py",
+      "status": "pending",
+      "test_status": "pending",
+      "type": "main",
+      "depends_on": [
+        "Category",
+        "Product",
+        "Customer",
+        "Order",
+        "OrderItem"
+      ],
+      "routers": [
+        "category.router",
+        "product.router",
+        "customer.router",
+        "order.router",
+        "order_item.router"
+      ]
+    }
+  ]
+}

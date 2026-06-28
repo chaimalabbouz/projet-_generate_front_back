@@ -1,9 +1,9 @@
 {
-  "user_input": "STACK: Python / FastAPI systems\n\nPROJECT: Portfolio Contact Form API\n\nDESCRIPTION:\nA simple API to handle contact form submissions from a portfolio website.\n\nFEATURES:\n\nCONTACTS:\n- submit contact form\n\nDATA MODELS:\n\nContact:\n- name: string\n- email: string\n- location: string\n- budget: string\n- subject: string\n- message: string",
+  "user_input": "STACK: Python / FastAPI systems\nPROJECT: E-Commerce Platform API\nDESCRIPTION:\nAn API for an online store. It manages product categories, products,\ncustomers, their orders, and the items inside each order. You can list\nproducts by category, list orders by customer, and list items by order.\n\nFEATURES:\nCATEGORIES:\n- create a category\n- view all categories\n- view category details\n- update a category\n- list products by category\n\nPRODUCTS:\n- create a product\n- view all products\n- view product details\n- update a product\n- delete a product\n- list order items by product\n\nCUSTOMERS:\n- create a customer\n- view all customers\n- view customer details\n- update a customer\n- list orders by customer\n\nORDERS:\n- create an order\n- view all orders\n- view order details\n- delete an order\n- list items by order\n\nORDER_ITEMS:\n- create an order item\n- view all order items\n- view order item details\n\nDATA MODELS:\nCategory:\n- name: string\n- description: string\n- is_active: boolean\n\nProduct:\n- name: string\n- description: string\n- price: integer\n- stock_quantity: integer\n- is_available: boolean\n- category: Category\n\nCustomer:\n- full_name: string\n- email: string\n- phone: string\n- is_premium: boolean\n\nOrder:\n- order_number: string\n- total_amount: integer\n- status: string\n- customer: Customer\n\nOrderItem:\n- quantity: integer\n- unit_price: integer\n- order: Order\n- product: Product",
   "openapi_spec": {
     "openapi": "3.0.0",
     "info": {
-      "title": "Portfolio Contact Form API",
+      "title": "E-Commerce Platform API",
       "version": "1.0.0"
     },
     "servers": [
@@ -12,30 +12,30 @@
       }
     ],
     "paths": {
-      "/contacts": {
+      "/categories": {
         "post": {
           "tags": [
-            "Contacts"
+            "Categories"
           ],
-          "operationId": "create_contact",
-          "summary": "Submit a contact form",
+          "operationId": "create_category",
+          "summary": "Create a category",
           "requestBody": {
             "required": true,
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ContactCreate"
+                  "$ref": "#/components/schemas/CategoryCreate"
                 }
               }
             }
           },
           "responses": {
             "201": {
-              "description": "Contact form submitted successfully",
+              "description": "Category created successfully",
               "content": {
                 "application/json": {
                   "schema": {
-                    "$ref": "#/components/schemas/Contact"
+                    "$ref": "#/components/schemas/Category"
                   }
                 }
               }
@@ -44,19 +44,19 @@
         },
         "get": {
           "tags": [
-            "Contacts"
+            "Categories"
           ],
-          "operationId": "list_contacts",
-          "summary": "List all contact submissions",
+          "operationId": "list_categories",
+          "summary": "List all categories",
           "responses": {
             "200": {
-              "description": "List of all contact submissions",
+              "description": "List of all categories",
               "content": {
                 "application/json": {
                   "schema": {
                     "type": "array",
                     "items": {
-                      "$ref": "#/components/schemas/Contact"
+                      "$ref": "#/components/schemas/Category"
                     }
                   }
                 }
@@ -65,13 +65,13 @@
           }
         }
       },
-      "/contacts/{id}": {
+      "/categories/{id}": {
         "get": {
           "tags": [
-            "Contacts"
+            "Categories"
           ],
-          "operationId": "get_contact_by_id",
-          "summary": "Get a contact submission by id",
+          "operationId": "get_category_by_id",
+          "summary": "Get a category by id",
           "parameters": [
             {
               "name": "id",
@@ -84,11 +84,207 @@
           ],
           "responses": {
             "200": {
-              "description": "Contact submission details",
+              "description": "Category details",
               "content": {
                 "application/json": {
                   "schema": {
-                    "$ref": "#/components/schemas/Contact"
+                    "$ref": "#/components/schemas/Category"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "Categories"
+          ],
+          "operationId": "update_category",
+          "summary": "Update a category",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CategoryCreate"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Category updated successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Category"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/categories/{id}/products": {
+        "get": {
+          "tags": [
+            "Products"
+          ],
+          "operationId": "list_products_by_category",
+          "summary": "List products by category",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "List of products in the category",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Product"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/products": {
+        "post": {
+          "tags": [
+            "Products"
+          ],
+          "operationId": "create_product",
+          "summary": "Create a product",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductCreate"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Product created successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "Products"
+          ],
+          "operationId": "list_products",
+          "summary": "List all products",
+          "responses": {
+            "200": {
+              "description": "List of all products",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Product"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/products/{id}": {
+        "get": {
+          "tags": [
+            "Products"
+          ],
+          "operationId": "get_product_by_id",
+          "summary": "Get a product by id",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Product details",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "Products"
+          ],
+          "operationId": "update_product",
+          "summary": "Update a product",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductCreate"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Product updated successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Product"
                   }
                 }
               }
@@ -97,10 +293,10 @@
         },
         "delete": {
           "tags": [
-            "Contacts"
+            "Products"
           ],
-          "operationId": "delete_contact",
-          "summary": "Delete a contact submission",
+          "operationId": "delete_product",
+          "summary": "Delete a product",
           "parameters": [
             {
               "name": "id",
@@ -113,7 +309,422 @@
           ],
           "responses": {
             "204": {
-              "description": "Contact submission deleted successfully"
+              "description": "Product deleted successfully"
+            }
+          }
+        }
+      },
+      "/products/{id}/order_items": {
+        "get": {
+          "tags": [
+            "OrderItems"
+          ],
+          "operationId": "list_order_items_by_product",
+          "summary": "List order items by product",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "List of order items for the product",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/OrderItem"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/customers": {
+        "post": {
+          "tags": [
+            "Customers"
+          ],
+          "operationId": "create_customer",
+          "summary": "Create a customer",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerCreate"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Customer created successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "Customers"
+          ],
+          "operationId": "list_customers",
+          "summary": "List all customers",
+          "responses": {
+            "200": {
+              "description": "List of all customers",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Customer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/customers/{id}": {
+        "get": {
+          "tags": [
+            "Customers"
+          ],
+          "operationId": "get_customer_by_id",
+          "summary": "Get a customer by id",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Customer details",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "Customers"
+          ],
+          "operationId": "update_customer",
+          "summary": "Update a customer",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerCreate"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Customer updated successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/customers/{id}/orders": {
+        "get": {
+          "tags": [
+            "Orders"
+          ],
+          "operationId": "list_orders_by_customer",
+          "summary": "List orders by customer",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "List of customer orders",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Order"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/orders": {
+        "post": {
+          "tags": [
+            "Orders"
+          ],
+          "operationId": "create_order",
+          "summary": "Create an order",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderCreate"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Order created successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Order"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "Orders"
+          ],
+          "operationId": "list_orders",
+          "summary": "List all orders",
+          "responses": {
+            "200": {
+              "description": "List of all orders",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Order"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/orders/{id}": {
+        "get": {
+          "tags": [
+            "Orders"
+          ],
+          "operationId": "get_order_by_id",
+          "summary": "Get an order by id",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Order details",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Order"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "Orders"
+          ],
+          "operationId": "delete_order",
+          "summary": "Delete an order",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Order deleted successfully"
+            }
+          }
+        }
+      },
+      "/orders/{id}/items": {
+        "get": {
+          "tags": [
+            "OrderItems"
+          ],
+          "operationId": "list_order_items_by_order",
+          "summary": "List items by order",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "List of order items",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/OrderItem"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/order_items": {
+        "post": {
+          "tags": [
+            "OrderItems"
+          ],
+          "operationId": "create_order_item",
+          "summary": "Create an order item",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderItemCreate"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Order item created successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrderItem"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "OrderItems"
+          ],
+          "operationId": "list_order_items",
+          "summary": "List all order items",
+          "responses": {
+            "200": {
+              "description": "List of all order items",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/OrderItem"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/order_items/{id}": {
+        "get": {
+          "tags": [
+            "OrderItems"
+          ],
+          "operationId": "get_order_item_by_id",
+          "summary": "Get an order item by id",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Order item details",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/OrderItem"
+                  }
+                }
+              }
             }
           }
         }
@@ -121,35 +732,25 @@
     },
     "components": {
       "schemas": {
-        "ContactCreate": {
+        "CategoryCreate": {
           "type": "object",
           "required": [
-            "name",
-            "email",
-            "message"
+            "name"
           ],
           "properties": {
             "name": {
               "type": "string"
             },
-            "email": {
+            "description": {
               "type": "string"
             },
-            "location": {
-              "type": "string"
-            },
-            "budget": {
-              "type": "string"
-            },
-            "subject": {
-              "type": "string"
-            },
-            "message": {
-              "type": "string"
+            "is_active": {
+              "type": "boolean",
+              "default": true
             }
           }
         },
-        "Contact": {
+        "Category": {
           "type": "object",
           "properties": {
             "id": {
@@ -158,20 +759,227 @@
             "name": {
               "type": "string"
             },
+            "description": {
+              "type": "string"
+            },
+            "is_active": {
+              "type": "boolean"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "updated_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "ProductCreate": {
+          "type": "object",
+          "required": [
+            "name",
+            "price",
+            "category_id"
+          ],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "price": {
+              "type": "integer"
+            },
+            "stock_quantity": {
+              "type": "integer",
+              "default": 0
+            },
+            "is_available": {
+              "type": "boolean",
+              "default": true
+            },
+            "category_id": {
+              "type": "integer"
+            }
+          }
+        },
+        "Product": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "price": {
+              "type": "integer"
+            },
+            "stock_quantity": {
+              "type": "integer"
+            },
+            "is_available": {
+              "type": "boolean"
+            },
+            "category_id": {
+              "type": "integer"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "updated_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "CustomerCreate": {
+          "type": "object",
+          "required": [
+            "full_name",
+            "email"
+          ],
+          "properties": {
+            "full_name": {
+              "type": "string"
+            },
             "email": {
               "type": "string"
             },
-            "location": {
+            "phone": {
               "type": "string"
             },
-            "budget": {
+            "is_premium": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        },
+        "Customer": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "full_name": {
               "type": "string"
             },
-            "subject": {
+            "email": {
               "type": "string"
             },
-            "message": {
+            "phone": {
               "type": "string"
+            },
+            "is_premium": {
+              "type": "boolean"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "updated_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "OrderCreate": {
+          "type": "object",
+          "required": [
+            "order_number",
+            "total_amount",
+            "status",
+            "customer_id"
+          ],
+          "properties": {
+            "order_number": {
+              "type": "string"
+            },
+            "total_amount": {
+              "type": "integer"
+            },
+            "status": {
+              "type": "string"
+            },
+            "customer_id": {
+              "type": "integer"
+            }
+          }
+        },
+        "Order": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "order_number": {
+              "type": "string"
+            },
+            "total_amount": {
+              "type": "integer"
+            },
+            "status": {
+              "type": "string"
+            },
+            "customer_id": {
+              "type": "integer"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "updated_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "OrderItemCreate": {
+          "type": "object",
+          "required": [
+            "quantity",
+            "unit_price",
+            "order_id",
+            "product_id"
+          ],
+          "properties": {
+            "quantity": {
+              "type": "integer"
+            },
+            "unit_price": {
+              "type": "integer"
+            },
+            "order_id": {
+              "type": "integer"
+            },
+            "product_id": {
+              "type": "integer"
+            }
+          }
+        },
+        "OrderItem": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "quantity": {
+              "type": "integer"
+            },
+            "unit_price": {
+              "type": "integer"
+            },
+            "order_id": {
+              "type": "integer"
+            },
+            "product_id": {
+              "type": "integer"
             },
             "created_at": {
               "type": "string",
@@ -187,13 +995,24 @@
     }
   },
   "dependency_graph": {
-    "Contact": []
+    "Category": [],
+    "Product": [
+      "Category"
+    ],
+    "Customer": [],
+    "Order": [
+      "Customer"
+    ],
+    "OrderItem": [
+      "Order",
+      "Product"
+    ]
   },
   "file_plan": [
     {
-      "path": "app/models/contact.py",
+      "path": "app/models/category.py",
       "type": "model",
-      "entity": "Contact",
+      "entity": "Category",
       "fields": [
         {
           "name": "id",
@@ -208,118 +1027,61 @@
           "nullable": false
         },
         {
-          "name": "email",
-          "type": "String",
-          "primary_key": false,
-          "nullable": false
-        },
-        {
-          "name": "location",
+          "name": "description",
           "type": "String",
           "primary_key": false,
           "nullable": true
         },
         {
-          "name": "budget",
-          "type": "String",
+          "name": "is_active",
+          "type": "Boolean",
           "primary_key": false,
-          "nullable": true
-        },
-        {
-          "name": "subject",
-          "type": "String",
-          "primary_key": false,
-          "nullable": true
-        },
-        {
-          "name": "message",
-          "type": "String",
-          "primary_key": false,
-          "nullable": false
+          "nullable": false,
+          "default": true
         },
         {
           "name": "created_at",
           "type": "DateTime",
           "primary_key": false,
           "nullable": false,
-          "default": "datetime.utcnow"
+          "default": "func.now()"
         },
         {
           "name": "updated_at",
           "type": "DateTime",
           "primary_key": false,
           "nullable": false,
-          "default": "datetime.utcnow",
-          "onupdate": "datetime.utcnow"
+          "default": "func.now()",
+          "onupdate": "func.now()"
         }
       ]
     },
     {
-      "path": "app/schemas/contact.py",
+      "path": "app/schemas/category.py",
       "type": "schema",
-      "entity": "Contact",
+      "entity": "Category",
       "schemas": [
         {
-          "name": "ContactBase",
+          "name": "CategoryCreate",
           "fields": [
             {
               "name": "name",
               "type": "str"
             },
             {
-              "name": "email",
-              "type": "str"
+              "name": "description",
+              "type": "Optional[str]",
+              "default": null
             },
             {
-              "name": "location",
-              "type": "Optional[str]"
-            },
-            {
-              "name": "budget",
-              "type": "Optional[str]"
-            },
-            {
-              "name": "subject",
-              "type": "Optional[str]"
-            },
-            {
-              "name": "message",
-              "type": "str"
+              "name": "is_active",
+              "type": "bool",
+              "default": true
             }
           ]
         },
         {
-          "name": "ContactCreate",
-          "fields": [
-            {
-              "name": "name",
-              "type": "str"
-            },
-            {
-              "name": "email",
-              "type": "str"
-            },
-            {
-              "name": "location",
-              "type": "Optional[str]"
-            },
-            {
-              "name": "budget",
-              "type": "Optional[str]"
-            },
-            {
-              "name": "subject",
-              "type": "Optional[str]"
-            },
-            {
-              "name": "message",
-              "type": "str"
-            }
-          ],
-          "inherits": "ContactBase"
-        },
-        {
-          "name": "Contact",
+          "name": "Category",
           "fields": [
             {
               "name": "id",
@@ -330,24 +1092,12 @@
               "type": "str"
             },
             {
-              "name": "email",
-              "type": "str"
-            },
-            {
-              "name": "location",
+              "name": "description",
               "type": "Optional[str]"
             },
             {
-              "name": "budget",
-              "type": "Optional[str]"
-            },
-            {
-              "name": "subject",
-              "type": "Optional[str]"
-            },
-            {
-              "name": "message",
-              "type": "str"
+              "name": "is_active",
+              "type": "bool"
             },
             {
               "name": "created_at",
@@ -357,130 +1107,1008 @@
               "name": "updated_at",
               "type": "datetime"
             }
-          ],
-          "inherits": "ContactBase"
+          ]
         }
       ]
     },
     {
-      "path": "app/services/contact.py",
+      "path": "app/services/category.py",
       "type": "service",
-      "entity": "Contact",
+      "entity": "Category",
       "functions": [
         {
-          "name": "create_contact",
-          "input_parameters": [
-            {
-              "name": "db",
-              "type": "Session"
-            },
-            {
-              "name": "contact_data",
-              "type": "ContactCreate"
-            }
+          "name": "create_category",
+          "input": [
+            "db: Session",
+            "category_data: CategoryCreate"
           ],
-          "output_type": "Contact",
-          "description": "Create a new contact submission"
+          "output": "Category",
+          "description": "Create a new category"
         },
         {
-          "name": "list_contacts",
-          "input_parameters": [
-            {
-              "name": "db",
-              "type": "Session"
-            }
+          "name": "list_categories",
+          "input": [
+            "db: Session"
           ],
-          "output_type": "List[Contact]",
-          "description": "List all contact submissions"
+          "output": "List[Category]",
+          "description": "List all categories"
         },
         {
-          "name": "get_contact_by_id",
-          "input_parameters": [
-            {
-              "name": "db",
-              "type": "Session"
-            },
-            {
-              "name": "contact_id",
-              "type": "int"
-            }
+          "name": "get_category_by_id",
+          "input": [
+            "db: Session",
+            "category_id: int"
           ],
-          "output_type": "Contact",
-          "description": "Get a contact submission by ID, raises 404 if not found"
+          "output": "Category",
+          "description": "Get a category by ID, raise 404 if not found"
         },
         {
-          "name": "delete_contact",
-          "input_parameters": [
-            {
-              "name": "db",
-              "type": "Session"
-            },
-            {
-              "name": "contact_id",
-              "type": "int"
-            }
+          "name": "update_category",
+          "input": [
+            "db: Session",
+            "category_id: int",
+            "category_data: CategoryCreate"
           ],
-          "output_type": "None",
-          "description": "Delete a contact submission by ID, raises 404 if not found"
+          "output": "Category",
+          "description": "Update a category by ID, raise 404 if not found"
         }
       ]
     },
     {
-      "path": "app/routes/contact.py",
+      "path": "app/routes/category.py",
       "type": "route",
-      "entity": "Contact",
-      "functions": [
+      "entity": "Category",
+      "endpoints": [
         {
           "method": "POST",
-          "path": "/contacts",
-          "operationId": "create_contact",
-          "input": {
-            "body": "ContactCreate"
-          },
-          "output": "Contact",
+          "path": "/categories",
+          "operationId": "create_category",
+          "input": "CategoryCreate",
+          "output": "Category",
           "status_code": 201,
-          "calls_service": "create_contact"
+          "calls_service": "create_category"
         },
         {
           "method": "GET",
-          "path": "/contacts",
-          "operationId": "list_contacts",
-          "input": {},
-          "output": "List[Contact]",
+          "path": "/categories",
+          "operationId": "list_categories",
+          "input": null,
+          "output": "List[Category]",
           "status_code": 200,
-          "calls_service": "list_contacts"
+          "calls_service": "list_categories"
         },
         {
           "method": "GET",
-          "path": "/contacts/{id}",
-          "operationId": "get_contact_by_id",
-          "input": {
-            "path_params": [
-              {
-                "name": "id",
-                "type": "int"
-              }
-            ]
-          },
-          "output": "Contact",
+          "path": "/categories/{id}",
+          "operationId": "get_category_by_id",
+          "input": "int: id",
+          "output": "Category",
           "status_code": 200,
-          "calls_service": "get_contact_by_id"
+          "calls_service": "get_category_by_id"
+        },
+        {
+          "method": "PUT",
+          "path": "/categories/{id}",
+          "operationId": "update_category",
+          "input": [
+            "int: id",
+            "CategoryCreate"
+          ],
+          "output": "Category",
+          "status_code": 200,
+          "calls_service": "update_category"
+        }
+      ]
+    },
+    {
+      "path": "app/models/product.py",
+      "type": "model",
+      "entity": "Product",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "price",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "stock_quantity",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "default": 0
+        },
+        {
+          "name": "is_available",
+          "type": "Boolean",
+          "primary_key": false,
+          "nullable": false,
+          "default": true
+        },
+        {
+          "name": "category_id",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": "Category.id"
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()",
+          "onupdate": "func.now()"
+        }
+      ]
+    },
+    {
+      "path": "app/schemas/product.py",
+      "type": "schema",
+      "entity": "Product",
+      "schemas": [
+        {
+          "name": "ProductCreate",
+          "fields": [
+            {
+              "name": "name",
+              "type": "str"
+            },
+            {
+              "name": "description",
+              "type": "Optional[str]",
+              "default": null
+            },
+            {
+              "name": "price",
+              "type": "int"
+            },
+            {
+              "name": "stock_quantity",
+              "type": "int",
+              "default": 0
+            },
+            {
+              "name": "is_available",
+              "type": "bool",
+              "default": true
+            },
+            {
+              "name": "category_id",
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "name": "Product",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "name",
+              "type": "str"
+            },
+            {
+              "name": "description",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "price",
+              "type": "int"
+            },
+            {
+              "name": "stock_quantity",
+              "type": "int"
+            },
+            {
+              "name": "is_available",
+              "type": "bool"
+            },
+            {
+              "name": "category_id",
+              "type": "int"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/services/product.py",
+      "type": "service",
+      "entity": "Product",
+      "functions": [
+        {
+          "name": "create_product",
+          "input": [
+            "db: Session",
+            "product_data: ProductCreate"
+          ],
+          "output": "Product",
+          "description": "Create a new product"
+        },
+        {
+          "name": "list_products",
+          "input": [
+            "db: Session"
+          ],
+          "output": "List[Product]",
+          "description": "List all products"
+        },
+        {
+          "name": "get_product_by_id",
+          "input": [
+            "db: Session",
+            "product_id: int"
+          ],
+          "output": "Product",
+          "description": "Get a product by ID, raise 404 if not found"
+        },
+        {
+          "name": "update_product",
+          "input": [
+            "db: Session",
+            "product_id: int",
+            "product_data: ProductCreate"
+          ],
+          "output": "Product",
+          "description": "Update a product by ID, raise 404 if not found"
+        },
+        {
+          "name": "delete_product",
+          "input": [
+            "db: Session",
+            "product_id: int"
+          ],
+          "output": "None",
+          "description": "Delete a product by ID, raise 404 if not found"
+        },
+        {
+          "name": "list_products_by_category",
+          "input": [
+            "db: Session",
+            "category_id: int"
+          ],
+          "output": "List[Product]",
+          "description": "List products by category ID"
+        }
+      ]
+    },
+    {
+      "path": "app/routes/product.py",
+      "type": "route",
+      "entity": "Product",
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/products",
+          "operationId": "create_product",
+          "input": "ProductCreate",
+          "output": "Product",
+          "status_code": 201,
+          "calls_service": "create_product"
+        },
+        {
+          "method": "GET",
+          "path": "/products",
+          "operationId": "list_products",
+          "input": null,
+          "output": "List[Product]",
+          "status_code": 200,
+          "calls_service": "list_products"
+        },
+        {
+          "method": "GET",
+          "path": "/products/{id}",
+          "operationId": "get_product_by_id",
+          "input": "int: id",
+          "output": "Product",
+          "status_code": 200,
+          "calls_service": "get_product_by_id"
+        },
+        {
+          "method": "PUT",
+          "path": "/products/{id}",
+          "operationId": "update_product",
+          "input": [
+            "int: id",
+            "ProductCreate"
+          ],
+          "output": "Product",
+          "status_code": 200,
+          "calls_service": "update_product"
         },
         {
           "method": "DELETE",
-          "path": "/contacts/{id}",
-          "operationId": "delete_contact",
-          "input": {
-            "path_params": [
-              {
-                "name": "id",
-                "type": "int"
-              }
-            ]
-          },
+          "path": "/products/{id}",
+          "operationId": "delete_product",
+          "input": "int: id",
           "output": null,
           "status_code": 204,
-          "calls_service": "delete_contact"
+          "calls_service": "delete_product"
+        },
+        {
+          "method": "GET",
+          "path": "/categories/{id}/products",
+          "operationId": "list_products_by_category",
+          "input": "int: id",
+          "output": "List[Product]",
+          "status_code": 200,
+          "calls_service": "list_products_by_category"
+        }
+      ]
+    },
+    {
+      "path": "app/models/customer.py",
+      "type": "model",
+      "entity": "Customer",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false
+        },
+        {
+          "name": "full_name",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "email",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "phone",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "is_premium",
+          "type": "Boolean",
+          "primary_key": false,
+          "nullable": false,
+          "default": false
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()",
+          "onupdate": "func.now()"
+        }
+      ]
+    },
+    {
+      "path": "app/schemas/customer.py",
+      "type": "schema",
+      "entity": "Customer",
+      "schemas": [
+        {
+          "name": "CustomerCreate",
+          "fields": [
+            {
+              "name": "full_name",
+              "type": "str"
+            },
+            {
+              "name": "email",
+              "type": "str"
+            },
+            {
+              "name": "phone",
+              "type": "Optional[str]",
+              "default": null
+            },
+            {
+              "name": "is_premium",
+              "type": "bool",
+              "default": false
+            }
+          ]
+        },
+        {
+          "name": "Customer",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "full_name",
+              "type": "str"
+            },
+            {
+              "name": "email",
+              "type": "str"
+            },
+            {
+              "name": "phone",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "is_premium",
+              "type": "bool"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/services/customer.py",
+      "type": "service",
+      "entity": "Customer",
+      "functions": [
+        {
+          "name": "create_customer",
+          "input": [
+            "db: Session",
+            "customer_data: CustomerCreate"
+          ],
+          "output": "Customer",
+          "description": "Create a new customer"
+        },
+        {
+          "name": "list_customers",
+          "input": [
+            "db: Session"
+          ],
+          "output": "List[Customer]",
+          "description": "List all customers"
+        },
+        {
+          "name": "get_customer_by_id",
+          "input": [
+            "db: Session",
+            "customer_id: int"
+          ],
+          "output": "Customer",
+          "description": "Get a customer by ID, raise 404 if not found"
+        },
+        {
+          "name": "update_customer",
+          "input": [
+            "db: Session",
+            "customer_id: int",
+            "customer_data: CustomerCreate"
+          ],
+          "output": "Customer",
+          "description": "Update a customer by ID, raise 404 if not found"
+        }
+      ]
+    },
+    {
+      "path": "app/routes/customer.py",
+      "type": "route",
+      "entity": "Customer",
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/customers",
+          "operationId": "create_customer",
+          "input": "CustomerCreate",
+          "output": "Customer",
+          "status_code": 201,
+          "calls_service": "create_customer"
+        },
+        {
+          "method": "GET",
+          "path": "/customers",
+          "operationId": "list_customers",
+          "input": null,
+          "output": "List[Customer]",
+          "status_code": 200,
+          "calls_service": "list_customers"
+        },
+        {
+          "method": "GET",
+          "path": "/customers/{id}",
+          "operationId": "get_customer_by_id",
+          "input": "int: id",
+          "output": "Customer",
+          "status_code": 200,
+          "calls_service": "get_customer_by_id"
+        },
+        {
+          "method": "PUT",
+          "path": "/customers/{id}",
+          "operationId": "update_customer",
+          "input": [
+            "int: id",
+            "CustomerCreate"
+          ],
+          "output": "Customer",
+          "status_code": 200,
+          "calls_service": "update_customer"
+        }
+      ]
+    },
+    {
+      "path": "app/models/order.py",
+      "type": "model",
+      "entity": "Order",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false
+        },
+        {
+          "name": "order_number",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "total_amount",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "customer_id",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": "Customer.id"
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()",
+          "onupdate": "func.now()"
+        }
+      ]
+    },
+    {
+      "path": "app/schemas/order.py",
+      "type": "schema",
+      "entity": "Order",
+      "schemas": [
+        {
+          "name": "OrderCreate",
+          "fields": [
+            {
+              "name": "order_number",
+              "type": "str"
+            },
+            {
+              "name": "total_amount",
+              "type": "int"
+            },
+            {
+              "name": "status",
+              "type": "str"
+            },
+            {
+              "name": "customer_id",
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "name": "Order",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "order_number",
+              "type": "str"
+            },
+            {
+              "name": "total_amount",
+              "type": "int"
+            },
+            {
+              "name": "status",
+              "type": "str"
+            },
+            {
+              "name": "customer_id",
+              "type": "int"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/services/order.py",
+      "type": "service",
+      "entity": "Order",
+      "functions": [
+        {
+          "name": "create_order",
+          "input": [
+            "db: Session",
+            "order_data: OrderCreate"
+          ],
+          "output": "Order",
+          "description": "Create a new order"
+        },
+        {
+          "name": "list_orders",
+          "input": [
+            "db: Session"
+          ],
+          "output": "List[Order]",
+          "description": "List all orders"
+        },
+        {
+          "name": "get_order_by_id",
+          "input": [
+            "db: Session",
+            "order_id: int"
+          ],
+          "output": "Order",
+          "description": "Get an order by ID, raise 404 if not found"
+        },
+        {
+          "name": "delete_order",
+          "input": [
+            "db: Session",
+            "order_id: int"
+          ],
+          "output": "None",
+          "description": "Delete an order by ID, raise 404 if not found"
+        },
+        {
+          "name": "list_orders_by_customer",
+          "input": [
+            "db: Session",
+            "customer_id: int"
+          ],
+          "output": "List[Order]",
+          "description": "List orders by customer ID"
+        }
+      ]
+    },
+    {
+      "path": "app/routes/order.py",
+      "type": "route",
+      "entity": "Order",
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/orders",
+          "operationId": "create_order",
+          "input": "OrderCreate",
+          "output": "Order",
+          "status_code": 201,
+          "calls_service": "create_order"
+        },
+        {
+          "method": "GET",
+          "path": "/orders",
+          "operationId": "list_orders",
+          "input": null,
+          "output": "List[Order]",
+          "status_code": 200,
+          "calls_service": "list_orders"
+        },
+        {
+          "method": "GET",
+          "path": "/orders/{id}",
+          "operationId": "get_order_by_id",
+          "input": "int: id",
+          "output": "Order",
+          "status_code": 200,
+          "calls_service": "get_order_by_id"
+        },
+        {
+          "method": "DELETE",
+          "path": "/orders/{id}",
+          "operationId": "delete_order",
+          "input": "int: id",
+          "output": null,
+          "status_code": 204,
+          "calls_service": "delete_order"
+        },
+        {
+          "method": "GET",
+          "path": "/customers/{id}/orders",
+          "operationId": "list_orders_by_customer",
+          "input": "int: id",
+          "output": "List[Order]",
+          "status_code": 200,
+          "calls_service": "list_orders_by_customer"
+        }
+      ]
+    },
+    {
+      "path": "app/models/order_item.py",
+      "type": "model",
+      "entity": "OrderItem",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false
+        },
+        {
+          "name": "quantity",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "unit_price",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "order_id",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": "Order.id"
+        },
+        {
+          "name": "product_id",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": "Product.id"
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()",
+          "onupdate": "func.now()"
+        }
+      ]
+    },
+    {
+      "path": "app/schemas/order_item.py",
+      "type": "schema",
+      "entity": "OrderItem",
+      "schemas": [
+        {
+          "name": "OrderItemCreate",
+          "fields": [
+            {
+              "name": "quantity",
+              "type": "int"
+            },
+            {
+              "name": "unit_price",
+              "type": "int"
+            },
+            {
+              "name": "order_id",
+              "type": "int"
+            },
+            {
+              "name": "product_id",
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "name": "OrderItem",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "quantity",
+              "type": "int"
+            },
+            {
+              "name": "unit_price",
+              "type": "int"
+            },
+            {
+              "name": "order_id",
+              "type": "int"
+            },
+            {
+              "name": "product_id",
+              "type": "int"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/services/order_item.py",
+      "type": "service",
+      "entity": "OrderItem",
+      "functions": [
+        {
+          "name": "create_order_item",
+          "input": [
+            "db: Session",
+            "order_item_data: OrderItemCreate"
+          ],
+          "output": "OrderItem",
+          "description": "Create a new order item"
+        },
+        {
+          "name": "list_order_items",
+          "input": [
+            "db: Session"
+          ],
+          "output": "List[OrderItem]",
+          "description": "List all order items"
+        },
+        {
+          "name": "get_order_item_by_id",
+          "input": [
+            "db: Session",
+            "order_item_id: int"
+          ],
+          "output": "OrderItem",
+          "description": "Get an order item by ID, raise 404 if not found"
+        },
+        {
+          "name": "list_order_items_by_order",
+          "input": [
+            "db: Session",
+            "order_id: int"
+          ],
+          "output": "List[OrderItem]",
+          "description": "List order items by order ID"
+        },
+        {
+          "name": "list_order_items_by_product",
+          "input": [
+            "db: Session",
+            "product_id: int"
+          ],
+          "output": "List[OrderItem]",
+          "description": "List order items by product ID"
+        }
+      ]
+    },
+    {
+      "path": "app/routes/order_item.py",
+      "type": "route",
+      "entity": "OrderItem",
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/order_items",
+          "operationId": "create_order_item",
+          "input": "OrderItemCreate",
+          "output": "OrderItem",
+          "status_code": 201,
+          "calls_service": "create_order_item"
+        },
+        {
+          "method": "GET",
+          "path": "/order_items",
+          "operationId": "list_order_items",
+          "input": null,
+          "output": "List[OrderItem]",
+          "status_code": 200,
+          "calls_service": "list_order_items"
+        },
+        {
+          "method": "GET",
+          "path": "/order_items/{id}",
+          "operationId": "get_order_item_by_id",
+          "input": "int: id",
+          "output": "OrderItem",
+          "status_code": 200,
+          "calls_service": "get_order_item_by_id"
+        },
+        {
+          "method": "GET",
+          "path": "/orders/{id}/items",
+          "operationId": "list_order_items_by_order",
+          "input": "int: id",
+          "output": "List[OrderItem]",
+          "status_code": 200,
+          "calls_service": "list_order_items_by_order"
+        },
+        {
+          "method": "GET",
+          "path": "/products/{id}/order_items",
+          "operationId": "list_order_items_by_product",
+          "input": "int: id",
+          "output": "List[OrderItem]",
+          "status_code": 200,
+          "calls_service": "list_order_items_by_product"
         }
       ]
     },
@@ -489,16 +2117,21 @@
       "type": "main",
       "entity": null,
       "routers": [
-        "app.routes.contact"
+        "category.router",
+        "product.router",
+        "customer.router",
+        "order.router",
+        "order_item.router"
       ]
     }
   ],
   "task_queue": [
     {
       "order": 1,
-      "entity": "Contact",
-      "file": "app/models/contact.py",
+      "entity": "Category",
+      "file": "app/models/category.py",
       "status": "done",
+      "test_status": "pending",
       "type": "model",
       "depends_on": [],
       "fields": [
@@ -515,123 +2148,65 @@
           "nullable": false
         },
         {
-          "name": "email",
-          "type": "String",
-          "primary_key": false,
-          "nullable": false
-        },
-        {
-          "name": "location",
+          "name": "description",
           "type": "String",
           "primary_key": false,
           "nullable": true
         },
         {
-          "name": "budget",
-          "type": "String",
+          "name": "is_active",
+          "type": "Boolean",
           "primary_key": false,
-          "nullable": true
-        },
-        {
-          "name": "subject",
-          "type": "String",
-          "primary_key": false,
-          "nullable": true
-        },
-        {
-          "name": "message",
-          "type": "String",
-          "primary_key": false,
-          "nullable": false
+          "nullable": false,
+          "default": true
         },
         {
           "name": "created_at",
           "type": "DateTime",
           "primary_key": false,
           "nullable": false,
-          "default": "datetime.utcnow"
+          "default": "func.now()"
         },
         {
           "name": "updated_at",
           "type": "DateTime",
           "primary_key": false,
           "nullable": false,
-          "default": "datetime.utcnow",
-          "onupdate": "datetime.utcnow"
+          "default": "func.now()",
+          "onupdate": "func.now()"
         }
       ]
     },
     {
       "order": 2,
-      "entity": "Contact",
-      "file": "app/schemas/contact.py",
+      "entity": "Category",
+      "file": "app/schemas/category.py",
       "status": "done",
+      "test_status": "pending",
       "type": "schema",
-      "depends_on": [
-        "app/models/contact.py"
-      ],
+      "depends_on": [],
       "schemas": [
         {
-          "name": "ContactBase",
+          "name": "CategoryCreate",
           "fields": [
             {
               "name": "name",
               "type": "str"
             },
             {
-              "name": "email",
-              "type": "str"
+              "name": "description",
+              "type": "Optional[str]",
+              "default": null
             },
             {
-              "name": "location",
-              "type": "Optional[str]"
-            },
-            {
-              "name": "budget",
-              "type": "Optional[str]"
-            },
-            {
-              "name": "subject",
-              "type": "Optional[str]"
-            },
-            {
-              "name": "message",
-              "type": "str"
+              "name": "is_active",
+              "type": "bool",
+              "default": true
             }
           ]
         },
         {
-          "name": "ContactCreate",
-          "fields": [
-            {
-              "name": "name",
-              "type": "str"
-            },
-            {
-              "name": "email",
-              "type": "str"
-            },
-            {
-              "name": "location",
-              "type": "Optional[str]"
-            },
-            {
-              "name": "budget",
-              "type": "Optional[str]"
-            },
-            {
-              "name": "subject",
-              "type": "Optional[str]"
-            },
-            {
-              "name": "message",
-              "type": "str"
-            }
-          ],
-          "inherits": "ContactBase"
-        },
-        {
-          "name": "Contact",
+          "name": "Category",
           "fields": [
             {
               "name": "id",
@@ -642,24 +2217,12 @@
               "type": "str"
             },
             {
-              "name": "email",
-              "type": "str"
-            },
-            {
-              "name": "location",
+              "name": "description",
               "type": "Optional[str]"
             },
             {
-              "name": "budget",
-              "type": "Optional[str]"
-            },
-            {
-              "name": "subject",
-              "type": "Optional[str]"
-            },
-            {
-              "name": "message",
-              "type": "str"
+              "name": "is_active",
+              "type": "bool"
             },
             {
               "name": "created_at",
@@ -669,180 +2232,1261 @@
               "name": "updated_at",
               "type": "datetime"
             }
-          ],
-          "inherits": "ContactBase"
+          ]
         }
       ]
     },
     {
       "order": 3,
-      "entity": "Contact",
-      "file": "app/services/contact.py",
+      "entity": "Category",
+      "file": "app/services/category.py",
       "status": "done",
+      "test_status": "pending",
       "type": "service",
-      "depends_on": [
-        "app/schemas/contact.py",
-        "app/models/contact.py"
-      ],
+      "depends_on": [],
       "functions": [
         {
-          "name": "create_contact",
-          "input_parameters": [
-            {
-              "name": "db",
-              "type": "Session"
-            },
-            {
-              "name": "contact_data",
-              "type": "ContactCreate"
-            }
+          "name": "create_category",
+          "input": [
+            "db: Session",
+            "category_data: CategoryCreate"
           ],
-          "output_type": "Contact",
-          "description": "Create a new contact submission"
+          "output": "Category",
+          "description": "Create a new category"
         },
         {
-          "name": "list_contacts",
-          "input_parameters": [
-            {
-              "name": "db",
-              "type": "Session"
-            }
+          "name": "list_categories",
+          "input": [
+            "db: Session"
           ],
-          "output_type": "List[Contact]",
-          "description": "List all contact submissions"
+          "output": "List[Category]",
+          "description": "List all categories"
         },
         {
-          "name": "get_contact_by_id",
-          "input_parameters": [
-            {
-              "name": "db",
-              "type": "Session"
-            },
-            {
-              "name": "contact_id",
-              "type": "int"
-            }
+          "name": "get_category_by_id",
+          "input": [
+            "db: Session",
+            "category_id: int"
           ],
-          "output_type": "Contact",
-          "description": "Get a contact submission by ID, raises 404 if not found"
+          "output": "Category",
+          "description": "Get a category by ID, raise 404 if not found"
         },
         {
-          "name": "delete_contact",
-          "input_parameters": [
-            {
-              "name": "db",
-              "type": "Session"
-            },
-            {
-              "name": "contact_id",
-              "type": "int"
-            }
+          "name": "update_category",
+          "input": [
+            "db: Session",
+            "category_id: int",
+            "category_data: CategoryCreate"
           ],
-          "output_type": "None",
-          "description": "Delete a contact submission by ID, raises 404 if not found"
+          "output": "Category",
+          "description": "Update a category by ID, raise 404 if not found"
         }
       ]
     },
     {
       "order": 4,
-      "entity": "Contact",
-      "file": "app/routes/contact.py",
+      "entity": "Category",
+      "file": "app/routes/category.py",
       "status": "done",
       "test_status": "passed",
       "type": "route",
-      "depends_on": [
-        "app/services/contact.py",
-        "app/schemas/contact.py"
-      ],
+      "depends_on": [],
       "functions": [
         {
           "method": "POST",
-          "path": "/contacts",
-          "operationId": "create_contact",
-          "input": {
-            "body": "ContactCreate"
-          },
-          "output": "Contact",
+          "path": "/categories",
+          "operationId": "create_category",
+          "input": "CategoryCreate",
+          "output": "Category",
           "status_code": 201,
-          "calls_service": "create_contact"
+          "calls_service": "create_category"
         },
         {
           "method": "GET",
-          "path": "/contacts",
-          "operationId": "list_contacts",
-          "input": {},
-          "output": "List[Contact]",
+          "path": "/categories",
+          "operationId": "list_categories",
+          "input": null,
+          "output": "List[Category]",
           "status_code": 200,
-          "calls_service": "list_contacts"
+          "calls_service": "list_categories"
         },
         {
           "method": "GET",
-          "path": "/contacts/{id}",
-          "operationId": "get_contact_by_id",
-          "input": {
-            "path_params": [
-              {
-                "name": "id",
-                "type": "int"
-              }
-            ]
-          },
-          "output": "Contact",
+          "path": "/categories/{id}",
+          "operationId": "get_category_by_id",
+          "input": "int: id",
+          "output": "Category",
           "status_code": 200,
-          "calls_service": "get_contact_by_id"
+          "calls_service": "get_category_by_id"
         },
         {
-          "method": "DELETE",
-          "path": "/contacts/{id}",
-          "operationId": "delete_contact",
-          "input": {
-            "path_params": [
-              {
-                "name": "id",
-                "type": "int"
-              }
-            ]
-          },
-          "output": null,
-          "status_code": 204,
-          "calls_service": "delete_contact"
+          "method": "PUT",
+          "path": "/categories/{id}",
+          "operationId": "update_category",
+          "input": [
+            "int: id",
+            "CategoryCreate"
+          ],
+          "output": "Category",
+          "status_code": 200,
+          "calls_service": "update_category"
         }
       ]
     },
     {
       "order": 5,
+      "entity": "Customer",
+      "file": "app/models/customer.py",
+      "status": "done",
+      "test_status": "pending",
+      "type": "model",
+      "depends_on": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false
+        },
+        {
+          "name": "full_name",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "email",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "phone",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "is_premium",
+          "type": "Boolean",
+          "primary_key": false,
+          "nullable": false,
+          "default": false
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()",
+          "onupdate": "func.now()"
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "entity": "Customer",
+      "file": "app/schemas/customer.py",
+      "status": "done",
+      "test_status": "pending",
+      "type": "schema",
+      "depends_on": [],
+      "schemas": [
+        {
+          "name": "CustomerCreate",
+          "fields": [
+            {
+              "name": "full_name",
+              "type": "str"
+            },
+            {
+              "name": "email",
+              "type": "str"
+            },
+            {
+              "name": "phone",
+              "type": "Optional[str]",
+              "default": null
+            },
+            {
+              "name": "is_premium",
+              "type": "bool",
+              "default": false
+            }
+          ]
+        },
+        {
+          "name": "Customer",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "full_name",
+              "type": "str"
+            },
+            {
+              "name": "email",
+              "type": "str"
+            },
+            {
+              "name": "phone",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "is_premium",
+              "type": "bool"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "entity": "Customer",
+      "file": "app/services/customer.py",
+      "status": "done",
+      "test_status": "pending",
+      "type": "service",
+      "depends_on": [],
+      "functions": [
+        {
+          "name": "create_customer",
+          "input": [
+            "db: Session",
+            "customer_data: CustomerCreate"
+          ],
+          "output": "Customer",
+          "description": "Create a new customer"
+        },
+        {
+          "name": "list_customers",
+          "input": [
+            "db: Session"
+          ],
+          "output": "List[Customer]",
+          "description": "List all customers"
+        },
+        {
+          "name": "get_customer_by_id",
+          "input": [
+            "db: Session",
+            "customer_id: int"
+          ],
+          "output": "Customer",
+          "description": "Get a customer by ID, raise 404 if not found"
+        },
+        {
+          "name": "update_customer",
+          "input": [
+            "db: Session",
+            "customer_id: int",
+            "customer_data: CustomerCreate"
+          ],
+          "output": "Customer",
+          "description": "Update a customer by ID, raise 404 if not found"
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "entity": "Customer",
+      "file": "app/routes/customer.py",
+      "status": "done",
+      "test_status": "passed",
+      "type": "route",
+      "depends_on": [],
+      "functions": [
+        {
+          "method": "POST",
+          "path": "/customers",
+          "operationId": "create_customer",
+          "input": "CustomerCreate",
+          "output": "Customer",
+          "status_code": 201,
+          "calls_service": "create_customer"
+        },
+        {
+          "method": "GET",
+          "path": "/customers",
+          "operationId": "list_customers",
+          "input": null,
+          "output": "List[Customer]",
+          "status_code": 200,
+          "calls_service": "list_customers"
+        },
+        {
+          "method": "GET",
+          "path": "/customers/{id}",
+          "operationId": "get_customer_by_id",
+          "input": "int: id",
+          "output": "Customer",
+          "status_code": 200,
+          "calls_service": "get_customer_by_id"
+        },
+        {
+          "method": "PUT",
+          "path": "/customers/{id}",
+          "operationId": "update_customer",
+          "input": [
+            "int: id",
+            "CustomerCreate"
+          ],
+          "output": "Customer",
+          "status_code": 200,
+          "calls_service": "update_customer"
+        }
+      ]
+    },
+    {
+      "order": 9,
+      "entity": "Product",
+      "file": "app/models/product.py",
+      "status": "done",
+      "test_status": "pending",
+      "type": "model",
+      "depends_on": [
+        "Category"
+      ],
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "price",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "stock_quantity",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "default": 0
+        },
+        {
+          "name": "is_available",
+          "type": "Boolean",
+          "primary_key": false,
+          "nullable": false,
+          "default": true
+        },
+        {
+          "name": "category_id",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": "Category.id"
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()",
+          "onupdate": "func.now()"
+        }
+      ]
+    },
+    {
+      "order": 10,
+      "entity": "Product",
+      "file": "app/schemas/product.py",
+      "status": "done",
+      "test_status": "pending",
+      "type": "schema",
+      "depends_on": [
+        "Category"
+      ],
+      "schemas": [
+        {
+          "name": "ProductCreate",
+          "fields": [
+            {
+              "name": "name",
+              "type": "str"
+            },
+            {
+              "name": "description",
+              "type": "Optional[str]",
+              "default": null
+            },
+            {
+              "name": "price",
+              "type": "int"
+            },
+            {
+              "name": "stock_quantity",
+              "type": "int",
+              "default": 0
+            },
+            {
+              "name": "is_available",
+              "type": "bool",
+              "default": true
+            },
+            {
+              "name": "category_id",
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "name": "Product",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "name",
+              "type": "str"
+            },
+            {
+              "name": "description",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "price",
+              "type": "int"
+            },
+            {
+              "name": "stock_quantity",
+              "type": "int"
+            },
+            {
+              "name": "is_available",
+              "type": "bool"
+            },
+            {
+              "name": "category_id",
+              "type": "int"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 11,
+      "entity": "Product",
+      "file": "app/services/product.py",
+      "status": "done",
+      "test_status": "pending",
+      "type": "service",
+      "depends_on": [
+        "Category"
+      ],
+      "functions": [
+        {
+          "name": "create_product",
+          "input": [
+            "db: Session",
+            "product_data: ProductCreate"
+          ],
+          "output": "Product",
+          "description": "Create a new product"
+        },
+        {
+          "name": "list_products",
+          "input": [
+            "db: Session"
+          ],
+          "output": "List[Product]",
+          "description": "List all products"
+        },
+        {
+          "name": "get_product_by_id",
+          "input": [
+            "db: Session",
+            "product_id: int"
+          ],
+          "output": "Product",
+          "description": "Get a product by ID, raise 404 if not found"
+        },
+        {
+          "name": "update_product",
+          "input": [
+            "db: Session",
+            "product_id: int",
+            "product_data: ProductCreate"
+          ],
+          "output": "Product",
+          "description": "Update a product by ID, raise 404 if not found"
+        },
+        {
+          "name": "delete_product",
+          "input": [
+            "db: Session",
+            "product_id: int"
+          ],
+          "output": "None",
+          "description": "Delete a product by ID, raise 404 if not found"
+        },
+        {
+          "name": "list_products_by_category",
+          "input": [
+            "db: Session",
+            "category_id: int"
+          ],
+          "output": "List[Product]",
+          "description": "List products by category ID"
+        }
+      ]
+    },
+    {
+      "order": 12,
+      "entity": "Product",
+      "file": "app/routes/product.py",
+      "status": "done",
+      "test_status": "passed",
+      "type": "route",
+      "depends_on": [
+        "Category"
+      ],
+      "functions": [
+        {
+          "method": "POST",
+          "path": "/products",
+          "operationId": "create_product",
+          "input": "ProductCreate",
+          "output": "Product",
+          "status_code": 201,
+          "calls_service": "create_product"
+        },
+        {
+          "method": "GET",
+          "path": "/products",
+          "operationId": "list_products",
+          "input": null,
+          "output": "List[Product]",
+          "status_code": 200,
+          "calls_service": "list_products"
+        },
+        {
+          "method": "GET",
+          "path": "/products/{id}",
+          "operationId": "get_product_by_id",
+          "input": "int: id",
+          "output": "Product",
+          "status_code": 200,
+          "calls_service": "get_product_by_id"
+        },
+        {
+          "method": "PUT",
+          "path": "/products/{id}",
+          "operationId": "update_product",
+          "input": [
+            "int: id",
+            "ProductCreate"
+          ],
+          "output": "Product",
+          "status_code": 200,
+          "calls_service": "update_product"
+        },
+        {
+          "method": "DELETE",
+          "path": "/products/{id}",
+          "operationId": "delete_product",
+          "input": "int: id",
+          "output": null,
+          "status_code": 204,
+          "calls_service": "delete_product"
+        },
+        {
+          "method": "GET",
+          "path": "/categories/{id}/products",
+          "operationId": "list_products_by_category",
+          "input": "int: id",
+          "output": "List[Product]",
+          "status_code": 200,
+          "calls_service": "list_products_by_category"
+        }
+      ]
+    },
+    {
+      "order": 13,
+      "entity": "Order",
+      "file": "app/models/order.py",
+      "status": "done",
+      "test_status": "pending",
+      "type": "model",
+      "depends_on": [
+        "Customer"
+      ],
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false
+        },
+        {
+          "name": "order_number",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "total_amount",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "customer_id",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": "Customer.id"
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()",
+          "onupdate": "func.now()"
+        }
+      ]
+    },
+    {
+      "order": 14,
+      "entity": "Order",
+      "file": "app/schemas/order.py",
+      "status": "done",
+      "test_status": "pending",
+      "type": "schema",
+      "depends_on": [
+        "Customer"
+      ],
+      "schemas": [
+        {
+          "name": "OrderCreate",
+          "fields": [
+            {
+              "name": "order_number",
+              "type": "str"
+            },
+            {
+              "name": "total_amount",
+              "type": "int"
+            },
+            {
+              "name": "status",
+              "type": "str"
+            },
+            {
+              "name": "customer_id",
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "name": "Order",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "order_number",
+              "type": "str"
+            },
+            {
+              "name": "total_amount",
+              "type": "int"
+            },
+            {
+              "name": "status",
+              "type": "str"
+            },
+            {
+              "name": "customer_id",
+              "type": "int"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 15,
+      "entity": "Order",
+      "file": "app/services/order.py",
+      "status": "done",
+      "test_status": "pending",
+      "type": "service",
+      "depends_on": [
+        "Customer"
+      ],
+      "functions": [
+        {
+          "name": "create_order",
+          "input": [
+            "db: Session",
+            "order_data: OrderCreate"
+          ],
+          "output": "Order",
+          "description": "Create a new order"
+        },
+        {
+          "name": "list_orders",
+          "input": [
+            "db: Session"
+          ],
+          "output": "List[Order]",
+          "description": "List all orders"
+        },
+        {
+          "name": "get_order_by_id",
+          "input": [
+            "db: Session",
+            "order_id: int"
+          ],
+          "output": "Order",
+          "description": "Get an order by ID, raise 404 if not found"
+        },
+        {
+          "name": "delete_order",
+          "input": [
+            "db: Session",
+            "order_id: int"
+          ],
+          "output": "None",
+          "description": "Delete an order by ID, raise 404 if not found"
+        },
+        {
+          "name": "list_orders_by_customer",
+          "input": [
+            "db: Session",
+            "customer_id: int"
+          ],
+          "output": "List[Order]",
+          "description": "List orders by customer ID"
+        }
+      ]
+    },
+    {
+      "order": 16,
+      "entity": "Order",
+      "file": "app/routes/order.py",
+      "status": "done",
+      "test_status": "passed",
+      "type": "route",
+      "depends_on": [
+        "Customer"
+      ],
+      "functions": [
+        {
+          "method": "POST",
+          "path": "/orders",
+          "operationId": "create_order",
+          "input": "OrderCreate",
+          "output": "Order",
+          "status_code": 201,
+          "calls_service": "create_order"
+        },
+        {
+          "method": "GET",
+          "path": "/orders",
+          "operationId": "list_orders",
+          "input": null,
+          "output": "List[Order]",
+          "status_code": 200,
+          "calls_service": "list_orders"
+        },
+        {
+          "method": "GET",
+          "path": "/orders/{id}",
+          "operationId": "get_order_by_id",
+          "input": "int: id",
+          "output": "Order",
+          "status_code": 200,
+          "calls_service": "get_order_by_id"
+        },
+        {
+          "method": "DELETE",
+          "path": "/orders/{id}",
+          "operationId": "delete_order",
+          "input": "int: id",
+          "output": null,
+          "status_code": 204,
+          "calls_service": "delete_order"
+        },
+        {
+          "method": "GET",
+          "path": "/customers/{id}/orders",
+          "operationId": "list_orders_by_customer",
+          "input": "int: id",
+          "output": "List[Order]",
+          "status_code": 200,
+          "calls_service": "list_orders_by_customer"
+        }
+      ]
+    },
+    {
+      "order": 17,
+      "entity": "OrderItem",
+      "file": "app/models/order_item.py",
+      "status": "done",
+      "test_status": "pending",
+      "type": "model",
+      "depends_on": [
+        "Order",
+        "Product"
+      ],
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "primary_key": true,
+          "nullable": false
+        },
+        {
+          "name": "quantity",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "unit_price",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false
+        },
+        {
+          "name": "order_id",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": "Order.id"
+        },
+        {
+          "name": "product_id",
+          "type": "Integer",
+          "primary_key": false,
+          "nullable": false,
+          "foreign_key": "Product.id"
+        },
+        {
+          "name": "created_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "DateTime",
+          "primary_key": false,
+          "nullable": false,
+          "default": "func.now()",
+          "onupdate": "func.now()"
+        }
+      ]
+    },
+    {
+      "order": 18,
+      "entity": "OrderItem",
+      "file": "app/schemas/order_item.py",
+      "status": "done",
+      "test_status": "pending",
+      "type": "schema",
+      "depends_on": [
+        "Order",
+        "Product"
+      ],
+      "schemas": [
+        {
+          "name": "OrderItemCreate",
+          "fields": [
+            {
+              "name": "quantity",
+              "type": "int"
+            },
+            {
+              "name": "unit_price",
+              "type": "int"
+            },
+            {
+              "name": "order_id",
+              "type": "int"
+            },
+            {
+              "name": "product_id",
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "name": "OrderItem",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "quantity",
+              "type": "int"
+            },
+            {
+              "name": "unit_price",
+              "type": "int"
+            },
+            {
+              "name": "order_id",
+              "type": "int"
+            },
+            {
+              "name": "product_id",
+              "type": "int"
+            },
+            {
+              "name": "created_at",
+              "type": "datetime"
+            },
+            {
+              "name": "updated_at",
+              "type": "datetime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 19,
+      "entity": "OrderItem",
+      "file": "app/services/order_item.py",
+      "status": "done",
+      "test_status": "pending",
+      "type": "service",
+      "depends_on": [
+        "Order",
+        "Product"
+      ],
+      "functions": [
+        {
+          "name": "create_order_item",
+          "input": [
+            "db: Session",
+            "order_item_data: OrderItemCreate"
+          ],
+          "output": "OrderItem",
+          "description": "Create a new order item"
+        },
+        {
+          "name": "list_order_items",
+          "input": [
+            "db: Session"
+          ],
+          "output": "List[OrderItem]",
+          "description": "List all order items"
+        },
+        {
+          "name": "get_order_item_by_id",
+          "input": [
+            "db: Session",
+            "order_item_id: int"
+          ],
+          "output": "OrderItem",
+          "description": "Get an order item by ID, raise 404 if not found"
+        },
+        {
+          "name": "list_order_items_by_order",
+          "input": [
+            "db: Session",
+            "order_id: int"
+          ],
+          "output": "List[OrderItem]",
+          "description": "List order items by order ID"
+        },
+        {
+          "name": "list_order_items_by_product",
+          "input": [
+            "db: Session",
+            "product_id: int"
+          ],
+          "output": "List[OrderItem]",
+          "description": "List order items by product ID"
+        }
+      ]
+    },
+    {
+      "order": 20,
+      "entity": "OrderItem",
+      "file": "app/routes/order_item.py",
+      "status": "done",
+      "test_status": "passed",
+      "type": "route",
+      "depends_on": [
+        "Order",
+        "Product"
+      ],
+      "functions": [
+        {
+          "method": "POST",
+          "path": "/order_items",
+          "operationId": "create_order_item",
+          "input": "OrderItemCreate",
+          "output": "OrderItem",
+          "status_code": 201,
+          "calls_service": "create_order_item"
+        },
+        {
+          "method": "GET",
+          "path": "/order_items",
+          "operationId": "list_order_items",
+          "input": null,
+          "output": "List[OrderItem]",
+          "status_code": 200,
+          "calls_service": "list_order_items"
+        },
+        {
+          "method": "GET",
+          "path": "/order_items/{id}",
+          "operationId": "get_order_item_by_id",
+          "input": "int: id",
+          "output": "OrderItem",
+          "status_code": 200,
+          "calls_service": "get_order_item_by_id"
+        },
+        {
+          "method": "GET",
+          "path": "/orders/{id}/items",
+          "operationId": "list_order_items_by_order",
+          "input": "int: id",
+          "output": "List[OrderItem]",
+          "status_code": 200,
+          "calls_service": "list_order_items_by_order"
+        },
+        {
+          "method": "GET",
+          "path": "/products/{id}/order_items",
+          "operationId": "list_order_items_by_product",
+          "input": "int: id",
+          "output": "List[OrderItem]",
+          "status_code": 200,
+          "calls_service": "list_order_items_by_product"
+        }
+      ]
+    },
+    {
+      "order": 21,
       "entity": null,
       "file": "app/main.py",
       "status": "done",
+      "test_status": "pending",
       "type": "main",
       "depends_on": [
-        "app/routes/contact.py"
+        "Category",
+        "Product",
+        "Customer",
+        "Order",
+        "OrderItem"
       ],
       "routers": [
-        "app.routes.contact"
+        "category.router",
+        "product.router",
+        "customer.router",
+        "order.router",
+        "order_item.router"
       ]
     }
   ],
   "generated_files": {
-    "app/models/contact.py": "from sqlalchemy import Column, Integer, String, DateTime\nfrom sqlalchemy.orm import relationship\nfrom app.database import Base\nfrom datetime import datetime\n\nclass Contact(Base):\n    __tablename__ = \"contacts\"\n\n    id = Column(Integer, primary_key=True, index=True)\n    name = Column(String, nullable=False)\n    email = Column(String, nullable=False)\n    location = Column(String, nullable=True)\n    budget = Column(String, nullable=True)\n    subject = Column(String, nullable=True)\n    message = Column(String, nullable=False)\n    created_at = Column(DateTime, default=datetime.utcnow)\n    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)",
-    "app/schemas/contact.py": "from pydantic import BaseModel\nfrom datetime import datetime\nfrom typing import Optional\n\nclass ContactBase(BaseModel):\n    name: str\n    email: str\n    location: Optional[str] = None\n    budget: Optional[str] = None\n    subject: Optional[str] = None\n    message: str\n\nclass ContactCreate(ContactBase):\n    pass\n\nclass Contact(ContactBase):\n    id: int\n    created_at: datetime\n    updated_at: datetime\n\n    model_config = {\n        \"from_attributes\": True\n    }",
-    "app/services/contact.py": "from sqlalchemy.orm import Session\nfrom fastapi import HTTPException\nfrom app.models.contact import Contact\nfrom app.schemas.contact import ContactCreate\n\ndef create_contact(db: Session, contact_data: ContactCreate) -> Contact:\n    db_contact = Contact(**contact_data.model_dump())\n    db.add(db_contact)\n    db.commit()\n    db.refresh(db_contact)\n    return db_contact\n\ndef list_contacts(db: Session) -> list[Contact]:\n    return db.query(Contact).all()\n\ndef get_contact_by_id(db: Session, contact_id: int) -> Contact:\n    contact = db.query(Contact).filter(Contact.id == contact_id).first()\n    if not contact:\n        raise HTTPException(status_code=404, detail=\"Contact not found\")\n    return contact\n\ndef update_contact(db: Session, contact_id: int, contact_data: ContactCreate) -> Contact:\n    contact = db.query(Contact).filter(Contact.id == contact_id).first()\n    if not contact:\n        raise HTTPException(status_code=404, detail=\"Contact not found\")\n    for key, value in contact_data.model_dump().items():\n        setattr(contact, key, value)\n    db.commit()\n    db.refresh(contact)\n    return contact\n\ndef delete_contact(db: Session, contact_id: int) -> None:\n    contact = db.query(Contact).filter(Contact.id == contact_id).first()\n    if not contact:\n        raise HTTPException(status_code=404, detail=\"Contact not found\")\n    db.delete(contact)\n    db.commit()",
-    "app/routes/contact.py": "from fastapi import APIRouter, Depends, HTTPException\nfrom sqlalchemy.orm import Session\nfrom app.database import get_db\nfrom app.schemas.contact import ContactCreate, Contact\nfrom app.services.contact import create_contact as create_contact_service\nfrom app.services.contact import list_contacts as list_contacts_service\nfrom app.services.contact import get_contact_by_id as get_contact_by_id_service\nfrom app.services.contact import update_contact as update_contact_service\nfrom app.services.contact import delete_contact as delete_contact_service\nfrom typing import List\n\nrouter = APIRouter()\n\n@router.post(\"/contacts\", response_model=Contact, status_code=201)\ndef create_contact(contact: ContactCreate, db: Session = Depends(get_db)):\n    return create_contact_service(db, contact)\n\n@router.get(\"/contacts\", response_model=List[Contact])\ndef list_contacts(db: Session = Depends(get_db)):\n    return list_contacts_service(db)\n\n@router.get(\"/contacts/{id}\", response_model=Contact)\ndef get_contact_by_id(id: int, db: Session = Depends(get_db)):\n    return get_contact_by_id_service(db, id)\n\n@router.put(\"/contacts/{id}\", response_model=Contact)\ndef update_contact(id: int, contact: ContactCreate, db: Session = Depends(get_db)):\n    return update_contact_service(db, id, contact)\n\n@router.delete(\"/contacts/{id}\", status_code=204, response_model=None)\ndef delete_contact(id: int, db: Session = Depends(get_db)):\n    delete_contact_service(db, id)\n    return None",
-    "app/main.py": "from fastapi import FastAPI\nfrom app.database import engine, Base\nfrom app.routes.contact import router as contact_router\n\napp = FastAPI()\n\n@app.on_event(\"startup\")\nasync def startup_event():\n    Base.metadata.create_all(bind=engine)\n\napp.include_router(contact_router, prefix=\"/api/contacts\", tags=[\"contacts\"])"
+    "app/models/category.py": "from sqlalchemy import Column, Integer, String, Boolean, DateTime\nfrom sqlalchemy.sql import func\nfrom app.database import Base\n\nclass Category(Base):\n    __tablename__ = \"categories\"\n\n    id = Column(Integer, primary_key=True, index=True)\n    name = Column(String, nullable=False)\n    description = Column(String, nullable=True)\n    is_active = Column(Boolean, nullable=False, default=True)\n    created_at = Column(DateTime, nullable=False, default=func.now())\n    updated_at = Column(DateTime, nullable=False, default=func.now(), onupdate=func.now())",
+    "app/schemas/category.py": "from pydantic import BaseModel, ConfigDict\nfrom datetime import datetime\nfrom typing import Optional\n\nclass CategoryCreate(BaseModel):\n    name: str\n    description: Optional[str] = None\n    is_active: bool = True\n\nclass Category(BaseModel):\n    id: int\n    name: str\n    description: Optional[str]\n    is_active: bool\n    created_at: datetime\n    updated_at: datetime\n\n    model_config = ConfigDict(from_attributes=True)",
+    "app/services/category.py": "from sqlalchemy.orm import Session\nfrom fastapi import HTTPException\nfrom typing import List\nfrom app.models.category import Category\nfrom app.schemas.category import CategoryCreate\n\ndef create_category(db: Session, category_data: CategoryCreate) -> Category:\n    db_category = Category(**category_data.model_dump())\n    db.add(db_category)\n    db.commit()\n    db.refresh(db_category)\n    return db_category\n\ndef list_categories(db: Session) -> List[Category]:\n    return db.query(Category).all()\n\ndef get_category_by_id(db: Session, category_id: int) -> Category:\n    category = db.query(Category).filter(Category.id == category_id).first()\n    if not category:\n        raise HTTPException(status_code=404, detail=\"Category not found\")\n    return category\n\ndef update_category(db: Session, category_id: int, category_data: CategoryCreate) -> Category:\n    db_category = db.query(Category).filter(Category.id == category_id).first()\n    if not db_category:\n        raise HTTPException(status_code=404, detail=\"Category not found\")\n    for key, value in category_data.model_dump().items():\n        setattr(db_category, key, value)\n    db.commit()\n    db.refresh(db_category)\n    return db_category",
+    "app/routes/category.py": "from fastapi import APIRouter, Depends, HTTPException\nfrom sqlalchemy.orm import Session\nfrom typing import List\nfrom app.database import get_db\nfrom app.schemas.category import Category, CategoryCreate\nfrom app.services.category import create_category as create_category_service\nfrom app.services.category import list_categories as list_categories_service\nfrom app.services.category import get_category_by_id as get_category_by_id_service\nfrom app.services.category import update_category as update_category_service\n\nrouter = APIRouter()\n\n@router.post(\"/categories\", response_model=Category, status_code=201)\ndef create_category(category: CategoryCreate, db: Session = Depends(get_db)):\n    return create_category_service(db, category)\n\n@router.get(\"/categories\", response_model=List[Category])\ndef list_categories(db: Session = Depends(get_db)):\n    return list_categories_service(db)\n\n@router.get(\"/categories/{id}\", response_model=Category)\ndef get_category_by_id(id: int, db: Session = Depends(get_db)):\n    return get_category_by_id_service(db, id)\n\n@router.put(\"/categories/{id}\", response_model=Category)\ndef update_category(id: int, category: CategoryCreate, db: Session = Depends(get_db)):\n    return update_category_service(db, id, category)",
+    "app/models/customer.py": "from sqlalchemy import Column, Integer, String, Boolean, DateTime\nfrom sqlalchemy.sql import func\nfrom app.database import Base\n\nclass Customer(Base):\n    __tablename__ = \"customers\"\n\n    id = Column(Integer, primary_key=True, index=True)\n    full_name = Column(String, nullable=False)\n    email = Column(String, nullable=False)\n    phone = Column(String, nullable=True)\n    is_premium = Column(Boolean, nullable=False, default=False)\n    created_at = Column(DateTime, nullable=False, default=func.now())\n    updated_at = Column(DateTime, nullable=False, default=func.now(), onupdate=func.now())",
+    "app/schemas/customer.py": "from pydantic import BaseModel, ConfigDict\nfrom datetime import datetime\nfrom typing import Optional\n\nclass CustomerCreate(BaseModel):\n    full_name: str\n    email: str\n    phone: Optional[str] = None\n    is_premium: bool = False\n\nclass Customer(BaseModel):\n    id: int\n    full_name: str\n    email: str\n    phone: Optional[str]\n    is_premium: bool\n    created_at: datetime\n    updated_at: datetime\n\n    model_config = ConfigDict(from_attributes=True)",
+    "app/services/customer.py": "from sqlalchemy.orm import Session\nfrom fastapi import HTTPException\nfrom typing import List\nfrom app.models.customer import Customer\nfrom app.schemas.customer import CustomerCreate\n\ndef create_customer(db: Session, customer_data: CustomerCreate) -> Customer:\n    db_customer = Customer(**customer_data.model_dump())\n    db.add(db_customer)\n    db.commit()\n    db.refresh(db_customer)\n    return db_customer\n\ndef list_customers(db: Session) -> List[Customer]:\n    return db.query(Customer).all()\n\ndef get_customer_by_id(db: Session, customer_id: int) -> Customer:\n    customer = db.query(Customer).filter(Customer.id == customer_id).first()\n    if customer is None:\n        raise HTTPException(status_code=404, detail=\"Customer not found\")\n    return customer\n\ndef update_customer(db: Session, customer_id: int, customer_data: CustomerCreate) -> Customer:\n    customer = db.query(Customer).filter(Customer.id == customer_id).first()\n    if customer is None:\n        raise HTTPException(status_code=404, detail=\"Customer not found\")\n    for key, value in customer_data.model_dump().items():\n        setattr(customer, key, value)\n    db.commit()\n    db.refresh(customer)\n    return customer",
+    "app/routes/customer.py": "from fastapi import APIRouter, Depends, HTTPException\nfrom sqlalchemy.orm import Session\nfrom typing import List\nfrom app.database import get_db\nfrom app.schemas.customer import Customer, CustomerCreate\nfrom app.services.customer import create_customer as create_customer_service\nfrom app.services.customer import list_customers as list_customers_service\nfrom app.services.customer import get_customer_by_id as get_customer_by_id_service\nfrom app.services.customer import update_customer as update_customer_service\n\nrouter = APIRouter()\n\n@router.post(\"/customers\", response_model=Customer, status_code=201)\ndef create_customer(customer: CustomerCreate, db: Session = Depends(get_db)):\n    return create_customer_service(db, customer)\n\n@router.get(\"/customers\", response_model=List[Customer])\ndef list_customers(db: Session = Depends(get_db)):\n    return list_customers_service(db)\n\n@router.get(\"/customers/{id}\", response_model=Customer)\ndef get_customer_by_id(id: int, db: Session = Depends(get_db)):\n    return get_customer_by_id_service(db, id)\n\n@router.put(\"/customers/{id}\", response_model=Customer)\ndef update_customer(id: int, customer: CustomerCreate, db: Session = Depends(get_db)):\n    return update_customer_service(db, id, customer)",
+    "app/models/product.py": "from sqlalchemy import Column, Integer, String, Boolean, ForeignKey\nfrom sqlalchemy.sql import func\nfrom app.database import Base\n\nclass Product(Base):\n    __tablename__ = \"products\"\n\n    id = Column(Integer, primary_key=True, index=True)\n    name = Column(String, nullable=False)\n    description = Column(String, nullable=True)\n    price = Column(Integer, nullable=False)\n    stock_quantity = Column(Integer, nullable=False, default=0)\n    is_available = Column(Boolean, nullable=False, default=True)\n    category_id = Column(Integer, ForeignKey(\"categories.id\"), nullable=False)\n    created_at = Column(Integer, server_default=func.now())\n    updated_at = Column(Integer, server_default=func.now(), onupdate=func.now())",
+    "app/schemas/product.py": "from pydantic import BaseModel, ConfigDict\nfrom datetime import datetime\nfrom typing import Optional\n\nclass ProductCreate(BaseModel):\n    name: str\n    description: Optional[str] = None\n    price: int\n    stock_quantity: int = 0\n    is_available: bool = True\n    category_id: int\n\nclass Product(BaseModel):\n    id: int\n    name: str\n    description: Optional[str]\n    price: int\n    stock_quantity: int\n    is_available: bool\n    category_id: int\n    created_at: datetime\n    updated_at: datetime\n\n    model_config = ConfigDict(from_attributes=True)",
+    "app/services/product.py": "from sqlalchemy.orm import Session\nfrom fastapi import HTTPException\nfrom typing import List\nfrom app.models.product import Product\nfrom app.schemas.product import ProductCreate\n\ndef create_product(db: Session, product_data: ProductCreate) -> Product:\n    db_product = Product(**product_data.model_dump())\n    db.add(db_product)\n    db.commit()\n    db.refresh(db_product)\n    return db_product\n\ndef list_products(db: Session) -> List[Product]:\n    return db.query(Product).all()\n\ndef get_product_by_id(db: Session, product_id: int) -> Product:\n    product = db.query(Product).filter(Product.id == product_id).first()\n    if not product:\n        raise HTTPException(status_code=404, detail=\"Product not found\")\n    return product\n\ndef update_product(db: Session, product_id: int, product_data: ProductCreate) -> Product:\n    product = db.query(Product).filter(Product.id == product_id).first()\n    if not product:\n        raise HTTPException(status_code=404, detail=\"Product not found\")\n    for key, value in product_data.model_dump().items():\n        setattr(product, key, value)\n    db.commit()\n    db.refresh(product)\n    return product\n\ndef delete_product(db: Session, product_id: int) -> None:\n    product = db.query(Product).filter(Product.id == product_id).first()\n    if not product:\n        raise HTTPException(status_code=404, detail=\"Product not found\")\n    db.delete(product)\n    db.commit()\n\ndef list_products_by_category(db: Session, category_id: int) -> List[Product]:\n    return db.query(Product).filter(Product.category_id == category_id).all()",
+    "app/routes/product.py": "from fastapi import APIRouter, Depends, HTTPException\nfrom sqlalchemy.orm import Session\nfrom typing import List, Optional\nfrom app.database import get_db\nfrom app.schemas.product import Product, ProductCreate\nfrom app.services.product import (\n    create_product as create_product_service,\n    list_products as list_products_service,\n    get_product_by_id as get_product_by_id_service,\n    update_product as update_product_service,\n    delete_product as delete_product_service,\n    list_products_by_category as list_products_by_category_service\n)\n\nrouter = APIRouter()\n\n@router.post(\"/products\", response_model=Product, status_code=201)\ndef create_product(product: ProductCreate, db: Session = Depends(get_db)):\n    return create_product_service(db, product)\n\n@router.get(\"/products\", response_model=List[Product])\ndef list_products(db: Session = Depends(get_db)):\n    return list_products_service(db)\n\n@router.get(\"/products/{id}\", response_model=Product)\ndef get_product_by_id(id: int, db: Session = Depends(get_db)):\n    return get_product_by_id_service(db, id)\n\n@router.put(\"/products/{id}\", response_model=Product)\ndef update_product(id: int, product: ProductCreate, db: Session = Depends(get_db)):\n    return update_product_service(db, id, product)\n\n@router.delete(\"/products/{id}\", status_code=204, response_model=None)\ndef delete_product(id: int, db: Session = Depends(get_db)):\n    delete_product_service(db, id)\n    return None\n\n@router.get(\"/categories/{id}/products\", response_model=List[Product])\ndef list_products_by_category(id: int, db: Session = Depends(get_db)):\n    return list_products_by_category_service(db, id)",
+    "app/models/order.py": "from sqlalchemy import Column, Integer, String, DateTime, ForeignKey\nfrom app.database import Base\nfrom datetime import datetime\n\nclass Order(Base):\n    __tablename__ = \"orders\"\n\n    id = Column(Integer, primary_key=True, index=True)\n    order_number = Column(String, nullable=False)\n    total_amount = Column(Integer, nullable=False)\n    status = Column(String, nullable=False)\n    customer_id = Column(Integer, ForeignKey(\"customers.id\"), nullable=False)\n    created_at = Column(DateTime, default=datetime.utcnow)\n    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)",
+    "app/schemas/order.py": "from pydantic import BaseModel, ConfigDict\nfrom datetime import datetime\n\nclass OrderCreate(BaseModel):\n    order_number: str\n    total_amount: int\n    status: str\n    customer_id: int\n\nclass Order(BaseModel):\n    id: int\n    order_number: str\n    total_amount: int\n    status: str\n    customer_id: int\n    created_at: datetime\n    updated_at: datetime\n\n    model_config = ConfigDict(from_attributes=True)",
+    "app/services/order.py": "from sqlalchemy.orm import Session\nfrom fastapi import HTTPException\nfrom typing import List\nfrom app.models.order import Order\nfrom app.schemas.order import OrderCreate\n\ndef create_order(db: Session, order_data: OrderCreate) -> Order:\n    db_order = Order(**order_data.model_dump())\n    db.add(db_order)\n    db.commit()\n    db.refresh(db_order)\n    return db_order\n\ndef list_orders(db: Session) -> List[Order]:\n    return db.query(Order).all()\n\ndef get_order_by_id(db: Session, order_id: int) -> Order:\n    order = db.query(Order).filter(Order.id == order_id).first()\n    if not order:\n        raise HTTPException(status_code=404, detail=\"Order not found\")\n    return order\n\ndef delete_order(db: Session, order_id: int) -> None:\n    order = db.query(Order).filter(Order.id == order_id).first()\n    if not order:\n        raise HTTPException(status_code=404, detail=\"Order not found\")\n    db.delete(order)\n    db.commit()\n\ndef list_orders_by_customer(db: Session, customer_id: int) -> List[Order]:\n    return db.query(Order).filter(Order.customer_id == customer_id).all()",
+    "app/routes/order.py": "from fastapi import APIRouter, Depends, HTTPException\nfrom sqlalchemy.orm import Session\nfrom typing import List\nfrom app.database import get_db\nfrom app.schemas.order import Order, OrderCreate\nfrom app.services.order import (\n    create_order as create_order_service,\n    list_orders as list_orders_service,\n    get_order_by_id as get_order_by_id_service,\n    delete_order as delete_order_service,\n    list_orders_by_customer as list_orders_by_customer_service\n)\n\nrouter = APIRouter()\n\n@router.post(\"/orders\", response_model=Order, status_code=201)\ndef create_order(order: OrderCreate, db: Session = Depends(get_db)):\n    return create_order_service(db, order)\n\n@router.get(\"/orders\", response_model=List[Order])\ndef list_orders(db: Session = Depends(get_db)):\n    return list_orders_service(db)\n\n@router.get(\"/orders/{id}\", response_model=Order)\ndef get_order_by_id(id: int, db: Session = Depends(get_db)):\n    return get_order_by_id_service(db, id)\n\n@router.delete(\"/orders/{id}\", status_code=204, response_model=None)\ndef delete_order(id: int, db: Session = Depends(get_db)):\n    delete_order_service(db, id)\n    return None\n\n@router.get(\"/customers/{id}/orders\", response_model=List[Order])\ndef list_orders_by_customer(id: int, db: Session = Depends(get_db)):\n    return list_orders_by_customer_service(db, id)",
+    "app/models/order_item.py": "from sqlalchemy import Column, Integer, ForeignKey\nfrom sqlalchemy.sql import func\nfrom datetime import datetime\nfrom app.database import Base\n\nclass OrderItem(Base):\n    __tablename__ = \"order_items\"\n\n    id = Column(Integer, primary_key=True, index=True)\n    quantity = Column(Integer, nullable=False)\n    unit_price = Column(Integer, nullable=False)\n    order_id = Column(Integer, ForeignKey(\"orders.id\"), nullable=False)\n    product_id = Column(Integer, ForeignKey(\"products.id\"), nullable=False)\n    created_at = Column(datetime, server_default=func.now())\n    updated_at = Column(datetime, server_default=func.now(), onupdate=func.now())",
+    "app/schemas/order_item.py": "from pydantic import BaseModel, ConfigDict\nfrom datetime import datetime\n\nclass OrderItemCreate(BaseModel):\n    quantity: int\n    unit_price: int\n    order_id: int\n    product_id: int\n\nclass OrderItem(BaseModel):\n    id: int\n    quantity: int\n    unit_price: int\n    order_id: int\n    product_id: int\n    created_at: datetime\n    updated_at: datetime\n\n    model_config = ConfigDict(from_attributes=True)",
+    "app/services/order_item.py": "from sqlalchemy.orm import Session\nfrom fastapi import HTTPException\nfrom typing import List\nfrom app.models.order_item import OrderItem\nfrom app.schemas.order_item import OrderItemCreate\n\ndef create_order_item(db: Session, order_item_data: OrderItemCreate) -> OrderItem:\n    db_order_item = OrderItem(**order_item_data.model_dump())\n    db.add(db_order_item)\n    db.commit()\n    db.refresh(db_order_item)\n    return db_order_item\n\ndef list_order_items(db: Session) -> List[OrderItem]:\n    return db.query(OrderItem).all()\n\ndef get_order_item_by_id(db: Session, order_item_id: int) -> OrderItem:\n    order_item = db.query(OrderItem).filter(OrderItem.id == order_item_id).first()\n    if not order_item:\n        raise HTTPException(status_code=404, detail=\"Order item not found\")\n    return order_item\n\ndef list_order_items_by_order(db: Session, order_id: int) -> List[OrderItem]:\n    return db.query(OrderItem).filter(OrderItem.order_id == order_id).all()\n\ndef list_order_items_by_product(db: Session, product_id: int) -> List[OrderItem]:\n    return db.query(OrderItem).filter(OrderItem.product_id == product_id).all()",
+    "app/routes/order_item.py": "from fastapi import APIRouter, Depends, HTTPException\nfrom sqlalchemy.orm import Session\nfrom typing import List, Optional\nfrom app.database import get_db\nfrom app.schemas.order_item import OrderItem, OrderItemCreate\nfrom app.services.order_item import (\n    create_order_item as create_order_item_service,\n    list_order_items as list_order_items_service,\n    get_order_item_by_id as get_order_item_by_id_service,\n    list_order_items_by_order as list_order_items_by_order_service,\n    list_order_items_by_product as list_order_items_by_product_service\n)\n\nrouter = APIRouter()\n\n@router.post(\"/order_items\", response_model=OrderItem, status_code=201)\ndef create_order_item(\n    order_item: OrderItemCreate,\n    db: Session = Depends(get_db)\n):\n    return create_order_item_service(db, order_item)\n\n@router.get(\"/order_items\", response_model=List[OrderItem])\ndef list_order_items(\n    db: Session = Depends(get_db)\n):\n    return list_order_items_service(db)\n\n@router.get(\"/order_items/{id}\", response_model=OrderItem)\ndef get_order_item_by_id(\n    id: int,\n    db: Session = Depends(get_db)\n):\n    return get_order_item_by_id_service(db, id)\n\n@router.get(\"/orders/{id}/items\", response_model=List[OrderItem])\ndef list_order_items_by_order(\n    id: int,\n    db: Session = Depends(get_db)\n):\n    return list_order_items_by_order_service(db, id)\n\n@router.get(\"/products/{id}/order_items\", response_model=List[OrderItem])\ndef list_order_items_by_product(\n    id: int,\n    db: Session = Depends(get_db)\n):\n    return list_order_items_by_product_service(db, id)",
+    "app/models/orderitem.py": "from sqlalchemy import Column, Integer, DateTime, ForeignKey\nfrom datetime import datetime\nfrom app.database import Base\n\nclass OrderItem(Base):\n    __tablename__ = \"order_items\"\n\n    id = Column(Integer, primary_key=True, index=True, autoincrement=True)\n    quantity = Column(Integer, nullable=False)\n    unit_price = Column(Integer, nullable=False)\n    order_id = Column(Integer, ForeignKey(\"orders.id\"), nullable=False)\n    product_id = Column(Integer, ForeignKey(\"products.id\"), nullable=False)\n    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)\n    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)",
+    "app/schemas/orderitem.py": "from pydantic import BaseModel\nfrom datetime import datetime\nfrom typing import Optional\n\nclass OrderItemCreate(BaseModel):\n    quantity: int\n    unit_price: int\n    order_id: int\n    product_id: int\n\nclass OrderItem(BaseModel):\n    id: int\n    quantity: int\n    unit_price: int\n    order_id: int\n    product_id: int\n    created_at: datetime\n    updated_at: datetime\n\n    class Config:\n        from_attributes = True",
+    "app/services/orderitem.py": "from sqlalchemy.orm import Session\nfrom fastapi import HTTPException\nfrom app.models.orderitem import OrderItem\nfrom app.schemas.orderitem import OrderItemCreate\n\ndef create_order_item(db: Session, order_item: OrderItemCreate) -> OrderItem:\n    db_order_item = OrderItem(**order_item.model_dump())\n    db.add(db_order_item)\n    db.commit()\n    db.refresh(db_order_item)\n    return db_order_item\n\ndef list_order_items(db: Session) -> list[OrderItem]:\n    return db.query(OrderItem).all()\n\ndef get_order_item_by_id(db: Session, order_item_id: int) -> OrderItem:\n    order_item = db.query(OrderItem).filter(OrderItem.id == order_item_id).first()\n    if not order_item:\n        raise HTTPException(status_code=404, detail=\"OrderItem not found\")\n    return order_item\n\ndef list_order_items_by_order(db: Session, order_id: int) -> list[OrderItem]:\n    return db.query(OrderItem).filter(OrderItem.order_id == order_id).all()\n\ndef list_order_items_by_product(db: Session, product_id: int) -> list[OrderItem]:\n    return db.query(OrderItem).filter(OrderItem.product_id == product_id).all()",
+    "app/routes/orderitem.py": "from fastapi import APIRouter, Depends, HTTPException\nfrom sqlalchemy.orm import Session\nfrom app.database import get_db\nfrom app.schemas.orderitem import OrderItemCreate, OrderItem\nfrom app.services.orderitem import (\n    create_order_item,\n    list_order_items,\n    get_order_item_by_id,\n    list_order_items_by_order,\n    list_order_items_by_product,\n)\n\nrouter = APIRouter(tags=[\"order_items\"])\n\n@router.post(\"/order_items\", response_model=OrderItem, status_code=201)\ndef create_order_item_route(order_item: OrderItemCreate, db: Session = Depends(get_db)):\n    return create_order_item(db, order_item)\n\n@router.get(\"/order_items\", response_model=list[OrderItem])\ndef list_order_items_route(db: Session = Depends(get_db)):\n    return list_order_items(db)\n\n@router.get(\"/order_items/{order_item_id}\", response_model=OrderItem)\ndef get_order_item_by_id_route(order_item_id: int, db: Session = Depends(get_db)):\n    return get_order_item_by_id(db, order_item_id)\n\n@router.get(\"/orders/{order_id}/items\", response_model=list[OrderItem])\ndef list_order_items_by_order_route(order_id: int, db: Session = Depends(get_db)):\n    return list_order_items_by_order(db, order_id)\n\n@router.get(\"/products/{product_id}/order_items\", response_model=list[OrderItem])\ndef list_order_items_by_product_route(product_id: int, db: Session = Depends(get_db)):\n    return list_order_items_by_product(db, product_id)\n",
+    "app/main.py": "from fastapi import FastAPI\nfrom app.routers.category import router as category_router\nfrom app.routers.product import router as product_router\nfrom app.routers.customer import router as customer_router\nfrom app.routers.order import router as order_router\nfrom app.routers.order_item import router as order_item_router\nfrom app.database import engine, Base\n\napp = FastAPI()\n\napp.include_router(category_router)\napp.include_router(product_router)\napp.include_router(customer_router)\napp.include_router(order_router)\napp.include_router(order_item_router)\n\n@app.on_event(\"startup\")\ndef startup():\n    Base.metadata.create_all(bind=engine)"
   },
+  "filesystem_state": [
+    "C:/Users/binitns/Desktop/generated_project\\app.db",
+    "C:/Users/binitns/Desktop/generated_project\\requirements.txt",
+    "C:/Users/binitns/Desktop/generated_project\\test.db",
+    "C:/Users/binitns/Desktop/generated_project\\.pytest_cache\\.gitignore",
+    "C:/Users/binitns/Desktop/generated_project\\.pytest_cache\\CACHEDIR.TAG",
+    "C:/Users/binitns/Desktop/generated_project\\.pytest_cache\\README.md",
+    "C:/Users/binitns/Desktop/generated_project\\.pytest_cache\\v\\cache\\lastfailed",
+    "C:/Users/binitns/Desktop/generated_project\\.pytest_cache\\v\\cache\\nodeids",
+    "C:/Users/binitns/Desktop/generated_project\\app\\database.py",
+    "C:/Users/binitns/Desktop/generated_project\\app\\main.py",
+    "C:/Users/binitns/Desktop/generated_project\\app\\seed.py",
+    "C:/Users/binitns/Desktop/generated_project\\app\\__init__.py",
+    "C:/Users/binitns/Desktop/generated_project\\app\\models\\__init__.py",
+    "C:/Users/binitns/Desktop/generated_project\\app\\routes\\__init__.py",
+    "C:/Users/binitns/Desktop/generated_project\\app\\schemas\\__init__.py",
+    "C:/Users/binitns/Desktop/generated_project\\app\\services\\__init__.py",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\.gitignore",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\eslint.config.js",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\index.html",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\package-lock.json",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\package.json",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\README.md",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\tsconfig.app.json",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\tsconfig.json",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\tsconfig.node.json",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\vite.config.ts",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\public\\favicon.svg",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\public\\icons.svg",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\App.css",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\App.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\index.css",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\main.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\01120caf35209da234d0ce9c533b0ea0cacd38d4.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\2da37f82fa800f0711d0ad48045ab742c6f8daf5.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\3b89fbcc5d09a9dcfed718b9441002088571183e.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\3da3ab315a91b5f2dd6f1061e5b0be3e60938f12.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\46c1b0b7047e0794dd8853d66cdde08771fd30d1.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\6256b708bb0c4a6fd8a44b369112956ce0963c34.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\8f107a905f0e2c2a0cc5bae15845adf0de3205ca.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\a24d27d57f75e5b9f77c3957198bdec9a4d4ac77.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\c78149f6f59250b6b8cb1b0e75f260c837bd67f9.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\d85394fd2c31f590ee6e19eb4d05f39feb09abd5.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\e2b8fe341e5180e7839d7d0d049b6900cd354219.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\ead171064222333091f36ac1c03c25f06480e9df.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\f9342afb7c1cf7f650c9ef0b35c8f6585d27e980.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\hero.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\react.svg",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\vite.svg",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\AddressCard.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\Blog.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\Button.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\Logo.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\Pagination.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\Project.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\Social.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\SocialMediaCard.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\WhatIDoCard.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\WorkProcessCard.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\config\\api.ts",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\pages\\Homepage.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\services\\api.ts",
+    "C:/Users/binitns/Desktop/generated_project\\tests\\__init__.py"
+  ],
   "test_results": {
-    "Contact": {
+    "Category": {
       "status": "passed",
-      "output": "============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 7 items\n\ntests/test_contact.py::test_create_contact PASSED                        [ 14%]\ntests/test_contact.py::test_list_contacts PASSED                         [ 28%]\ntests/test_contact.py::test_get_contact_by_id PASSED                     [ 42%]\ntests/test_contact.py::test_get_contact_by_id_not_found PASSED           [ 57%]\ntests/test_contact.py::test_update_contact PASSED                        [ 71%]\ntests/test_contact.py::test_delete_contact PASSED                        [ 85%]\ntests/test_contact.py::test_delete_contact_not_found PASSED              [100%]\n\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\ntests/test_contact.py: 13 warnings\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\sqlalchemy\\sql\\schema.py:3623: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    return util.wrap_callable(lambda ctx: fn(), fn)  # type: ignore\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================= 7 passed, 15 warnings in 0.72s ========================\n",
+      "output": "============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 5 items\n\ntests/test_category.py::test_create_category PASSED                      [ 20%]\ntests/test_category.py::test_list_categories PASSED                      [ 40%]\ntests/test_category.py::test_get_category_by_id PASSED                   [ 60%]\ntests/test_category.py::test_get_category_by_id_not_found PASSED         [ 80%]\ntests/test_category.py::test_update_category PASSED                      [100%]\n\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================= 5 passed, 2 warnings in 12.39s ========================\n",
+      "errors": null
+    },
+    "Customer": {
+      "status": "passed",
+      "output": "============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 5 items\n\ntests/test_customer.py::test_create_customer PASSED                      [ 20%]\ntests/test_customer.py::test_list_customers PASSED                       [ 40%]\ntests/test_customer.py::test_get_customer_by_id PASSED                   [ 60%]\ntests/test_customer.py::test_get_customer_by_id_not_found PASSED         [ 80%]\ntests/test_customer.py::test_update_customer PASSED                      [100%]\n\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================== 5 passed, 2 warnings in 1.47s ========================\n",
+      "errors": null
+    },
+    "Product": {
+      "status": "passed",
+      "output": "============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 8 items\n\ntests/test_product.py::test_create_product PASSED                        [ 12%]\ntests/test_product.py::test_list_products PASSED                         [ 25%]\ntests/test_product.py::test_get_product_by_id PASSED                     [ 37%]\ntests/test_product.py::test_get_product_by_id_not_found PASSED           [ 50%]\ntests/test_product.py::test_update_product PASSED                        [ 62%]\ntests/test_product.py::test_delete_product PASSED                        [ 75%]\ntests/test_product.py::test_delete_product_not_found PASSED              [ 87%]\ntests/test_product.py::test_list_products_by_category PASSED             [100%]\n\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================== 8 passed, 2 warnings in 1.91s ========================\n",
+      "errors": null
+    },
+    "Order": {
+      "status": "passed",
+      "output": "============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 7 items\n\ntests/test_order.py::test_create_order PASSED                            [ 14%]\ntests/test_order.py::test_list_orders PASSED                             [ 28%]\ntests/test_order.py::test_get_order_by_id PASSED                         [ 42%]\ntests/test_order.py::test_get_order_by_id_not_found PASSED               [ 57%]\ntests/test_order.py::test_delete_order PASSED                            [ 71%]\ntests/test_order.py::test_delete_order_not_found PASSED                  [ 85%]\ntests/test_order.py::test_list_orders_by_customer PASSED                 [100%]\n\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\ntests/test_order.py: 10 warnings\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\sqlalchemy\\sql\\schema.py:3623: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    return util.wrap_callable(lambda ctx: fn(), fn)  # type: ignore\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================= 7 passed, 12 warnings in 1.67s ========================\n",
+      "errors": null
+    },
+    "OrderItem": {
+      "status": "passed",
+      "output": "============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 6 items\n\ntests/test_orderitem.py::test_create_order_item PASSED                   [ 16%]\ntests/test_orderitem.py::test_list_order_items PASSED                    [ 33%]\ntests/test_orderitem.py::test_get_order_item_by_id PASSED                [ 50%]\ntests/test_orderitem.py::test_get_order_item_by_id_not_found PASSED      [ 66%]\ntests/test_orderitem.py::test_list_order_items_by_order PASSED           [ 83%]\ntests/test_orderitem.py::test_list_order_items_by_product PASSED         [100%]\n\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\napp\\schemas\\orderitem.py:11\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\schemas\\orderitem.py:11: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/\n    class OrderItem(BaseModel):\n\ntests/test_orderitem.py: 20 warnings\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\sqlalchemy\\sql\\schema.py:3623: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    return util.wrap_callable(lambda ctx: fn(), fn)  # type: ignore\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================= 6 passed, 23 warnings in 1.97s ========================\n",
       "errors": null
     }
   },
-  "error_log": "\n[TEST ERROR] Contact:\n============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 7 items\n\ntests/test_contact.py::test_create_contact PASSED                        [ 14%]\ntests/test_contact.py::test_list_contacts PASSED                         [ 28%]\ntests/test_contact.py::test_get_contact_by_id PASSED                     [ 42%]\ntests/test_contact.py::test_get_contact_by_id_not_found PASSED           [ 57%]\ntests/test_contact.py::test_update_contact FAILED                        [ 71%]\ntests/test_contact.py::test_delete_contact PASSED                        [ 85%]\ntests/test_contact.py::test_delete_contact_not_found PASSED              [100%]\n\n================================== FAILURES ===================================\n_____________________________ test_update_contact _____________________________\ntests\\test_contact.py:107: in test_update_contact\n    assert update_response.status_code == 200\nE   assert 405 == 200\nE    +  where 405 = <Response [405 Method Not Allowed]>.status_code\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\ntests/test_contact.py: 12 warnings\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\sqlalchemy\\sql\\schema.py:3623: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    return util.wrap_callable(lambda ctx: fn(), fn)  # type: ignore\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nFAILED tests/test_contact.py::test_update_contact - assert 405 == 200\n================== 1 failed, 6 passed, 14 warnings in 5.39s ===================\n",
-  "frontend_pages": {
-    "Homepage.tsx": "import React, { useEffect, useState } from 'react';\nimport AddressCard from '../components/AddressCard';\nimport Blog from '../components/Blog';\nimport Button from '../components/Button';\nimport Logo from '../components/Logo';\nimport Pagination from '../components/Pagination';\nimport Project from '../components/Project';\nimport SocialMediaCard from '../components/SocialMediaCard';\nimport WhatIDoCard from '../components/WhatIDoCard';\nimport WorkProcessCard from '../components/WorkProcessCard';\nimport API_BASE_URL from '../config/api';\n\nexport default function Homepage() {\n  const [scale, setScale] = useState(1);\n  const [formData, setFormData] = useState({\n    name: '',\n    email: '',\n    location: '',\n    budget: '',\n    subject: '',\n    message: ''\n  });\n  const [isSubmitting, setIsSubmitting] = useState(false);\n  const [submitStatus, setSubmitStatus] = useState<{ success: boolean; message: string } | null>(null);\n\n  useEffect(() => {\n    const updateScale = () => {\n      const screenWidth = window.innerWidth;\n      const designWidth = 1920;\n      const newScale = Math.min(1, screenWidth / designWidth);\n      setScale(newScale);\n    };\n\n    updateScale();\n    window.addEventListener('resize', updateScale);\n    return () => window.removeEventListener('resize', updateScale);\n  }, []);\n\n  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {\n    const { name, value } = e.target;\n    setFormData(prev => ({\n      ...prev,\n      [name]: value\n    }));\n  };\n\n  const handleSubmit = async (e: React.FormEvent) => {\n    e.preventDefault();\n    setIsSubmitting(true);\n    setSubmitStatus(null);\n\n    try {\n      const response = await fetch(`${API_BASE_URL}/contacts`, {\n        method: 'POST',\n        headers: {\n          'Content-Type': 'application/json',\n        },\n        body: JSON.stringify(formData),\n      });\n\n      if (response.ok) {\n        setSubmitStatus({ success: true, message: 'Message sent successfully!' });\n        setFormData({\n          name: '',\n          email: '',\n          location: '',\n          budget: '',\n          subject: '',\n          message: ''\n        });\n      } else {\n        const errorData = await response.json();\n        setSubmitStatus({ success: false, message: errorData.detail || 'Failed to send message' });\n      }\n    } catch (error) {\n      setSubmitStatus({ success: false, message: 'Network error. Please try again.' });\n    } finally {\n      setIsSubmitting(false);\n    }\n  };\n\n  return (\n    <div\n      className=\"w-full overflow-x-hidden flex justify-center bg-[#ffffff]\"\n      style={{ minHeight: `${8368 * scale}px` }}\n    >\n      <div\n        className=\"relative flex-shrink-0\"\n        style={{\n          width: `1920px`,\n          height: `8368px`,\n          transform: `scale(${scale})`,\n          transformOrigin: 'top center',\n        }}\n      >\n        {/* Section: BG */}\n        <div id=\"figma-135-1114\">\n        <div className=\"relative\">\n          <div className=\"w-[1481px] h-[1481px] absolute top-[1671px] left-[388px]\"></div>\n          <div className=\"w-[1481px] h-[1482px] absolute top-[7452px] left-[388px]\"></div>\n          <div className=\"w-[581.52px] h-[466.22px] absolute top-[2269px] left-[61px]\"></div>\n          <div className=\"w-[581.52px] h-[466.22px] absolute top-[9056px] left-[0px]\"></div>\n\n        </div>\n        </div>\n\n        {/* Section: Frame 40 */}\n        <div id=\"figma-135-727\">\n        <div className=\"flex flex-row justify-between gap-[385px] px-[300px] py-[20px] w-[1920px] h-fit bg-[#ffffff]\">\n          <div id=\"figma-135-728\" className=\"w-fit h-fit\">\n          <Logo b=\"B\" brooklyn=\"Brooklyn\" />\n        </div>\n          <div className=\"flex flex-row w-fit h-fit\">\n            <div className=\"flex flex-row justify-center items-center gap-[10px] px-[24px] py-[12px] w-fit h-fit\">\n              <span className=\"font-['Work Sans'] text-[16px] font-medium text-[#333333] text-left leading-[24px] w-[46px] h-[24px]\">Home</span>\n            </div>\n            <div className=\"flex flex-row justify-center items-center gap-[10px] px-[24px] py-[12px] w-fit h-fit\">\n              <span className=\"font-['Work Sans'] text-[16px] font-medium text-[#333333] text-left leading-[24px] w-[47px] h-[24px]\">About</span>\n            </div>\n            <div className=\"flex flex-row justify-center items-center gap-[10px] px-[24px] py-[12px] w-fit h-fit\">\n              <span className=\"font-['Work Sans'] text-[16px] font-medium text-[#333333] text-left leading-[24px] w-[62px] h-[24px]\">Process</span>\n            </div>\n            <div className=\"flex flex-row justify-center items-center gap-[10px] px-[24px] py-[12px] w-fit h-fit\">\n              <span className=\"font-['Work Sans'] text-[16px] font-medium text-[#333333] text-left leading-[24px] w-[68px] h-[24px]\">Portfolio</span>\n            </div>\n            <div className=\"flex flex-row justify-center items-center gap-[10px] px-[24px] py-[12px] w-fit h-fit\">\n              <span className=\"font-['Work Sans'] text-[16px] font-medium text-[#333333] text-left leading-[24px] w-[34px] h-[24px]\">Blog</span>\n            </div>\n            <div className=\"flex flex-row justify-center items-center gap-[10px] px-[24px] py-[12px] w-fit h-fit\">\n              <span className=\"font-['Work Sans'] text-[16px] font-medium text-[#333333] text-left leading-[24px] w-[66px] h-[24px]\">Services</span>\n            </div>\n            <div id=\"figma-135-742\" className=\"w-fit h-fit\">\n          <Button property1=\"Normal\" button=\"Contact\" />\n        </div>\n          </div>\n        </div>\n        </div>\n\n        {/* Section: unsplash:wKOKidNT14w */}\n        <div id=\"figma-135-710\">\n        <img src=\"/src/assets/c78149f6f59250b6b8cb1b0e75f260c837bd67f9.png\" alt=\"unsplash:wKOKidNT14w\" className=\"w-[536px] h-[636px] bg-[#ffffff] rounded-[25px] shadow-[0px_24px_116px_rgba(43,56,76,0.09)]\" />\n        </div>\n\n        {/* Section: Frame 15 */}\n        <div id=\"figma-135-704\">\n        <div className=\"flex flex-col gap-[24px] w-fit h-fit\">\n          <div className=\"flex flex-col gap-[16px] w-fit h-fit\">\n            <div className=\"flex flex-col w-fit h-fit\">\n              <span className=\"font-['Work Sans'] text-[72px] font-semibold text-[#132238] text-left leading-[84px] w-[579px] h-[168px]\">Hello, I’m\n        Brooklyn Gilbert</span>\n            </div>\n          </div>\n          <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#556070] text-left leading-[24px] w-[648px] h-[72px]\">I'm a Freelance UI/UX Designer and Developer based in London, England. I strives to build immersive and beautiful web applications through carefully crafted code and user-centric design.</span>\n          <div id=\"figma-135-709\" className=\"w-fit h-fit\">\n          <Button  property1=\"Normal\" button=\"Say Hello!\" />\n        </div>\n        </div>\n        </div>\n\n        {/* Section: Rectangle 32 */}\n        <div id=\"figma-135-702\">\n        <div className=\"w-[133px] h-[6px] bg-[#ffc8c8]\"></div>\n        </div>\n\n        {/* Section: Rectangle 33 */}\n        <div id=\"figma-135-703\">\n        <div className=\"w-[92px] h-[6px] bg-[#ffc8c8]\"></div>\n        </div>\n\n        {/* Section: Frame 1 */}\n        <div id=\"figma-135-711\">\n        <div className=\"flex flex-row justify-center items-center gap-[12px] w-fit h-fit bg-[rgba(237,216,255,0.5)] rounded-[6px] border-[1px] border-[#ffffff]\">\n          <div className=\"flex flex-col gap-[8px] w-fit h-fit\">\n            <span className=\"font-['Work Sans'] text-[32px] font-semibold text-[#424e60] text-center leading-[40px] w-[200px] h-[40px]\">15 Y.</span>\n            <span className=\"font-['Work Sans'] text-[16px] font-normal text-[#697484] text-center leading-[24px] w-[200px] h-[24px]\">Experience</span>\n          </div>\n          <div className=\"w-[0px] h-[106px] border-[3px] border-[#ffffff]\"></div>\n          <div className=\"flex flex-col gap-[8px] w-fit h-fit\">\n            <span className=\"font-['Work Sans'] text-[32px] font-semibold text-[#424e60] text-center leading-[40px] w-[200px] h-[40px]\">250+</span>\n            <span className=\"font-['Work Sans'] text-[16px] font-normal text-[#697484] text-center leading-[24px] w-[200px] h-[24px]\">Project Completed</span>\n          </div>\n          <div className=\"w-[0px] h-[106px] border-[3px] border-[#ffffff]\"></div>\n          <div className=\"flex flex-col gap-[8px] w-fit h-fit\">\n            <span className=\"font-['Work Sans'] text-[32px] font-semibold text-[#424e60] text-center leading-[40px] w-[200px] h-[40px]\">58</span>\n            <span className=\"font-['Work Sans'] text-[16px] font-normal text-[#697484] text-center leading-[24px] w-[200px] h-[24px]\">Happy Client</span>\n          </div>\n        </div>\n        </div>\n\n        {/* Section: Frame 288 */}\n        <div id=\"figma-231-1338\">\n        <div className=\"flex flex-col w-fit h-fit\">\n          <div className=\"h-[1608px] relative\">\n            <div className=\"flex flex-col gap-[10px] pl-[300px] pr-[300px] pt-[248px] pb-[140px] w-fit h-fit bg-[#f0f1f3] absolute top-[620px] left-[0px]\">\n              <div className=\"flex flex-row items-center gap-[143px] w-fit h-fit\">\n                <div className=\"flex flex-col gap-[24px] w-fit h-fit\">\n                  <span className=\"font-['Work Sans'] text-[48px] font-semibold text-[#132238] text-left leading-[56px] w-[323px] h-[56px]\">Work Process</span>\n                  <div className=\"flex flex-col gap-[16px] w-fit h-fit\">\n                    <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#697484] text-left leading-[24px] w-[529px] h-[96px]\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum. Suspendis imperdiet,</span>\n                    <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#697484] text-left leading-[24px] w-[529px] h-[48px]\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non.</span>\n                  </div>\n                </div>\n                <div className=\"w-[648px] h-[600px] relative rounded-[12px]\">\n                  <div id=\"figma-135-788\" className=\"w-fit h-fit absolute top-[300px] left-[0px]\">\n          <WorkProcessCard property1=\"Hover\" researchText=\"2. Design\" descriptionText=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu.\" />\n        </div>\n                  <div id=\"figma-135-790\" className=\"w-fit h-fit absolute top-[24px] left-[336px]\">\n          <WorkProcessCard property1=\"Hover\" researchText=\"2. Analyze\" descriptionText=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu.\" />\n        </div>\n                  <div id=\"figma-135-791\" className=\"w-fit h-fit absolute top-[324px] left-[336px]\">\n          <WorkProcessCard property1=\"Hover\" researchText=\"4. Launch\" descriptionText=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu.\" />\n        </div>\n                  <div id=\"figma-135-787\" className=\"w-fit h-fit absolute top-[0px] left-[0px]\">\n          <WorkProcessCard property1=\"Hover\" researchText=\"1. Research\" descriptionText=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu.\" />\n        </div>\n                </div>\n              </div>\n            </div>\n            <div className=\"flex flex-row justify-center items-center gap-[136px] p-[112px] w-fit h-fit bg-[#ffffff] absolute top-[0px] left-[300px] z-[11] rounded-[16px] shadow-[0px_36px_105px_rgba(43,56,76,0.1)]\">\n              <div className=\"relative\">\n                <div className=\"w-[424px] h-[468px] absolute top-[0px] left-[0px] rounded-[10px]\">\n                  <img src=\"/src/assets/3b89fbcc5d09a9dcfed718b9441002088571183e.png\" alt=\"Rectangle 30\" className=\"w-[424px] h-[468px] bg-[#f0f1f3] absolute top-[0px] left-[0px] rounded-[10px] border-[1px] border-[#f0f1f3]\" />\n                </div>\n                <div id=\"figma-135-769\" className=\"w-fit h-fit absolute top-[432px] left-[80px]\">\n          <SocialMediaCard property1=\"Normal\" />\n        </div>\n              </div>\n              <div className=\"flex flex-col gap-[32px] w-fit h-fit\">\n                <span className=\"font-['Work Sans'] text-[38px] font-semibold text-[#132238] text-left leading-[50px] w-[536px] h-[100px]\">I am Professional User Experience Designer</span>\n                <div className=\"flex flex-col gap-[16px] w-fit h-fit\">\n                  <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#556070] text-left leading-[24px] w-[536px] h-[72px]\">I design and develop services for customers specializing creating stylish, modern websites, web services and online stores. My passion is to design digital user experiences.</span>\n                  <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#556070] text-left leading-[24px] w-[536px] h-[48px]\">I design and develop services for customers specializing creating stylish, modern websites, web services.</span>\n                </div>\n                <div className=\"flex flex-row gap-[16px] w-fit h-fit\">\n                  <div id=\"figma-135-776\" className=\"w-fit h-fit\">\n          <Button property1=\"Normal\" button=\"My Project\" />\n        </div>\n                  <div id=\"figma-135-777\" className=\"w-fit h-fit\">\n          <Button  property1=\"Normal\" button=\"Download CV\" />\n        </div>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div className=\"flex flex-col justify-end items-center gap-[50px] py-[100px] w-fit h-fit\">\n            <div className=\"flex flex-col gap-[70px] w-fit h-fit\">\n              <div className=\"flex flex-col justify-between items-center gap-[24px] px-[300px] w-[1920px] h-[128px]\">\n                <span className=\"font-['Work Sans'] text-[48px] font-semibold text-[#132238] text-left leading-[56px] w-[205px] h-[56px]\">Portfolio</span>\n                <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#87909d] text-center leading-[24px] w-[577px] h-[48px]\">There are many variations of passages of Lorem Ipsum available,\n        but the majority have suffered alteration.</span>\n              </div>\n              <div className=\"flex flex-col justify-center items-center gap-[24px] px-[300px] w-fit h-fit\">\n                <div className=\"flex flex-row gap-[24px] w-fit h-fit\">\n                  <div id=\"figma-135-799\" className=\"w-fit h-fit\">\n          <Project property1=\"Normal\" uIUXDESIGN=\"UI-UX DESIGN\" productAdminDashboard=\"Product Admin Dashboard\" vivamusEleifendConvallisAnteNonPharetraLiberoMolestieLaoreetDonecIdImperdietLacus=\"Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.\" button=\"Case Study\" unsplash9anj7QWy2gUrl=\"/src/assets/8f107a905f0e2c2a0cc5bae15845adf0de3205ca.png\" />\n        </div>\n                  <div id=\"figma-135-800\" className=\"w-fit h-fit\">\n          <Project  property1=\"Normal\" uIUXDESIGN=\"UI-UX DESIGN\" productAdminDashboard=\"Product Admin Dashboard\" vivamusEleifendConvallisAnteNonPharetraLiberoMolestieLaoreetDonecIdImperdietLacus=\"Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.\" button=\"Case Study\" unsplash9anj7QWy2gUrl=\"/src/assets/f9342afb7c1cf7f650c9ef0b35c8f6585d27e980.png\" />\n        </div>\n                  <div id=\"figma-135-801\" className=\"w-fit h-fit\">\n          <Project  property1=\"Normal\" uIUXDESIGN=\"UI-UX DESIGN\" productAdminDashboard=\"Product Admin Dashboard\" vivamusEleifendConvallisAnteNonPharetraLiberoMolestieLaoreetDonecIdImperdietLacus=\"Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.\" button=\"Case Study\" unsplash9anj7QWy2gUrl=\"/src/assets/2da37f82fa800f0711d0ad48045ab742c6f8daf5.png\" />\n        </div>\n                </div>\n                <div className=\"flex flex-row gap-[24px] w-fit h-fit\">\n                  <div id=\"figma-135-803\" className=\"w-fit h-fit\">\n          <Project property1=\"Normal\"  uIUXDESIGN=\"UI-UX DESIGN\" productAdminDashboard=\"Product Admin Dashboard\" vivamusEleifendConvallisAnteNonPharetraLiberoMolestieLaoreetDonecIdImperdietLacus=\"Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.\" button=\"Case Study\" unsplash9anj7QWy2gUrl=\"/src/assets/ead171064222333091f36ac1c03c25f06480e9df.png\" />\n        </div>\n                  <div id=\"figma-135-804\" className=\"w-fit h-fit\">\n          <Project  property1=\"Normal\"  uIUXDESIGN=\"UI-UX DESIGN\" productAdminDashboard=\"Product Admin Dashboard\" vivamusEleifendConvallisAnteNonPharetraLiberoMolestieLaoreetDonecIdImperdietLacus=\"Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.\" button=\"Case Study\" unsplash9anj7QWy2gUrl=\"/src/assets/01120caf35209da234d0ce9c533b0ea0cacd38d4.png\" />\n        </div>\n                  <div id=\"figma-135-805\" className=\"w-fit h-fit\">\n          <Project property1=\"Normal\" uIUXDESIGN=\"UI-UX DESIGN\" productAdminDashboard=\"Product Admin Dashboard\" vivamusEleifendConvallisAnteNonPharetraLiberoMolestieLaoreetDonecIdImperdietLacus=\"Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.\" button=\"Case Study\" unsplash9anj7QWy2gUrl=\"/src/assets/3da3ab315a91b5f2dd6f1061e5b0be3e60938f12.png\" />\n        </div>\n                </div>\n              </div>\n            </div>\n            <div id=\"figma-135-806\" className=\"w-fit h-fit\">\n          <Button property1=\"Normal\" button=\"More Project\" />\n        </div>\n          </div>\n          <div className=\"flex flex-col justify-center items-center gap-[32px] px-[650px] py-[100px] w-fit h-fit bg-[#132238]\">\n            <span className=\"font-['Work Sans'] text-[48px] font-semibold text-[#ffffff] text-center leading-[56px] w-[621px] h-[112px]\">Do you have Project Idia?\n        Let's discuss your project!</span>\n            <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#a5acb5] text-center leading-[24px] w-[581px] h-[48px]\">There are many variations of passages of Lorem Ipsum available,\n        but the majority have suffered alteration.</span>\n            <div id=\"figma-135-811\" className=\"w-fit h-fit\">\n          <Button property1=\"Normal\" letSWorkTogether=\"Let’s work Together\" />\n        </div>\n          </div>\n          <div className=\"flex flex-col justify-end items-center gap-[24px] py-[100px] w-fit h-fit\">\n            <div className=\"flex flex-col justify-center items-center gap-[70px] px-[300px] w-fit h-fit\">\n              <div className=\"flex flex-col items-center gap-[24px] w-fit h-fit\">\n                <span className=\"font-['Poppins'] text-[48px] font-semibold text-[#132238] text-left leading-[56px] w-[108px] h-[56px]\">Blog</span>\n                <span className=\"font-['Public Sans'] text-[18px] font-normal text-[#87909d] text-center leading-[26px] w-[540px] h-[52px]\">There are many variations of passages of Lorem Ipsum available,\n        but the majority have suffered alteration.</span>\n              </div>\n              <div className=\"flex flex-row justify-center items-center gap-[24px] w-fit h-fit\">\n                <div id=\"figma-135-818\" className=\"w-fit h-fit\">\n          <Blog  property1=\"Hover\" _22Oct2020=\"22 Oct, 2020\" value=\"/\" _246Comments=\"246 Comments\" loremIpsumDolorSitConseaNullaPurusArcu=\"Lorem ipsum dolor sit consea. Nulla purus arcu\" unsplashHh0OAiyeF1YUrl=\"/src/assets/46c1b0b7047e0794dd8853d66cdde08771fd30d1.png\" />\n        </div>\n                <div id=\"figma-135-819\" className=\"w-fit h-fit\">\n          <Blog property1=\"Hover\" _22Oct2020=\"22 Oct, 2020\" value=\"/\" _246Comments=\"246 Comments\" loremIpsumDolorSitConseaNullaPurusArcu=\"Lorem ipsum dolor sit consea. Nulla purus arcu\" unsplashHh0OAiyeF1YUrl=\"/src/assets/6256b708bb0c4a6fd8a44b369112956ce0963c34.png\" />\n        </div>\n                <div id=\"figma-135-820\" className=\"w-fit h-fit\">\n          <Blog  property1=\"Hover\" _22Oct2020=\"22 Oct, 2020\" value=\"/\" _246Comments=\"246 Comments\" loremIpsumDolorSitConseaNullaPurusArcu=\"Lorem ipsum dolor sit consea. Nulla purus arcu\" unsplashHh0OAiyeF1YUrl=\"/src/assets/e2b8fe341e5180e7839d7d0d049b6900cd354219.png\" />\n        </div>\n                <div id=\"figma-135-821\" className=\"w-fit h-fit\">\n          <Blog property1=\"Hover\" _22Oct2020=\"22 Oct, 2020\" value=\"/\" _246Comments=\"246 Comments\" loremIpsumDolorSitConseaNullaPurusArcu=\"Lorem ipsum dolor sit consea. Nulla purus arcu\" unsplashHh0OAiyeF1YUrl=\"/src/assets/d85394fd2c31f590ee6e19eb4d05f39feb09abd5.png\" />\n        </div>\n              </div>\n            </div>\n            <div id=\"figma-135-822\" className=\"w-fit h-fit\">\n          <Pagination />\n        </div>\n          </div>\n          <div className=\"flex flex-row items-center gap-[143px] px-[300px] py-[150px] w-fit h-fit bg-[#f0f1f3]\">\n            <div className=\"flex flex-col gap-[50px] w-fit h-fit\">\n              <div className=\"flex flex-col gap-[24px] w-fit h-fit\">\n                <span className=\"font-['Work Sans'] text-[48px] font-semibold text-[#333333] text-left leading-[56px] w-[254px] h-[56px]\">What I do?</span>\n                <div className=\"flex flex-col gap-[16px] w-fit h-fit\">\n                  <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#87909d] text-left leading-[24px] w-[529px] h-[96px]\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum. Suspendis imperdiet,</span>\n                  <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#87909d] text-left leading-[24px] w-[529px] h-[48px]\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non.</span>\n                </div>\n              </div>\n              <div id=\"figma-135-830\" className=\"w-fit h-fit\">\n          <Button property1=\"Normal\" button=\"Say Hello!\" />\n        </div>\n            </div>\n            <div className=\"flex flex-col gap-[24px] w-fit h-fit\">\n              <div id=\"figma-135-832\" className=\"w-fit h-fit\">\n          <WhatIDoCard  property1=\"Normal\" userExperienceUX=\"User Experience (UX)\" loremIpsumDolorSitAmetConsecteturAdipiscingElitNullaPurusArcuVariusEgetVelitNonLaoreetImperdietOrciMaurisUltricesEgetLoremAcVestibulum=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum.\" />\n        </div>\n              <div id=\"figma-135-833\" className=\"w-fit h-fit\">\n          <WhatIDoCard  property1=\"Normal\" userExperienceUX=\"User Interface (UI)\" loremIpsumDolorSitAmetConsecteturAdipiscingElitNullaPurusArcuVariusEgetVelitNonLaoreetImperdietOrciMaurisUltricesEgetLoremAcVestibulum=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum.\" />\n        </div>\n              <div id=\"figma-135-834\" className=\"w-fit h-fit\">\n          <WhatIDoCard property1=\"Normal\" userExperienceUX=\"Web Development\" loremIpsumDolorSitAmetConsecteturAdipiscingElitNullaPurusArcuVariusEgetVelitNonLaoreetImperdietOrciMaurisUltricesEgetLoremAcVestibulum=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum.\" />\n        </div>\n            </div>\n          </div>\n          <div className=\"flex flex-col items-center gap-[24px] px-[300px] py-[100px] w-fit h-fit\">\n            <div className=\"flex flex-col justify-center items-center gap-[24px] w-fit h-fit\">\n              <span className=\"font-['Work Sans'] text-[48px] font-semibold text-[#132238] text-center leading-[56px] w-[327px] h-[56px]\">Happy Clients</span>\n              <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#87909d] text-center leading-[24px] w-[577px] h-[48px]\">There are many variations of passages of Lorem Ipsum available,\n        but the majority have suffered alteration.</span>\n            </div>\n            <div className=\"flex flex-row gap-[24px] w-fit h-fit\">\n              <div className=\"grid grid-cols-2 w-[200px] h-[200px]\">\n                <div className=\"w-[35px] h-[35px] bg-[#b8bcc2]\"></div>\n                <div className=\"w-[5px] h-[34px] bg-[#b8bcc2]\"></div>\n                <div className=\"w-[23px] h-[23px] bg-[#b8bcc2]\"></div>\n                <div className=\"w-[23px] h-[23px] bg-[#b8bcc2]\"></div>\n                <div className=\"w-[22px] h-[33px] bg-[#b8bcc2]\"></div>\n                <div className=\"w-[21px] h-[23px] bg-[#b8bcc2]\"></div>\n              </div>\n              <div className=\"w-[200px] h-[200px] relative\">\n                <div className=\"w-[140px] h-[35px] bg-[#b8bcc2] absolute top-[82px] left-[30px]\"></div>\n              </div>\n              <div className=\"w-[200px] h-[200px] relative\">\n                <div className=\"w-[37px] h-[37px] bg-[#006699] absolute top-[82px] left-[133px]\"></div>\n                <div className=\"w-[63px] h-[25px] bg-[#000000] absolute top-[88px] left-[30px]\"></div>\n                <div className=\"w-[37px] h-[24px] bg-[#000000] absolute top-[89px] left-[91px]\"></div>\n                <div className=\"w-[26px] h-[25px] bg-[#ffffff] absolute top-[88px] left-[138px]\"></div>\n              </div>\n              <div className=\"w-[200px] h-[200px] relative\">\n                <div className=\"w-[140px] h-[25px] bg-[#b8bcc2] absolute top-[94px] left-[30px]\"></div>\n                <div className=\"grid grid-cols-2 absolute top-[119.3px] left-[50px]\">\n                  <div className=\"w-[13.87px] h-[13.59px] bg-[#b8bcc2]\"></div>\n                  <div className=\"w-[67.55px] h-[15.13px] bg-[#b8bcc2]\"></div>\n                </div>\n              </div>\n              <div className=\"w-[200px] h-[200px] relative\">\n                <div className=\"w-[140px] h-[28px] bg-[#b8bcc2] absolute top-[86px] left-[30px]\"></div>\n              </div>\n              <div className=\"w-[200px] h-[200px] relative\">\n                <div className=\"w-[140px] h-[42px] bg-[#b8bcc2] absolute top-[79px] left-[30px]\"></div>\n              </div>\n            </div>\n          </div>\n          <div className=\"flex flex-col items-center gap-[50px] pl-[524px] pr-[524px] pb-[100px] w-fit h-fit\">\n            <div className=\"flex flex-col justify-center items-center gap-[70px] w-fit h-fit\">\n              <div className=\"flex flex-col items-center gap-[24px] w-fit h-fit\">\n                <span className=\"font-['Work Sans'] text-[48px] font-semibold text-[#333333] text-center leading-[56px] w-[274px] h-[56px]\">Testimonial</span>\n                <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#87909d] text-center leading-[24px] w-[577px] h-[48px]\">There are many variations of passages of Lorem Ipsum available,\n        but the majority have suffered alteration.</span>\n              </div>\n              <div className=\"flex flex-col justify-center items-center gap-[24px] w-fit h-fit\">\n                <span className=\"font-['Work Sans'] text-[18px] font-medium text-[#2b384c] text-center leading-[24px] w-[872px] h-[96px]\">“Nulla efficitur nisl sit amet velit malesuada dapibus. Duis mollis felis turpis, nec semper odio convallis at. Curabitur imperdiet semper arcu, a finibus arcu suscipit in. Donec quis placerat nibh. Maecenas est purus, eleifend ac cursus sed, tincidunt ut sapien.\n        Morbi ornare elit at libero suscipit porta.”</span>\n                <div className=\"flex flex-col justify-center items-center gap-[8px] w-fit h-fit\">\n                  <div className=\"flex flex-row justify-center items-center gap-[24px] w-fit h-fit\">\n                    <span className=\"font-['Poppins'] text-[18px] font-medium text-[#000000] text-left leading-[26px] w-[131px] h-[26px]\">Esther Howard</span>\n                  </div>\n                  <span className=\"font-['Poppins'] text-[16px] font-light text-[#000000] text-left leading-[24px] w-[268px] h-[24px]\">Managing Director, ABC company</span>\n                </div>\n              </div>\n            </div>\n            <div id=\"figma-135-874\" className=\"w-fit h-fit\">\n          <Pagination />\n        </div>\n          </div>\n          <div className=\"h-[990px] relative\">\n            <div className=\"absolute top-[660px] left-[0px]\">\n              <div className=\"w-[1920px] h-[330px] bg-[#2b384c] absolute top-[0px] left-[0px]\"></div>\n              <div className=\"flex flex-row justify-center items-center gap-[182px] px-[300px] w-fit h-[120px] bg-[#2b384c] absolute top-[160px] left-[0px]\">\n                <div id=\"figma-135-747\" className=\"w-fit h-fit\">\n          <Logo b=\"B\" brooklyn=\"Brooklyn\" />\n        </div>\n                <div className=\"flex flex-row w-fit h-fit\">\n                  <div className=\"flex flex-row justify-center items-center gap-[10px] p-[12px] w-fit h-fit\">\n                    <span className=\"font-['Work Sans'] text-[16px] font-normal text-[#f0f1f3] text-left leading-[24px] w-[46px] h-[24px]\">Home</span>\n                  </div>\n                  <div className=\"flex flex-row justify-center items-center gap-[10px] p-[12px] w-fit h-fit\">\n                    <span className=\"font-['Work Sans'] text-[16px] font-normal text-[#f0f1f3] text-left leading-[24px] w-[47px] h-[24px]\">About</span>\n                  </div>\n                  <div className=\"flex flex-row justify-center items-center gap-[10px] p-[12px] w-fit h-fit\">\n                    <span className=\"font-['Work Sans'] text-[16px] font-normal text-[#f0f1f3] text-left leading-[24px] w-[66px] h-[24px]\">Services</span>\n                  </div>\n                  <div className=\"flex flex-row justify-center items-center gap-[10px] p-[12px] w-fit h-fit\">\n                    <span className=\"font-['Work Sans'] text-[16px] font-normal text-[#f0f1f3] text-left leading-[24px] w-[61px] h-[24px]\">Process</span>\n                  </div>\n                  <div className=\"flex flex-row justify-center items-center gap-[10px] p-[12px] w-fit h-fit\">\n                    <span className=\"font-['Work Sans'] text-[16px] font-normal text-[#f0f1f3] text-left leading-[24px] w-[67px] h-[24px]\">Portfolio</span>\n                  </div>\n                  <div className=\"flex flex-row justify-center items-center gap-[10px] p-[12px] w-fit h-fit\">\n                    <span className=\"font-['Work Sans'] text-[16px] font-normal text-[#f0f1f3] text-left leading-[24px] w-[34px] h-[24px]\">Blog</span>\n                  </div>\n                  <div className=\"flex flex-row justify-center items-center gap-[10px] p-[12px] w-fit h-fit\">\n                    <span className=\"font-['Work Sans'] text-[16px] font-normal text-[#f0f1f3] text-left leading-[24px] w-[62px] h-[24px]\">Contact</span>\n                  </div>\n                </div>\n                <span className=\"font-['Work Sans'] text-[16px] font-normal text-[#ffffff] text-left leading-[24px] w-[186px] h-[24px]\">Copyright © 2022 Picto.</span>\n              </div>\n            </div>\n            <div className=\"flex flex-row justify-between items-center gap-[24px] p-[88px] w-[1320px] h-fit bg-[#ffffff] absolute top-[0px] left-[300px] z-[11] rounded-[15px] shadow-[0px_59px_124px_rgba(0,0,0,0.12)]\">\n              <div className=\"flex flex-col gap-[35px] w-fit h-fit\">\n                <div className=\"flex flex-col gap-[16px] w-[481px] h-fit\">\n                  <span className=\"font-['Work Sans'] text-[38px] font-semibold text-[#132238] text-left leading-[50px] w-[481px] h-[50px]\">Let’s discuss your Project</span>\n                  <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#87909d] text-left leading-[24px] w-[481px] h-[48px]\">There are many variations of passages of Lorem Ipsu available. but the majority have suffered alte.</span>\n                </div>\n                <div className=\"flex flex-col gap-[12px] w-fit h-fit\">\n                  <div id=\"figma-135-881\" className=\"w-[336px] h-fit\">\n          <AddressCard  property1=\"Normal\" address=\"Address:\" newMexico31134=\"New Mexico 31134\" />\n        </div>\n                  <div id=\"figma-135-882\" className=\"w-[336px] h-fit\">\n          <AddressCard  property1=\"Normal\" address=\"My Email:\" newMexico31134=\"mymail@mail.com\" />\n        </div>\n                  <div id=\"figma-135-883\" className=\"w-[336px] h-fit\">\n          <AddressCard property1=\"Normal\" address=\"Call Me Now:\" newMexico31134=\"00-1234 00000\" />\n        </div>\n                </div>\n                <div className=\"flex flex-row gap-[12px] w-fit h-fit\">\n                  <div id=\"figma-135-885\" className=\"w-fit h-fit\">\n          <SocialMediaCard property1=\"Normal\" />\n        </div>\n                  <div id=\"figma-135-886\" className=\"w-fit h-fit\">\n          <SocialMediaCard property1=\"Normal\" />\n        </div>\n                  <div id=\"figma-135-887\" className=\"w-fit h-fit\">\n          <SocialMediaCard property1=\"Normal\" />\n        </div>\n                  <div id=\"figma-135-888\" className=\"w-fit h-fit\">\n          <SocialMediaCard property1=\"Normal\" />\n        </div>\n                  <div id=\"figma-135-889\" className=\"w-fit h-fit\">\n          <SocialMediaCard property1=\"Normal\" />\n        </div>\n                </div>\n              </div>\n              <div className=\"flex flex-col gap-[50px] w-fit h-fit\">\n                <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#87909d] text-left leading-[24px] w-[560px] h-[48px]\">There are many variations of passages of Lorem Ipsu available,\nbut the majority have suffered alte.</span>\n                <form onSubmit={handleSubmit} className=\"flex flex-col gap-[50px] w-fit h-fit\">\n                  <div className=\"flex flex-col gap-[24px] w-fit h-fit\">\n                    <div className=\"flex flex-col gap-[14px] w-fit h-fit\">\n                      <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#a53dff] text-center leading-[24px] w-[61px] h-[24px]\">Name*</span>\n                      <input\n                        type=\"text\"\n                        name=\"name\"\n                        value={formData.name}\n                        onChange={handleInputChange}\n                        placeholder=\"Votre nom\"\n                        className=\"w-[560px] p-3 border-[1.5px] border-[#a53dff] rounded-md bg-white focus:outline-none focus:border-[#a53dff] focus:ring-1 focus:ring-[#a53dff]\"\n                        style={{ fontSize: '16px' }}\n                        required\n                      />\n                    </div>\n                    <div className=\"flex flex-col gap-[14px] w-fit h-fit\">\n                      <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#697484] text-center leading-[24px] w-[59px] h-[24px]\">Email*</span>\n                      <input\n                        type=\"email\"\n                        name=\"email\"\n                        value={formData.email}\n                        onChange={handleInputChange}\n                        placeholder=\"votre@email.com\"\n                        className=\"w-[560px] p-3 border-[1.5px] border-[#e6e8eb] rounded-md bg-white focus:outline-none focus:border-[#a53dff] focus:ring-1 focus:ring-[#a53dff]\"\n                        style={{ fontSize: '16px' }}\n                        required\n                      />\n                    </div>\n                    <div className=\"flex flex-col gap-[14px] w-fit h-fit\">\n                      <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#697484] text-center leading-[24px] w-[76px] h-[24px]\">Location</span>\n                      <input\n                        type=\"text\"\n                        name=\"location\"\n                        value={formData.location}\n                        onChange={handleInputChange}\n                        placeholder=\"Votre localisation\"\n                        className=\"w-[560px] p-3 border-[1.5px] border-[#e6e8eb] rounded-md bg-white focus:outline-none focus:border-[#a53dff] focus:ring-1 focus:ring-[#a53dff]\"\n                        style={{ fontSize: '16px' }}\n                      />\n                    </div>\n                    <div className=\"flex flex-row gap-[24px] w-fit h-fit\">\n                      <div className=\"flex flex-col gap-[14px] w-fit h-fit\">\n                        <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#697484] text-center leading-[24px] w-[73px] h-[24px]\">Budget*</span>\n                        <input\n                          type=\"text\"\n                          name=\"budget\"\n                          value={formData.budget}\n                          onChange={handleInputChange}\n                          placeholder=\"Votre budget\"\n                          className=\"w-[200px] p-3 border-[1.5px] border-[#e6e8eb] rounded-md bg-white focus:outline-none focus:border-[#a53dff] focus:ring-1 focus:ring-[#a53dff]\"\n                          style={{ fontSize: '16px' }}\n                          required\n                        />\n                      </div>\n                      <div className=\"flex flex-col gap-[14px] w-fit h-fit\">\n                        <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#697484] text-center leading-[24px] w-[78px] h-[24px]\">Subject*</span>\n                        <input\n                          type=\"text\"\n                          name=\"subject\"\n                          value={formData.subject}\n                          onChange={handleInputChange}\n                          placeholder=\"Sujet\"\n                          className=\"w-[336px] p-3 border-[1.5px] border-[#e6e8eb] rounded-md bg-white focus:outline-none focus:border-[#a53dff] focus:ring-1 focus:ring-[#a53dff]\"\n                          style={{ fontSize: '16px' }}\n                          required\n                        />\n                      </div>\n                    </div>\n\n                    <div className=\"flex flex-col gap-[14px] w-fit h-fit\">\n                      <span className=\"font-['Work Sans'] text-[18px] font-normal text-[#697484] text-center leading-[24px] w-[86px] h-[24px]\">Message*</span>\n                      <textarea\n                        name=\"message\"\n                        value={formData.message}\n                        onChange={handleInputChange}\n                        placeholder=\"Votre message...\"\n                        rows={4}\n                        className=\"w-[560px] p-3 border-[1.5px] border-[#e6e8eb] rounded-md bg-white focus:outline-none focus:border-[#a53dff] focus:ring-1 focus:ring-[#a53dff] resize-y\"\n                        style={{ fontSize: '16px' }}\n                        required\n                      />\n                    </div>\n                  </div>\n                  <button\n                    type=\"submit\"\n                    disabled={isSubmitting}\n                    className=\"w-fit h-fit\"\n                  >\n                    <div id=\"figma-135-913\" className=\"w-fit h-fit\">\n                      <Button property1=\"Normal\" letSWorkTogether=\"Submit\" />\n                    </div>\n                  </button>\n                  {submitStatus && (\n                    <div className={`font-['Work Sans'] text-[16px] ${submitStatus.success ? 'text-green-600' : 'text-red-600'}`}>\n                      {submitStatus.message}\n                    </div>\n                  )}\n                </form>\n              </div>\n            </div>\n          </div>\n        </div>\n        </div>\n\n        {/* Section: Text */}\n        <div id=\"figma-135-743\">\n        <span className=\"font-['Poppins'] text-[20px] font-semibold text-[#000000] text-left leading-[24px] w-[0px] h-[24px]\"> </span>\n        </div>\n\n        {/* Section: Icon */}\n        <div id=\"figma-135-723\">\n        <div className=\"flex flex-row gap-[10px] p-[16px] w-fit h-fit bg-[#ffffff] rounded-[4px]\">\n          <div className=\"grid grid-cols-2 w-[24px] h-[24px]\">\n            <div className=\"w-[24px] h-[24px]\"></div>\n            <div className=\"w-[16.5px] h-[16.99px] border-[1.5px] border-[#363a3d]\"></div>\n          </div>\n        </div>\n        </div>\n\n        {/* Section: Icon */}\n        <div id=\"figma-135-725\">\n        <div className=\"flex flex-row gap-[10px] p-[16px] w-fit h-fit bg-[#ffffff] rounded-[5px]\">\n          <div className=\"grid grid-cols-3 w-[24px] h-[24px]\">\n            <div className=\"w-[24px] h-[24px]\"></div>\n            <div className=\"w-[5.31px] h-[5.31px] border-[1.5px] border-[#1b1d1f]\"></div>\n            <div className=\"w-[3.19px] h-[3.19px] border-[1.5px] border-[#1b1d1f]\"></div>\n            <div className=\"w-[17.22px] h-[17.22px] border-[1.5px] border-[#1b1d1f]\"></div>\n          </div>\n        </div>\n        </div>\n      </div>\n    </div>\n  );\n}"
-  },
-  "frontend_api_service": "import API_BASE_URL from \"../config/api\";\n\n\nasync function request(method: string, path: string, body?: any) {\n  const options: RequestInit = {\n    method,\n    headers: { \"Content-Type\": \"application/json\" },\n  };\n  if (body) options.body = JSON.stringify(body);\n  const response = await fetch(`${API_BASE_URL}${path}`, options);\n  if (!response.ok) throw new Error(`HTTP error: ${response.status}`);\n  if (response.status === 204) return null;\n  return response.json();\n}\n\n\n// Submit a contact form\nexport async function create_contact(, data: any) {\n  return request(\"POST\", `/contacts`, data);\n}\n\n// List all contact submissions\nexport async function list_contacts() {\n  return request(\"GET\", `/contacts`);\n}\n\n// Get a contact submission by id\nexport async function get_contact_by_id(id: number | string) {\n  return request(\"GET\", `/contacts/${}`);\n}\n\n// Delete a contact submission\nexport async function delete_contact(id: number | string) {\n  return request(\"DELETE\", `/contacts/${}`);\n}",
-  "workflow_state": "frontend_done",
-  "retry_count": 1,
-  "max_retries": 3
+  "error_log": "\n[TEST ERROR] OrderItem:\n============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 0 items / 1 error\n\n=================================== ERRORS ====================================\n__________________ ERROR collecting tests/test_orderitem.py ___________________\nImportError while importing test module 'C:\\Users\\binitns\\Desktop\\generated_project\\tests\\test_orderitem.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\nC:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\importlib\\__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests\\test_orderitem.py:7: in <module>\n    from app.routes.orderitem import router\nE   ModuleNotFoundError: No module named 'app.routes.orderitem'\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nERROR tests/test_orderitem.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n======================== 2 warnings, 1 error in 1.43s =========================\n\n[TEST ERROR] OrderItem:\n============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 6 items\n\ntests/test_orderitem.py::test_create_order_item PASSED                   [ 16%]\ntests/test_orderitem.py::test_list_order_items PASSED                    [ 33%]\ntests/test_orderitem.py::test_get_order_item_by_id PASSED                [ 50%]\ntests/test_orderitem.py::test_get_order_item_by_id_not_found PASSED      [ 66%]\ntests/test_orderitem.py::test_list_order_items_by_order FAILED           [ 83%]\ntests/test_orderitem.py::test_list_order_items_by_product FAILED         [100%]\n\n================================== FAILURES ===================================\n_______________________ test_list_order_items_by_order ________________________\ntests\\test_orderitem.py:129: in test_list_order_items_by_order\n    assert response.status_code == 200\nE   assert 404 == 200\nE    +  where 404 = <Response [404 Not Found]>.status_code\n______________________ test_list_order_items_by_product _______________________\ntests\\test_orderitem.py:138: in test_list_order_items_by_product\n    assert response.status_code == 200\nE   assert 404 == 200\nE    +  where 404 = <Response [404 Not Found]>.status_code\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\napp\\schemas\\orderitem.py:11\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\schemas\\orderitem.py:11: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/\n    class OrderItem(BaseModel):\n\ntests/test_orderitem.py: 20 warnings\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\sqlalchemy\\sql\\schema.py:3623: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    return util.wrap_callable(lambda ctx: fn(), fn)  # type: ignore\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nFAILED tests/test_orderitem.py::test_list_order_items_by_order - assert 404 =...\nFAILED tests/test_orderitem.py::test_list_order_items_by_product - assert 404...\n================== 2 failed, 4 passed, 23 warnings in 1.90s ===================\n",
+  "workflow_state": "testing_done",
+  "retry_count": 2,
+  "max_retries": 3,
+  "tested_entities": [
+    "Category",
+    "Customer",
+    "Product",
+    "Order",
+    "OrderItem"
+  ]
 }

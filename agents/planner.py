@@ -3,10 +3,8 @@ import json
 import re
 from langchain_mistralai import ChatMistralAI
 from langchain_core.messages import SystemMessage, HumanMessage
-from config.settings import MISTRAL_API_KEY, _OpenApi_PLANNER_MODEL,PROMPTS_PATH
+from config.settings import MISTRAL_API_KEY, _OpenApi_PLANNER_MODEL, PROMPTS_PATH
 from orchestrator.state import GraphState
-
-
 
 
 class PlannerAgent:
@@ -31,11 +29,16 @@ class PlannerAgent:
 
             plan = self._call_llm(state.openapi_spec)
 
+            # normalise les variations de structure du LLM avant validation
+            plan = self._normalize_plan(plan)
+
             self._validate_plan(plan)
 
             state.dependency_graph = plan["dependency_graph"]
             state.file_plan = plan["file_plan"]
             state.task_queue = plan["task_queue"]
+            with open("debug_plan.json", "w", encoding="utf-8") as f:
+                json.dump(plan, f, indent=2, ensure_ascii=False)
             state.workflow_state = "planning_done"
 
         except Exception as e:
@@ -43,6 +46,52 @@ class PlannerAgent:
             state.error_log = (state.error_log or "") + f"\n[PLANNER ERROR] {str(e)}"
 
         return state
+
+    # =========================
+    # NORMALIZE PLAN STRUCTURE
+    # =========================
+    def _normalize_plan(self, plan: dict) -> dict:
+        """
+        Le LLM peut renvoyer file_plan / task_queue sous plusieurs formes :
+          - liste directe : [ ... ]                                  -> gardé tel quel
+          - objet à une clé : {"files": [ ... ]}                     -> on prend la liste
+          - objet par entité : {"Cuisine": [...], "Recipe": [...]}   -> on fusionne tout
+        On garantit qu'après cette étape, file_plan et task_queue sont des listes.
+        """
+        for key in ["file_plan", "task_queue"]:
+            value = plan.get(key)
+
+            if isinstance(value, list):
+                continue  # déjà une liste, rien à faire
+
+            if isinstance(value, dict):
+                merged = []
+                for v in value.values():
+                    if isinstance(v, list):
+                        merged.extend(v)
+                    elif isinstance(v, dict):
+                        # cas {"files": {...}} improbable, on ignore proprement
+                        continue
+                plan[key] = merged
+
+        # si task_queue est absent mais file_plan présent, on peut le dériver
+        # (sécurité : certains LLM oublient task_queue)
+        if not plan.get("task_queue") and isinstance(plan.get("file_plan"), list):
+            plan["task_queue"] = self._derive_task_queue(plan["file_plan"])
+
+        return plan
+
+    def _derive_task_queue(self, file_plan: list) -> list:
+        """Fallback : construit une task_queue minimale depuis file_plan."""
+        task_queue = []
+        for i, f in enumerate(file_plan, start=1):
+            task = dict(f)
+            task["order"] = i
+            task.setdefault("status", "pending")
+            if task.get("type") == "route":
+                task.setdefault("test_status", "pending")
+            task_queue.append(task)
+        return task_queue
 
     # =========================
     # LLM CALL
@@ -66,7 +115,6 @@ class PlannerAgent:
                 response = self.llm.invoke(messages)
                 raw_output = response.content
                 return self._parse_json(raw_output)
-
             except Exception as e:
                 last_error = e
                 continue

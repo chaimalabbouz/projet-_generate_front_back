@@ -111,3 +111,73 @@ ne donner pas de code ou rien juste essayer de comprendre c est tout
 *****************On comprend  les node de graph :
 -setup node: initialise le porjet en environement py/fast api
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+agent ou bien comment  ??repondre birvement et ne parler pas trop svp
+
+11:59
+
+Orchestrated pipeline components, clarified agent roles, specified inputs/outputs, enhanced capabilities
+Orchestrated pipeline components, clarified agent roles, specified inputs/outputs, enhanced capabilities
+Voici le résumé, étape par étape, dans l'ordre d'exécution dans le graphe :
+
+1. Réactiver setup_node
+Type : fonction Python déterministe (pas LLM).
+Input : file_plan.
+Output : structure de dossiers créée + Base.metadata.create_all() branché dans main.py.
+Juste débrancher les commentaires existants.
+2. seed_agent (nouveau)
+Type : LLM simple (single-shot), pas d'agent ReAct.
+Input : dependency_graph + schémas (entités, champs, types).
+Output : script seed.py qui insère du mock data, dans l'ordre des dépendances, avec URLs placeholder pour les images.
+Placé juste après backend_agent stabilisé (après boucle tester/fixer), avant figma_generator_agent.
+3. Enrichir l'input textuel utilisateur (pas un agent)
+Demander à l'utilisateur de décrire chaque page en 1-2 lignes : nom + rôle (liste/détail/formulaire) + entité liée.
+Ça alimente le planner_agent ou un pré-traitement, pour que frontend_agent reçoive cette info en contexte.
+4. route_config_agent (nouveau, ou règle déterministe)
+Type : peut être déterministe (pas de LLM) — transformation mécanique de texte.
+Input : les descriptions de pages (étape 3).
+Output : liste des routes à paramétrer (ex: /products/:id) + modification du fichier de routage central (react-router).
+Exécuté avant frontend_agent, une seule fois, globalement (input minuscule, pas de code).
+5. Étendre frontend_agent existant
+Type : LLM, single-shot, page par page (pas de tools, pas de ReAct — tout le contexte nécessaire est fourni directement, comme actuellement).
+Input par page : code statique de la page + liste compacte des entités/endpoints + description de la page (étape 3) + décision de routing (étape 4) si applicable.
+Output : code modifié de la page (listes → .map(), navigation → avec id réel, formulaires → fetch, comme déjà fait pour le contact).
+Pas de nouvel agent séparé — extension du rôle actuel.
+6. frontend_tester_agent (nouveau, optionnel pour MVP)
+Type : tool/script (build + requête HTTP simple), pas forcément LLM.
+Input : code généré + URL du backend (avec seed data).
+Output : pass/fail (build réussit, fetch renvoie 200, pas de crash de rendu).
+Boucle avec un frontend_fixer_agent similaire à votre boucle backend actuelle.
+Sur la notion de "skill"
+Oui, très pertinent, et facile à ajouter : au lieu de mettre toutes les règles dans le prompt système de chaque agent (comme votre planner_agent actuel, déjà très long), externaliser dans un fichier "skill" par agent (ex: SKILL_frontend_agent.md, SKILL_route_config.md) contenant les règles stables (ex: "transformer N instances en .map()", "jamais utiliser l'id Figma comme id métier"). L'agent va le lire au début de sa tâche, comme référence, plutôt que tout réinjecter en dur dans le prompt à chaque fois. Avantage : prompts plus courts, règles centralisées/réutilisables, plus faciles à corriger sans toucher au code de l'agent. C'est exactement le même principe que les skills que j'utilise moi-même (docx/pptx/etc.) — une bonne pratique à reprendre ici.
+

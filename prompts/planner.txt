@@ -44,6 +44,29 @@ Format:
 }
 
 ═══════════════════════════════════════
+ENDPOINT OWNERSHIP RULES (CRITICAL)
+═══════════════════════════════════════
+An endpoint does NOT belong to the entity in its URL prefix.
+An endpoint belongs to the entity of its RESPONSE (its tag / the schema it returns).
+
+To assign each endpoint to an entity, use this rule:
+- Look at the endpoint's "tags" → the tag IS the owning entity.
+- Confirm with the response schema (the $ref it returns).
+- The URL prefix is IRRELEVANT for ownership.
+
+Examples:
+- GET /cuisines/{id}/recipes  → tag "Recipes", returns Recipe[]  → belongs to RECIPE
+  (function list_recipes_by_cuisine goes in services/recipe.py and routes/recipe.py)
+- GET /recipes/{id}/reviews   → tag "Reviews", returns Review[]  → belongs to REVIEW
+- GET /authors/{id}/books     → tag "Books",   returns Book[]    → belongs to BOOK
+
+CONSEQUENCE:
+- A "list X by Y" endpoint always belongs to X (the thing returned), never Y.
+- Its service function takes the parent id (e.g. cuisine_id) and queries the X table
+  filtering on that foreign key. It must NEVER import or be placed in the parent entity.
+- This keeps generation order valid: the parent (Y) is generated first, the child (X)
+  which depends on it comes later and owns the relational endpoint.
+═══════════════════════════════════════
 FILE PLAN RULES
 ═══════════════════════════════════════
 For each entity, generate exactly 4 files in this order:
@@ -73,6 +96,9 @@ SERVICE FUNCTION RULES
 - Use snake_case for all function names
 - Function names must match the operationId from the OpenAPI spec
 - Input and output types must use the exact schema names from the OpenAPI spec
+- A relational list function (e.g. list_recipes_by_cuisine) belongs to the RETURNED
+  entity's service (recipe), takes the parent id as int, and filters that entity's
+  table by the foreign key. Never place it in the parent entity's service.
 
 ═══════════════════════════════════════
 ROUTE FUNCTION RULES

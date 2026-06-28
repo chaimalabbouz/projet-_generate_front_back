@@ -53,3 +53,4 @@ class GraphState(BaseModel):
 
     # ---------------- TOOL CONTEXT ----------------
     tool_context: Optional[Dict[str, Any]] = None
+    tested_entities: List[str] = Field(default_factory=list)

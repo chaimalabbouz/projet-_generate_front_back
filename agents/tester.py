@@ -1,26 +1,15 @@
 import os
-import json
-import re
 import subprocess
-from langchain_mistralai import ChatMistralAI
-from langchain_core.messages import SystemMessage, HumanMessage
-from config.settings import MISTRAL_API_KEY,TESTER_MODEL, PROMPTS_PATH, GENERATED_PROJECT_PATH
+
+from config.settings import GENERATED_PROJECT_PATH
 from orchestrator.state import GraphState
-
-
+from agents.test_generator import TestGenerator
 
 
 class TesterAgent:
     def __init__(self):
-        self.llm = ChatMistralAI(
-            api_key=MISTRAL_API_KEY,
-            model=TESTER_MODEL,
-            temperature=0.1,
-        )
-
-        prompt_path = os.path.join(PROMPTS_PATH, "tester.txt")
-        with open(prompt_path, "r", encoding="utf-8") as f:
-            self.system_prompt_template = f.read()
+        # Plus de LLM, plus de prompt a charger : la generation est deterministe.
+        pass
 
     # =========================
     # MAIN NODE (LANGGRAPH)
@@ -33,27 +22,32 @@ class TesterAgent:
                 state.workflow_state = "testing_done"
                 return state
 
-            entity_context = self._build_entity_context(
-                current_entity, state.generated_files
-            )
-
-            endpoints = self._get_entity_endpoints(
-                current_entity, state.task_queue
-            )
-
-            test_code = self._call_llm(current_entity, entity_context, endpoints)
+            if state.tested_entities is None:
+                state.tested_entities = []
 
             test_file = f"tests/test_{current_entity.lower()}.py"
-            self._write_file(test_file, test_code)
 
+            # ---- On NE genere le test qu'une seule fois PAR ENTITE PAR EXECUTION ----
+            # - 1er passage (entite absente de tested_entities) -> on genere.
+            # - passages suivants (apres le fixer) -> on reutilise le meme fichier,
+            #   ce qui donne au fixer une cible stable.
+            if current_entity not in state.tested_entities:
+                generator = TestGenerator(state.task_queue, state.dependency_graph)
+                test_code = generator.generate(current_entity)
+                self._write_file(test_file, test_code)
+
+                state.tested_entities.append(current_entity)
+                # chaque entite repart avec son quota de retries plein
+                state.retry_count = 0
+
+            # ---- execution pytest (toujours) ----
             test_result = self._run_pytest(test_file)
 
             if state.test_results is None:
                 state.test_results = {}
-
             state.test_results[current_entity] = test_result
 
-            # mettre a jour test_status dans la task_queue
+            # maj test_status dans la task_queue
             new_task_queue = []
             for task in state.task_queue:
                 if task.get("entity") == current_entity and task.get("type") == "route":
@@ -64,11 +58,12 @@ class TesterAgent:
 
             if test_result["status"] == "passed":
                 state.workflow_state = f"testing_passed:{current_entity}"
-                print(f"  ✓ Tests passed for {current_entity}")
+                print(f"  \u2713 Tests passed for {current_entity}")
             else:
                 state.workflow_state = f"testing_failed:{current_entity}"
                 state.error_log = (state.error_log or "") + f"\n[TEST ERROR] {current_entity}:\n{test_result['output']}"
-                print(f"  ✗ Tests failed for {current_entity}")
+                print(f"  \u2717 Tests failed for {current_entity}")
+                print(test_result["output"])
 
         except Exception as e:
             state.workflow_state = "testing_error"
@@ -88,74 +83,6 @@ class TesterAgent:
             ):
                 return task.get("entity")
         return None
-
-    # =========================
-    # BUILD ENTITY CONTEXT
-    # =========================
-    def _build_entity_context(self, entity: str, generated_files: dict) -> str:
-        entity_lower = entity.lower()
-        files_to_read = [
-            f"app/models/{entity_lower}.py",
-            f"app/schemas/{entity_lower}.py",
-            f"app/services/{entity_lower}.py",
-            f"app/routes/{entity_lower}.py",
-        ]
-
-        context_parts = []
-        for file_path in files_to_read:
-            if file_path in generated_files:
-                context_parts.append(
-                    f"--- {file_path} ---\n{generated_files[file_path]}"
-                )
-
-        return "\n\n".join(context_parts) if context_parts else "No context available."
-
-    # =========================
-    # GET ENTITY ENDPOINTS
-    # =========================
-    def _get_entity_endpoints(self, entity: str, task_queue: list) -> list:
-        for task in task_queue:
-            if task.get("entity") == entity and task.get("type") == "route":
-                return task.get("endpoints", [])
-        return []
-
-    # =========================
-    # LLM CALL
-    # =========================
-    def _call_llm(self, entity: str, entity_context: str, endpoints: list) -> str:
-        system_prompt = self.system_prompt_template.replace(
-            "{entity_context}", entity_context
-        ).replace(
-            "{entity}", entity.lower()
-        ).replace(
-            "{endpoints}", json.dumps(endpoints, indent=2)
-        )
-
-        messages = [
-            SystemMessage(content=system_prompt),
-            HumanMessage(content=f"Generate complete pytest integration tests for {entity}. Return ONLY Python code, no explanation, no markdown, no backticks.")
-        ]
-
-        max_retries = 3
-        last_error = None
-
-        for attempt in range(max_retries):
-            try:
-                response = self.llm.invoke(messages)
-                return self._clean_code(response.content)
-            except Exception as e:
-                last_error = e
-                continue
-
-        raise Exception(f"LLM call failed after 3 retries: {str(last_error)}")
-
-    # =========================
-    # CLEAN CODE
-    # =========================
-    def _clean_code(self, text: str) -> str:
-        cleaned = re.sub(r"```(?:python)?\s*", "", text)
-        cleaned = cleaned.replace("```", "").strip()
-        return cleaned
 
     # =========================
     # WRITE FILE

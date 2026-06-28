@@ -1,21 +1,73 @@
 STACK: Python / FastAPI systems
-
-PROJECT: Portfolio Contact Form API
-
+PROJECT: E-Commerce Platform API
 DESCRIPTION:
-A simple API to handle contact form submissions from a portfolio website.
+An API for an online store. It manages product categories, products,
+customers, their orders, and the items inside each order. You can list
+products by category, list orders by customer, and list items by order.
 
 FEATURES:
+CATEGORIES:
+- create a category
+- view all categories
+- view category details
+- update a category
+- list products by category
 
-CONTACTS:
-- submit contact form
+PRODUCTS:
+- create a product
+- view all products
+- view product details
+- update a product
+- delete a product
+- list order items by product
+
+CUSTOMERS:
+- create a customer
+- view all customers
+- view customer details
+- update a customer
+- list orders by customer
+
+ORDERS:
+- create an order
+- view all orders
+- view order details
+- delete an order
+- list items by order
+
+ORDER_ITEMS:
+- create an order item
+- view all order items
+- view order item details
 
 DATA MODELS:
-
-Contact:
+Category:
 - name: string
+- description: string
+- is_active: boolean
+
+Product:
+- name: string
+- description: string
+- price: integer
+- stock_quantity: integer
+- is_available: boolean
+- category: Category
+
+Customer:
+- full_name: string
 - email: string
-- location: string
-- budget: string
-- subject: string
-- message: string
+- phone: string
+- is_premium: boolean
+
+Order:
+- order_number: string
+- total_amount: integer
+- status: string
+- customer: Customer
+
+OrderItem:
+- quantity: integer
+- unit_price: integer
+- order: Order
+- product: Product

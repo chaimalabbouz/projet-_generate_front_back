@@ -287,12 +287,12 @@ def run_setup() -> Path:
     # Créer la structure
     _create_folders()
     _write_package_json(external_deps)
-    _write_tsconfig()
-    _write_tailwind_config()
-    _write_vite_config()
-    _write_index_html()
+    #_write_tsconfig()
+    #_write_tailwind_config()
+    #_write_vite_config()
+    #_write_index_html()
     _write_main_tsx()
-    _write_index_css()
+    #_write_index_css()
     _write_app_tsx(analyse.get("pages", []))
     _write_placeholder_files(analyse, architecture)
 

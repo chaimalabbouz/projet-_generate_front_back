@@ -7,8 +7,16 @@ STACK (FIXED - DO NOT CHANGE)
 - Framework: FastAPI
 - Testing: pytest + httpx
 - Test client: from fastapi.testclient import TestClient
-- Database: SQLite in-memory for tests
+- Database: SQLite for tests
 - ORM: SQLAlchemy
+
+═══════════════════════════════════════
+SOURCE OF TRUTH
+═══════════════════════════════════════
+The SPEC CONTEXT below (field lists) and the ENDPOINTS list are the single
+source of truth. They are derived from a validated OpenAPI spec.
+- NEVER invent fields, columns, endpoints, paths or query parameters.
+- Use ONLY what is explicitly listed.
 
 ═══════════════════════════════════════
 IMPORTANT RULES
@@ -19,35 +27,83 @@ IMPORTANT RULES
 - Generate COMPLETE tests, never truncate
 - No placeholder comments like "# TODO"
 - Every test must be independent and isolated
--Use a fresh database for each test function using autouse fixture
-Create all tables before each test and drop all tables after each test
-Generate realistic but simple hardcoded test data based on the entity schemas
-For string fields use simple values like "Test title", "Test description"
-For integer fields use simple values like 1, 25, 100
-For boolean fields use true or false
-For float fields use simple values like 9.99, 100.0
+- Use a fresh database for each test function using an autouse fixture
+- Create all tables before each test and drop all tables after each test
+- Generate realistic but simple hardcoded test data based on the SPEC CONTEXT
+- For string fields use simple values like "Test title", "Test description"
+- For integer fields use simple values like 1, 25, 100
+- For boolean fields use true or false
+- For float fields use simple values like 9.99, 100.0
+- For date fields: import `from datetime import date` and pass a real date object
+  like date(2023, 1, 1). NEVER pass a string for a date field, because fixtures
+  create objects directly via the ORM (not via the API), and SQLAlchemy's Date
+  type rejects strings.
+- NEVER generate tests for POST, PUT, DELETE if these methods do not appear in the {endpoints} list
+- If all endpoints are GET → generate only GET tests
+- Always import all dependent models in the test file. For example if Product
+  depends on Category → add `from app.models.category import Category` so that
+  Base.metadata.create_all creates all required tables.
+- ALWAYS import the entity's OWN model in the test file:
+  from app.models.{entity} import {Entity}
+  (Example: for Product → from app.models.product import Product)
+  This is required because fixtures create the entity directly via the ORM.  
+- MODEL columns are for building fixtures (what you insert).
+- OUTPUT schema fields are for assertions only (what you check in response JSON).
+- These two are different. Never mix them.  
+
+═══════════════════════════════════════
+ENDPOINTS RULE (STRICT)
+═══════════════════════════════════════
+- Test ONLY the endpoints listed in {endpoints}.
+- Use the EXACT "path" string from each endpoint (e.g. "/products", "/products/{id}").
+- NEVER invent a path, a search route, or a query parameter that is not present
+  in the endpoint's "input" list.
+- If an endpoint has query parameters in its "input", you may test them using
+  exactly those parameter names; otherwise do not add any query parameter.
+- For a path that contains {id}, replace it with a real created id.
+
+═══════════════════════════════════════
+DEPENDENCY FIXTURE RULE (STRICT — this prevents schema mismatches)
+═══════════════════════════════════════
+- To create an object to insert in the DB, use ONLY the columns listed in that
+  entity's MODEL spec. NEVER use fields from the response/output schema.
+- A foreign key is a column ending in "_id" (e.g. author_id). Set it with an
+  integer value (e.g. author_id=1).
+- NEVER pass a nested object to a model constructor. Objects like `author=...`,
+  `category=...`, `member=...` do NOT exist as columns — they only appear in the
+  JSON response. Using them will crash.
+- To satisfy a foreign key, FIRST create the dependency entity using ITS OWN
+  model columns, commit it, read its .id, then pass that id to the *_id column.
+  Example: create Author(name="X"), commit, then Book(title="Y", author_id=author.id).
+- Skip auto columns (id, created_at, updated_at) — never set them manually.
+
 ═══════════════════════════════════════
 TEST STRUCTURE RULES
 ═══════════════════════════════════════
 - Import TestClient from fastapi.testclient
-- Create a test FastAPI app with the router
+- Create a test FastAPI app and mount the entity router: app.include_router(router)
+- The router already defines full paths, so do NOT add any prefix.
 - Override get_db dependency with a test database
-- Use SQLite in-memory: "sqlite:///./test.db"
+- Use SQLite: "sqlite:///./test.db"
 - Create all tables before tests, drop after
 - Each test function starts with test_
-- Test both success cases and error cases (404)
+- Test both success cases and error cases (404) when a GET-by-id endpoint exists
 
 ═══════════════════════════════════════
 TESTS TO GENERATE
 ═══════════════════════════════════════
-For each endpoint generate:
-- POST   → test_create_{entity}: verify 201 + correct body
-- GET all → test_list_{entity}s: verify 200 + list
-- GET by id → test_get_{entity}_by_id: verify 200 + correct body
-- GET by id not found → test_get_{entity}_by_id_not_found: verify 404
-- PUT → test_update_{entity}: verify 200 + updated body
-- DELETE → test_delete_{entity}: verify 204
-- DELETE not found → test_delete_{entity}_not_found: verify 404
+Read {endpoints} carefully and identify which HTTP methods and paths exist.
+Generate ONLY tests for endpoints that actually appear in {endpoints}.
+Mapping guide (generate a test only if the matching endpoint exists):
+- POST            → test_create_{entity}: verify the endpoint's status_code + body
+- GET list        → test_list_{entity}s: verify 200 + list
+- GET by id       → test_get_{entity}_by_id: verify 200 + correct body
+- GET by id (404) → test_get_{entity}_by_id_not_found: verify 404
+- PUT             → test_update_{entity}: verify 200 + updated body
+- DELETE          → test_delete_{entity}: verify 204
+- DELETE (404)    → test_delete_{entity}_not_found: verify 404
+For any extra GET endpoint present in the list (e.g. a list-by-parent path or a
+filtered list with query params), generate one matching test using its exact path.
 
 ═══════════════════════════════════════
 EXAMPLE TEST STRUCTURE
@@ -60,6 +116,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from app.database import Base, get_db
 from app.routes.{entity} import router
+# import every dependent model so all tables are created:
+# from app.models.<dependency> import <Dependency>
 
 SQLALCHEMY_TEST_DATABASE_URL = "sqlite:///./test.db"
 
@@ -88,16 +146,10 @@ def setup_database():
     Base.metadata.drop_all(bind=engine)
 
 client = TestClient(app)
-
-def test_create_{entity}():
-    response = client.post("/{entities}", json={{...}})
-    assert response.status_code == 201
-    data = response.json()
-    assert data["field"] == "value"
 ```
 
 ═══════════════════════════════════════
-ENTITY FILES CONTEXT
+SPEC CONTEXT (authoritative field lists — use ONLY these fields)
 ═══════════════════════════════════════
 {entity_context}
 

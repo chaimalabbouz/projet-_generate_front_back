@@ -6,8 +6,17 @@ from langchain_core.messages import SystemMessage, HumanMessage
 from config.settings import MISTRAL_API_KEY, PROMPTS_PATH, GENERATED_PROJECT_PATH
 from orchestrator.state import GraphState
 
-FRONTEND_MODEL = "mistral-medium-3.5"
+FRONTEND_MODEL = "codestral-latest"
 FRONTEND_PATH = os.path.join(GENERATED_PROJECT_PATH, "frontend")
+
+# =========================
+# PAGE CONTEXT (fill before running)
+# =========================
+PAGE_CONTEXT = {
+    # Homepage.tsx": "cest le home page de site contient en bas les category de product, chaque categorie amene a products page de cette categoty  ",
+    # "Products page.tsx": "displays the product of the category product chosesn  ",
+    # "Product description.tsx": "displays the information of the prodect selected ",
+}
 
 
 class FrontendAgent:
@@ -54,17 +63,22 @@ class FrontendAgent:
 
                 page_path = os.path.join(pages_dir, filename)
                 with open(page_path, "r", encoding="utf-8") as f:
-                    page_code = f.read()
+                    original_code = f.read()
+
+                page_context = PAGE_CONTEXT.get(filename, "no specific context provided")
 
                 print(f"  → Pass 1 cleaning: {filename}")
-                cleaned_code = self._call_clean_llm(filename, page_code)
+                cleaned_code = self._call_clean_llm(filename, original_code)
 
-                print(f"  → Pass 2 connecting: {filename}")
-                connected_code = self._call_connect_llm(filename, cleaned_code, endpoints)
+                print(f"  → Pass 2 connecting: {filename} | context: {page_context}")
+                connected_code = self._call_connect_llm(filename, cleaned_code, endpoints, page_context)
 
-                self._write_file(f"src/pages/{filename}", connected_code)
-                state.frontend_pages[filename] = connected_code
-                print(f"  ✓ Modified: src/pages/{filename}")
+                if connected_code.strip() == original_code.strip():
+                    print(f"  ~ Unchanged: {filename}")
+                else:
+                    self._write_file(f"src/pages/{filename}", connected_code)
+                    state.frontend_pages[filename] = connected_code
+                    print(f"  ✓ Modified: src/pages/{filename}")
 
             state.workflow_state = "frontend_done"
 
@@ -153,7 +167,7 @@ export async function {operation_id}({params}) {{
 
         messages = [
             SystemMessage(content=system_prompt),
-            HumanMessage(content=f"Clean and improve the semantic structure of '{filename}'. Return ONLY the complete improved TypeScript React code, no explanation, no markdown, no backticks.")
+            HumanMessage(content=f"Clean '{filename}'. Return ONLY the complete improved TypeScript React code, no explanation, no markdown, no backticks.")
         ]
 
         max_retries = 3
@@ -167,18 +181,20 @@ export async function {operation_id}({params}) {{
                 last_error = e
                 continue
 
-        raise Exception(f"Clean LLM call failed after 3 retries: {str(last_error)}")
+        raise Exception(f"Clean LLM failed after 3 retries: {str(last_error)}")
 
     # =========================
     # PASS 2 - CONNECT LLM CALL
     # =========================
-    def _call_connect_llm(self, filename: str, page_code: str, endpoints: list) -> str:
+    def _call_connect_llm(self, filename: str, page_code: str, endpoints: list, page_context: str) -> str:
         system_prompt = self.connect_prompt_template.replace(
             "{endpoints}", json.dumps(endpoints, indent=2)
         ).replace(
             "{filename}", filename
         ).replace(
             "{page_code}", page_code
+        ).replace(
+            "{page_context}", page_context
         )
 
         messages = [
@@ -197,7 +213,7 @@ export async function {operation_id}({params}) {{
                 last_error = e
                 continue
 
-        raise Exception(f"Connect LLM call failed after 3 retries: {str(last_error)}")
+        raise Exception(f"Connect LLM failed after 3 retries: {str(last_error)}")
 
     # =========================
     # CLEAN CODE
