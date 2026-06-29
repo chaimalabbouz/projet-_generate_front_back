@@ -1,0 +1,5444 @@
+{
+  "generation_order": [
+    "Pagination",
+    "Logo",
+    "Button",
+    "Project",
+    "Blog",
+    "Work Process Card",
+    "Address Card",
+    "What I do card"
+  ],
+  "total_components": 8,
+  "components": [
+    {
+      "component_id": "89:7181",
+      "name": "Pagination",
+      "kind": "standalone",
+      "suggested_file": "src/components/Pagination.tsx",
+      "variant_component_ids": [
+        "89:7181"
+      ],
+      "architecture": {
+        "props": [],
+        "layout": "horizontal",
+        "has_image": false,
+        "has_text": false,
+        "external_deps": [],
+        "children_structure": [
+          "Rectangle",
+          "Deux ellipses"
+        ],
+        "children_tree": {
+          "name": "Pagination",
+          "layoutMode": "HORIZONTAL",
+          "children": [
+            {
+              "type": "RECTANGLE",
+              "name": "Rectangle 4"
+            },
+            {
+              "type": "ELLIPSE",
+              "name": "Ellipse 5"
+            },
+            {
+              "type": "ELLIPSE",
+              "name": "Ellipse 6"
+            }
+          ]
+        }
+      },
+      "styles": {
+        "root": {
+          "width": 70.0,
+          "height": 8.0,
+          "layout": {
+            "layoutMode": "HORIZONTAL",
+            "layoutWrap": "NO_WRAP",
+            "layoutSizingHorizontal": "HUG",
+            "layoutSizingVertical": "HUG",
+            "itemSpacing": 12.0
+          },
+          "strokeWeight": 1.0,
+          "strokeAlign": "INSIDE"
+        },
+        "nodes": {
+          "Rectangle 4": {
+            "type": "RECTANGLE",
+            "width": 30.0,
+            "height": 8.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#210c33",
+                  "rgb": {
+                    "r": 33,
+                    "g": 12,
+                    "b": 51
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "cornerRadius": 100.0,
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Ellipse 5": {
+            "type": "ELLIPSE",
+            "width": 8.0,
+            "height": 8.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#c3c7ce",
+                  "rgb": {
+                    "r": 195,
+                    "g": 199,
+                    "b": 206
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Ellipse 6": {
+            "type": "ELLIPSE",
+            "width": 8.0,
+            "height": 8.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#c3c7ce",
+                  "rgb": {
+                    "r": 195,
+                    "g": 199,
+                    "b": 206
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          }
+        }
+      },
+      "interactions": {
+        "root": [],
+        "nodes": {}
+      },
+      "imports": {
+        "local": [],
+        "external": []
+      }
+    },
+    {
+      "component_id": "94:658",
+      "name": "Logo",
+      "kind": "standalone",
+      "suggested_file": "src/components/Logo.tsx",
+      "variant_component_ids": [
+        "94:658"
+      ],
+      "architecture": {
+        "props": [
+          {
+            "name": "b",
+            "figma_name": "B",
+            "type": "string",
+            "default": "B",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "brooklyn",
+            "figma_name": "Brooklyn",
+            "type": "string",
+            "default": "Brooklyn",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          }
+        ],
+        "layout": "horizontal",
+        "has_image": false,
+        "has_text": true,
+        "external_deps": [],
+        "children_structure": [
+          "Lettre 'B' en haut",
+          "Texte 'Brooklyn' à côté"
+        ],
+        "children_tree": {
+          "name": "Logo",
+          "layoutMode": "HORIZONTAL",
+          "children": [
+            {
+              "type": "FRAME",
+              "name": "Frame 12",
+              "layoutMode": "VERTICAL",
+              "children": [
+                {
+                  "type": "TEXT",
+                  "name": "B",
+                  "textPreview": "B"
+                }
+              ]
+            },
+            {
+              "type": "TEXT",
+              "name": "Brooklyn",
+              "textPreview": "Brooklyn"
+            }
+          ]
+        }
+      },
+      "styles": {
+        "root": {
+          "width": 208.0,
+          "height": 56.0,
+          "layout": {
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "layoutWrap": "NO_WRAP",
+            "layoutSizingHorizontal": "HUG",
+            "layoutSizingVertical": "HUG",
+            "itemSpacing": 12.0
+          },
+          "strokeWeight": 1.0,
+          "strokeAlign": "INSIDE"
+        },
+        "nodes": {
+          "Frame 12": {
+            "type": "FRAME",
+            "width": 56.0,
+            "height": 56.0,
+            "layout": {
+              "layoutMode": "VERTICAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "padding": {
+                "paddingLeft": 20.0,
+                "paddingRight": 20.0
+              },
+              "itemSpacing": 10.0
+            },
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#a53dff",
+                  "rgb": {
+                    "r": 165,
+                    "g": 61,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "cornerRadius": 1000.0,
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "B": {
+            "type": "TEXT",
+            "fontFamily": "Poppins",
+            "fontPostScriptName": "Poppins-Medium",
+            "fontWeight": 500,
+            "fontSize": 24.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 56.0,
+            "lineHeightPercent": 155.55555725097656,
+            "lineHeightPercentFontSize": 233.3333282470703,
+            "lineHeightUnit": "PIXELS",
+            "color": {
+              "hex": "#ffffff",
+              "rgb": {
+                "r": 255,
+                "g": 255,
+                "b": 255
+              },
+              "alpha": 1.0
+            },
+            "width": 16.0,
+            "height": 56.0
+          },
+          "Brooklyn": {
+            "type": "TEXT",
+            "fontFamily": "Work Sans",
+            "fontWeight": 600,
+            "fontSize": 32.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 40.0,
+            "lineHeightPercent": 106.56436920166016,
+            "lineHeightPercentFontSize": 125.0,
+            "lineHeightUnit": "PIXELS",
+            "color": {
+              "hex": "#132238",
+              "rgb": {
+                "r": 19,
+                "g": 34,
+                "b": 56
+              },
+              "alpha": 1.0
+            },
+            "width": 140.0,
+            "height": 40.0
+          }
+        }
+      },
+      "interactions": {
+        "root": [],
+        "nodes": {}
+      },
+      "imports": {
+        "local": [],
+        "external": []
+      }
+    },
+    {
+      "component_id": "89:7039",
+      "name": "Project",
+      "kind": "variant_set",
+      "suggested_file": "src/components/Project.tsx",
+      "variant_component_ids": [
+        "89:7038",
+        "89:7040"
+      ],
+      "architecture": {
+        "props": [
+          {
+            "name": "property1",
+            "figma_name": "Property 1",
+            "type": "\"Hover\" | \"Normal\"",
+            "default": "Normal",
+            "source": "variant",
+            "figma_declared": true,
+            "from_set": true,
+            "required": true
+          },
+          {
+            "name": "uIUXDESIGN",
+            "figma_name": "UI-UX DESIGN",
+            "type": "string",
+            "default": "UI-UX DESIGN",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "productAdminDashboard",
+            "figma_name": "Product Admin Dashboard",
+            "type": "string",
+            "default": "Product Admin Dashboard",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "vivamusEleifendConvallisAnteNonPharetraLiberoMolestieLaoreetDonecIdImperdietLacus",
+            "figma_name": "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.",
+            "type": "string",
+            "default": "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "button",
+            "figma_name": "Button",
+            "type": "string",
+            "default": "Case Study",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "unsplash9anj7QWy2gUrl",
+            "figma_name": "unsplash:9anj7QWy-2g",
+            "type": "string",
+            "default": "/src/assets/8f107a905f0e2c2a0cc5bae15845adf0de3205ca.png",
+            "source": "image",
+            "figma_declared": false,
+            "required": true
+          }
+        ],
+        "layout": "vertical",
+        "has_image": true,
+        "has_text": true,
+        "external_deps": [],
+        "children_structure": [
+          "Image en haut",
+          "Titre UI-UX DESIGN",
+          "Sous-titre Product Admin Dashboard",
+          "Texte descriptif",
+          "Bouton Case Study en bas"
+        ],
+        "children_tree": {
+          "name": "Property 1=Normal",
+          "layoutMode": "VERTICAL",
+          "children": [
+            {
+              "type": "RECTANGLE",
+              "name": "unsplash:9anj7QWy-2g",
+              "hasImageFill": true
+            },
+            {
+              "type": "FRAME",
+              "name": "Frame 57",
+              "layoutMode": "VERTICAL",
+              "children": [
+                {
+                  "type": "FRAME",
+                  "name": "Frame 56",
+                  "layoutMode": "VERTICAL",
+                  "children": [
+                    {
+                      "type": "FRAME",
+                      "name": "Frame 55",
+                      "layoutMode": "VERTICAL",
+                      "children": [
+                        {
+                          "type": "TEXT",
+                          "name": "UI-UX DESIGN",
+                          "textPreview": "UI-UX DESIGN"
+                        },
+                        {
+                          "type": "TEXT",
+                          "name": "Product Admin Dashboard",
+                          "textPreview": "Product Admin Dashboard"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "TEXT",
+                      "name": "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.",
+                      "textPreview": "Vivamus eleifend convallis ant"
+                    }
+                  ]
+                },
+                {
+                  "type": "INSTANCE",
+                  "name": "Button",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "type": "TEXT",
+                      "name": "Button",
+                      "textPreview": "Case Study"
+                    },
+                    {
+                      "type": "INSTANCE",
+                      "name": "Arrows / right arrow",
+                      "children": [
+                        {
+                          "type": "VECTOR",
+                          "name": "Vector"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "styles": {
+        "root": {
+          "width": 424.0,
+          "height": 476.0,
+          "layout": {
+            "layoutMode": "VERTICAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "layoutWrap": "NO_WRAP",
+            "layoutSizingHorizontal": "HUG",
+            "layoutSizingVertical": "HUG",
+            "padding": {
+              "paddingBottom": 32.0
+            },
+            "itemSpacing": 32.0
+          },
+          "fills": [
+            {
+              "type": "SOLID",
+              "color": {
+                "hex": "#ffffff",
+                "rgb": {
+                  "r": 255,
+                  "g": 255,
+                  "b": 255
+                },
+                "alpha": 1.0
+              }
+            }
+          ],
+          "cornerRadius": 8.0,
+          "strokes": [
+            {
+              "type": "SOLID",
+              "color": {
+                "hex": "#e6e8eb",
+                "rgb": {
+                  "r": 230,
+                  "g": 232,
+                  "b": 235
+                },
+                "alpha": 1.0
+              }
+            }
+          ],
+          "strokeWeight": 1.0,
+          "strokeAlign": "INSIDE"
+        },
+        "nodes": {
+          "unsplash:9anj7QWy-2g": {
+            "type": "RECTANGLE",
+            "width": 424.0,
+            "height": 248.0,
+            "fills": [
+              {
+                "type": "IMAGE",
+                "imageRef": "/src/assets/8f107a905f0e2c2a0cc5bae15845adf0de3205ca.png",
+                "scaleMode": "FILL"
+              }
+            ],
+            "rectangleCornerRadii": [
+              8.0,
+              8.0,
+              0.0,
+              0.0
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Frame 57": {
+            "type": "FRAME",
+            "width": 360.0,
+            "height": 164.0,
+            "layout": {
+              "layoutMode": "VERTICAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 20.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Frame 56": {
+            "type": "FRAME",
+            "width": 360.0,
+            "height": 96.0,
+            "layout": {
+              "layoutMode": "VERTICAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 12.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Frame 55": {
+            "type": "FRAME",
+            "width": 232.0,
+            "height": 44.0,
+            "layout": {
+              "layoutMode": "VERTICAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 4.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "UI-UX DESIGN": {
+            "type": "TEXT",
+            "fontFamily": "Work Sans",
+            "fontWeight": 500,
+            "fontSize": 12.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 16.0,
+            "lineHeightPercent": 113.66865539550781,
+            "lineHeightPercentFontSize": 133.3333282470703,
+            "lineHeightUnit": "PIXELS",
+            "color": {
+              "hex": "#87909d",
+              "rgb": {
+                "r": 135,
+                "g": 144,
+                "b": 157
+              },
+              "alpha": 1.0
+            },
+            "width": 84.0,
+            "height": 16.0
+          },
+          "Product Admin Dashboard": {
+            "type": "TEXT",
+            "fontFamily": "Work Sans",
+            "fontWeight": 600,
+            "fontSize": 18.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 24.0,
+            "lineHeightPercent": 113.66865539550781,
+            "lineHeightPercentFontSize": 133.3333282470703,
+            "lineHeightUnit": "PIXELS",
+            "color": {
+              "hex": "#132238",
+              "rgb": {
+                "r": 19,
+                "g": 34,
+                "b": 56
+              },
+              "alpha": 1.0
+            },
+            "width": 232.0,
+            "height": 24.0
+          },
+          "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.": {
+            "type": "TEXT",
+            "fontFamily": "Work Sans",
+            "fontWeight": 400,
+            "fontSize": 14.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 20.0,
+            "lineHeightPercent": 121.78785705566406,
+            "lineHeightPercentFontSize": 142.85714721679688,
+            "lineHeightUnit": "PIXELS",
+            "color": {
+              "hex": "#556070",
+              "rgb": {
+                "r": 85,
+                "g": 96,
+                "b": 112
+              },
+              "alpha": 1.0
+            },
+            "width": 360.0,
+            "height": 40.0
+          },
+          "Button": {
+            "type": "INSTANCE",
+            "width": 173.0,
+            "height": 48.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "primaryAxisAlignItems": "CENTER",
+              "counterAxisAlignItems": "CENTER",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "padding": {
+                "paddingLeft": 24.0,
+                "paddingRight": 24.0,
+                "paddingTop": 12.0,
+                "paddingBottom": 12.0
+              },
+              "itemSpacing": 12.0
+            },
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "cornerRadius": 4.0,
+            "strokes": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#a53dff",
+                  "rgb": {
+                    "r": 165,
+                    "g": 61,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Arrows / right arrow": {
+            "type": "INSTANCE",
+            "width": 24.0,
+            "height": 24.0,
+            "layout": {
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "FIXED"
+            },
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": false,
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Vector": {
+            "type": "VECTOR",
+            "width": 12.0,
+            "height": 12.01,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#a53dff",
+                  "rgb": {
+                    "r": 165,
+                    "g": 61,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          }
+        },
+        "styles_by_variant": {
+          "89:7038": {
+            "root": {
+              "width": 424.0,
+              "height": 476.0,
+              "layout": {
+                "layoutMode": "VERTICAL",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "CENTER",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG",
+                "padding": {
+                  "paddingBottom": 32.0
+                },
+                "itemSpacing": 32.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#ffffff",
+                    "rgb": {
+                      "r": 255,
+                      "g": 255,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 8.0,
+              "strokes": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#e6e8eb",
+                    "rgb": {
+                      "r": 230,
+                      "g": 232,
+                      "b": 235
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "nodes": {
+              "unsplash:9anj7QWy-2g": {
+                "type": "RECTANGLE",
+                "width": 424.0,
+                "height": 248.0,
+                "fills": [
+                  {
+                    "type": "IMAGE",
+                    "imageRef": "/src/assets/8f107a905f0e2c2a0cc5bae15845adf0de3205ca.png",
+                    "scaleMode": "FILL"
+                  }
+                ],
+                "rectangleCornerRadii": [
+                  8.0,
+                  8.0,
+                  0.0,
+                  0.0
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Frame 57": {
+                "type": "FRAME",
+                "width": 360.0,
+                "height": 164.0,
+                "layout": {
+                  "layoutMode": "VERTICAL",
+                  "layoutWrap": "NO_WRAP",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "HUG",
+                  "layoutSizingVertical": "HUG",
+                  "itemSpacing": 20.0
+                },
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Frame 56": {
+                "type": "FRAME",
+                "width": 360.0,
+                "height": 96.0,
+                "layout": {
+                  "layoutMode": "VERTICAL",
+                  "layoutWrap": "NO_WRAP",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "HUG",
+                  "layoutSizingVertical": "HUG",
+                  "itemSpacing": 12.0
+                },
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Frame 55": {
+                "type": "FRAME",
+                "width": 232.0,
+                "height": 44.0,
+                "layout": {
+                  "layoutMode": "VERTICAL",
+                  "layoutWrap": "NO_WRAP",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "HUG",
+                  "layoutSizingVertical": "HUG",
+                  "itemSpacing": 4.0
+                },
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "UI-UX DESIGN": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 500,
+                "fontSize": 12.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 16.0,
+                "lineHeightPercent": 113.66865539550781,
+                "lineHeightPercentFontSize": 133.3333282470703,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#87909d",
+                  "rgb": {
+                    "r": 135,
+                    "g": 144,
+                    "b": 157
+                  },
+                  "alpha": 1.0
+                },
+                "width": 84.0,
+                "height": 16.0
+              },
+              "Product Admin Dashboard": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 600,
+                "fontSize": 18.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 113.66865539550781,
+                "lineHeightPercentFontSize": 133.3333282470703,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#132238",
+                  "rgb": {
+                    "r": 19,
+                    "g": 34,
+                    "b": 56
+                  },
+                  "alpha": 1.0
+                },
+                "width": 232.0,
+                "height": 24.0
+              },
+              "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 400,
+                "fontSize": 14.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 20.0,
+                "lineHeightPercent": 121.78785705566406,
+                "lineHeightPercentFontSize": 142.85714721679688,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#556070",
+                  "rgb": {
+                    "r": 85,
+                    "g": 96,
+                    "b": 112
+                  },
+                  "alpha": 1.0
+                },
+                "width": 360.0,
+                "height": 40.0
+              },
+              "Button": {
+                "type": "INSTANCE",
+                "width": 173.0,
+                "height": 48.0,
+                "layout": {
+                  "layoutMode": "HORIZONTAL",
+                  "primaryAxisAlignItems": "CENTER",
+                  "counterAxisAlignItems": "CENTER",
+                  "layoutWrap": "NO_WRAP",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "HUG",
+                  "layoutSizingVertical": "HUG",
+                  "padding": {
+                    "paddingLeft": 24.0,
+                    "paddingRight": 24.0,
+                    "paddingTop": 12.0,
+                    "paddingBottom": 12.0
+                  },
+                  "itemSpacing": 12.0
+                },
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "cornerRadius": 4.0,
+                "strokes": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#a53dff",
+                      "rgb": {
+                        "r": 165,
+                        "g": 61,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Arrows / right arrow": {
+                "type": "INSTANCE",
+                "width": 24.0,
+                "height": 24.0,
+                "layout": {
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "FIXED",
+                  "layoutSizingVertical": "FIXED"
+                },
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "visible": false,
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Vector": {
+                "type": "VECTOR",
+                "width": 12.0,
+                "height": 12.01,
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#a53dff",
+                      "rgb": {
+                        "r": 165,
+                        "g": 61,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              }
+            }
+          },
+          "89:7040": {
+            "root": {
+              "width": 424.0,
+              "height": 476.0,
+              "layout": {
+                "layoutMode": "VERTICAL",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "CENTER",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG",
+                "padding": {
+                  "paddingBottom": 32.0
+                },
+                "itemSpacing": 32.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#ffffff",
+                    "rgb": {
+                      "r": 255,
+                      "g": 255,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 8.0,
+              "strokes": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#e6e8eb",
+                    "rgb": {
+                      "r": 230,
+                      "g": 232,
+                      "b": 235
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE",
+              "effects": [
+                {
+                  "type": "DROP_SHADOW",
+                  "radius": 64.0,
+                  "offset": {
+                    "x": 0.0,
+                    "y": 12.0
+                  },
+                  "blendMode": "NORMAL",
+                  "color": {
+                    "hex": "#1c1919",
+                    "rgb": {
+                      "r": 28,
+                      "g": 25,
+                      "b": 25
+                    },
+                    "alpha": 0.12
+                  }
+                }
+              ]
+            },
+            "nodes": {
+              "unsplash:9anj7QWy-2g": {
+                "type": "RECTANGLE",
+                "width": 424.0,
+                "height": 248.0,
+                "fills": [
+                  {
+                    "type": "IMAGE",
+                    "imageRef": "/src/assets/8f107a905f0e2c2a0cc5bae15845adf0de3205ca.png",
+                    "scaleMode": "FILL"
+                  }
+                ],
+                "rectangleCornerRadii": [
+                  8.0,
+                  8.0,
+                  0.0,
+                  0.0
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Frame 57": {
+                "type": "FRAME",
+                "width": 360.0,
+                "height": 164.0,
+                "layout": {
+                  "layoutMode": "VERTICAL",
+                  "layoutWrap": "NO_WRAP",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "HUG",
+                  "layoutSizingVertical": "HUG",
+                  "itemSpacing": 20.0
+                },
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Frame 56": {
+                "type": "FRAME",
+                "width": 360.0,
+                "height": 96.0,
+                "layout": {
+                  "layoutMode": "VERTICAL",
+                  "layoutWrap": "NO_WRAP",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "HUG",
+                  "layoutSizingVertical": "HUG",
+                  "itemSpacing": 12.0
+                },
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Frame 55": {
+                "type": "FRAME",
+                "width": 232.0,
+                "height": 44.0,
+                "layout": {
+                  "layoutMode": "VERTICAL",
+                  "layoutWrap": "NO_WRAP",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "HUG",
+                  "layoutSizingVertical": "HUG",
+                  "itemSpacing": 4.0
+                },
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "UI-UX DESIGN": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 500,
+                "fontSize": 12.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 16.0,
+                "lineHeightPercent": 113.66865539550781,
+                "lineHeightPercentFontSize": 133.3333282470703,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#87909d",
+                  "rgb": {
+                    "r": 135,
+                    "g": 144,
+                    "b": 157
+                  },
+                  "alpha": 1.0
+                },
+                "width": 84.0,
+                "height": 16.0
+              },
+              "Product Admin Dashboard": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 600,
+                "fontSize": 18.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 113.66865539550781,
+                "lineHeightPercentFontSize": 133.3333282470703,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#132238",
+                  "rgb": {
+                    "r": 19,
+                    "g": 34,
+                    "b": 56
+                  },
+                  "alpha": 1.0
+                },
+                "width": 232.0,
+                "height": 24.0
+              },
+              "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 400,
+                "fontSize": 14.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 20.0,
+                "lineHeightPercent": 121.78785705566406,
+                "lineHeightPercentFontSize": 142.85714721679688,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#556070",
+                  "rgb": {
+                    "r": 85,
+                    "g": 96,
+                    "b": 112
+                  },
+                  "alpha": 1.0
+                },
+                "width": 360.0,
+                "height": 40.0
+              },
+              "Button": {
+                "type": "INSTANCE",
+                "width": 173.0,
+                "height": 48.0,
+                "layout": {
+                  "layoutMode": "HORIZONTAL",
+                  "primaryAxisAlignItems": "CENTER",
+                  "counterAxisAlignItems": "CENTER",
+                  "layoutWrap": "NO_WRAP",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "HUG",
+                  "layoutSizingVertical": "HUG",
+                  "padding": {
+                    "paddingLeft": 24.0,
+                    "paddingRight": 24.0,
+                    "paddingTop": 12.0,
+                    "paddingBottom": 12.0
+                  },
+                  "itemSpacing": 12.0
+                },
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "cornerRadius": 4.0,
+                "strokes": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#a53dff",
+                      "rgb": {
+                        "r": 165,
+                        "g": 61,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Arrows / right arrow": {
+                "type": "INSTANCE",
+                "width": 24.0,
+                "height": 24.0,
+                "layout": {
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "FIXED",
+                  "layoutSizingVertical": "FIXED"
+                },
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "visible": false,
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Vector": {
+                "type": "VECTOR",
+                "width": 12.0,
+                "height": 12.01,
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#a53dff",
+                      "rgb": {
+                        "r": 165,
+                        "g": 61,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              }
+            }
+          }
+        }
+      },
+      "interactions": {
+        "root": [],
+        "nodes": {},
+        "interactions_by_variant": {
+          "89:7038": {
+            "root": [],
+            "nodes": {}
+          },
+          "89:7040": {
+            "root": [],
+            "nodes": {}
+          }
+        }
+      },
+      "imports": {
+        "local": [
+          {
+            "name": "Button",
+            "component_id": "123:526",
+            "props": {
+              "Property 1": {
+                "type": "VARIANT",
+                "default": "Normal",
+                "options": [
+                  "Right Icon Hover",
+                  "Normal",
+                  "Hover",
+                  "Left Icon Normal",
+                  "Left Icon Hover",
+                  "Right Icon Normal",
+                  "Border Normal Button",
+                  "Letf Icon Border Button",
+                  "Border Hover Button",
+                  "Left Icon Border Hover Button",
+                  "Right Icon Bordar normal",
+                  "Right Icon Bordar Hover"
+                ]
+              }
+            }
+          }
+        ],
+        "external": [
+          {
+            "name": "Arrows / right arrow",
+            "component_id": "78:3400"
+          }
+        ]
+      },
+      "component_set_id": "89:7039"
+    },
+    {
+      "component_id": "89:7154",
+      "name": "Blog",
+      "kind": "variant_set",
+      "suggested_file": "src/components/Blog.tsx",
+      "variant_component_ids": [
+        "89:7108",
+        "89:7155"
+      ],
+      "architecture": {
+        "props": [
+          {
+            "name": "property1",
+            "figma_name": "Property 1",
+            "type": "\"Normal\" | \"Hover\"",
+            "default": "Normal",
+            "source": "variant",
+            "figma_declared": true,
+            "from_set": true,
+            "required": true
+          },
+          {
+            "name": "22Oct2020",
+            "figma_name": "22 Oct, 2020",
+            "type": "string",
+            "default": "22 Oct, 2020",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "value",
+            "figma_name": "/",
+            "type": "string",
+            "default": "/",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "246Comments",
+            "figma_name": "246 Comments",
+            "type": "string",
+            "default": "246 Comments",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "loremIpsumDolorSitConseaNullaPurusArcu",
+            "figma_name": "Lorem ipsum dolor sit consea. Nulla purus arcu",
+            "type": "string",
+            "default": "Lorem ipsum dolor sit consea. Nulla purus arcu",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "unsplashHh0OAiyeF1YUrl",
+            "figma_name": "unsplash:Hh0OAiyeF1Y",
+            "type": "string",
+            "default": "/src/assets/a24d27d57f75e5b9f77c3957198bdec9a4d4ac77.png",
+            "source": "image",
+            "figma_declared": false,
+            "required": true
+          }
+        ],
+        "layout": "vertical",
+        "has_image": true,
+        "has_text": true,
+        "external_deps": [],
+        "children_structure": [
+          "Image en haut",
+          "Date et séparateur",
+          "Nombre de commentaires",
+          "Texte de l'article"
+        ],
+        "children_tree": {
+          "name": "Property 1=Normal",
+          "layoutMode": "VERTICAL",
+          "children": [
+            {
+              "type": "RECTANGLE",
+              "name": "unsplash:Hh0OAiyeF1Y",
+              "hasImageFill": true
+            },
+            {
+              "type": "FRAME",
+              "name": "Frame 54",
+              "layoutMode": "VERTICAL",
+              "children": [
+                {
+                  "type": "FRAME",
+                  "name": "Fun-Fact",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "type": "TEXT",
+                      "name": "22 Oct, 2020",
+                      "textPreview": "22 Oct, 2020"
+                    },
+                    {
+                      "type": "TEXT",
+                      "name": "/",
+                      "textPreview": "/"
+                    },
+                    {
+                      "type": "TEXT",
+                      "name": "246 Comments",
+                      "textPreview": "246 Comments"
+                    }
+                  ]
+                },
+                {
+                  "type": "TEXT",
+                  "name": "Lorem ipsum dolor sit consea. Nulla purus arcu",
+                  "textPreview": "Lorem ipsum dolor sit consea. "
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "styles": {
+        "root": {
+          "width": 312.0,
+          "height": 350.0,
+          "layout": {
+            "layoutMode": "VERTICAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "layoutWrap": "NO_WRAP",
+            "layoutSizingHorizontal": "HUG",
+            "layoutSizingVertical": "HUG",
+            "padding": {
+              "paddingBottom": 24.0
+            },
+            "itemSpacing": 24.0
+          },
+          "fills": [
+            {
+              "type": "SOLID",
+              "color": {
+                "hex": "#ffffff",
+                "rgb": {
+                  "r": 255,
+                  "g": 255,
+                  "b": 255
+                },
+                "alpha": 1.0
+              }
+            }
+          ],
+          "cornerRadius": 8.0,
+          "strokes": [
+            {
+              "type": "SOLID",
+              "color": {
+                "hex": "#f0f1f3",
+                "rgb": {
+                  "r": 240,
+                  "g": 241,
+                  "b": 243
+                },
+                "alpha": 1.0
+              }
+            }
+          ],
+          "strokeWeight": 1.0,
+          "strokeAlign": "INSIDE"
+        },
+        "nodes": {
+          "unsplash:Hh0OAiyeF1Y": {
+            "type": "RECTANGLE",
+            "width": 312.0,
+            "height": 226.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#c4c4c4",
+                  "rgb": {
+                    "r": 196,
+                    "g": 196,
+                    "b": 196
+                  },
+                  "alpha": 1.0
+                }
+              },
+              {
+                "type": "IMAGE",
+                "imageRef": "/src/assets/a24d27d57f75e5b9f77c3957198bdec9a4d4ac77.png",
+                "scaleMode": "FILL"
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Frame 54": {
+            "type": "FRAME",
+            "width": 264.0,
+            "height": 76.0,
+            "layout": {
+              "layoutMode": "VERTICAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 8.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Fun-Fact": {
+            "type": "FRAME",
+            "width": 206.0,
+            "height": 20.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 3.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "22 Oct, 2020": {
+            "type": "TEXT",
+            "fontFamily": "Work Sans",
+            "fontWeight": 400,
+            "fontSize": 14.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 20.0,
+            "lineHeightPercent": 121.78785705566406,
+            "lineHeightPercentFontSize": 142.85714721679688,
+            "lineHeightUnit": "PIXELS",
+            "color": {
+              "hex": "#87909d",
+              "rgb": {
+                "r": 135,
+                "g": 144,
+                "b": 157
+              },
+              "alpha": 1.0
+            },
+            "width": 88.0,
+            "height": 20.0
+          },
+          "/": {
+            "type": "TEXT",
+            "fontFamily": "Work Sans",
+            "fontWeight": 400,
+            "fontSize": 14.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 20.0,
+            "lineHeightPercent": 121.78785705566406,
+            "lineHeightPercentFontSize": 142.85714721679688,
+            "lineHeightUnit": "PIXELS",
+            "color": {
+              "hex": "#87909d",
+              "rgb": {
+                "r": 135,
+                "g": 144,
+                "b": 157
+              },
+              "alpha": 1.0
+            },
+            "width": 7.0,
+            "height": 20.0
+          },
+          "246 Comments": {
+            "type": "TEXT",
+            "fontFamily": "Work Sans",
+            "fontWeight": 400,
+            "fontSize": 14.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 20.0,
+            "lineHeightPercent": 121.78785705566406,
+            "lineHeightPercentFontSize": 142.85714721679688,
+            "lineHeightUnit": "PIXELS",
+            "color": {
+              "hex": "#87909d",
+              "rgb": {
+                "r": 135,
+                "g": 144,
+                "b": 157
+              },
+              "alpha": 1.0
+            },
+            "width": 105.0,
+            "height": 20.0
+          },
+          "Lorem ipsum dolor sit consea. Nulla purus arcu": {
+            "type": "TEXT",
+            "fontFamily": "Work Sans",
+            "fontWeight": 500,
+            "fontSize": 18.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 24.0,
+            "lineHeightPercent": 113.66865539550781,
+            "lineHeightPercentFontSize": 133.3333282470703,
+            "lineHeightUnit": "PIXELS",
+            "color": {
+              "hex": "#333333",
+              "rgb": {
+                "r": 51,
+                "g": 51,
+                "b": 51
+              },
+              "alpha": 1.0
+            },
+            "width": 264.0,
+            "height": 48.0
+          }
+        },
+        "styles_by_variant": {
+          "89:7108": {
+            "root": {
+              "width": 312.0,
+              "height": 350.0,
+              "layout": {
+                "layoutMode": "VERTICAL",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "CENTER",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG",
+                "padding": {
+                  "paddingBottom": 24.0
+                },
+                "itemSpacing": 24.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#ffffff",
+                    "rgb": {
+                      "r": 255,
+                      "g": 255,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 8.0,
+              "strokes": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#f0f1f3",
+                    "rgb": {
+                      "r": 240,
+                      "g": 241,
+                      "b": 243
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "nodes": {
+              "unsplash:Hh0OAiyeF1Y": {
+                "type": "RECTANGLE",
+                "width": 312.0,
+                "height": 226.0,
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#c4c4c4",
+                      "rgb": {
+                        "r": 196,
+                        "g": 196,
+                        "b": 196
+                      },
+                      "alpha": 1.0
+                    }
+                  },
+                  {
+                    "type": "IMAGE",
+                    "imageRef": "/src/assets/a24d27d57f75e5b9f77c3957198bdec9a4d4ac77.png",
+                    "scaleMode": "FILL"
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Frame 54": {
+                "type": "FRAME",
+                "width": 264.0,
+                "height": 76.0,
+                "layout": {
+                  "layoutMode": "VERTICAL",
+                  "layoutWrap": "NO_WRAP",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "HUG",
+                  "layoutSizingVertical": "HUG",
+                  "itemSpacing": 8.0
+                },
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Fun-Fact": {
+                "type": "FRAME",
+                "width": 206.0,
+                "height": 20.0,
+                "layout": {
+                  "layoutMode": "HORIZONTAL",
+                  "layoutWrap": "NO_WRAP",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "HUG",
+                  "layoutSizingVertical": "HUG",
+                  "itemSpacing": 3.0
+                },
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "22 Oct, 2020": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 400,
+                "fontSize": 14.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 20.0,
+                "lineHeightPercent": 121.78785705566406,
+                "lineHeightPercentFontSize": 142.85714721679688,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#87909d",
+                  "rgb": {
+                    "r": 135,
+                    "g": 144,
+                    "b": 157
+                  },
+                  "alpha": 1.0
+                },
+                "width": 88.0,
+                "height": 20.0
+              },
+              "/": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 400,
+                "fontSize": 14.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 20.0,
+                "lineHeightPercent": 121.78785705566406,
+                "lineHeightPercentFontSize": 142.85714721679688,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#87909d",
+                  "rgb": {
+                    "r": 135,
+                    "g": 144,
+                    "b": 157
+                  },
+                  "alpha": 1.0
+                },
+                "width": 7.0,
+                "height": 20.0
+              },
+              "246 Comments": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 400,
+                "fontSize": 14.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 20.0,
+                "lineHeightPercent": 121.78785705566406,
+                "lineHeightPercentFontSize": 142.85714721679688,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#87909d",
+                  "rgb": {
+                    "r": 135,
+                    "g": 144,
+                    "b": 157
+                  },
+                  "alpha": 1.0
+                },
+                "width": 105.0,
+                "height": 20.0
+              },
+              "Lorem ipsum dolor sit consea. Nulla purus arcu": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 500,
+                "fontSize": 18.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 113.66865539550781,
+                "lineHeightPercentFontSize": 133.3333282470703,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#333333",
+                  "rgb": {
+                    "r": 51,
+                    "g": 51,
+                    "b": 51
+                  },
+                  "alpha": 1.0
+                },
+                "width": 264.0,
+                "height": 48.0
+              }
+            }
+          },
+          "89:7155": {
+            "root": {
+              "width": 312.0,
+              "height": 350.0,
+              "layout": {
+                "layoutMode": "VERTICAL",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "CENTER",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG",
+                "padding": {
+                  "paddingBottom": 24.0
+                },
+                "itemSpacing": 24.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#ffffff",
+                    "rgb": {
+                      "r": 255,
+                      "g": 255,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 8.0,
+              "strokes": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#f0f1f3",
+                    "rgb": {
+                      "r": 240,
+                      "g": 241,
+                      "b": 243
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE",
+              "effects": [
+                {
+                  "type": "DROP_SHADOW",
+                  "radius": 64.0,
+                  "offset": {
+                    "x": 0.0,
+                    "y": 12.0
+                  },
+                  "blendMode": "NORMAL",
+                  "color": {
+                    "hex": "#1c1919",
+                    "rgb": {
+                      "r": 28,
+                      "g": 25,
+                      "b": 25
+                    },
+                    "alpha": 0.12
+                  }
+                }
+              ]
+            },
+            "nodes": {
+              "unsplash:Hh0OAiyeF1Y": {
+                "type": "RECTANGLE",
+                "width": 312.0,
+                "height": 226.0,
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#c4c4c4",
+                      "rgb": {
+                        "r": 196,
+                        "g": 196,
+                        "b": 196
+                      },
+                      "alpha": 1.0
+                    }
+                  },
+                  {
+                    "type": "IMAGE",
+                    "imageRef": "/src/assets/a24d27d57f75e5b9f77c3957198bdec9a4d4ac77.png",
+                    "scaleMode": "FILL"
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Frame 54": {
+                "type": "FRAME",
+                "width": 264.0,
+                "height": 76.0,
+                "layout": {
+                  "layoutMode": "VERTICAL",
+                  "layoutWrap": "NO_WRAP",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "HUG",
+                  "layoutSizingVertical": "HUG",
+                  "itemSpacing": 8.0
+                },
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Fun-Fact": {
+                "type": "FRAME",
+                "width": 206.0,
+                "height": 20.0,
+                "layout": {
+                  "layoutMode": "HORIZONTAL",
+                  "layoutWrap": "NO_WRAP",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "HUG",
+                  "layoutSizingVertical": "HUG",
+                  "itemSpacing": 3.0
+                },
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "22 Oct, 2020": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 400,
+                "fontSize": 14.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 20.0,
+                "lineHeightPercent": 121.78785705566406,
+                "lineHeightPercentFontSize": 142.85714721679688,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#87909d",
+                  "rgb": {
+                    "r": 135,
+                    "g": 144,
+                    "b": 157
+                  },
+                  "alpha": 1.0
+                },
+                "width": 88.0,
+                "height": 20.0
+              },
+              "/": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 400,
+                "fontSize": 14.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 20.0,
+                "lineHeightPercent": 121.78785705566406,
+                "lineHeightPercentFontSize": 142.85714721679688,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#87909d",
+                  "rgb": {
+                    "r": 135,
+                    "g": 144,
+                    "b": 157
+                  },
+                  "alpha": 1.0
+                },
+                "width": 7.0,
+                "height": 20.0
+              },
+              "246 Comments": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 400,
+                "fontSize": 14.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 20.0,
+                "lineHeightPercent": 121.78785705566406,
+                "lineHeightPercentFontSize": 142.85714721679688,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#87909d",
+                  "rgb": {
+                    "r": 135,
+                    "g": 144,
+                    "b": 157
+                  },
+                  "alpha": 1.0
+                },
+                "width": 105.0,
+                "height": 20.0
+              },
+              "Lorem ipsum dolor sit consea. Nulla purus arcu": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 500,
+                "fontSize": 18.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 113.66865539550781,
+                "lineHeightPercentFontSize": 133.3333282470703,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#333333",
+                  "rgb": {
+                    "r": 51,
+                    "g": 51,
+                    "b": 51
+                  },
+                  "alpha": 1.0
+                },
+                "width": 264.0,
+                "height": 48.0
+              }
+            }
+          }
+        }
+      },
+      "interactions": {
+        "root": [],
+        "nodes": {},
+        "interactions_by_variant": {
+          "89:7108": {
+            "root": [],
+            "nodes": {}
+          },
+          "89:7155": {
+            "root": [],
+            "nodes": {}
+          }
+        }
+      },
+      "imports": {
+        "local": [],
+        "external": []
+      },
+      "component_set_id": "89:7154"
+    },
+    {
+      "component_id": "89:7165",
+      "name": "Work Process Card",
+      "kind": "variant_set",
+      "suggested_file": "src/components/Work Process Card.tsx",
+      "variant_component_ids": [
+        "89:7163",
+        "89:7164"
+      ],
+      "architecture": {
+        "props": [
+          {
+            "name": "property1",
+            "figma_name": "Property 1",
+            "type": "\"Hover\" | \"Normal\"",
+            "default": "Normal",
+            "source": "variant",
+            "figma_declared": true,
+            "from_set": true,
+            "required": true
+          },
+          {
+            "name": "1Research",
+            "figma_name": "1. Research",
+            "type": "string",
+            "default": "1. Research",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "loremIpsumDolorSitAmetConsecteturAdipiscingElitNullaPurusArcu",
+            "figma_name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu.",
+            "type": "string",
+            "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu.",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          }
+        ],
+        "layout": "vertical",
+        "has_image": false,
+        "has_text": true,
+        "external_deps": [],
+        "children_structure": [
+          "Icône horizontal en haut",
+          "Titre \"1. Research\"",
+          "Texte descriptif en bas"
+        ],
+        "children_tree": {
+          "name": "Property 1=Normal",
+          "layoutMode": "VERTICAL",
+          "children": [
+            {
+              "type": "FRAME",
+              "name": "Frame 44",
+              "layoutMode": "HORIZONTAL",
+              "children": [
+                {
+                  "type": "INSTANCE",
+                  "name": "Education / notes",
+                  "children": [
+                    {
+                      "type": "VECTOR",
+                      "name": "Vector"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "FRAME",
+              "name": "Frame 46",
+              "layoutMode": "VERTICAL",
+              "children": [
+                {
+                  "type": "TEXT",
+                  "name": "1. Research",
+                  "textPreview": "1. Research"
+                },
+                {
+                  "type": "TEXT",
+                  "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu.",
+                  "textPreview": "Lorem ipsum dolor sit amet, co"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "styles": {
+        "root": {
+          "width": 312.0,
+          "height": 276.0,
+          "layout": {
+            "layoutMode": "VERTICAL",
+            "layoutWrap": "NO_WRAP",
+            "layoutSizingHorizontal": "HUG",
+            "layoutSizingVertical": "HUG",
+            "padding": {
+              "paddingLeft": 32.0,
+              "paddingRight": 32.0,
+              "paddingTop": 32.0,
+              "paddingBottom": 32.0
+            },
+            "itemSpacing": 32.0
+          },
+          "fills": [
+            {
+              "type": "SOLID",
+              "color": {
+                "hex": "#ffffff",
+                "rgb": {
+                  "r": 255,
+                  "g": 255,
+                  "b": 255
+                },
+                "alpha": 1.0
+              }
+            }
+          ],
+          "cornerRadius": 12.0,
+          "strokeWeight": 1.0,
+          "strokeAlign": "INSIDE"
+        },
+        "nodes": {
+          "Frame 44": {
+            "type": "FRAME",
+            "width": 72.0,
+            "height": 72.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "padding": {
+                "paddingLeft": 20.0,
+                "paddingRight": 20.0,
+                "paddingTop": 20.0,
+                "paddingBottom": 20.0
+              },
+              "itemSpacing": 10.0
+            },
+            "fills": [
+              {
+                "type": "SOLID",
+                "opacity": 0.5,
+                "color": {
+                  "hex": "#edd8ff",
+                  "rgb": {
+                    "r": 237,
+                    "g": 216,
+                    "b": 255
+                  },
+                  "alpha": 0.5
+                }
+              }
+            ],
+            "cornerRadius": 6.0,
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Education / notes": {
+            "type": "INSTANCE",
+            "width": 32.0,
+            "height": 32.0,
+            "layout": {
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "FIXED"
+            },
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": false,
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Vector": {
+            "type": "VECTOR",
+            "width": 24.0,
+            "height": 26.67,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#a53dff",
+                  "rgb": {
+                    "r": 165,
+                    "g": 61,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Frame 46": {
+            "type": "FRAME",
+            "width": 248.0,
+            "height": 108.0,
+            "layout": {
+              "layoutMode": "VERTICAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 12.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "1. Research": {
+            "type": "TEXT",
+            "fontFamily": "Work Sans",
+            "fontWeight": 600,
+            "fontSize": 20.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 24.0,
+            "lineHeightPercent": 102.30178833007812,
+            "lineHeightPercentFontSize": 120.0,
+            "lineHeightUnit": "PIXELS",
+            "color": {
+              "hex": "#132238",
+              "rgb": {
+                "r": 19,
+                "g": 34,
+                "b": 56
+              },
+              "alpha": 1.0
+            },
+            "width": 111.0,
+            "height": 24.0
+          },
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu.": {
+            "type": "TEXT",
+            "fontFamily": "Work Sans",
+            "fontWeight": 400,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 24.0,
+            "lineHeightPercent": 127.87723541259766,
+            "lineHeightPercentFontSize": 150.0,
+            "lineHeightUnit": "PIXELS",
+            "color": {
+              "hex": "#556070",
+              "rgb": {
+                "r": 85,
+                "g": 96,
+                "b": 112
+              },
+              "alpha": 1.0
+            },
+            "width": 248.0,
+            "height": 72.0
+          }
+        },
+        "styles_by_variant": {
+          "89:7163": {
+            "root": {
+              "width": 312.0,
+              "height": 276.0,
+              "layout": {
+                "layoutMode": "VERTICAL",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG",
+                "padding": {
+                  "paddingLeft": 32.0,
+                  "paddingRight": 32.0,
+                  "paddingTop": 32.0,
+                  "paddingBottom": 32.0
+                },
+                "itemSpacing": 32.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#ffffff",
+                    "rgb": {
+                      "r": 255,
+                      "g": 255,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 12.0,
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "nodes": {
+              "Frame 44": {
+                "type": "FRAME",
+                "width": 72.0,
+                "height": 72.0,
+                "layout": {
+                  "layoutMode": "HORIZONTAL",
+                  "layoutWrap": "NO_WRAP",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "HUG",
+                  "layoutSizingVertical": "HUG",
+                  "padding": {
+                    "paddingLeft": 20.0,
+                    "paddingRight": 20.0,
+                    "paddingTop": 20.0,
+                    "paddingBottom": 20.0
+                  },
+                  "itemSpacing": 10.0
+                },
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "opacity": 0.5,
+                    "color": {
+                      "hex": "#edd8ff",
+                      "rgb": {
+                        "r": 237,
+                        "g": 216,
+                        "b": 255
+                      },
+                      "alpha": 0.5
+                    }
+                  }
+                ],
+                "cornerRadius": 6.0,
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Education / notes": {
+                "type": "INSTANCE",
+                "width": 32.0,
+                "height": 32.0,
+                "layout": {
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "FIXED",
+                  "layoutSizingVertical": "FIXED"
+                },
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "visible": false,
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Vector": {
+                "type": "VECTOR",
+                "width": 24.0,
+                "height": 26.67,
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#a53dff",
+                      "rgb": {
+                        "r": 165,
+                        "g": 61,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Frame 46": {
+                "type": "FRAME",
+                "width": 248.0,
+                "height": 108.0,
+                "layout": {
+                  "layoutMode": "VERTICAL",
+                  "layoutWrap": "NO_WRAP",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "HUG",
+                  "layoutSizingVertical": "HUG",
+                  "itemSpacing": 12.0
+                },
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "1. Research": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 600,
+                "fontSize": 20.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 102.30178833007812,
+                "lineHeightPercentFontSize": 120.0,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#132238",
+                  "rgb": {
+                    "r": 19,
+                    "g": 34,
+                    "b": 56
+                  },
+                  "alpha": 1.0
+                },
+                "width": 111.0,
+                "height": 24.0
+              },
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu.": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 400,
+                "fontSize": 16.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 127.87723541259766,
+                "lineHeightPercentFontSize": 150.0,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#556070",
+                  "rgb": {
+                    "r": 85,
+                    "g": 96,
+                    "b": 112
+                  },
+                  "alpha": 1.0
+                },
+                "width": 248.0,
+                "height": 72.0
+              }
+            }
+          },
+          "89:7164": {
+            "root": {
+              "width": 312.0,
+              "height": 276.0,
+              "layout": {
+                "layoutMode": "VERTICAL",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG",
+                "padding": {
+                  "paddingLeft": 32.0,
+                  "paddingRight": 32.0,
+                  "paddingTop": 32.0,
+                  "paddingBottom": 32.0
+                },
+                "itemSpacing": 32.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#ffffff",
+                    "rgb": {
+                      "r": 255,
+                      "g": 255,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 12.0,
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE",
+              "effects": [
+                {
+                  "type": "DROP_SHADOW",
+                  "radius": 64.0,
+                  "offset": {
+                    "x": 0.0,
+                    "y": 12.0
+                  },
+                  "blendMode": "NORMAL",
+                  "color": {
+                    "hex": "#1c1919",
+                    "rgb": {
+                      "r": 28,
+                      "g": 25,
+                      "b": 25
+                    },
+                    "alpha": 0.12
+                  }
+                }
+              ]
+            },
+            "nodes": {
+              "Frame 44": {
+                "type": "FRAME",
+                "width": 72.0,
+                "height": 72.0,
+                "layout": {
+                  "layoutMode": "HORIZONTAL",
+                  "layoutWrap": "NO_WRAP",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "HUG",
+                  "layoutSizingVertical": "HUG",
+                  "padding": {
+                    "paddingLeft": 20.0,
+                    "paddingRight": 20.0,
+                    "paddingTop": 20.0,
+                    "paddingBottom": 20.0
+                  },
+                  "itemSpacing": 10.0
+                },
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#a53dff",
+                      "rgb": {
+                        "r": 165,
+                        "g": 61,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "cornerRadius": 6.0,
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Education / notes": {
+                "type": "INSTANCE",
+                "width": 32.0,
+                "height": 32.0,
+                "layout": {
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "FIXED",
+                  "layoutSizingVertical": "FIXED"
+                },
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "visible": false,
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Vector": {
+                "type": "VECTOR",
+                "width": 24.0,
+                "height": 26.67,
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Frame 46": {
+                "type": "FRAME",
+                "width": 248.0,
+                "height": 108.0,
+                "layout": {
+                  "layoutMode": "VERTICAL",
+                  "layoutWrap": "NO_WRAP",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "HUG",
+                  "layoutSizingVertical": "HUG",
+                  "itemSpacing": 12.0
+                },
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "1. Research": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 600,
+                "fontSize": 20.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 102.30178833007812,
+                "lineHeightPercentFontSize": 120.0,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#132238",
+                  "rgb": {
+                    "r": 19,
+                    "g": 34,
+                    "b": 56
+                  },
+                  "alpha": 1.0
+                },
+                "width": 111.0,
+                "height": 24.0
+              },
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu.": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 400,
+                "fontSize": 16.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 127.87723541259766,
+                "lineHeightPercentFontSize": 150.0,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#556070",
+                  "rgb": {
+                    "r": 85,
+                    "g": 96,
+                    "b": 112
+                  },
+                  "alpha": 1.0
+                },
+                "width": 248.0,
+                "height": 72.0
+              }
+            }
+          }
+        }
+      },
+      "interactions": {
+        "root": [],
+        "nodes": {},
+        "interactions_by_variant": {
+          "89:7163": {
+            "root": [],
+            "nodes": {}
+          },
+          "89:7164": {
+            "root": [],
+            "nodes": {}
+          }
+        }
+      },
+      "imports": {
+        "local": [],
+        "external": [
+          {
+            "name": "Education / notes",
+            "component_id": "78:4869"
+          }
+        ]
+      },
+      "component_set_id": "89:7165"
+    },
+    {
+      "component_id": "89:7168",
+      "name": "Address Card",
+      "kind": "variant_set",
+      "suggested_file": "src/components/Address Card.tsx",
+      "variant_component_ids": [
+        "89:7166",
+        "89:7167"
+      ],
+      "architecture": {
+        "props": [
+          {
+            "name": "property1",
+            "figma_name": "Property 1",
+            "type": "\"Hover\" | \"Normal\"",
+            "default": "Normal",
+            "source": "variant",
+            "figma_declared": true,
+            "from_set": true,
+            "required": true
+          },
+          {
+            "name": "address",
+            "figma_name": "Address:",
+            "type": "string",
+            "default": "Address:",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "newMexico31134",
+            "figma_name": "New Mexico 31134",
+            "type": "string",
+            "default": "New Mexico 31134",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          }
+        ],
+        "layout": "horizontal",
+        "has_image": false,
+        "has_text": true,
+        "external_deps": [],
+        "children_structure": [
+          "Épingle de localisation",
+          "Adresse",
+          "Informations de localisation"
+        ],
+        "children_tree": {
+          "name": "Property 1=Normal",
+          "layoutMode": "HORIZONTAL",
+          "children": [
+            {
+              "type": "FRAME",
+              "name": "Frame 50",
+              "layoutMode": "HORIZONTAL",
+              "children": [
+                {
+                  "type": "INSTANCE",
+                  "name": "Location and Map / location pin",
+                  "children": [
+                    {
+                      "type": "VECTOR",
+                      "name": "Vector"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "FRAME",
+              "name": "Frame 52",
+              "layoutMode": "VERTICAL",
+              "children": [
+                {
+                  "type": "TEXT",
+                  "name": "Address:",
+                  "textPreview": "Address:"
+                },
+                {
+                  "type": "TEXT",
+                  "name": "New Mexico 31134",
+                  "textPreview": "New Mexico 31134"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "styles": {
+        "root": {
+          "width": 336.0,
+          "height": 96.0,
+          "layout": {
+            "layoutMode": "HORIZONTAL",
+            "counterAxisAlignItems": "CENTER",
+            "primaryAxisSizingMode": "FIXED",
+            "layoutWrap": "NO_WRAP",
+            "layoutSizingHorizontal": "FIXED",
+            "layoutSizingVertical": "HUG",
+            "padding": {
+              "paddingLeft": 24.0,
+              "paddingRight": 24.0,
+              "paddingTop": 24.0,
+              "paddingBottom": 24.0
+            },
+            "itemSpacing": 13.0
+          },
+          "fills": [
+            {
+              "type": "SOLID",
+              "color": {
+                "hex": "#ffffff",
+                "rgb": {
+                  "r": 255,
+                  "g": 255,
+                  "b": 255
+                },
+                "alpha": 1.0
+              }
+            }
+          ],
+          "cornerRadius": 10.0,
+          "strokeWeight": 1.0,
+          "strokeAlign": "INSIDE"
+        },
+        "nodes": {
+          "Frame 50": {
+            "type": "FRAME",
+            "width": 48.0,
+            "height": 48.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "padding": {
+                "paddingLeft": 12.0,
+                "paddingRight": 12.0,
+                "paddingTop": 12.0,
+                "paddingBottom": 12.0
+              },
+              "itemSpacing": 10.0
+            },
+            "fills": [
+              {
+                "type": "SOLID",
+                "opacity": 0.5,
+                "color": {
+                  "hex": "#edd8ff",
+                  "rgb": {
+                    "r": 237,
+                    "g": 216,
+                    "b": 255
+                  },
+                  "alpha": 0.5
+                }
+              }
+            ],
+            "cornerRadius": 4.0,
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Location and Map / location pin": {
+            "type": "INSTANCE",
+            "width": 24.0,
+            "height": 24.0,
+            "layout": {
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "FIXED"
+            },
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": false,
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Vector": {
+            "type": "VECTOR",
+            "width": 16.96,
+            "height": 20.06,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#a53dff",
+                  "rgb": {
+                    "r": 165,
+                    "g": 61,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Frame 52": {
+            "type": "FRAME",
+            "width": 141.0,
+            "height": 48.0,
+            "layout": {
+              "layoutMode": "VERTICAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 4.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Address:": {
+            "type": "TEXT",
+            "fontFamily": "Work Sans",
+            "fontWeight": 400,
+            "fontSize": 14.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "BOTTOM",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 20.0,
+            "lineHeightPercent": 121.78785705566406,
+            "lineHeightPercentFontSize": 142.85714721679688,
+            "lineHeightUnit": "PIXELS",
+            "color": {
+              "hex": "#424e60",
+              "rgb": {
+                "r": 66,
+                "g": 78,
+                "b": 96
+              },
+              "alpha": 1.0
+            },
+            "width": 60.0,
+            "height": 20.0
+          },
+          "New Mexico 31134": {
+            "type": "TEXT",
+            "fontFamily": "Work Sans",
+            "fontWeight": 500,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "BOTTOM",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 24.0,
+            "lineHeightPercent": 127.87723541259766,
+            "lineHeightPercentFontSize": 150.0,
+            "lineHeightUnit": "PIXELS",
+            "color": {
+              "hex": "#132238",
+              "rgb": {
+                "r": 19,
+                "g": 34,
+                "b": 56
+              },
+              "alpha": 1.0
+            },
+            "width": 141.0,
+            "height": 24.0
+          }
+        },
+        "styles_by_variant": {
+          "89:7166": {
+            "root": {
+              "width": 336.0,
+              "height": 96.0,
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "counterAxisAlignItems": "CENTER",
+                "primaryAxisSizingMode": "FIXED",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "FIXED",
+                "layoutSizingVertical": "HUG",
+                "padding": {
+                  "paddingLeft": 24.0,
+                  "paddingRight": 24.0,
+                  "paddingTop": 24.0,
+                  "paddingBottom": 24.0
+                },
+                "itemSpacing": 13.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#ffffff",
+                    "rgb": {
+                      "r": 255,
+                      "g": 255,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 10.0,
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "nodes": {
+              "Frame 50": {
+                "type": "FRAME",
+                "width": 48.0,
+                "height": 48.0,
+                "layout": {
+                  "layoutMode": "HORIZONTAL",
+                  "layoutWrap": "NO_WRAP",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "HUG",
+                  "layoutSizingVertical": "HUG",
+                  "padding": {
+                    "paddingLeft": 12.0,
+                    "paddingRight": 12.0,
+                    "paddingTop": 12.0,
+                    "paddingBottom": 12.0
+                  },
+                  "itemSpacing": 10.0
+                },
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "opacity": 0.5,
+                    "color": {
+                      "hex": "#edd8ff",
+                      "rgb": {
+                        "r": 237,
+                        "g": 216,
+                        "b": 255
+                      },
+                      "alpha": 0.5
+                    }
+                  }
+                ],
+                "cornerRadius": 4.0,
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Location and Map / location pin": {
+                "type": "INSTANCE",
+                "width": 24.0,
+                "height": 24.0,
+                "layout": {
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "FIXED",
+                  "layoutSizingVertical": "FIXED"
+                },
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "visible": false,
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Vector": {
+                "type": "VECTOR",
+                "width": 16.96,
+                "height": 20.06,
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#a53dff",
+                      "rgb": {
+                        "r": 165,
+                        "g": 61,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Frame 52": {
+                "type": "FRAME",
+                "width": 141.0,
+                "height": 48.0,
+                "layout": {
+                  "layoutMode": "VERTICAL",
+                  "layoutWrap": "NO_WRAP",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "HUG",
+                  "layoutSizingVertical": "HUG",
+                  "itemSpacing": 4.0
+                },
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Address:": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 400,
+                "fontSize": 14.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "BOTTOM",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 20.0,
+                "lineHeightPercent": 121.78785705566406,
+                "lineHeightPercentFontSize": 142.85714721679688,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#424e60",
+                  "rgb": {
+                    "r": 66,
+                    "g": 78,
+                    "b": 96
+                  },
+                  "alpha": 1.0
+                },
+                "width": 60.0,
+                "height": 20.0
+              },
+              "New Mexico 31134": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 500,
+                "fontSize": 16.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "BOTTOM",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 127.87723541259766,
+                "lineHeightPercentFontSize": 150.0,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#132238",
+                  "rgb": {
+                    "r": 19,
+                    "g": 34,
+                    "b": 56
+                  },
+                  "alpha": 1.0
+                },
+                "width": 141.0,
+                "height": 24.0
+              }
+            }
+          },
+          "89:7167": {
+            "root": {
+              "width": 336.0,
+              "height": 96.0,
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "counterAxisAlignItems": "CENTER",
+                "primaryAxisSizingMode": "FIXED",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "FIXED",
+                "layoutSizingVertical": "HUG",
+                "padding": {
+                  "paddingLeft": 24.0,
+                  "paddingRight": 24.0,
+                  "paddingTop": 24.0,
+                  "paddingBottom": 24.0
+                },
+                "itemSpacing": 13.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#ffffff",
+                    "rgb": {
+                      "r": 255,
+                      "g": 255,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 10.0,
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE",
+              "effects": [
+                {
+                  "type": "DROP_SHADOW",
+                  "radius": 64.0,
+                  "offset": {
+                    "x": 0.0,
+                    "y": 12.0
+                  },
+                  "blendMode": "NORMAL",
+                  "color": {
+                    "hex": "#1c1919",
+                    "rgb": {
+                      "r": 28,
+                      "g": 25,
+                      "b": 25
+                    },
+                    "alpha": 0.12
+                  }
+                }
+              ]
+            },
+            "nodes": {
+              "Frame 50": {
+                "type": "FRAME",
+                "width": 48.0,
+                "height": 48.0,
+                "layout": {
+                  "layoutMode": "HORIZONTAL",
+                  "layoutWrap": "NO_WRAP",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "HUG",
+                  "layoutSizingVertical": "HUG",
+                  "padding": {
+                    "paddingLeft": 12.0,
+                    "paddingRight": 12.0,
+                    "paddingTop": 12.0,
+                    "paddingBottom": 12.0
+                  },
+                  "itemSpacing": 10.0
+                },
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#a53dff",
+                      "rgb": {
+                        "r": 165,
+                        "g": 61,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "cornerRadius": 4.0,
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Location and Map / location pin": {
+                "type": "INSTANCE",
+                "width": 24.0,
+                "height": 24.0,
+                "layout": {
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "FIXED",
+                  "layoutSizingVertical": "FIXED"
+                },
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "visible": false,
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Vector": {
+                "type": "VECTOR",
+                "width": 16.96,
+                "height": 20.06,
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Frame 52": {
+                "type": "FRAME",
+                "width": 141.0,
+                "height": 48.0,
+                "layout": {
+                  "layoutMode": "VERTICAL",
+                  "layoutWrap": "NO_WRAP",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "HUG",
+                  "layoutSizingVertical": "HUG",
+                  "itemSpacing": 4.0
+                },
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Address:": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 400,
+                "fontSize": 14.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "BOTTOM",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 20.0,
+                "lineHeightPercent": 121.78785705566406,
+                "lineHeightPercentFontSize": 142.85714721679688,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#424e60",
+                  "rgb": {
+                    "r": 66,
+                    "g": 78,
+                    "b": 96
+                  },
+                  "alpha": 1.0
+                },
+                "width": 60.0,
+                "height": 20.0
+              },
+              "New Mexico 31134": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 500,
+                "fontSize": 16.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "BOTTOM",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 127.87723541259766,
+                "lineHeightPercentFontSize": 150.0,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#132238",
+                  "rgb": {
+                    "r": 19,
+                    "g": 34,
+                    "b": 56
+                  },
+                  "alpha": 1.0
+                },
+                "width": 141.0,
+                "height": 24.0
+              }
+            }
+          }
+        }
+      },
+      "interactions": {
+        "root": [],
+        "nodes": {},
+        "interactions_by_variant": {
+          "89:7166": {
+            "root": [],
+            "nodes": {}
+          },
+          "89:7167": {
+            "root": [],
+            "nodes": {}
+          }
+        }
+      },
+      "imports": {
+        "local": [],
+        "external": [
+          {
+            "name": "Location and Map / location pin",
+            "component_id": "78:5232"
+          }
+        ]
+      },
+      "component_set_id": "89:7168"
+    },
+    {
+      "component_id": "89:7171",
+      "name": "What I do card",
+      "kind": "variant_set",
+      "suggested_file": "src/components/What I do card.tsx",
+      "variant_component_ids": [
+        "89:7169",
+        "89:7170"
+      ],
+      "architecture": {
+        "props": [
+          {
+            "name": "property1",
+            "figma_name": "Property 1",
+            "type": "\"Hover\" | \"Normal\"",
+            "default": "Normal",
+            "source": "variant",
+            "figma_declared": true,
+            "from_set": true,
+            "required": true
+          },
+          {
+            "name": "userExperienceUX",
+            "figma_name": "User Experience (UX)",
+            "type": "string",
+            "default": "User Experience (UX)",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "loremIpsumDolorSitAmetConsecteturAdipiscingElitNullaPurusArcuVariusEgetVelitNonLaoreetImperdietOrciMaurisUltricesEgetLoremAcVestibulum",
+            "figma_name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum.",
+            "type": "string",
+            "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum.",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          }
+        ],
+        "layout": "vertical",
+        "has_image": false,
+        "has_text": true,
+        "external_deps": [],
+        "children_structure": [
+          "Titre User Experience (UX)",
+          "Texte descriptif"
+        ],
+        "children_tree": {
+          "name": "Property 1=Normal",
+          "layoutMode": "VERTICAL",
+          "children": [
+            {
+              "type": "TEXT",
+              "name": "User Experience (UX)",
+              "textPreview": "User Experience (UX)"
+            },
+            {
+              "type": "TEXT",
+              "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum.",
+              "textPreview": "Lorem ipsum dolor sit amet, co"
+            }
+          ]
+        }
+      },
+      "styles": {
+        "root": {
+          "width": 648.0,
+          "height": 176.0,
+          "layout": {
+            "layoutMode": "VERTICAL",
+            "primaryAxisAlignItems": "CENTER",
+            "layoutWrap": "NO_WRAP",
+            "layoutSizingHorizontal": "HUG",
+            "layoutSizingVertical": "HUG",
+            "padding": {
+              "paddingLeft": 32.0,
+              "paddingRight": 32.0,
+              "paddingTop": 32.0,
+              "paddingBottom": 32.0
+            },
+            "itemSpacing": 16.0
+          },
+          "fills": [
+            {
+              "type": "SOLID",
+              "color": {
+                "hex": "#ffffff",
+                "rgb": {
+                  "r": 255,
+                  "g": 255,
+                  "b": 255
+                },
+                "alpha": 1.0
+              }
+            }
+          ],
+          "cornerRadius": 6.0,
+          "strokeWeight": 1.0,
+          "strokeAlign": "INSIDE"
+        },
+        "nodes": {
+          "User Experience (UX)": {
+            "type": "TEXT",
+            "fontFamily": "Work Sans",
+            "fontWeight": 600,
+            "fontSize": 24.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 24.0,
+            "lineHeightPercent": 85.25149536132812,
+            "lineHeightPercentFontSize": 100.0,
+            "lineHeightUnit": "FONT_SIZE_%",
+            "color": {
+              "hex": "#132238",
+              "rgb": {
+                "r": 19,
+                "g": 34,
+                "b": 56
+              },
+              "alpha": 1.0
+            },
+            "width": 584.0,
+            "height": 24.0
+          },
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum.": {
+            "type": "TEXT",
+            "fontFamily": "Work Sans",
+            "fontWeight": 400,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 24.0,
+            "lineHeightPercent": 127.87723541259766,
+            "lineHeightPercentFontSize": 150.0,
+            "lineHeightUnit": "PIXELS",
+            "color": {
+              "hex": "#424e60",
+              "rgb": {
+                "r": 66,
+                "g": 78,
+                "b": 96
+              },
+              "alpha": 1.0
+            },
+            "width": 584.0,
+            "height": 72.0
+          }
+        },
+        "styles_by_variant": {
+          "89:7169": {
+            "root": {
+              "width": 648.0,
+              "height": 176.0,
+              "layout": {
+                "layoutMode": "VERTICAL",
+                "primaryAxisAlignItems": "CENTER",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG",
+                "padding": {
+                  "paddingLeft": 32.0,
+                  "paddingRight": 32.0,
+                  "paddingTop": 32.0,
+                  "paddingBottom": 32.0
+                },
+                "itemSpacing": 16.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#ffffff",
+                    "rgb": {
+                      "r": 255,
+                      "g": 255,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 6.0,
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "nodes": {
+              "User Experience (UX)": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 600,
+                "fontSize": 24.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 85.25149536132812,
+                "lineHeightPercentFontSize": 100.0,
+                "lineHeightUnit": "FONT_SIZE_%",
+                "color": {
+                  "hex": "#132238",
+                  "rgb": {
+                    "r": 19,
+                    "g": 34,
+                    "b": 56
+                  },
+                  "alpha": 1.0
+                },
+                "width": 584.0,
+                "height": 24.0
+              },
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum.": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 400,
+                "fontSize": 16.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 127.87723541259766,
+                "lineHeightPercentFontSize": 150.0,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#424e60",
+                  "rgb": {
+                    "r": 66,
+                    "g": 78,
+                    "b": 96
+                  },
+                  "alpha": 1.0
+                },
+                "width": 584.0,
+                "height": 72.0
+              }
+            }
+          },
+          "89:7170": {
+            "root": {
+              "width": 648.0,
+              "height": 176.0,
+              "layout": {
+                "layoutMode": "VERTICAL",
+                "primaryAxisAlignItems": "CENTER",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG",
+                "padding": {
+                  "paddingLeft": 32.0,
+                  "paddingRight": 32.0,
+                  "paddingTop": 32.0,
+                  "paddingBottom": 32.0
+                },
+                "itemSpacing": 16.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#ffffff",
+                    "rgb": {
+                      "r": 255,
+                      "g": 255,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 6.0,
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE",
+              "effects": [
+                {
+                  "type": "DROP_SHADOW",
+                  "radius": 96.0,
+                  "offset": {
+                    "x": 0.0,
+                    "y": 32.0
+                  },
+                  "blendMode": "NORMAL",
+                  "color": {
+                    "hex": "#1c1919",
+                    "rgb": {
+                      "r": 28,
+                      "g": 25,
+                      "b": 25
+                    },
+                    "alpha": 0.16
+                  }
+                }
+              ]
+            },
+            "nodes": {
+              "User Experience (UX)": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 600,
+                "fontSize": 24.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 85.25149536132812,
+                "lineHeightPercentFontSize": 100.0,
+                "lineHeightUnit": "FONT_SIZE_%",
+                "color": {
+                  "hex": "#132238",
+                  "rgb": {
+                    "r": 19,
+                    "g": 34,
+                    "b": 56
+                  },
+                  "alpha": 1.0
+                },
+                "width": 584.0,
+                "height": 24.0
+              },
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum.": {
+                "type": "TEXT",
+                "fontFamily": "Poppins",
+                "fontPostScriptName": "Poppins-Regular",
+                "fontWeight": 400,
+                "fontSize": 16.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 100.0,
+                "lineHeightPercentFontSize": 150.0,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#424e60",
+                  "rgb": {
+                    "r": 66,
+                    "g": 78,
+                    "b": 96
+                  },
+                  "alpha": 1.0
+                },
+                "width": 584.0,
+                "height": 72.0
+              },
+              "Rectangle 5": {
+                "type": "RECTANGLE",
+                "width": 5.0,
+                "height": 176.0,
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#a53dff",
+                      "rgb": {
+                        "r": 165,
+                        "g": 61,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              }
+            }
+          }
+        }
+      },
+      "interactions": {
+        "root": [],
+        "nodes": {},
+        "interactions_by_variant": {
+          "89:7169": {
+            "root": [],
+            "nodes": {}
+          },
+          "89:7170": {
+            "root": [],
+            "nodes": {}
+          }
+        }
+      },
+      "imports": {
+        "local": [],
+        "external": []
+      },
+      "component_set_id": "89:7171"
+    },
+    {
+      "component_id": "89:7227",
+      "name": "Button",
+      "kind": "variant_set",
+      "suggested_file": "src/components/Button.tsx",
+      "variant_component_ids": [
+        "89:7226",
+        "89:7221",
+        "89:7224",
+        "89:7222",
+        "89:7219",
+        "89:7225",
+        "123:493",
+        "123:499",
+        "123:495",
+        "123:526",
+        "123:530",
+        "123:509"
+      ],
+      "architecture": {
+        "props": [
+          {
+            "name": "property1",
+            "figma_name": "Property 1",
+            "type": "\"Right Icon Hover\" | \"Normal\" | \"Hover\" | \"Left Icon Normal\" | \"Left Icon Hover\" | \"Right Icon Normal\" | \"Border Normal Button\" | \"Letf Icon Border Button\" | \"Border Hover Button\" | \"Left Icon Border Hover Button\" | \"Right Icon Bordar normal\" | \"Right Icon Bordar Hover\"",
+            "default": "Normal",
+            "source": "variant",
+            "figma_declared": true,
+            "from_set": true,
+            "required": true
+          },
+          {
+            "name": "button",
+            "figma_name": "Button",
+            "type": "string",
+            "default": "Button",
+            "source": "text",
+            "figma_declared": false,
+            "required": false
+          },
+          {
+            "name": "letSWorkTogether",
+            "figma_name": "Let’s work Together",
+            "type": "string",
+            "default": "Let’s work Together",
+            "source": "text",
+            "figma_declared": false,
+            "required": false
+          },
+          {
+            "name": "downloadCV",
+            "figma_name": "Download CV",
+            "type": "string",
+            "default": "Download CV",
+            "source": "text",
+            "figma_declared": false,
+            "required": false
+          }
+        ],
+        "layout": "horizontal",
+        "has_image": false,
+        "has_text": true,
+        "external_deps": [],
+        "children_structure": [
+          "Texte du bouton"
+        ],
+        "children_tree": {
+          "name": "Property 1=Normal",
+          "layoutMode": "HORIZONTAL",
+          "children": [
+            {
+              "type": "TEXT",
+              "name": "Button",
+              "textPreview": "Button"
+            }
+          ]
+        }
+      },
+      "styles": {
+        "root": {
+          "width": 102.0,
+          "height": 48.0,
+          "layout": {
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "layoutWrap": "NO_WRAP",
+            "layoutSizingHorizontal": "HUG",
+            "layoutSizingVertical": "HUG",
+            "padding": {
+              "paddingLeft": 24.0,
+              "paddingRight": 24.0,
+              "paddingTop": 12.0,
+              "paddingBottom": 12.0
+            },
+            "itemSpacing": 12.0
+          },
+          "fills": [
+            {
+              "type": "SOLID",
+              "color": {
+                "hex": "#a53dff",
+                "rgb": {
+                  "r": 165,
+                  "g": 61,
+                  "b": 255
+                },
+                "alpha": 1.0
+              }
+            }
+          ],
+          "cornerRadius": 4.0,
+          "strokeWeight": 1.0,
+          "strokeAlign": "INSIDE"
+        },
+        "nodes": {
+          "Button": {
+            "type": "TEXT",
+            "fontFamily": "Work Sans",
+            "fontWeight": 600,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 24.0,
+            "lineHeightPercent": 127.87723541259766,
+            "lineHeightPercentFontSize": 150.0,
+            "lineHeightUnit": "PIXELS",
+            "color": {
+              "hex": "#ffffff",
+              "rgb": {
+                "r": 255,
+                "g": 255,
+                "b": 255
+              },
+              "alpha": 1.0
+            },
+            "width": 54.0,
+            "height": 24.0
+          }
+        },
+        "styles_by_variant": {
+          "89:7226": {
+            "root": {
+              "width": 102.0,
+              "height": 48.0,
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "CENTER",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG",
+                "padding": {
+                  "paddingLeft": 24.0,
+                  "paddingRight": 24.0,
+                  "paddingTop": 12.0,
+                  "paddingBottom": 12.0
+                },
+                "itemSpacing": 12.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#a53dff",
+                    "rgb": {
+                      "r": 165,
+                      "g": 61,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 4.0,
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "nodes": {
+              "Button": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 600,
+                "fontSize": 16.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 127.87723541259766,
+                "lineHeightPercentFontSize": 150.0,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                },
+                "width": 54.0,
+                "height": 24.0
+              }
+            }
+          },
+          "89:7221": {
+            "root": {
+              "width": 102.0,
+              "height": 48.0,
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "CENTER",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG",
+                "padding": {
+                  "paddingLeft": 24.0,
+                  "paddingRight": 24.0,
+                  "paddingTop": 12.0,
+                  "paddingBottom": 12.0
+                },
+                "itemSpacing": 12.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#8431cc",
+                    "rgb": {
+                      "r": 132,
+                      "g": 49,
+                      "b": 204
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 4.0,
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "nodes": {
+              "Button": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 600,
+                "fontSize": 16.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 127.87723541259766,
+                "lineHeightPercentFontSize": 150.0,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                },
+                "width": 54.0,
+                "height": 24.0
+              }
+            }
+          },
+          "89:7224": {
+            "root": {
+              "width": 240.0,
+              "height": 48.0,
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "CENTER",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG",
+                "padding": {
+                  "paddingLeft": 24.0,
+                  "paddingRight": 24.0,
+                  "paddingTop": 12.0,
+                  "paddingBottom": 12.0
+                },
+                "itemSpacing": 12.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#a53dff",
+                    "rgb": {
+                      "r": 165,
+                      "g": 61,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 4.0,
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "nodes": {
+              "Let’s work Together": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 600,
+                "fontSize": 16.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 127.87723541259766,
+                "lineHeightPercentFontSize": 150.0,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                },
+                "width": 156.0,
+                "height": 24.0
+              },
+              "Arrows / right arrow": {
+                "type": "INSTANCE",
+                "width": 24.0,
+                "height": 24.0,
+                "layout": {
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "FIXED",
+                  "layoutSizingVertical": "FIXED"
+                },
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "visible": false,
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Vector": {
+                "type": "VECTOR",
+                "width": 12.0,
+                "height": 12.01,
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              }
+            }
+          },
+          "89:7222": {
+            "root": {
+              "width": 240.0,
+              "height": 48.0,
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "CENTER",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG",
+                "padding": {
+                  "paddingLeft": 24.0,
+                  "paddingRight": 24.0,
+                  "paddingTop": 12.0,
+                  "paddingBottom": 12.0
+                },
+                "itemSpacing": 12.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#8431cc",
+                    "rgb": {
+                      "r": 132,
+                      "g": 49,
+                      "b": 204
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 4.0,
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "nodes": {
+              "Let’s work Together": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 600,
+                "fontSize": 16.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 127.87723541259766,
+                "lineHeightPercentFontSize": 150.0,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                },
+                "width": 156.0,
+                "height": 24.0
+              },
+              "Arrows / right arrow": {
+                "type": "INSTANCE",
+                "width": 24.0,
+                "height": 24.0,
+                "layout": {
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "FIXED",
+                  "layoutSizingVertical": "FIXED"
+                },
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "visible": false,
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Vector": {
+                "type": "VECTOR",
+                "width": 12.0,
+                "height": 12.01,
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              }
+            }
+          },
+          "89:7219": {
+            "root": {
+              "width": 190.0,
+              "height": 48.0,
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "CENTER",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG",
+                "padding": {
+                  "paddingLeft": 24.0,
+                  "paddingRight": 24.0,
+                  "paddingTop": 12.0,
+                  "paddingBottom": 12.0
+                },
+                "itemSpacing": 12.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#a53dff",
+                    "rgb": {
+                      "r": 165,
+                      "g": 61,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 4.0,
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "nodes": {
+              "Arrows / download": {
+                "type": "INSTANCE",
+                "width": 24.0,
+                "height": 24.0,
+                "layout": {
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "FIXED",
+                  "layoutSizingVertical": "FIXED"
+                },
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "visible": false,
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Vector": {
+                "type": "VECTOR",
+                "width": 20.0,
+                "height": 20.0,
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Download CV": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 600,
+                "fontSize": 16.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 127.87723541259766,
+                "lineHeightPercentFontSize": 150.0,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                },
+                "width": 106.0,
+                "height": 24.0
+              }
+            }
+          },
+          "89:7225": {
+            "root": {
+              "width": 190.0,
+              "height": 48.0,
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "CENTER",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG",
+                "padding": {
+                  "paddingLeft": 24.0,
+                  "paddingRight": 24.0,
+                  "paddingTop": 12.0,
+                  "paddingBottom": 12.0
+                },
+                "itemSpacing": 12.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#8431cc",
+                    "rgb": {
+                      "r": 132,
+                      "g": 49,
+                      "b": 204
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 4.0,
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "nodes": {
+              "Arrows / download": {
+                "type": "INSTANCE",
+                "width": 24.0,
+                "height": 24.0,
+                "layout": {
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "FIXED",
+                  "layoutSizingVertical": "FIXED"
+                },
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "visible": false,
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Vector": {
+                "type": "VECTOR",
+                "width": 20.0,
+                "height": 20.0,
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Download CV": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 600,
+                "fontSize": 16.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 127.87723541259766,
+                "lineHeightPercentFontSize": 150.0,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                },
+                "width": 106.0,
+                "height": 24.0
+              }
+            }
+          },
+          "123:493": {
+            "root": {
+              "width": 102.0,
+              "height": 48.0,
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "CENTER",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG",
+                "padding": {
+                  "paddingLeft": 24.0,
+                  "paddingRight": 24.0,
+                  "paddingTop": 12.0,
+                  "paddingBottom": 12.0
+                },
+                "itemSpacing": 12.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#ffffff",
+                    "rgb": {
+                      "r": 255,
+                      "g": 255,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 4.0,
+              "strokes": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#a53dff",
+                    "rgb": {
+                      "r": 165,
+                      "g": 61,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "nodes": {
+              "Button": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 600,
+                "fontSize": 16.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 127.87723541259766,
+                "lineHeightPercentFontSize": 150.0,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#a53dff",
+                  "rgb": {
+                    "r": 165,
+                    "g": 61,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                },
+                "width": 54.0,
+                "height": 24.0
+              }
+            }
+          },
+          "123:499": {
+            "root": {
+              "width": 102.0,
+              "height": 48.0,
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "CENTER",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG",
+                "padding": {
+                  "paddingLeft": 24.0,
+                  "paddingRight": 24.0,
+                  "paddingTop": 12.0,
+                  "paddingBottom": 12.0
+                },
+                "itemSpacing": 12.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#ffffff",
+                    "rgb": {
+                      "r": 255,
+                      "g": 255,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 4.0,
+              "strokes": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#8431cc",
+                    "rgb": {
+                      "r": 132,
+                      "g": 49,
+                      "b": 204
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "nodes": {
+              "Button": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 600,
+                "fontSize": 16.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 127.87723541259766,
+                "lineHeightPercentFontSize": 150.0,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#8431cc",
+                  "rgb": {
+                    "r": 132,
+                    "g": 49,
+                    "b": 204
+                  },
+                  "alpha": 1.0
+                },
+                "width": 54.0,
+                "height": 24.0
+              }
+            }
+          },
+          "123:495": {
+            "root": {
+              "width": 138.0,
+              "height": 48.0,
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "CENTER",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG",
+                "padding": {
+                  "paddingLeft": 24.0,
+                  "paddingRight": 24.0,
+                  "paddingTop": 12.0,
+                  "paddingBottom": 12.0
+                },
+                "itemSpacing": 12.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#ffffff",
+                    "rgb": {
+                      "r": 255,
+                      "g": 255,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 4.0,
+              "strokes": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#a53dff",
+                    "rgb": {
+                      "r": 165,
+                      "g": 61,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "nodes": {
+              "Arrows / right arrow": {
+                "type": "INSTANCE",
+                "width": 24.0,
+                "height": 24.0,
+                "layout": {
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "FIXED",
+                  "layoutSizingVertical": "FIXED"
+                },
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "visible": false,
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Vector": {
+                "type": "VECTOR",
+                "width": 12.0,
+                "height": 12.01,
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#a53dff",
+                      "rgb": {
+                        "r": 165,
+                        "g": 61,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Button": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 600,
+                "fontSize": 16.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 127.87723541259766,
+                "lineHeightPercentFontSize": 150.0,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#a53dff",
+                  "rgb": {
+                    "r": 165,
+                    "g": 61,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                },
+                "width": 54.0,
+                "height": 24.0
+              }
+            }
+          },
+          "123:526": {
+            "root": {
+              "width": 138.0,
+              "height": 48.0,
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "CENTER",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG",
+                "padding": {
+                  "paddingLeft": 24.0,
+                  "paddingRight": 24.0,
+                  "paddingTop": 12.0,
+                  "paddingBottom": 12.0
+                },
+                "itemSpacing": 12.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#ffffff",
+                    "rgb": {
+                      "r": 255,
+                      "g": 255,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 4.0,
+              "strokes": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#a53dff",
+                    "rgb": {
+                      "r": 165,
+                      "g": 61,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "nodes": {
+              "Button": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 600,
+                "fontSize": 16.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 127.87723541259766,
+                "lineHeightPercentFontSize": 150.0,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#a53dff",
+                  "rgb": {
+                    "r": 165,
+                    "g": 61,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                },
+                "width": 54.0,
+                "height": 24.0
+              },
+              "Arrows / right arrow": {
+                "type": "INSTANCE",
+                "width": 24.0,
+                "height": 24.0,
+                "layout": {
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "FIXED",
+                  "layoutSizingVertical": "FIXED"
+                },
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "visible": false,
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Vector": {
+                "type": "VECTOR",
+                "width": 12.0,
+                "height": 12.01,
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#a53dff",
+                      "rgb": {
+                        "r": 165,
+                        "g": 61,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              }
+            }
+          },
+          "123:530": {
+            "root": {
+              "width": 138.0,
+              "height": 48.0,
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "CENTER",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG",
+                "padding": {
+                  "paddingLeft": 24.0,
+                  "paddingRight": 24.0,
+                  "paddingTop": 12.0,
+                  "paddingBottom": 12.0
+                },
+                "itemSpacing": 12.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#ffffff",
+                    "rgb": {
+                      "r": 255,
+                      "g": 255,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 4.0,
+              "strokes": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#8431cc",
+                    "rgb": {
+                      "r": 132,
+                      "g": 49,
+                      "b": 204
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "nodes": {
+              "Button": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 600,
+                "fontSize": 16.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 127.87723541259766,
+                "lineHeightPercentFontSize": 150.0,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#8431cc",
+                  "rgb": {
+                    "r": 132,
+                    "g": 49,
+                    "b": 204
+                  },
+                  "alpha": 1.0
+                },
+                "width": 54.0,
+                "height": 24.0
+              },
+              "Arrows / right arrow": {
+                "type": "INSTANCE",
+                "width": 24.0,
+                "height": 24.0,
+                "layout": {
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "FIXED",
+                  "layoutSizingVertical": "FIXED"
+                },
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "visible": false,
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Vector": {
+                "type": "VECTOR",
+                "width": 12.0,
+                "height": 12.01,
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#8431cc",
+                      "rgb": {
+                        "r": 132,
+                        "g": 49,
+                        "b": 204
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              }
+            }
+          },
+          "123:509": {
+            "root": {
+              "width": 138.0,
+              "height": 48.0,
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "CENTER",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG",
+                "padding": {
+                  "paddingLeft": 24.0,
+                  "paddingRight": 24.0,
+                  "paddingTop": 12.0,
+                  "paddingBottom": 12.0
+                },
+                "itemSpacing": 12.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#ffffff",
+                    "rgb": {
+                      "r": 255,
+                      "g": 255,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 4.0,
+              "strokes": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#8431cc",
+                    "rgb": {
+                      "r": 132,
+                      "g": 49,
+                      "b": 204
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "nodes": {
+              "Arrows / right arrow": {
+                "type": "INSTANCE",
+                "width": 24.0,
+                "height": 24.0,
+                "layout": {
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "FIXED",
+                  "layoutSizingVertical": "FIXED"
+                },
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "visible": false,
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Vector": {
+                "type": "VECTOR",
+                "width": 12.0,
+                "height": 12.01,
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#8431cc",
+                      "rgb": {
+                        "r": 132,
+                        "g": 49,
+                        "b": 204
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Button": {
+                "type": "TEXT",
+                "fontFamily": "Work Sans",
+                "fontWeight": 600,
+                "fontSize": 16.0,
+                "textAlignHorizontal": "LEFT",
+                "textAlignVertical": "TOP",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 24.0,
+                "lineHeightPercent": 127.87723541259766,
+                "lineHeightPercentFontSize": 150.0,
+                "lineHeightUnit": "PIXELS",
+                "color": {
+                  "hex": "#8431cc",
+                  "rgb": {
+                    "r": 132,
+                    "g": 49,
+                    "b": 204
+                  },
+                  "alpha": 1.0
+                },
+                "width": 54.0,
+                "height": 24.0
+              }
+            }
+          }
+        }
+      },
+      "interactions": {
+        "root": [],
+        "nodes": {},
+        "interactions_by_variant": {
+          "89:7226": {
+            "root": [],
+            "nodes": {}
+          },
+          "89:7221": {
+            "root": [],
+            "nodes": {}
+          },
+          "89:7224": {
+            "root": [],
+            "nodes": {}
+          },
+          "89:7222": {
+            "root": [],
+            "nodes": {}
+          },
+          "89:7219": {
+            "root": [],
+            "nodes": {}
+          },
+          "89:7225": {
+            "root": [],
+            "nodes": {}
+          },
+          "123:493": {
+            "root": [],
+            "nodes": {}
+          },
+          "123:499": {
+            "root": [],
+            "nodes": {}
+          },
+          "123:495": {
+            "root": [],
+            "nodes": {}
+          },
+          "123:526": {
+            "root": [],
+            "nodes": {}
+          },
+          "123:530": {
+            "root": [],
+            "nodes": {}
+          },
+          "123:509": {
+            "root": [],
+            "nodes": {}
+          }
+        }
+      },
+      "imports": {
+        "local": [],
+        "external": []
+      },
+      "component_set_id": "89:7227"
+    }
+  ]
+}

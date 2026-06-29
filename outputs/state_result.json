@@ -1,5 +1,5 @@
 {
-  "user_input": "STACK: Python / FastAPI systems\nPROJECT: E-Commerce Platform API\nDESCRIPTION:\nAn API for an online store. It manages product categories, products,\ncustomers, their orders, and the items inside each order. You can list\nproducts by category, list orders by customer, and list items by order.\n\nFEATURES:\nCATEGORIES:\n- create a category\n- view all categories\n- view category details\n- update a category\n- list products by category\n\nPRODUCTS:\n- create a product\n- view all products\n- view product details\n- update a product\n- delete a product\n- list order items by product\n\nCUSTOMERS:\n- create a customer\n- view all customers\n- view customer details\n- update a customer\n- list orders by customer\n\nORDERS:\n- create an order\n- view all orders\n- view order details\n- delete an order\n- list items by order\n\nORDER_ITEMS:\n- create an order item\n- view all order items\n- view order item details\n\nDATA MODELS:\nCategory:\n- name: string\n- description: string\n- is_active: boolean\n\nProduct:\n- name: string\n- description: string\n- price: integer\n- stock_quantity: integer\n- is_available: boolean\n- category: Category\n\nCustomer:\n- full_name: string\n- email: string\n- phone: string\n- is_premium: boolean\n\nOrder:\n- order_number: string\n- total_amount: integer\n- status: string\n- customer: Customer\n\nOrderItem:\n- quantity: integer\n- unit_price: integer\n- order: Order\n- product: Product",
+  "user_input": "STACK: Python / FastAPI systems\nPROJECT: E-Commerce Platform API\nDESCRIPTION:\nAn API for an online store. Users browse product categories, view the products\nof a category, and view the full details of a single product.\n\nFEATURES:\nCATEGORIES:\n- create a category\n- view all categories\n- view category details\n- list products by category\n\nPRODUCTS:\n- create a product\n- view all products\n- view product details\n\nDATA MODELS:\nCategory:\n- name: string\n- description: string\n- is_active: boolean\n\nProduct:\n- name: string\n- description: string\n- price: integer\n- image_url: string\n- manufacturer: string\n- product_dimensions: string\n- model_number: string\n- country_origin: string\n- stock_quantity: integer\n- is_available: boolean\n- category: Category",
   "openapi_spec": {
     "openapi": "3.0.0",
     "info": {
@@ -71,7 +71,7 @@
             "Categories"
           ],
           "operationId": "get_category_by_id",
-          "summary": "Get a category by id",
+          "summary": "Get category details",
           "parameters": [
             {
               "name": "id",
@@ -85,45 +85,6 @@
           "responses": {
             "200": {
               "description": "Category details",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Category"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "put": {
-          "tags": [
-            "Categories"
-          ],
-          "operationId": "update_category",
-          "summary": "Update a category",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              }
-            }
-          ],
-          "requestBody": {
-            "required": true,
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CategoryCreate"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Category updated successfully",
               "content": {
                 "application/json": {
                   "schema": {
@@ -228,7 +189,7 @@
             "Products"
           ],
           "operationId": "get_product_by_id",
-          "summary": "Get a product by id",
+          "summary": "Get product details",
           "parameters": [
             {
               "name": "id",
@@ -246,482 +207,6 @@
                 "application/json": {
                   "schema": {
                     "$ref": "#/components/schemas/Product"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "put": {
-          "tags": [
-            "Products"
-          ],
-          "operationId": "update_product",
-          "summary": "Update a product",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              }
-            }
-          ],
-          "requestBody": {
-            "required": true,
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductCreate"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Product updated successfully",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Product"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "delete": {
-          "tags": [
-            "Products"
-          ],
-          "operationId": "delete_product",
-          "summary": "Delete a product",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              }
-            }
-          ],
-          "responses": {
-            "204": {
-              "description": "Product deleted successfully"
-            }
-          }
-        }
-      },
-      "/products/{id}/order_items": {
-        "get": {
-          "tags": [
-            "OrderItems"
-          ],
-          "operationId": "list_order_items_by_product",
-          "summary": "List order items by product",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "List of order items for the product",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/OrderItem"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/customers": {
-        "post": {
-          "tags": [
-            "Customers"
-          ],
-          "operationId": "create_customer",
-          "summary": "Create a customer",
-          "requestBody": {
-            "required": true,
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomerCreate"
-                }
-              }
-            }
-          },
-          "responses": {
-            "201": {
-              "description": "Customer created successfully",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Customer"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "get": {
-          "tags": [
-            "Customers"
-          ],
-          "operationId": "list_customers",
-          "summary": "List all customers",
-          "responses": {
-            "200": {
-              "description": "List of all customers",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Customer"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/customers/{id}": {
-        "get": {
-          "tags": [
-            "Customers"
-          ],
-          "operationId": "get_customer_by_id",
-          "summary": "Get a customer by id",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Customer details",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Customer"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "put": {
-          "tags": [
-            "Customers"
-          ],
-          "operationId": "update_customer",
-          "summary": "Update a customer",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              }
-            }
-          ],
-          "requestBody": {
-            "required": true,
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomerCreate"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Customer updated successfully",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Customer"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/customers/{id}/orders": {
-        "get": {
-          "tags": [
-            "Orders"
-          ],
-          "operationId": "list_orders_by_customer",
-          "summary": "List orders by customer",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "List of customer orders",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Order"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/orders": {
-        "post": {
-          "tags": [
-            "Orders"
-          ],
-          "operationId": "create_order",
-          "summary": "Create an order",
-          "requestBody": {
-            "required": true,
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/OrderCreate"
-                }
-              }
-            }
-          },
-          "responses": {
-            "201": {
-              "description": "Order created successfully",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Order"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "get": {
-          "tags": [
-            "Orders"
-          ],
-          "operationId": "list_orders",
-          "summary": "List all orders",
-          "responses": {
-            "200": {
-              "description": "List of all orders",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Order"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/orders/{id}": {
-        "get": {
-          "tags": [
-            "Orders"
-          ],
-          "operationId": "get_order_by_id",
-          "summary": "Get an order by id",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Order details",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Order"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "delete": {
-          "tags": [
-            "Orders"
-          ],
-          "operationId": "delete_order",
-          "summary": "Delete an order",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              }
-            }
-          ],
-          "responses": {
-            "204": {
-              "description": "Order deleted successfully"
-            }
-          }
-        }
-      },
-      "/orders/{id}/items": {
-        "get": {
-          "tags": [
-            "OrderItems"
-          ],
-          "operationId": "list_order_items_by_order",
-          "summary": "List items by order",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "List of order items",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/OrderItem"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/order_items": {
-        "post": {
-          "tags": [
-            "OrderItems"
-          ],
-          "operationId": "create_order_item",
-          "summary": "Create an order item",
-          "requestBody": {
-            "required": true,
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/OrderItemCreate"
-                }
-              }
-            }
-          },
-          "responses": {
-            "201": {
-              "description": "Order item created successfully",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/OrderItem"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "get": {
-          "tags": [
-            "OrderItems"
-          ],
-          "operationId": "list_order_items",
-          "summary": "List all order items",
-          "responses": {
-            "200": {
-              "description": "List of all order items",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/OrderItem"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/order_items/{id}": {
-        "get": {
-          "tags": [
-            "OrderItems"
-          ],
-          "operationId": "get_order_item_by_id",
-          "summary": "Get an order item by id",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Order item details",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/OrderItem"
                   }
                 }
               }
@@ -792,9 +277,23 @@
             "price": {
               "type": "integer"
             },
+            "image_url": {
+              "type": "string"
+            },
+            "manufacturer": {
+              "type": "string"
+            },
+            "product_dimensions": {
+              "type": "string"
+            },
+            "model_number": {
+              "type": "string"
+            },
+            "country_origin": {
+              "type": "string"
+            },
             "stock_quantity": {
-              "type": "integer",
-              "default": 0
+              "type": "integer"
             },
             "is_available": {
               "type": "boolean",
@@ -820,6 +319,21 @@
             "price": {
               "type": "integer"
             },
+            "image_url": {
+              "type": "string"
+            },
+            "manufacturer": {
+              "type": "string"
+            },
+            "product_dimensions": {
+              "type": "string"
+            },
+            "model_number": {
+              "type": "string"
+            },
+            "country_origin": {
+              "type": "string"
+            },
             "stock_quantity": {
               "type": "integer"
             },
@@ -827,158 +341,6 @@
               "type": "boolean"
             },
             "category_id": {
-              "type": "integer"
-            },
-            "created_at": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "updated_at": {
-              "type": "string",
-              "format": "date-time"
-            }
-          }
-        },
-        "CustomerCreate": {
-          "type": "object",
-          "required": [
-            "full_name",
-            "email"
-          ],
-          "properties": {
-            "full_name": {
-              "type": "string"
-            },
-            "email": {
-              "type": "string"
-            },
-            "phone": {
-              "type": "string"
-            },
-            "is_premium": {
-              "type": "boolean",
-              "default": false
-            }
-          }
-        },
-        "Customer": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "integer"
-            },
-            "full_name": {
-              "type": "string"
-            },
-            "email": {
-              "type": "string"
-            },
-            "phone": {
-              "type": "string"
-            },
-            "is_premium": {
-              "type": "boolean"
-            },
-            "created_at": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "updated_at": {
-              "type": "string",
-              "format": "date-time"
-            }
-          }
-        },
-        "OrderCreate": {
-          "type": "object",
-          "required": [
-            "order_number",
-            "total_amount",
-            "status",
-            "customer_id"
-          ],
-          "properties": {
-            "order_number": {
-              "type": "string"
-            },
-            "total_amount": {
-              "type": "integer"
-            },
-            "status": {
-              "type": "string"
-            },
-            "customer_id": {
-              "type": "integer"
-            }
-          }
-        },
-        "Order": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "integer"
-            },
-            "order_number": {
-              "type": "string"
-            },
-            "total_amount": {
-              "type": "integer"
-            },
-            "status": {
-              "type": "string"
-            },
-            "customer_id": {
-              "type": "integer"
-            },
-            "created_at": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "updated_at": {
-              "type": "string",
-              "format": "date-time"
-            }
-          }
-        },
-        "OrderItemCreate": {
-          "type": "object",
-          "required": [
-            "quantity",
-            "unit_price",
-            "order_id",
-            "product_id"
-          ],
-          "properties": {
-            "quantity": {
-              "type": "integer"
-            },
-            "unit_price": {
-              "type": "integer"
-            },
-            "order_id": {
-              "type": "integer"
-            },
-            "product_id": {
-              "type": "integer"
-            }
-          }
-        },
-        "OrderItem": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "integer"
-            },
-            "quantity": {
-              "type": "integer"
-            },
-            "unit_price": {
-              "type": "integer"
-            },
-            "order_id": {
-              "type": "integer"
-            },
-            "product_id": {
               "type": "integer"
             },
             "created_at": {
@@ -998,14 +360,6 @@
     "Category": [],
     "Product": [
       "Category"
-    ],
-    "Customer": [],
-    "Order": [
-      "Customer"
-    ],
-    "OrderItem": [
-      "Order",
-      "Product"
     ]
   },
   "file_plan": [
@@ -1123,7 +477,7 @@
             "category_data: CategoryCreate"
           ],
           "output": "Category",
-          "description": "Create a new category"
+          "description": "Create a new category in the database"
         },
         {
           "name": "list_categories",
@@ -1137,20 +491,10 @@
           "name": "get_category_by_id",
           "input": [
             "db: Session",
-            "category_id: int"
+            "id: int"
           ],
           "output": "Category",
-          "description": "Get a category by ID, raise 404 if not found"
-        },
-        {
-          "name": "update_category",
-          "input": [
-            "db: Session",
-            "category_id: int",
-            "category_data: CategoryCreate"
-          ],
-          "output": "Category",
-          "description": "Update a category by ID, raise 404 if not found"
+          "description": "Get a category by its ID, raise 404 if not found"
         }
       ]
     },
@@ -1158,7 +502,7 @@
       "path": "app/routes/category.py",
       "type": "route",
       "entity": "Category",
-      "endpoints": [
+      "functions": [
         {
           "method": "POST",
           "path": "/categories",
@@ -1185,18 +529,6 @@
           "output": "Category",
           "status_code": 200,
           "calls_service": "get_category_by_id"
-        },
-        {
-          "method": "PUT",
-          "path": "/categories/{id}",
-          "operationId": "update_category",
-          "input": [
-            "int: id",
-            "CategoryCreate"
-          ],
-          "output": "Category",
-          "status_code": 200,
-          "calls_service": "update_category"
         }
       ]
     },
@@ -1230,11 +562,40 @@
           "nullable": false
         },
         {
+          "name": "image_url",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "manufacturer",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "product_dimensions",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "model_number",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "country_origin",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
           "name": "stock_quantity",
           "type": "Integer",
           "primary_key": false,
-          "nullable": false,
-          "default": 0
+          "nullable": true
         },
         {
           "name": "is_available",
@@ -1289,9 +650,34 @@
               "type": "int"
             },
             {
+              "name": "image_url",
+              "type": "Optional[str]",
+              "default": null
+            },
+            {
+              "name": "manufacturer",
+              "type": "Optional[str]",
+              "default": null
+            },
+            {
+              "name": "product_dimensions",
+              "type": "Optional[str]",
+              "default": null
+            },
+            {
+              "name": "model_number",
+              "type": "Optional[str]",
+              "default": null
+            },
+            {
+              "name": "country_origin",
+              "type": "Optional[str]",
+              "default": null
+            },
+            {
               "name": "stock_quantity",
-              "type": "int",
-              "default": 0
+              "type": "Optional[int]",
+              "default": null
             },
             {
               "name": "is_available",
@@ -1324,8 +710,28 @@
               "type": "int"
             },
             {
+              "name": "image_url",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "manufacturer",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "product_dimensions",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "model_number",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "country_origin",
+              "type": "Optional[str]"
+            },
+            {
               "name": "stock_quantity",
-              "type": "int"
+              "type": "Optional[int]"
             },
             {
               "name": "is_available",
@@ -1359,7 +765,7 @@
             "product_data: ProductCreate"
           ],
           "output": "Product",
-          "description": "Create a new product"
+          "description": "Create a new product in the database"
         },
         {
           "name": "list_products",
@@ -1373,29 +779,10 @@
           "name": "get_product_by_id",
           "input": [
             "db: Session",
-            "product_id: int"
+            "id: int"
           ],
           "output": "Product",
-          "description": "Get a product by ID, raise 404 if not found"
-        },
-        {
-          "name": "update_product",
-          "input": [
-            "db: Session",
-            "product_id: int",
-            "product_data: ProductCreate"
-          ],
-          "output": "Product",
-          "description": "Update a product by ID, raise 404 if not found"
-        },
-        {
-          "name": "delete_product",
-          "input": [
-            "db: Session",
-            "product_id: int"
-          ],
-          "output": "None",
-          "description": "Delete a product by ID, raise 404 if not found"
+          "description": "Get a product by its ID, raise 404 if not found"
         },
         {
           "name": "list_products_by_category",
@@ -1404,7 +791,7 @@
             "category_id: int"
           ],
           "output": "List[Product]",
-          "description": "List products by category ID"
+          "description": "List all products for a given category"
         }
       ]
     },
@@ -1412,7 +799,7 @@
       "path": "app/routes/product.py",
       "type": "route",
       "entity": "Product",
-      "endpoints": [
+      "functions": [
         {
           "method": "POST",
           "path": "/products",
@@ -1441,27 +828,6 @@
           "calls_service": "get_product_by_id"
         },
         {
-          "method": "PUT",
-          "path": "/products/{id}",
-          "operationId": "update_product",
-          "input": [
-            "int: id",
-            "ProductCreate"
-          ],
-          "output": "Product",
-          "status_code": 200,
-          "calls_service": "update_product"
-        },
-        {
-          "method": "DELETE",
-          "path": "/products/{id}",
-          "operationId": "delete_product",
-          "input": "int: id",
-          "output": null,
-          "status_code": 204,
-          "calls_service": "delete_product"
-        },
-        {
           "method": "GET",
           "path": "/categories/{id}/products",
           "operationId": "list_products_by_category",
@@ -1470,658 +836,6 @@
           "status_code": 200,
           "calls_service": "list_products_by_category"
         }
-      ]
-    },
-    {
-      "path": "app/models/customer.py",
-      "type": "model",
-      "entity": "Customer",
-      "fields": [
-        {
-          "name": "id",
-          "type": "Integer",
-          "primary_key": true,
-          "nullable": false
-        },
-        {
-          "name": "full_name",
-          "type": "String",
-          "primary_key": false,
-          "nullable": false
-        },
-        {
-          "name": "email",
-          "type": "String",
-          "primary_key": false,
-          "nullable": false
-        },
-        {
-          "name": "phone",
-          "type": "String",
-          "primary_key": false,
-          "nullable": true
-        },
-        {
-          "name": "is_premium",
-          "type": "Boolean",
-          "primary_key": false,
-          "nullable": false,
-          "default": false
-        },
-        {
-          "name": "created_at",
-          "type": "DateTime",
-          "primary_key": false,
-          "nullable": false,
-          "default": "func.now()"
-        },
-        {
-          "name": "updated_at",
-          "type": "DateTime",
-          "primary_key": false,
-          "nullable": false,
-          "default": "func.now()",
-          "onupdate": "func.now()"
-        }
-      ]
-    },
-    {
-      "path": "app/schemas/customer.py",
-      "type": "schema",
-      "entity": "Customer",
-      "schemas": [
-        {
-          "name": "CustomerCreate",
-          "fields": [
-            {
-              "name": "full_name",
-              "type": "str"
-            },
-            {
-              "name": "email",
-              "type": "str"
-            },
-            {
-              "name": "phone",
-              "type": "Optional[str]",
-              "default": null
-            },
-            {
-              "name": "is_premium",
-              "type": "bool",
-              "default": false
-            }
-          ]
-        },
-        {
-          "name": "Customer",
-          "fields": [
-            {
-              "name": "id",
-              "type": "int"
-            },
-            {
-              "name": "full_name",
-              "type": "str"
-            },
-            {
-              "name": "email",
-              "type": "str"
-            },
-            {
-              "name": "phone",
-              "type": "Optional[str]"
-            },
-            {
-              "name": "is_premium",
-              "type": "bool"
-            },
-            {
-              "name": "created_at",
-              "type": "datetime"
-            },
-            {
-              "name": "updated_at",
-              "type": "datetime"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "path": "app/services/customer.py",
-      "type": "service",
-      "entity": "Customer",
-      "functions": [
-        {
-          "name": "create_customer",
-          "input": [
-            "db: Session",
-            "customer_data: CustomerCreate"
-          ],
-          "output": "Customer",
-          "description": "Create a new customer"
-        },
-        {
-          "name": "list_customers",
-          "input": [
-            "db: Session"
-          ],
-          "output": "List[Customer]",
-          "description": "List all customers"
-        },
-        {
-          "name": "get_customer_by_id",
-          "input": [
-            "db: Session",
-            "customer_id: int"
-          ],
-          "output": "Customer",
-          "description": "Get a customer by ID, raise 404 if not found"
-        },
-        {
-          "name": "update_customer",
-          "input": [
-            "db: Session",
-            "customer_id: int",
-            "customer_data: CustomerCreate"
-          ],
-          "output": "Customer",
-          "description": "Update a customer by ID, raise 404 if not found"
-        }
-      ]
-    },
-    {
-      "path": "app/routes/customer.py",
-      "type": "route",
-      "entity": "Customer",
-      "endpoints": [
-        {
-          "method": "POST",
-          "path": "/customers",
-          "operationId": "create_customer",
-          "input": "CustomerCreate",
-          "output": "Customer",
-          "status_code": 201,
-          "calls_service": "create_customer"
-        },
-        {
-          "method": "GET",
-          "path": "/customers",
-          "operationId": "list_customers",
-          "input": null,
-          "output": "List[Customer]",
-          "status_code": 200,
-          "calls_service": "list_customers"
-        },
-        {
-          "method": "GET",
-          "path": "/customers/{id}",
-          "operationId": "get_customer_by_id",
-          "input": "int: id",
-          "output": "Customer",
-          "status_code": 200,
-          "calls_service": "get_customer_by_id"
-        },
-        {
-          "method": "PUT",
-          "path": "/customers/{id}",
-          "operationId": "update_customer",
-          "input": [
-            "int: id",
-            "CustomerCreate"
-          ],
-          "output": "Customer",
-          "status_code": 200,
-          "calls_service": "update_customer"
-        }
-      ]
-    },
-    {
-      "path": "app/models/order.py",
-      "type": "model",
-      "entity": "Order",
-      "fields": [
-        {
-          "name": "id",
-          "type": "Integer",
-          "primary_key": true,
-          "nullable": false
-        },
-        {
-          "name": "order_number",
-          "type": "String",
-          "primary_key": false,
-          "nullable": false
-        },
-        {
-          "name": "total_amount",
-          "type": "Integer",
-          "primary_key": false,
-          "nullable": false
-        },
-        {
-          "name": "status",
-          "type": "String",
-          "primary_key": false,
-          "nullable": false
-        },
-        {
-          "name": "customer_id",
-          "type": "Integer",
-          "primary_key": false,
-          "nullable": false,
-          "foreign_key": "Customer.id"
-        },
-        {
-          "name": "created_at",
-          "type": "DateTime",
-          "primary_key": false,
-          "nullable": false,
-          "default": "func.now()"
-        },
-        {
-          "name": "updated_at",
-          "type": "DateTime",
-          "primary_key": false,
-          "nullable": false,
-          "default": "func.now()",
-          "onupdate": "func.now()"
-        }
-      ]
-    },
-    {
-      "path": "app/schemas/order.py",
-      "type": "schema",
-      "entity": "Order",
-      "schemas": [
-        {
-          "name": "OrderCreate",
-          "fields": [
-            {
-              "name": "order_number",
-              "type": "str"
-            },
-            {
-              "name": "total_amount",
-              "type": "int"
-            },
-            {
-              "name": "status",
-              "type": "str"
-            },
-            {
-              "name": "customer_id",
-              "type": "int"
-            }
-          ]
-        },
-        {
-          "name": "Order",
-          "fields": [
-            {
-              "name": "id",
-              "type": "int"
-            },
-            {
-              "name": "order_number",
-              "type": "str"
-            },
-            {
-              "name": "total_amount",
-              "type": "int"
-            },
-            {
-              "name": "status",
-              "type": "str"
-            },
-            {
-              "name": "customer_id",
-              "type": "int"
-            },
-            {
-              "name": "created_at",
-              "type": "datetime"
-            },
-            {
-              "name": "updated_at",
-              "type": "datetime"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "path": "app/services/order.py",
-      "type": "service",
-      "entity": "Order",
-      "functions": [
-        {
-          "name": "create_order",
-          "input": [
-            "db: Session",
-            "order_data: OrderCreate"
-          ],
-          "output": "Order",
-          "description": "Create a new order"
-        },
-        {
-          "name": "list_orders",
-          "input": [
-            "db: Session"
-          ],
-          "output": "List[Order]",
-          "description": "List all orders"
-        },
-        {
-          "name": "get_order_by_id",
-          "input": [
-            "db: Session",
-            "order_id: int"
-          ],
-          "output": "Order",
-          "description": "Get an order by ID, raise 404 if not found"
-        },
-        {
-          "name": "delete_order",
-          "input": [
-            "db: Session",
-            "order_id: int"
-          ],
-          "output": "None",
-          "description": "Delete an order by ID, raise 404 if not found"
-        },
-        {
-          "name": "list_orders_by_customer",
-          "input": [
-            "db: Session",
-            "customer_id: int"
-          ],
-          "output": "List[Order]",
-          "description": "List orders by customer ID"
-        }
-      ]
-    },
-    {
-      "path": "app/routes/order.py",
-      "type": "route",
-      "entity": "Order",
-      "endpoints": [
-        {
-          "method": "POST",
-          "path": "/orders",
-          "operationId": "create_order",
-          "input": "OrderCreate",
-          "output": "Order",
-          "status_code": 201,
-          "calls_service": "create_order"
-        },
-        {
-          "method": "GET",
-          "path": "/orders",
-          "operationId": "list_orders",
-          "input": null,
-          "output": "List[Order]",
-          "status_code": 200,
-          "calls_service": "list_orders"
-        },
-        {
-          "method": "GET",
-          "path": "/orders/{id}",
-          "operationId": "get_order_by_id",
-          "input": "int: id",
-          "output": "Order",
-          "status_code": 200,
-          "calls_service": "get_order_by_id"
-        },
-        {
-          "method": "DELETE",
-          "path": "/orders/{id}",
-          "operationId": "delete_order",
-          "input": "int: id",
-          "output": null,
-          "status_code": 204,
-          "calls_service": "delete_order"
-        },
-        {
-          "method": "GET",
-          "path": "/customers/{id}/orders",
-          "operationId": "list_orders_by_customer",
-          "input": "int: id",
-          "output": "List[Order]",
-          "status_code": 200,
-          "calls_service": "list_orders_by_customer"
-        }
-      ]
-    },
-    {
-      "path": "app/models/order_item.py",
-      "type": "model",
-      "entity": "OrderItem",
-      "fields": [
-        {
-          "name": "id",
-          "type": "Integer",
-          "primary_key": true,
-          "nullable": false
-        },
-        {
-          "name": "quantity",
-          "type": "Integer",
-          "primary_key": false,
-          "nullable": false
-        },
-        {
-          "name": "unit_price",
-          "type": "Integer",
-          "primary_key": false,
-          "nullable": false
-        },
-        {
-          "name": "order_id",
-          "type": "Integer",
-          "primary_key": false,
-          "nullable": false,
-          "foreign_key": "Order.id"
-        },
-        {
-          "name": "product_id",
-          "type": "Integer",
-          "primary_key": false,
-          "nullable": false,
-          "foreign_key": "Product.id"
-        },
-        {
-          "name": "created_at",
-          "type": "DateTime",
-          "primary_key": false,
-          "nullable": false,
-          "default": "func.now()"
-        },
-        {
-          "name": "updated_at",
-          "type": "DateTime",
-          "primary_key": false,
-          "nullable": false,
-          "default": "func.now()",
-          "onupdate": "func.now()"
-        }
-      ]
-    },
-    {
-      "path": "app/schemas/order_item.py",
-      "type": "schema",
-      "entity": "OrderItem",
-      "schemas": [
-        {
-          "name": "OrderItemCreate",
-          "fields": [
-            {
-              "name": "quantity",
-              "type": "int"
-            },
-            {
-              "name": "unit_price",
-              "type": "int"
-            },
-            {
-              "name": "order_id",
-              "type": "int"
-            },
-            {
-              "name": "product_id",
-              "type": "int"
-            }
-          ]
-        },
-        {
-          "name": "OrderItem",
-          "fields": [
-            {
-              "name": "id",
-              "type": "int"
-            },
-            {
-              "name": "quantity",
-              "type": "int"
-            },
-            {
-              "name": "unit_price",
-              "type": "int"
-            },
-            {
-              "name": "order_id",
-              "type": "int"
-            },
-            {
-              "name": "product_id",
-              "type": "int"
-            },
-            {
-              "name": "created_at",
-              "type": "datetime"
-            },
-            {
-              "name": "updated_at",
-              "type": "datetime"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "path": "app/services/order_item.py",
-      "type": "service",
-      "entity": "OrderItem",
-      "functions": [
-        {
-          "name": "create_order_item",
-          "input": [
-            "db: Session",
-            "order_item_data: OrderItemCreate"
-          ],
-          "output": "OrderItem",
-          "description": "Create a new order item"
-        },
-        {
-          "name": "list_order_items",
-          "input": [
-            "db: Session"
-          ],
-          "output": "List[OrderItem]",
-          "description": "List all order items"
-        },
-        {
-          "name": "get_order_item_by_id",
-          "input": [
-            "db: Session",
-            "order_item_id: int"
-          ],
-          "output": "OrderItem",
-          "description": "Get an order item by ID, raise 404 if not found"
-        },
-        {
-          "name": "list_order_items_by_order",
-          "input": [
-            "db: Session",
-            "order_id: int"
-          ],
-          "output": "List[OrderItem]",
-          "description": "List order items by order ID"
-        },
-        {
-          "name": "list_order_items_by_product",
-          "input": [
-            "db: Session",
-            "product_id: int"
-          ],
-          "output": "List[OrderItem]",
-          "description": "List order items by product ID"
-        }
-      ]
-    },
-    {
-      "path": "app/routes/order_item.py",
-      "type": "route",
-      "entity": "OrderItem",
-      "endpoints": [
-        {
-          "method": "POST",
-          "path": "/order_items",
-          "operationId": "create_order_item",
-          "input": "OrderItemCreate",
-          "output": "OrderItem",
-          "status_code": 201,
-          "calls_service": "create_order_item"
-        },
-        {
-          "method": "GET",
-          "path": "/order_items",
-          "operationId": "list_order_items",
-          "input": null,
-          "output": "List[OrderItem]",
-          "status_code": 200,
-          "calls_service": "list_order_items"
-        },
-        {
-          "method": "GET",
-          "path": "/order_items/{id}",
-          "operationId": "get_order_item_by_id",
-          "input": "int: id",
-          "output": "OrderItem",
-          "status_code": 200,
-          "calls_service": "get_order_item_by_id"
-        },
-        {
-          "method": "GET",
-          "path": "/orders/{id}/items",
-          "operationId": "list_order_items_by_order",
-          "input": "int: id",
-          "output": "List[OrderItem]",
-          "status_code": 200,
-          "calls_service": "list_order_items_by_order"
-        },
-        {
-          "method": "GET",
-          "path": "/products/{id}/order_items",
-          "operationId": "list_order_items_by_product",
-          "input": "int: id",
-          "output": "List[OrderItem]",
-          "status_code": 200,
-          "calls_service": "list_order_items_by_product"
-        }
-      ]
-    },
-    {
-      "path": "app/main.py",
-      "type": "main",
-      "entity": null,
-      "routers": [
-        "category.router",
-        "product.router",
-        "customer.router",
-        "order.router",
-        "order_item.router"
       ]
     }
   ],
@@ -2184,7 +898,9 @@
       "status": "done",
       "test_status": "pending",
       "type": "schema",
-      "depends_on": [],
+      "depends_on": [
+        "app/models/category.py"
+      ],
       "schemas": [
         {
           "name": "CategoryCreate",
@@ -2243,7 +959,10 @@
       "status": "done",
       "test_status": "pending",
       "type": "service",
-      "depends_on": [],
+      "depends_on": [
+        "app/models/category.py",
+        "app/schemas/category.py"
+      ],
       "functions": [
         {
           "name": "create_category",
@@ -2252,7 +971,7 @@
             "category_data: CategoryCreate"
           ],
           "output": "Category",
-          "description": "Create a new category"
+          "description": "Create a new category in the database"
         },
         {
           "name": "list_categories",
@@ -2266,20 +985,10 @@
           "name": "get_category_by_id",
           "input": [
             "db: Session",
-            "category_id: int"
+            "id: int"
           ],
           "output": "Category",
-          "description": "Get a category by ID, raise 404 if not found"
-        },
-        {
-          "name": "update_category",
-          "input": [
-            "db: Session",
-            "category_id: int",
-            "category_data: CategoryCreate"
-          ],
-          "output": "Category",
-          "description": "Update a category by ID, raise 404 if not found"
+          "description": "Get a category by its ID, raise 404 if not found"
         }
       ]
     },
@@ -2290,7 +999,10 @@
       "status": "done",
       "test_status": "passed",
       "type": "route",
-      "depends_on": [],
+      "depends_on": [
+        "app/services/category.py",
+        "app/schemas/category.py"
+      ],
       "functions": [
         {
           "method": "POST",
@@ -2318,251 +1030,18 @@
           "output": "Category",
           "status_code": 200,
           "calls_service": "get_category_by_id"
-        },
-        {
-          "method": "PUT",
-          "path": "/categories/{id}",
-          "operationId": "update_category",
-          "input": [
-            "int: id",
-            "CategoryCreate"
-          ],
-          "output": "Category",
-          "status_code": 200,
-          "calls_service": "update_category"
         }
       ]
     },
     {
       "order": 5,
-      "entity": "Customer",
-      "file": "app/models/customer.py",
-      "status": "done",
-      "test_status": "pending",
-      "type": "model",
-      "depends_on": [],
-      "fields": [
-        {
-          "name": "id",
-          "type": "Integer",
-          "primary_key": true,
-          "nullable": false
-        },
-        {
-          "name": "full_name",
-          "type": "String",
-          "primary_key": false,
-          "nullable": false
-        },
-        {
-          "name": "email",
-          "type": "String",
-          "primary_key": false,
-          "nullable": false
-        },
-        {
-          "name": "phone",
-          "type": "String",
-          "primary_key": false,
-          "nullable": true
-        },
-        {
-          "name": "is_premium",
-          "type": "Boolean",
-          "primary_key": false,
-          "nullable": false,
-          "default": false
-        },
-        {
-          "name": "created_at",
-          "type": "DateTime",
-          "primary_key": false,
-          "nullable": false,
-          "default": "func.now()"
-        },
-        {
-          "name": "updated_at",
-          "type": "DateTime",
-          "primary_key": false,
-          "nullable": false,
-          "default": "func.now()",
-          "onupdate": "func.now()"
-        }
-      ]
-    },
-    {
-      "order": 6,
-      "entity": "Customer",
-      "file": "app/schemas/customer.py",
-      "status": "done",
-      "test_status": "pending",
-      "type": "schema",
-      "depends_on": [],
-      "schemas": [
-        {
-          "name": "CustomerCreate",
-          "fields": [
-            {
-              "name": "full_name",
-              "type": "str"
-            },
-            {
-              "name": "email",
-              "type": "str"
-            },
-            {
-              "name": "phone",
-              "type": "Optional[str]",
-              "default": null
-            },
-            {
-              "name": "is_premium",
-              "type": "bool",
-              "default": false
-            }
-          ]
-        },
-        {
-          "name": "Customer",
-          "fields": [
-            {
-              "name": "id",
-              "type": "int"
-            },
-            {
-              "name": "full_name",
-              "type": "str"
-            },
-            {
-              "name": "email",
-              "type": "str"
-            },
-            {
-              "name": "phone",
-              "type": "Optional[str]"
-            },
-            {
-              "name": "is_premium",
-              "type": "bool"
-            },
-            {
-              "name": "created_at",
-              "type": "datetime"
-            },
-            {
-              "name": "updated_at",
-              "type": "datetime"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "order": 7,
-      "entity": "Customer",
-      "file": "app/services/customer.py",
-      "status": "done",
-      "test_status": "pending",
-      "type": "service",
-      "depends_on": [],
-      "functions": [
-        {
-          "name": "create_customer",
-          "input": [
-            "db: Session",
-            "customer_data: CustomerCreate"
-          ],
-          "output": "Customer",
-          "description": "Create a new customer"
-        },
-        {
-          "name": "list_customers",
-          "input": [
-            "db: Session"
-          ],
-          "output": "List[Customer]",
-          "description": "List all customers"
-        },
-        {
-          "name": "get_customer_by_id",
-          "input": [
-            "db: Session",
-            "customer_id: int"
-          ],
-          "output": "Customer",
-          "description": "Get a customer by ID, raise 404 if not found"
-        },
-        {
-          "name": "update_customer",
-          "input": [
-            "db: Session",
-            "customer_id: int",
-            "customer_data: CustomerCreate"
-          ],
-          "output": "Customer",
-          "description": "Update a customer by ID, raise 404 if not found"
-        }
-      ]
-    },
-    {
-      "order": 8,
-      "entity": "Customer",
-      "file": "app/routes/customer.py",
-      "status": "done",
-      "test_status": "passed",
-      "type": "route",
-      "depends_on": [],
-      "functions": [
-        {
-          "method": "POST",
-          "path": "/customers",
-          "operationId": "create_customer",
-          "input": "CustomerCreate",
-          "output": "Customer",
-          "status_code": 201,
-          "calls_service": "create_customer"
-        },
-        {
-          "method": "GET",
-          "path": "/customers",
-          "operationId": "list_customers",
-          "input": null,
-          "output": "List[Customer]",
-          "status_code": 200,
-          "calls_service": "list_customers"
-        },
-        {
-          "method": "GET",
-          "path": "/customers/{id}",
-          "operationId": "get_customer_by_id",
-          "input": "int: id",
-          "output": "Customer",
-          "status_code": 200,
-          "calls_service": "get_customer_by_id"
-        },
-        {
-          "method": "PUT",
-          "path": "/customers/{id}",
-          "operationId": "update_customer",
-          "input": [
-            "int: id",
-            "CustomerCreate"
-          ],
-          "output": "Customer",
-          "status_code": 200,
-          "calls_service": "update_customer"
-        }
-      ]
-    },
-    {
-      "order": 9,
       "entity": "Product",
       "file": "app/models/product.py",
       "status": "done",
       "test_status": "pending",
       "type": "model",
       "depends_on": [
-        "Category"
+        "app/models/category.py"
       ],
       "fields": [
         {
@@ -2590,11 +1069,40 @@
           "nullable": false
         },
         {
+          "name": "image_url",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "manufacturer",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "product_dimensions",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "model_number",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
+          "name": "country_origin",
+          "type": "String",
+          "primary_key": false,
+          "nullable": true
+        },
+        {
           "name": "stock_quantity",
           "type": "Integer",
           "primary_key": false,
-          "nullable": false,
-          "default": 0
+          "nullable": true
         },
         {
           "name": "is_available",
@@ -2628,14 +1136,14 @@
       ]
     },
     {
-      "order": 10,
+      "order": 6,
       "entity": "Product",
       "file": "app/schemas/product.py",
       "status": "done",
       "test_status": "pending",
       "type": "schema",
       "depends_on": [
-        "Category"
+        "app/models/product.py"
       ],
       "schemas": [
         {
@@ -2655,9 +1163,34 @@
               "type": "int"
             },
             {
+              "name": "image_url",
+              "type": "Optional[str]",
+              "default": null
+            },
+            {
+              "name": "manufacturer",
+              "type": "Optional[str]",
+              "default": null
+            },
+            {
+              "name": "product_dimensions",
+              "type": "Optional[str]",
+              "default": null
+            },
+            {
+              "name": "model_number",
+              "type": "Optional[str]",
+              "default": null
+            },
+            {
+              "name": "country_origin",
+              "type": "Optional[str]",
+              "default": null
+            },
+            {
               "name": "stock_quantity",
-              "type": "int",
-              "default": 0
+              "type": "Optional[int]",
+              "default": null
             },
             {
               "name": "is_available",
@@ -2690,8 +1223,28 @@
               "type": "int"
             },
             {
+              "name": "image_url",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "manufacturer",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "product_dimensions",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "model_number",
+              "type": "Optional[str]"
+            },
+            {
+              "name": "country_origin",
+              "type": "Optional[str]"
+            },
+            {
               "name": "stock_quantity",
-              "type": "int"
+              "type": "Optional[int]"
             },
             {
               "name": "is_available",
@@ -2714,14 +1267,15 @@
       ]
     },
     {
-      "order": 11,
+      "order": 7,
       "entity": "Product",
       "file": "app/services/product.py",
       "status": "done",
       "test_status": "pending",
       "type": "service",
       "depends_on": [
-        "Category"
+        "app/models/product.py",
+        "app/schemas/product.py"
       ],
       "functions": [
         {
@@ -2731,7 +1285,7 @@
             "product_data: ProductCreate"
           ],
           "output": "Product",
-          "description": "Create a new product"
+          "description": "Create a new product in the database"
         },
         {
           "name": "list_products",
@@ -2745,29 +1299,10 @@
           "name": "get_product_by_id",
           "input": [
             "db: Session",
-            "product_id: int"
+            "id: int"
           ],
           "output": "Product",
-          "description": "Get a product by ID, raise 404 if not found"
-        },
-        {
-          "name": "update_product",
-          "input": [
-            "db: Session",
-            "product_id: int",
-            "product_data: ProductCreate"
-          ],
-          "output": "Product",
-          "description": "Update a product by ID, raise 404 if not found"
-        },
-        {
-          "name": "delete_product",
-          "input": [
-            "db: Session",
-            "product_id: int"
-          ],
-          "output": "None",
-          "description": "Delete a product by ID, raise 404 if not found"
+          "description": "Get a product by its ID, raise 404 if not found"
         },
         {
           "name": "list_products_by_category",
@@ -2776,19 +1311,20 @@
             "category_id: int"
           ],
           "output": "List[Product]",
-          "description": "List products by category ID"
+          "description": "List all products for a given category"
         }
       ]
     },
     {
-      "order": 12,
+      "order": 8,
       "entity": "Product",
       "file": "app/routes/product.py",
       "status": "done",
       "test_status": "passed",
       "type": "route",
       "depends_on": [
-        "Category"
+        "app/services/product.py",
+        "app/schemas/product.py"
       ],
       "functions": [
         {
@@ -2819,27 +1355,6 @@
           "calls_service": "get_product_by_id"
         },
         {
-          "method": "PUT",
-          "path": "/products/{id}",
-          "operationId": "update_product",
-          "input": [
-            "int: id",
-            "ProductCreate"
-          ],
-          "output": "Product",
-          "status_code": 200,
-          "calls_service": "update_product"
-        },
-        {
-          "method": "DELETE",
-          "path": "/products/{id}",
-          "operationId": "delete_product",
-          "input": "int: id",
-          "output": null,
-          "status_code": 204,
-          "calls_service": "delete_product"
-        },
-        {
           "method": "GET",
           "path": "/categories/{id}/products",
           "operationId": "list_products_by_category",
@@ -2851,544 +1366,44 @@
       ]
     },
     {
-      "order": 13,
-      "entity": "Order",
-      "file": "app/models/order.py",
-      "status": "done",
-      "test_status": "pending",
-      "type": "model",
-      "depends_on": [
-        "Customer"
-      ],
-      "fields": [
-        {
-          "name": "id",
-          "type": "Integer",
-          "primary_key": true,
-          "nullable": false
-        },
-        {
-          "name": "order_number",
-          "type": "String",
-          "primary_key": false,
-          "nullable": false
-        },
-        {
-          "name": "total_amount",
-          "type": "Integer",
-          "primary_key": false,
-          "nullable": false
-        },
-        {
-          "name": "status",
-          "type": "String",
-          "primary_key": false,
-          "nullable": false
-        },
-        {
-          "name": "customer_id",
-          "type": "Integer",
-          "primary_key": false,
-          "nullable": false,
-          "foreign_key": "Customer.id"
-        },
-        {
-          "name": "created_at",
-          "type": "DateTime",
-          "primary_key": false,
-          "nullable": false,
-          "default": "func.now()"
-        },
-        {
-          "name": "updated_at",
-          "type": "DateTime",
-          "primary_key": false,
-          "nullable": false,
-          "default": "func.now()",
-          "onupdate": "func.now()"
-        }
-      ]
-    },
-    {
-      "order": 14,
-      "entity": "Order",
-      "file": "app/schemas/order.py",
-      "status": "done",
-      "test_status": "pending",
-      "type": "schema",
-      "depends_on": [
-        "Customer"
-      ],
-      "schemas": [
-        {
-          "name": "OrderCreate",
-          "fields": [
-            {
-              "name": "order_number",
-              "type": "str"
-            },
-            {
-              "name": "total_amount",
-              "type": "int"
-            },
-            {
-              "name": "status",
-              "type": "str"
-            },
-            {
-              "name": "customer_id",
-              "type": "int"
-            }
-          ]
-        },
-        {
-          "name": "Order",
-          "fields": [
-            {
-              "name": "id",
-              "type": "int"
-            },
-            {
-              "name": "order_number",
-              "type": "str"
-            },
-            {
-              "name": "total_amount",
-              "type": "int"
-            },
-            {
-              "name": "status",
-              "type": "str"
-            },
-            {
-              "name": "customer_id",
-              "type": "int"
-            },
-            {
-              "name": "created_at",
-              "type": "datetime"
-            },
-            {
-              "name": "updated_at",
-              "type": "datetime"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "order": 15,
-      "entity": "Order",
-      "file": "app/services/order.py",
-      "status": "done",
-      "test_status": "pending",
-      "type": "service",
-      "depends_on": [
-        "Customer"
-      ],
-      "functions": [
-        {
-          "name": "create_order",
-          "input": [
-            "db: Session",
-            "order_data: OrderCreate"
-          ],
-          "output": "Order",
-          "description": "Create a new order"
-        },
-        {
-          "name": "list_orders",
-          "input": [
-            "db: Session"
-          ],
-          "output": "List[Order]",
-          "description": "List all orders"
-        },
-        {
-          "name": "get_order_by_id",
-          "input": [
-            "db: Session",
-            "order_id: int"
-          ],
-          "output": "Order",
-          "description": "Get an order by ID, raise 404 if not found"
-        },
-        {
-          "name": "delete_order",
-          "input": [
-            "db: Session",
-            "order_id: int"
-          ],
-          "output": "None",
-          "description": "Delete an order by ID, raise 404 if not found"
-        },
-        {
-          "name": "list_orders_by_customer",
-          "input": [
-            "db: Session",
-            "customer_id: int"
-          ],
-          "output": "List[Order]",
-          "description": "List orders by customer ID"
-        }
-      ]
-    },
-    {
-      "order": 16,
-      "entity": "Order",
-      "file": "app/routes/order.py",
-      "status": "done",
-      "test_status": "passed",
-      "type": "route",
-      "depends_on": [
-        "Customer"
-      ],
-      "functions": [
-        {
-          "method": "POST",
-          "path": "/orders",
-          "operationId": "create_order",
-          "input": "OrderCreate",
-          "output": "Order",
-          "status_code": 201,
-          "calls_service": "create_order"
-        },
-        {
-          "method": "GET",
-          "path": "/orders",
-          "operationId": "list_orders",
-          "input": null,
-          "output": "List[Order]",
-          "status_code": 200,
-          "calls_service": "list_orders"
-        },
-        {
-          "method": "GET",
-          "path": "/orders/{id}",
-          "operationId": "get_order_by_id",
-          "input": "int: id",
-          "output": "Order",
-          "status_code": 200,
-          "calls_service": "get_order_by_id"
-        },
-        {
-          "method": "DELETE",
-          "path": "/orders/{id}",
-          "operationId": "delete_order",
-          "input": "int: id",
-          "output": null,
-          "status_code": 204,
-          "calls_service": "delete_order"
-        },
-        {
-          "method": "GET",
-          "path": "/customers/{id}/orders",
-          "operationId": "list_orders_by_customer",
-          "input": "int: id",
-          "output": "List[Order]",
-          "status_code": 200,
-          "calls_service": "list_orders_by_customer"
-        }
-      ]
-    },
-    {
-      "order": 17,
-      "entity": "OrderItem",
-      "file": "app/models/order_item.py",
-      "status": "done",
-      "test_status": "pending",
-      "type": "model",
-      "depends_on": [
-        "Order",
-        "Product"
-      ],
-      "fields": [
-        {
-          "name": "id",
-          "type": "Integer",
-          "primary_key": true,
-          "nullable": false
-        },
-        {
-          "name": "quantity",
-          "type": "Integer",
-          "primary_key": false,
-          "nullable": false
-        },
-        {
-          "name": "unit_price",
-          "type": "Integer",
-          "primary_key": false,
-          "nullable": false
-        },
-        {
-          "name": "order_id",
-          "type": "Integer",
-          "primary_key": false,
-          "nullable": false,
-          "foreign_key": "Order.id"
-        },
-        {
-          "name": "product_id",
-          "type": "Integer",
-          "primary_key": false,
-          "nullable": false,
-          "foreign_key": "Product.id"
-        },
-        {
-          "name": "created_at",
-          "type": "DateTime",
-          "primary_key": false,
-          "nullable": false,
-          "default": "func.now()"
-        },
-        {
-          "name": "updated_at",
-          "type": "DateTime",
-          "primary_key": false,
-          "nullable": false,
-          "default": "func.now()",
-          "onupdate": "func.now()"
-        }
-      ]
-    },
-    {
-      "order": 18,
-      "entity": "OrderItem",
-      "file": "app/schemas/order_item.py",
-      "status": "done",
-      "test_status": "pending",
-      "type": "schema",
-      "depends_on": [
-        "Order",
-        "Product"
-      ],
-      "schemas": [
-        {
-          "name": "OrderItemCreate",
-          "fields": [
-            {
-              "name": "quantity",
-              "type": "int"
-            },
-            {
-              "name": "unit_price",
-              "type": "int"
-            },
-            {
-              "name": "order_id",
-              "type": "int"
-            },
-            {
-              "name": "product_id",
-              "type": "int"
-            }
-          ]
-        },
-        {
-          "name": "OrderItem",
-          "fields": [
-            {
-              "name": "id",
-              "type": "int"
-            },
-            {
-              "name": "quantity",
-              "type": "int"
-            },
-            {
-              "name": "unit_price",
-              "type": "int"
-            },
-            {
-              "name": "order_id",
-              "type": "int"
-            },
-            {
-              "name": "product_id",
-              "type": "int"
-            },
-            {
-              "name": "created_at",
-              "type": "datetime"
-            },
-            {
-              "name": "updated_at",
-              "type": "datetime"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "order": 19,
-      "entity": "OrderItem",
-      "file": "app/services/order_item.py",
-      "status": "done",
-      "test_status": "pending",
-      "type": "service",
-      "depends_on": [
-        "Order",
-        "Product"
-      ],
-      "functions": [
-        {
-          "name": "create_order_item",
-          "input": [
-            "db: Session",
-            "order_item_data: OrderItemCreate"
-          ],
-          "output": "OrderItem",
-          "description": "Create a new order item"
-        },
-        {
-          "name": "list_order_items",
-          "input": [
-            "db: Session"
-          ],
-          "output": "List[OrderItem]",
-          "description": "List all order items"
-        },
-        {
-          "name": "get_order_item_by_id",
-          "input": [
-            "db: Session",
-            "order_item_id: int"
-          ],
-          "output": "OrderItem",
-          "description": "Get an order item by ID, raise 404 if not found"
-        },
-        {
-          "name": "list_order_items_by_order",
-          "input": [
-            "db: Session",
-            "order_id: int"
-          ],
-          "output": "List[OrderItem]",
-          "description": "List order items by order ID"
-        },
-        {
-          "name": "list_order_items_by_product",
-          "input": [
-            "db: Session",
-            "product_id: int"
-          ],
-          "output": "List[OrderItem]",
-          "description": "List order items by product ID"
-        }
-      ]
-    },
-    {
-      "order": 20,
-      "entity": "OrderItem",
-      "file": "app/routes/order_item.py",
-      "status": "done",
-      "test_status": "passed",
-      "type": "route",
-      "depends_on": [
-        "Order",
-        "Product"
-      ],
-      "functions": [
-        {
-          "method": "POST",
-          "path": "/order_items",
-          "operationId": "create_order_item",
-          "input": "OrderItemCreate",
-          "output": "OrderItem",
-          "status_code": 201,
-          "calls_service": "create_order_item"
-        },
-        {
-          "method": "GET",
-          "path": "/order_items",
-          "operationId": "list_order_items",
-          "input": null,
-          "output": "List[OrderItem]",
-          "status_code": 200,
-          "calls_service": "list_order_items"
-        },
-        {
-          "method": "GET",
-          "path": "/order_items/{id}",
-          "operationId": "get_order_item_by_id",
-          "input": "int: id",
-          "output": "OrderItem",
-          "status_code": 200,
-          "calls_service": "get_order_item_by_id"
-        },
-        {
-          "method": "GET",
-          "path": "/orders/{id}/items",
-          "operationId": "list_order_items_by_order",
-          "input": "int: id",
-          "output": "List[OrderItem]",
-          "status_code": 200,
-          "calls_service": "list_order_items_by_order"
-        },
-        {
-          "method": "GET",
-          "path": "/products/{id}/order_items",
-          "operationId": "list_order_items_by_product",
-          "input": "int: id",
-          "output": "List[OrderItem]",
-          "status_code": 200,
-          "calls_service": "list_order_items_by_product"
-        }
-      ]
-    },
-    {
-      "order": 21,
+      "order": 9,
       "entity": null,
       "file": "app/main.py",
       "status": "done",
       "test_status": "pending",
       "type": "main",
       "depends_on": [
-        "Category",
-        "Product",
-        "Customer",
-        "Order",
-        "OrderItem"
+        "app/routes/category.py",
+        "app/routes/product.py"
       ],
       "routers": [
-        "category.router",
-        "product.router",
-        "customer.router",
-        "order.router",
-        "order_item.router"
+        {
+          "prefix": "/categories",
+          "router": "category.router"
+        },
+        {
+          "prefix": "/products",
+          "router": "product.router"
+        }
       ]
     }
   ],
   "generated_files": {
     "app/models/category.py": "from sqlalchemy import Column, Integer, String, Boolean, DateTime\nfrom sqlalchemy.sql import func\nfrom app.database import Base\n\nclass Category(Base):\n    __tablename__ = \"categories\"\n\n    id = Column(Integer, primary_key=True, index=True)\n    name = Column(String, nullable=False)\n    description = Column(String, nullable=True)\n    is_active = Column(Boolean, nullable=False, default=True)\n    created_at = Column(DateTime, nullable=False, default=func.now())\n    updated_at = Column(DateTime, nullable=False, default=func.now(), onupdate=func.now())",
     "app/schemas/category.py": "from pydantic import BaseModel, ConfigDict\nfrom datetime import datetime\nfrom typing import Optional\n\nclass CategoryCreate(BaseModel):\n    name: str\n    description: Optional[str] = None\n    is_active: bool = True\n\nclass Category(BaseModel):\n    id: int\n    name: str\n    description: Optional[str]\n    is_active: bool\n    created_at: datetime\n    updated_at: datetime\n\n    model_config = ConfigDict(from_attributes=True)",
-    "app/services/category.py": "from sqlalchemy.orm import Session\nfrom fastapi import HTTPException\nfrom typing import List\nfrom app.models.category import Category\nfrom app.schemas.category import CategoryCreate\n\ndef create_category(db: Session, category_data: CategoryCreate) -> Category:\n    db_category = Category(**category_data.model_dump())\n    db.add(db_category)\n    db.commit()\n    db.refresh(db_category)\n    return db_category\n\ndef list_categories(db: Session) -> List[Category]:\n    return db.query(Category).all()\n\ndef get_category_by_id(db: Session, category_id: int) -> Category:\n    category = db.query(Category).filter(Category.id == category_id).first()\n    if not category:\n        raise HTTPException(status_code=404, detail=\"Category not found\")\n    return category\n\ndef update_category(db: Session, category_id: int, category_data: CategoryCreate) -> Category:\n    db_category = db.query(Category).filter(Category.id == category_id).first()\n    if not db_category:\n        raise HTTPException(status_code=404, detail=\"Category not found\")\n    for key, value in category_data.model_dump().items():\n        setattr(db_category, key, value)\n    db.commit()\n    db.refresh(db_category)\n    return db_category",
-    "app/routes/category.py": "from fastapi import APIRouter, Depends, HTTPException\nfrom sqlalchemy.orm import Session\nfrom typing import List\nfrom app.database import get_db\nfrom app.schemas.category import Category, CategoryCreate\nfrom app.services.category import create_category as create_category_service\nfrom app.services.category import list_categories as list_categories_service\nfrom app.services.category import get_category_by_id as get_category_by_id_service\nfrom app.services.category import update_category as update_category_service\n\nrouter = APIRouter()\n\n@router.post(\"/categories\", response_model=Category, status_code=201)\ndef create_category(category: CategoryCreate, db: Session = Depends(get_db)):\n    return create_category_service(db, category)\n\n@router.get(\"/categories\", response_model=List[Category])\ndef list_categories(db: Session = Depends(get_db)):\n    return list_categories_service(db)\n\n@router.get(\"/categories/{id}\", response_model=Category)\ndef get_category_by_id(id: int, db: Session = Depends(get_db)):\n    return get_category_by_id_service(db, id)\n\n@router.put(\"/categories/{id}\", response_model=Category)\ndef update_category(id: int, category: CategoryCreate, db: Session = Depends(get_db)):\n    return update_category_service(db, id, category)",
-    "app/models/customer.py": "from sqlalchemy import Column, Integer, String, Boolean, DateTime\nfrom sqlalchemy.sql import func\nfrom app.database import Base\n\nclass Customer(Base):\n    __tablename__ = \"customers\"\n\n    id = Column(Integer, primary_key=True, index=True)\n    full_name = Column(String, nullable=False)\n    email = Column(String, nullable=False)\n    phone = Column(String, nullable=True)\n    is_premium = Column(Boolean, nullable=False, default=False)\n    created_at = Column(DateTime, nullable=False, default=func.now())\n    updated_at = Column(DateTime, nullable=False, default=func.now(), onupdate=func.now())",
-    "app/schemas/customer.py": "from pydantic import BaseModel, ConfigDict\nfrom datetime import datetime\nfrom typing import Optional\n\nclass CustomerCreate(BaseModel):\n    full_name: str\n    email: str\n    phone: Optional[str] = None\n    is_premium: bool = False\n\nclass Customer(BaseModel):\n    id: int\n    full_name: str\n    email: str\n    phone: Optional[str]\n    is_premium: bool\n    created_at: datetime\n    updated_at: datetime\n\n    model_config = ConfigDict(from_attributes=True)",
-    "app/services/customer.py": "from sqlalchemy.orm import Session\nfrom fastapi import HTTPException\nfrom typing import List\nfrom app.models.customer import Customer\nfrom app.schemas.customer import CustomerCreate\n\ndef create_customer(db: Session, customer_data: CustomerCreate) -> Customer:\n    db_customer = Customer(**customer_data.model_dump())\n    db.add(db_customer)\n    db.commit()\n    db.refresh(db_customer)\n    return db_customer\n\ndef list_customers(db: Session) -> List[Customer]:\n    return db.query(Customer).all()\n\ndef get_customer_by_id(db: Session, customer_id: int) -> Customer:\n    customer = db.query(Customer).filter(Customer.id == customer_id).first()\n    if customer is None:\n        raise HTTPException(status_code=404, detail=\"Customer not found\")\n    return customer\n\ndef update_customer(db: Session, customer_id: int, customer_data: CustomerCreate) -> Customer:\n    customer = db.query(Customer).filter(Customer.id == customer_id).first()\n    if customer is None:\n        raise HTTPException(status_code=404, detail=\"Customer not found\")\n    for key, value in customer_data.model_dump().items():\n        setattr(customer, key, value)\n    db.commit()\n    db.refresh(customer)\n    return customer",
-    "app/routes/customer.py": "from fastapi import APIRouter, Depends, HTTPException\nfrom sqlalchemy.orm import Session\nfrom typing import List\nfrom app.database import get_db\nfrom app.schemas.customer import Customer, CustomerCreate\nfrom app.services.customer import create_customer as create_customer_service\nfrom app.services.customer import list_customers as list_customers_service\nfrom app.services.customer import get_customer_by_id as get_customer_by_id_service\nfrom app.services.customer import update_customer as update_customer_service\n\nrouter = APIRouter()\n\n@router.post(\"/customers\", response_model=Customer, status_code=201)\ndef create_customer(customer: CustomerCreate, db: Session = Depends(get_db)):\n    return create_customer_service(db, customer)\n\n@router.get(\"/customers\", response_model=List[Customer])\ndef list_customers(db: Session = Depends(get_db)):\n    return list_customers_service(db)\n\n@router.get(\"/customers/{id}\", response_model=Customer)\ndef get_customer_by_id(id: int, db: Session = Depends(get_db)):\n    return get_customer_by_id_service(db, id)\n\n@router.put(\"/customers/{id}\", response_model=Customer)\ndef update_customer(id: int, customer: CustomerCreate, db: Session = Depends(get_db)):\n    return update_customer_service(db, id, customer)",
-    "app/models/product.py": "from sqlalchemy import Column, Integer, String, Boolean, ForeignKey\nfrom sqlalchemy.sql import func\nfrom app.database import Base\n\nclass Product(Base):\n    __tablename__ = \"products\"\n\n    id = Column(Integer, primary_key=True, index=True)\n    name = Column(String, nullable=False)\n    description = Column(String, nullable=True)\n    price = Column(Integer, nullable=False)\n    stock_quantity = Column(Integer, nullable=False, default=0)\n    is_available = Column(Boolean, nullable=False, default=True)\n    category_id = Column(Integer, ForeignKey(\"categories.id\"), nullable=False)\n    created_at = Column(Integer, server_default=func.now())\n    updated_at = Column(Integer, server_default=func.now(), onupdate=func.now())",
-    "app/schemas/product.py": "from pydantic import BaseModel, ConfigDict\nfrom datetime import datetime\nfrom typing import Optional\n\nclass ProductCreate(BaseModel):\n    name: str\n    description: Optional[str] = None\n    price: int\n    stock_quantity: int = 0\n    is_available: bool = True\n    category_id: int\n\nclass Product(BaseModel):\n    id: int\n    name: str\n    description: Optional[str]\n    price: int\n    stock_quantity: int\n    is_available: bool\n    category_id: int\n    created_at: datetime\n    updated_at: datetime\n\n    model_config = ConfigDict(from_attributes=True)",
-    "app/services/product.py": "from sqlalchemy.orm import Session\nfrom fastapi import HTTPException\nfrom typing import List\nfrom app.models.product import Product\nfrom app.schemas.product import ProductCreate\n\ndef create_product(db: Session, product_data: ProductCreate) -> Product:\n    db_product = Product(**product_data.model_dump())\n    db.add(db_product)\n    db.commit()\n    db.refresh(db_product)\n    return db_product\n\ndef list_products(db: Session) -> List[Product]:\n    return db.query(Product).all()\n\ndef get_product_by_id(db: Session, product_id: int) -> Product:\n    product = db.query(Product).filter(Product.id == product_id).first()\n    if not product:\n        raise HTTPException(status_code=404, detail=\"Product not found\")\n    return product\n\ndef update_product(db: Session, product_id: int, product_data: ProductCreate) -> Product:\n    product = db.query(Product).filter(Product.id == product_id).first()\n    if not product:\n        raise HTTPException(status_code=404, detail=\"Product not found\")\n    for key, value in product_data.model_dump().items():\n        setattr(product, key, value)\n    db.commit()\n    db.refresh(product)\n    return product\n\ndef delete_product(db: Session, product_id: int) -> None:\n    product = db.query(Product).filter(Product.id == product_id).first()\n    if not product:\n        raise HTTPException(status_code=404, detail=\"Product not found\")\n    db.delete(product)\n    db.commit()\n\ndef list_products_by_category(db: Session, category_id: int) -> List[Product]:\n    return db.query(Product).filter(Product.category_id == category_id).all()",
-    "app/routes/product.py": "from fastapi import APIRouter, Depends, HTTPException\nfrom sqlalchemy.orm import Session\nfrom typing import List, Optional\nfrom app.database import get_db\nfrom app.schemas.product import Product, ProductCreate\nfrom app.services.product import (\n    create_product as create_product_service,\n    list_products as list_products_service,\n    get_product_by_id as get_product_by_id_service,\n    update_product as update_product_service,\n    delete_product as delete_product_service,\n    list_products_by_category as list_products_by_category_service\n)\n\nrouter = APIRouter()\n\n@router.post(\"/products\", response_model=Product, status_code=201)\ndef create_product(product: ProductCreate, db: Session = Depends(get_db)):\n    return create_product_service(db, product)\n\n@router.get(\"/products\", response_model=List[Product])\ndef list_products(db: Session = Depends(get_db)):\n    return list_products_service(db)\n\n@router.get(\"/products/{id}\", response_model=Product)\ndef get_product_by_id(id: int, db: Session = Depends(get_db)):\n    return get_product_by_id_service(db, id)\n\n@router.put(\"/products/{id}\", response_model=Product)\ndef update_product(id: int, product: ProductCreate, db: Session = Depends(get_db)):\n    return update_product_service(db, id, product)\n\n@router.delete(\"/products/{id}\", status_code=204, response_model=None)\ndef delete_product(id: int, db: Session = Depends(get_db)):\n    delete_product_service(db, id)\n    return None\n\n@router.get(\"/categories/{id}/products\", response_model=List[Product])\ndef list_products_by_category(id: int, db: Session = Depends(get_db)):\n    return list_products_by_category_service(db, id)",
-    "app/models/order.py": "from sqlalchemy import Column, Integer, String, DateTime, ForeignKey\nfrom app.database import Base\nfrom datetime import datetime\n\nclass Order(Base):\n    __tablename__ = \"orders\"\n\n    id = Column(Integer, primary_key=True, index=True)\n    order_number = Column(String, nullable=False)\n    total_amount = Column(Integer, nullable=False)\n    status = Column(String, nullable=False)\n    customer_id = Column(Integer, ForeignKey(\"customers.id\"), nullable=False)\n    created_at = Column(DateTime, default=datetime.utcnow)\n    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)",
-    "app/schemas/order.py": "from pydantic import BaseModel, ConfigDict\nfrom datetime import datetime\n\nclass OrderCreate(BaseModel):\n    order_number: str\n    total_amount: int\n    status: str\n    customer_id: int\n\nclass Order(BaseModel):\n    id: int\n    order_number: str\n    total_amount: int\n    status: str\n    customer_id: int\n    created_at: datetime\n    updated_at: datetime\n\n    model_config = ConfigDict(from_attributes=True)",
-    "app/services/order.py": "from sqlalchemy.orm import Session\nfrom fastapi import HTTPException\nfrom typing import List\nfrom app.models.order import Order\nfrom app.schemas.order import OrderCreate\n\ndef create_order(db: Session, order_data: OrderCreate) -> Order:\n    db_order = Order(**order_data.model_dump())\n    db.add(db_order)\n    db.commit()\n    db.refresh(db_order)\n    return db_order\n\ndef list_orders(db: Session) -> List[Order]:\n    return db.query(Order).all()\n\ndef get_order_by_id(db: Session, order_id: int) -> Order:\n    order = db.query(Order).filter(Order.id == order_id).first()\n    if not order:\n        raise HTTPException(status_code=404, detail=\"Order not found\")\n    return order\n\ndef delete_order(db: Session, order_id: int) -> None:\n    order = db.query(Order).filter(Order.id == order_id).first()\n    if not order:\n        raise HTTPException(status_code=404, detail=\"Order not found\")\n    db.delete(order)\n    db.commit()\n\ndef list_orders_by_customer(db: Session, customer_id: int) -> List[Order]:\n    return db.query(Order).filter(Order.customer_id == customer_id).all()",
-    "app/routes/order.py": "from fastapi import APIRouter, Depends, HTTPException\nfrom sqlalchemy.orm import Session\nfrom typing import List\nfrom app.database import get_db\nfrom app.schemas.order import Order, OrderCreate\nfrom app.services.order import (\n    create_order as create_order_service,\n    list_orders as list_orders_service,\n    get_order_by_id as get_order_by_id_service,\n    delete_order as delete_order_service,\n    list_orders_by_customer as list_orders_by_customer_service\n)\n\nrouter = APIRouter()\n\n@router.post(\"/orders\", response_model=Order, status_code=201)\ndef create_order(order: OrderCreate, db: Session = Depends(get_db)):\n    return create_order_service(db, order)\n\n@router.get(\"/orders\", response_model=List[Order])\ndef list_orders(db: Session = Depends(get_db)):\n    return list_orders_service(db)\n\n@router.get(\"/orders/{id}\", response_model=Order)\ndef get_order_by_id(id: int, db: Session = Depends(get_db)):\n    return get_order_by_id_service(db, id)\n\n@router.delete(\"/orders/{id}\", status_code=204, response_model=None)\ndef delete_order(id: int, db: Session = Depends(get_db)):\n    delete_order_service(db, id)\n    return None\n\n@router.get(\"/customers/{id}/orders\", response_model=List[Order])\ndef list_orders_by_customer(id: int, db: Session = Depends(get_db)):\n    return list_orders_by_customer_service(db, id)",
-    "app/models/order_item.py": "from sqlalchemy import Column, Integer, ForeignKey\nfrom sqlalchemy.sql import func\nfrom datetime import datetime\nfrom app.database import Base\n\nclass OrderItem(Base):\n    __tablename__ = \"order_items\"\n\n    id = Column(Integer, primary_key=True, index=True)\n    quantity = Column(Integer, nullable=False)\n    unit_price = Column(Integer, nullable=False)\n    order_id = Column(Integer, ForeignKey(\"orders.id\"), nullable=False)\n    product_id = Column(Integer, ForeignKey(\"products.id\"), nullable=False)\n    created_at = Column(datetime, server_default=func.now())\n    updated_at = Column(datetime, server_default=func.now(), onupdate=func.now())",
-    "app/schemas/order_item.py": "from pydantic import BaseModel, ConfigDict\nfrom datetime import datetime\n\nclass OrderItemCreate(BaseModel):\n    quantity: int\n    unit_price: int\n    order_id: int\n    product_id: int\n\nclass OrderItem(BaseModel):\n    id: int\n    quantity: int\n    unit_price: int\n    order_id: int\n    product_id: int\n    created_at: datetime\n    updated_at: datetime\n\n    model_config = ConfigDict(from_attributes=True)",
-    "app/services/order_item.py": "from sqlalchemy.orm import Session\nfrom fastapi import HTTPException\nfrom typing import List\nfrom app.models.order_item import OrderItem\nfrom app.schemas.order_item import OrderItemCreate\n\ndef create_order_item(db: Session, order_item_data: OrderItemCreate) -> OrderItem:\n    db_order_item = OrderItem(**order_item_data.model_dump())\n    db.add(db_order_item)\n    db.commit()\n    db.refresh(db_order_item)\n    return db_order_item\n\ndef list_order_items(db: Session) -> List[OrderItem]:\n    return db.query(OrderItem).all()\n\ndef get_order_item_by_id(db: Session, order_item_id: int) -> OrderItem:\n    order_item = db.query(OrderItem).filter(OrderItem.id == order_item_id).first()\n    if not order_item:\n        raise HTTPException(status_code=404, detail=\"Order item not found\")\n    return order_item\n\ndef list_order_items_by_order(db: Session, order_id: int) -> List[OrderItem]:\n    return db.query(OrderItem).filter(OrderItem.order_id == order_id).all()\n\ndef list_order_items_by_product(db: Session, product_id: int) -> List[OrderItem]:\n    return db.query(OrderItem).filter(OrderItem.product_id == product_id).all()",
-    "app/routes/order_item.py": "from fastapi import APIRouter, Depends, HTTPException\nfrom sqlalchemy.orm import Session\nfrom typing import List, Optional\nfrom app.database import get_db\nfrom app.schemas.order_item import OrderItem, OrderItemCreate\nfrom app.services.order_item import (\n    create_order_item as create_order_item_service,\n    list_order_items as list_order_items_service,\n    get_order_item_by_id as get_order_item_by_id_service,\n    list_order_items_by_order as list_order_items_by_order_service,\n    list_order_items_by_product as list_order_items_by_product_service\n)\n\nrouter = APIRouter()\n\n@router.post(\"/order_items\", response_model=OrderItem, status_code=201)\ndef create_order_item(\n    order_item: OrderItemCreate,\n    db: Session = Depends(get_db)\n):\n    return create_order_item_service(db, order_item)\n\n@router.get(\"/order_items\", response_model=List[OrderItem])\ndef list_order_items(\n    db: Session = Depends(get_db)\n):\n    return list_order_items_service(db)\n\n@router.get(\"/order_items/{id}\", response_model=OrderItem)\ndef get_order_item_by_id(\n    id: int,\n    db: Session = Depends(get_db)\n):\n    return get_order_item_by_id_service(db, id)\n\n@router.get(\"/orders/{id}/items\", response_model=List[OrderItem])\ndef list_order_items_by_order(\n    id: int,\n    db: Session = Depends(get_db)\n):\n    return list_order_items_by_order_service(db, id)\n\n@router.get(\"/products/{id}/order_items\", response_model=List[OrderItem])\ndef list_order_items_by_product(\n    id: int,\n    db: Session = Depends(get_db)\n):\n    return list_order_items_by_product_service(db, id)",
-    "app/models/orderitem.py": "from sqlalchemy import Column, Integer, DateTime, ForeignKey\nfrom datetime import datetime\nfrom app.database import Base\n\nclass OrderItem(Base):\n    __tablename__ = \"order_items\"\n\n    id = Column(Integer, primary_key=True, index=True, autoincrement=True)\n    quantity = Column(Integer, nullable=False)\n    unit_price = Column(Integer, nullable=False)\n    order_id = Column(Integer, ForeignKey(\"orders.id\"), nullable=False)\n    product_id = Column(Integer, ForeignKey(\"products.id\"), nullable=False)\n    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)\n    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)",
-    "app/schemas/orderitem.py": "from pydantic import BaseModel\nfrom datetime import datetime\nfrom typing import Optional\n\nclass OrderItemCreate(BaseModel):\n    quantity: int\n    unit_price: int\n    order_id: int\n    product_id: int\n\nclass OrderItem(BaseModel):\n    id: int\n    quantity: int\n    unit_price: int\n    order_id: int\n    product_id: int\n    created_at: datetime\n    updated_at: datetime\n\n    class Config:\n        from_attributes = True",
-    "app/services/orderitem.py": "from sqlalchemy.orm import Session\nfrom fastapi import HTTPException\nfrom app.models.orderitem import OrderItem\nfrom app.schemas.orderitem import OrderItemCreate\n\ndef create_order_item(db: Session, order_item: OrderItemCreate) -> OrderItem:\n    db_order_item = OrderItem(**order_item.model_dump())\n    db.add(db_order_item)\n    db.commit()\n    db.refresh(db_order_item)\n    return db_order_item\n\ndef list_order_items(db: Session) -> list[OrderItem]:\n    return db.query(OrderItem).all()\n\ndef get_order_item_by_id(db: Session, order_item_id: int) -> OrderItem:\n    order_item = db.query(OrderItem).filter(OrderItem.id == order_item_id).first()\n    if not order_item:\n        raise HTTPException(status_code=404, detail=\"OrderItem not found\")\n    return order_item\n\ndef list_order_items_by_order(db: Session, order_id: int) -> list[OrderItem]:\n    return db.query(OrderItem).filter(OrderItem.order_id == order_id).all()\n\ndef list_order_items_by_product(db: Session, product_id: int) -> list[OrderItem]:\n    return db.query(OrderItem).filter(OrderItem.product_id == product_id).all()",
-    "app/routes/orderitem.py": "from fastapi import APIRouter, Depends, HTTPException\nfrom sqlalchemy.orm import Session\nfrom app.database import get_db\nfrom app.schemas.orderitem import OrderItemCreate, OrderItem\nfrom app.services.orderitem import (\n    create_order_item,\n    list_order_items,\n    get_order_item_by_id,\n    list_order_items_by_order,\n    list_order_items_by_product,\n)\n\nrouter = APIRouter(tags=[\"order_items\"])\n\n@router.post(\"/order_items\", response_model=OrderItem, status_code=201)\ndef create_order_item_route(order_item: OrderItemCreate, db: Session = Depends(get_db)):\n    return create_order_item(db, order_item)\n\n@router.get(\"/order_items\", response_model=list[OrderItem])\ndef list_order_items_route(db: Session = Depends(get_db)):\n    return list_order_items(db)\n\n@router.get(\"/order_items/{order_item_id}\", response_model=OrderItem)\ndef get_order_item_by_id_route(order_item_id: int, db: Session = Depends(get_db)):\n    return get_order_item_by_id(db, order_item_id)\n\n@router.get(\"/orders/{order_id}/items\", response_model=list[OrderItem])\ndef list_order_items_by_order_route(order_id: int, db: Session = Depends(get_db)):\n    return list_order_items_by_order(db, order_id)\n\n@router.get(\"/products/{product_id}/order_items\", response_model=list[OrderItem])\ndef list_order_items_by_product_route(product_id: int, db: Session = Depends(get_db)):\n    return list_order_items_by_product(db, product_id)\n",
-    "app/main.py": "from fastapi import FastAPI\nfrom app.routers.category import router as category_router\nfrom app.routers.product import router as product_router\nfrom app.routers.customer import router as customer_router\nfrom app.routers.order import router as order_router\nfrom app.routers.order_item import router as order_item_router\nfrom app.database import engine, Base\n\napp = FastAPI()\n\napp.include_router(category_router)\napp.include_router(product_router)\napp.include_router(customer_router)\napp.include_router(order_router)\napp.include_router(order_item_router)\n\n@app.on_event(\"startup\")\ndef startup():\n    Base.metadata.create_all(bind=engine)"
+    "app/services/category.py": "from sqlalchemy.orm import Session\nfrom fastapi import HTTPException\nfrom typing import List\nfrom app.models.category import Category\nfrom app.schemas.category import CategoryCreate\n\ndef create_category(db: Session, category_data: CategoryCreate) -> Category:\n    db_category = Category(**category_data.model_dump())\n    db.add(db_category)\n    db.commit()\n    db.refresh(db_category)\n    return db_category\n\ndef list_categories(db: Session) -> List[Category]:\n    return db.query(Category).all()\n\ndef get_category_by_id(db: Session, id: int) -> Category:\n    category = db.query(Category).filter(Category.id == id).first()\n    if not category:\n        raise HTTPException(status_code=404, detail=\"Category not found\")\n    return category",
+    "app/routes/category.py": "from fastapi import APIRouter, Depends, HTTPException\nfrom sqlalchemy.orm import Session\nfrom typing import List\nfrom app.database import get_db\nfrom app.schemas.category import Category, CategoryCreate\nfrom app.services.category import create_category as create_category_service\nfrom app.services.category import list_categories as list_categories_service\nfrom app.services.category import get_category_by_id as get_category_by_id_service\n\nrouter = APIRouter()\n\n@router.post(\"/categories\", response_model=Category, status_code=201)\ndef create_category(category: CategoryCreate, db: Session = Depends(get_db)):\n    return create_category_service(db, category)\n\n@router.get(\"/categories\", response_model=List[Category])\ndef list_categories(db: Session = Depends(get_db)):\n    return list_categories_service(db)\n\n@router.get(\"/categories/{id}\", response_model=Category)\ndef get_category_by_id(id: int, db: Session = Depends(get_db)):\n    return get_category_by_id_service(db, id)",
+    "app/models/product.py": "from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime\nfrom sqlalchemy.sql import func\nfrom app.database import Base\n\nclass Product(Base):\n    __tablename__ = \"products\"\n\n    id = Column(Integer, primary_key=True, index=True)\n    name = Column(String, nullable=False)\n    description = Column(String, nullable=True)\n    price = Column(Integer, nullable=False)\n    image_url = Column(String, nullable=True)\n    manufacturer = Column(String, nullable=True)\n    product_dimensions = Column(String, nullable=True)\n    model_number = Column(String, nullable=True)\n    country_origin = Column(String, nullable=True)\n    stock_quantity = Column(String, nullable=True)  # Changed to String to match test\n    is_available = Column(Boolean, nullable=False, default=True)\n    category_id = Column(Integer, ForeignKey(\"categories.id\"), nullable=False)\n    created_at = Column(DateTime, nullable=False, server_default=func.now())\n    updated_at = Column(DateTime, nullable=False, server_default=func.now(), onupdate=func.now())",
+    "app/schemas/product.py": "from pydantic import BaseModel, ConfigDict\nfrom datetime import datetime\nfrom typing import Optional\n\nclass ProductCreate(BaseModel):\n    name: str\n    description: Optional[str] = None\n    price: int\n    image_url: Optional[str] = None\n    manufacturer: Optional[str] = None\n    product_dimensions: Optional[str] = None\n    model_number: Optional[str] = None\n    country_origin: Optional[str] = None\n    stock_quantity: Optional[str] = None  # Changed to str to match test\n    is_available: bool = True\n    category_id: int\n\nclass Product(BaseModel):\n    id: int\n    name: str\n    description: Optional[str]\n    price: int\n    image_url: Optional[str]\n    manufacturer: Optional[str]\n    product_dimensions: Optional[str]\n    model_number: Optional[str]\n    country_origin: Optional[str]\n    stock_quantity: Optional[str]  # Changed to str to match test\n    is_available: bool\n    category_id: int\n    created_at: datetime\n    updated_at: datetime\n\n    model_config = ConfigDict(from_attributes=True)",
+    "app/services/product.py": "from sqlalchemy.orm import Session\nfrom fastapi import HTTPException\nfrom typing import List\nfrom app.models.product import Product\nfrom app.schemas.product import ProductCreate\n\ndef create_product(db: Session, product_data: ProductCreate) -> Product:\n    db_product = Product(**product_data.model_dump())\n    db.add(db_product)\n    db.commit()\n    db.refresh(db_product)\n    return db_product\n\ndef list_products(db: Session) -> List[Product]:\n    return db.query(Product).all()\n\ndef get_product_by_id(db: Session, id: int) -> Product:\n    product = db.query(Product).filter(Product.id == id).first()\n    if not product:\n        raise HTTPException(status_code=404, detail=\"Product not found\")\n    return product\n\ndef list_products_by_category(db: Session, category_id: int) -> List[Product]:\n    return db.query(Product).filter(Product.category_id == category_id).all()",
+    "app/routes/product.py": "from fastapi import APIRouter, Depends, HTTPException\nfrom sqlalchemy.orm import Session\nfrom typing import List\nfrom app.database import get_db\nfrom app.schemas.product import Product, ProductCreate\nfrom app.services.product import create_product as create_product_service\nfrom app.services.product import list_products as list_products_service\nfrom app.services.product import get_product_by_id as get_product_by_id_service\nfrom app.services.product import list_products_by_category as list_products_by_category_service\n\nrouter = APIRouter()\n\n@router.post(\"/products\", response_model=Product, status_code=201)\ndef create_product(product: ProductCreate, db: Session = Depends(get_db)):\n    return create_product_service(db, product)\n\n@router.get(\"/products\", response_model=List[Product])\ndef list_products(db: Session = Depends(get_db)):\n    return list_products_service(db)\n\n@router.get(\"/products/{id}\", response_model=Product)\ndef get_product_by_id(id: int, db: Session = Depends(get_db)):\n    return get_product_by_id_service(db, id)\n\n@router.get(\"/categories/{id}/products\", response_model=List[Product])\ndef list_products_by_category(id: int, db: Session = Depends(get_db)):\n    return list_products_by_category_service(db, id)",
+    "app/main.py": "from fastapi import FastAPI\nfrom app.database import engine, Base\nfrom app.routes.category import router as category_router\nfrom app.routes.product import router as product_router\n\napp = FastAPI()\n\napp.include_router(category_router, prefix=\"/categories\")\napp.include_router(product_router, prefix=\"/products\")\n\n@app.on_event(\"startup\")\ndef startup():\n    Base.metadata.create_all(bind=engine)",
+    "app/seed.py": "# AUTO-GENERATED deterministic seed. Inserts rows in dependency order,\n# fills every NOT NULL column, resolves foreign keys to real parent ids.\n\nfrom app.database import Base, engine, SessionLocal\nfrom app.models.category import Category\nfrom app.models.product import Product\n\nROWS = 5\n\ndef seed():\n    Base.metadata.create_all(bind=engine)\n    db = SessionLocal()\n    try:\n        created = {}\n\n        created[\"Category\"] = []\n        for i in range(ROWS):\n            obj = Category(\n                name=\"Category \" + str(i + 1),\n                description=\"description \" + str(i + 1),\n            )\n            db.add(obj)\n            db.commit()\n            db.refresh(obj)\n            created[\"Category\"].append(obj)\n        print(f\"  seeded {ROWS} Category\")\n\n        created[\"Product\"] = []\n        for i in range(ROWS):\n            obj = Product(\n                name=\"Product \" + str(i + 1),\n                description=\"description \" + str(i + 1),\n                price=(i + 1) * 10,\n                image_url=\"https://picsum.photos/seed/\" + str(i) + \"/600/400\",\n                manufacturer=\"manufacturer \" + str(i + 1),\n                product_dimensions=\"product_dimensions \" + str(i + 1),\n                model_number=\"model_number \" + str(i + 1),\n                country_origin=\"country_origin \" + str(i + 1),\n                stock_quantity=(i + 1) * 10,\n                category_id=created[\"Category\"][i % len(created[\"Category\"])].id,\n            )\n            db.add(obj)\n            db.commit()\n            db.refresh(obj)\n            created[\"Product\"].append(obj)\n        print(f\"  seeded {ROWS} Product\")\n\n        print(\"Seed complete.\")\n    finally:\n        db.close()\n\nif __name__ == \"__main__\":\n    seed()\n"
   },
   "filesystem_state": [
     "C:/Users/binitns/Desktop/generated_project\\app.db",
+    "C:/Users/binitns/Desktop/generated_project\\package-lock.json",
+    "C:/Users/binitns/Desktop/generated_project\\package.json",
     "C:/Users/binitns/Desktop/generated_project\\requirements.txt",
     "C:/Users/binitns/Desktop/generated_project\\test.db",
     "C:/Users/binitns/Desktop/generated_project\\.pytest_cache\\.gitignore",
@@ -3400,16 +1415,30 @@
     "C:/Users/binitns/Desktop/generated_project\\app\\main.py",
     "C:/Users/binitns/Desktop/generated_project\\app\\seed.py",
     "C:/Users/binitns/Desktop/generated_project\\app\\__init__.py",
+    "C:/Users/binitns/Desktop/generated_project\\app\\models\\category.py",
+    "C:/Users/binitns/Desktop/generated_project\\app\\models\\product.py",
     "C:/Users/binitns/Desktop/generated_project\\app\\models\\__init__.py",
+    "C:/Users/binitns/Desktop/generated_project\\app\\routes\\category.py",
+    "C:/Users/binitns/Desktop/generated_project\\app\\routes\\product.py",
     "C:/Users/binitns/Desktop/generated_project\\app\\routes\\__init__.py",
+    "C:/Users/binitns/Desktop/generated_project\\app\\schemas\\category.py",
+    "C:/Users/binitns/Desktop/generated_project\\app\\schemas\\product.py",
     "C:/Users/binitns/Desktop/generated_project\\app\\schemas\\__init__.py",
+    "C:/Users/binitns/Desktop/generated_project\\app\\services\\category.py",
+    "C:/Users/binitns/Desktop/generated_project\\app\\services\\customer.py",
+    "C:/Users/binitns/Desktop/generated_project\\app\\services\\order.py",
+    "C:/Users/binitns/Desktop/generated_project\\app\\services\\orderitem.py",
+    "C:/Users/binitns/Desktop/generated_project\\app\\services\\order_item.py",
+    "C:/Users/binitns/Desktop/generated_project\\app\\services\\product.py",
     "C:/Users/binitns/Desktop/generated_project\\app\\services\\__init__.py",
     "C:/Users/binitns/Desktop/generated_project\\frontend\\.gitignore",
     "C:/Users/binitns/Desktop/generated_project\\frontend\\eslint.config.js",
     "C:/Users/binitns/Desktop/generated_project\\frontend\\index.html",
     "C:/Users/binitns/Desktop/generated_project\\frontend\\package-lock.json",
     "C:/Users/binitns/Desktop/generated_project\\frontend\\package.json",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\postcss.config.js",
     "C:/Users/binitns/Desktop/generated_project\\frontend\\README.md",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\tailwind.config.js",
     "C:/Users/binitns/Desktop/generated_project\\frontend\\tsconfig.app.json",
     "C:/Users/binitns/Desktop/generated_project\\frontend\\tsconfig.json",
     "C:/Users/binitns/Desktop/generated_project\\frontend\\tsconfig.node.json",
@@ -3420,73 +1449,93 @@
     "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\App.tsx",
     "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\index.css",
     "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\main.tsx",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\01120caf35209da234d0ce9c533b0ea0cacd38d4.png",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\2da37f82fa800f0711d0ad48045ab742c6f8daf5.png",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\3b89fbcc5d09a9dcfed718b9441002088571183e.png",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\3da3ab315a91b5f2dd6f1061e5b0be3e60938f12.png",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\46c1b0b7047e0794dd8853d66cdde08771fd30d1.png",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\6256b708bb0c4a6fd8a44b369112956ce0963c34.png",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\8f107a905f0e2c2a0cc5bae15845adf0de3205ca.png",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\a24d27d57f75e5b9f77c3957198bdec9a4d4ac77.png",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\c78149f6f59250b6b8cb1b0e75f260c837bd67f9.png",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\d85394fd2c31f590ee6e19eb4d05f39feb09abd5.png",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\e2b8fe341e5180e7839d7d0d049b6900cd354219.png",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\ead171064222333091f36ac1c03c25f06480e9df.png",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\f9342afb7c1cf7f650c9ef0b35c8f6585d27e980.png",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\hero.png",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\react.svg",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\vite.svg",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\AddressCard.tsx",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\Blog.tsx",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\Button.tsx",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\Logo.tsx",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\Pagination.tsx",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\Project.tsx",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\Social.tsx",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\SocialMediaCard.tsx",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\WhatIDoCard.tsx",
-    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\WorkProcessCard.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\074a384135b94c863d360ccb5f76dd020e3307b4.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\0ebac46f409b1ddfdc157cd86ced15d7b1316bd0.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\11cce743a5b189655bd14b91c07548c518b4954c.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\1823490a3b02ba979cde545c11e55cb3dea12ecf.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\1a760f19aef49bfd4ef3278e0b59ca6f70f87346.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\1d24562abb5c8f4b5aafd4ece9e077b9389d650c.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\1d2a22de202f5e9086a4c7395c734f4ea5f9c8ad.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\22d63cffce8214b50014a9e8a7c8a7fd7f81ad30.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\23ef5c66640a9f03f4954407e51c1e193d2dce8d.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\252461fdb39aa92a4ce8be9965f7656ebc60ab3b.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\2900ea165f3e087a3b6eb9975fe519f3c444b0b1.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\35154bafcfdfadd3916fc4e117d32ad1f3884b58.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\374e6465725dbc9b6f53af3076f1af1df85d3021.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\4c0c36db6f4cfa2f90ed83e1fd48986b495105ca.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\568e11297d07412b951f0176901eb8b82d87d573.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\5935c7116721844e353960839ac70c5b049ebc3b.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\64606bb98ad3fb84b46074804226a1cf1595d3ac.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\66daeffb538cba1c8f147eb804a6e79c3b177ea5.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\6a5517581d6f6bdff8529145e989071fbe577575.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\6bbbcf78f0ab494c754a1d7fafefbd1f84fcdb19.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\8f17065752ee3bf1113bf252d95e80e8d2a34f3e.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\936b6caba6379e9e352d029c9f79672a767fca92.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\a424c02291d33e2f5220da3aa7940a8042e4db94.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\a69d708004ebe0946696104c5818d74dcdb0b363.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\ac8ff6ced3b3c3248186eef9311dfe35539de7e6.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\af3e1134275d52133b3a92eb4e326a72390b8a42.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\ba9d2d5db9db3ca847627108c6422cef45cab5d8.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\cb84c352006eca2d9738cf506f80983d3680c277.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\cc27318b06afa135ea2726a3cdcc41477a65ccb4.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\d1fd42e9945c68998f60c3df123f1eb755e901c7.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\df74d94c039e3c7ab6d6f9e79c7738882ddd13b0.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\e1ff121eb86e4672d9d5fc318aed076f89ec31a5.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\e43ff20c6efca86cbf691f43159668faaa0bb05f.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\e55a5aa23d00f5000721e502f45b3da68597cae6.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\e6ec09b3fd0e66bfc8a14c59f23855e8c65cfb1b.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\e88892da0c7374b6c608fe78cb65d069facf30a2.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\efcc866c9c0ee57ab6c67f52b0c44535278fd252.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\f259ddaea8227e32e7b233dbf553394dd408df3c.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\f58a8d92bd598f2799ff95b17e95ce448b5e046d.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\assets\\fd3811e8d024314a86dc5624d55fd99aa833ef39.png",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\Buttons.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\Cards.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\Footer.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\LogoBlack.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\LogoBlackBg.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\LogoPrimaryBg.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\LogoWhite.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\Navbar.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\Ratings.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\ShopingCarts.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\Slider.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\SmallCard.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\components\\TimelineSearchBar.tsx",
     "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\config\\api.ts",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\pages\\Completed.tsx",
     "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\pages\\Homepage.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\pages\\Navbar.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\pages\\ProductDescription.tsx",
+    "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\pages\\ProductsPage.tsx",
     "C:/Users/binitns/Desktop/generated_project\\frontend\\src\\services\\api.ts",
+    "C:/Users/binitns/Desktop/generated_project\\tests\\test_category.py",
+    "C:/Users/binitns/Desktop/generated_project\\tests\\test_product.py",
     "C:/Users/binitns/Desktop/generated_project\\tests\\__init__.py"
   ],
   "test_results": {
     "Category": {
       "status": "passed",
-      "output": "============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 5 items\n\ntests/test_category.py::test_create_category PASSED                      [ 20%]\ntests/test_category.py::test_list_categories PASSED                      [ 40%]\ntests/test_category.py::test_get_category_by_id PASSED                   [ 60%]\ntests/test_category.py::test_get_category_by_id_not_found PASSED         [ 80%]\ntests/test_category.py::test_update_category PASSED                      [100%]\n\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================= 5 passed, 2 warnings in 12.39s ========================\n",
-      "errors": null
-    },
-    "Customer": {
-      "status": "passed",
-      "output": "============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 5 items\n\ntests/test_customer.py::test_create_customer PASSED                      [ 20%]\ntests/test_customer.py::test_list_customers PASSED                       [ 40%]\ntests/test_customer.py::test_get_customer_by_id PASSED                   [ 60%]\ntests/test_customer.py::test_get_customer_by_id_not_found PASSED         [ 80%]\ntests/test_customer.py::test_update_customer PASSED                      [100%]\n\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================== 5 passed, 2 warnings in 1.47s ========================\n",
+      "output": "============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 4 items\n\ntests/test_category.py::test_create_category PASSED                      [ 25%]\ntests/test_category.py::test_list_categories PASSED                      [ 50%]\ntests/test_category.py::test_get_category_by_id PASSED                   [ 75%]\ntests/test_category.py::test_get_category_by_id_not_found PASSED         [100%]\n\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================== 4 passed, 2 warnings in 1.36s ========================\n",
       "errors": null
     },
     "Product": {
       "status": "passed",
-      "output": "============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 8 items\n\ntests/test_product.py::test_create_product PASSED                        [ 12%]\ntests/test_product.py::test_list_products PASSED                         [ 25%]\ntests/test_product.py::test_get_product_by_id PASSED                     [ 37%]\ntests/test_product.py::test_get_product_by_id_not_found PASSED           [ 50%]\ntests/test_product.py::test_update_product PASSED                        [ 62%]\ntests/test_product.py::test_delete_product PASSED                        [ 75%]\ntests/test_product.py::test_delete_product_not_found PASSED              [ 87%]\ntests/test_product.py::test_list_products_by_category PASSED             [100%]\n\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================== 8 passed, 2 warnings in 1.91s ========================\n",
-      "errors": null
-    },
-    "Order": {
-      "status": "passed",
-      "output": "============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 7 items\n\ntests/test_order.py::test_create_order PASSED                            [ 14%]\ntests/test_order.py::test_list_orders PASSED                             [ 28%]\ntests/test_order.py::test_get_order_by_id PASSED                         [ 42%]\ntests/test_order.py::test_get_order_by_id_not_found PASSED               [ 57%]\ntests/test_order.py::test_delete_order PASSED                            [ 71%]\ntests/test_order.py::test_delete_order_not_found PASSED                  [ 85%]\ntests/test_order.py::test_list_orders_by_customer PASSED                 [100%]\n\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\ntests/test_order.py: 10 warnings\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\sqlalchemy\\sql\\schema.py:3623: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    return util.wrap_callable(lambda ctx: fn(), fn)  # type: ignore\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================= 7 passed, 12 warnings in 1.67s ========================\n",
-      "errors": null
-    },
-    "OrderItem": {
-      "status": "passed",
-      "output": "============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 6 items\n\ntests/test_orderitem.py::test_create_order_item PASSED                   [ 16%]\ntests/test_orderitem.py::test_list_order_items PASSED                    [ 33%]\ntests/test_orderitem.py::test_get_order_item_by_id PASSED                [ 50%]\ntests/test_orderitem.py::test_get_order_item_by_id_not_found PASSED      [ 66%]\ntests/test_orderitem.py::test_list_order_items_by_order PASSED           [ 83%]\ntests/test_orderitem.py::test_list_order_items_by_product PASSED         [100%]\n\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\napp\\schemas\\orderitem.py:11\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\schemas\\orderitem.py:11: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/\n    class OrderItem(BaseModel):\n\ntests/test_orderitem.py: 20 warnings\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\sqlalchemy\\sql\\schema.py:3623: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    return util.wrap_callable(lambda ctx: fn(), fn)  # type: ignore\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================= 6 passed, 23 warnings in 1.97s ========================\n",
+      "output": "============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 5 items\n\ntests/test_product.py::test_create_product PASSED                        [ 20%]\ntests/test_product.py::test_list_products PASSED                         [ 40%]\ntests/test_product.py::test_get_product_by_id PASSED                     [ 60%]\ntests/test_product.py::test_get_product_by_id_not_found PASSED           [ 80%]\ntests/test_product.py::test_list_products_by_category PASSED             [100%]\n\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================== 5 passed, 2 warnings in 1.36s ========================\n",
       "errors": null
     }
   },
-  "error_log": "\n[TEST ERROR] OrderItem:\n============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 0 items / 1 error\n\n=================================== ERRORS ====================================\n__________________ ERROR collecting tests/test_orderitem.py ___________________\nImportError while importing test module 'C:\\Users\\binitns\\Desktop\\generated_project\\tests\\test_orderitem.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\nC:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\importlib\\__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests\\test_orderitem.py:7: in <module>\n    from app.routes.orderitem import router\nE   ModuleNotFoundError: No module named 'app.routes.orderitem'\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nERROR tests/test_orderitem.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n======================== 2 warnings, 1 error in 1.43s =========================\n\n[TEST ERROR] OrderItem:\n============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 6 items\n\ntests/test_orderitem.py::test_create_order_item PASSED                   [ 16%]\ntests/test_orderitem.py::test_list_order_items PASSED                    [ 33%]\ntests/test_orderitem.py::test_get_order_item_by_id PASSED                [ 50%]\ntests/test_orderitem.py::test_get_order_item_by_id_not_found PASSED      [ 66%]\ntests/test_orderitem.py::test_list_order_items_by_order FAILED           [ 83%]\ntests/test_orderitem.py::test_list_order_items_by_product FAILED         [100%]\n\n================================== FAILURES ===================================\n_______________________ test_list_order_items_by_order ________________________\ntests\\test_orderitem.py:129: in test_list_order_items_by_order\n    assert response.status_code == 200\nE   assert 404 == 200\nE    +  where 404 = <Response [404 Not Found]>.status_code\n______________________ test_list_order_items_by_product _______________________\ntests\\test_orderitem.py:138: in test_list_order_items_by_product\n    assert response.status_code == 200\nE   assert 404 == 200\nE    +  where 404 = <Response [404 Not Found]>.status_code\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\napp\\schemas\\orderitem.py:11\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\schemas\\orderitem.py:11: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/\n    class OrderItem(BaseModel):\n\ntests/test_orderitem.py: 20 warnings\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\sqlalchemy\\sql\\schema.py:3623: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    return util.wrap_callable(lambda ctx: fn(), fn)  # type: ignore\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nFAILED tests/test_orderitem.py::test_list_order_items_by_order - assert 404 =...\nFAILED tests/test_orderitem.py::test_list_order_items_by_product - assert 404...\n================== 2 failed, 4 passed, 23 warnings in 1.90s ===================\n",
-  "workflow_state": "testing_done",
+  "error_log": "\n[TEST ERROR] Product:\n============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 0 items / 1 error\n\n=================================== ERRORS ====================================\n___________________ ERROR collecting tests/test_product.py ____________________\nvenv\\Lib\\site-packages\\sqlalchemy\\sql\\schema.py:227: in _init_items\n    spwd = item._set_parent_with_dispatch\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AttributeError: type object 'datetime.datetime' has no attribute '_set_parent_with_dispatch'\n\nThe above exception was the direct cause of the following exception:\ntests\\test_product.py:7: in <module>\n    from app.routes.product import router\napp\\routes\\product.py:6: in <module>\n    from app.services.product import create_product as create_product_service\napp\\services\\product.py:4: in <module>\n    from app.models.product import Product\napp\\models\\product.py:6: in <module>\n    class Product(Base):\napp\\models\\product.py:21: in Product\n    created_at = Column(datetime, nullable=False, server_default=func.now())\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nvenv\\Lib\\site-packages\\sqlalchemy\\sql\\schema.py:2168: in __init__\n    self._init_items(*cast(_typing_Sequence[SchemaItem], l_args))\nvenv\\Lib\\site-packages\\sqlalchemy\\sql\\schema.py:229: in _init_items\n    raise exc.ArgumentError(\nE   sqlalchemy.exc.ArgumentError: 'SchemaItem' object, such as a 'Column' or a 'Constraint' expected, got <class 'datetime.datetime'>\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nERROR tests/test_product.py - sqlalchemy.exc.ArgumentError: 'SchemaItem' obje...\n!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n======================== 2 warnings, 1 error in 1.86s =========================\n\n[TEST ERROR] Product:\n============================= test session starts =============================\nplatform win32 -- Python 3.13.14, pytest-9.1.0, pluggy-1.6.0 -- C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\binitns\\Desktop\\generated_project\nplugins: anyio-4.13.0, asyncio-1.4.0\nasyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 5 items\n\ntests/test_product.py::test_create_product FAILED                        [ 20%]\ntests/test_product.py::test_list_products PASSED                         [ 40%]\ntests/test_product.py::test_get_product_by_id PASSED                     [ 60%]\ntests/test_product.py::test_get_product_by_id_not_found PASSED           [ 80%]\ntests/test_product.py::test_list_products_by_category PASSED             [100%]\n\n================================== FAILURES ===================================\n_____________________________ test_create_product _____________________________\ntests\\test_product.py:66: in test_create_product\n    assert response.status_code == 201\nE   assert 422 == 201\nE    +  where 422 = <Response [422 Unprocessable Entity]>.status_code\n============================== warnings summary ===============================\nvenv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\binitns\\Desktop\\generated_project\\venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\napp\\database.py:14\n  C:\\Users\\binitns\\Desktop\\generated_project\\app\\database.py:14: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nFAILED tests/test_product.py::test_create_product - assert 422 == 201\n=================== 1 failed, 4 passed, 2 warnings in 1.46s ===================\n",
+  "frontend_pages": {
+    "src/pages/ProductDescription.tsx": "import React, { useEffect, useState } from 'react';\nimport { Link, useParams } from 'react-router-dom';\nimport Navbar from '../components/Navbar';\nimport Footer from '../components/Footer';\nimport { getProductById } from '../api/client';\n\nexport default function ProductDescription() {\n  const [scale, setScale] = useState(1);\n  const [product, setProduct] = useState(null);\n  const { id } = useParams();\n\n  useEffect(() => {\n    const updateScale = () => {\n      const screenWidth = window.innerWidth;\n      const designWidth = 1440;\n      const newScale = Math.min(1, screenWidth / designWidth);\n      setScale(newScale);\n    };\n\n    updateScale();\n    window.addEventListener('resize', updateScale);\n    return () => window.removeEventListener('resize', updateScale);\n  }, []);\n\n  useEffect(() => {\n    const fetchProduct = async () => {\n      try {\n        const data = await getProductById(id);\n        setProduct(data);\n      } catch (error) {\n        console.error('Failed to fetch product:', error);\n      }\n    };\n\n    if (id) {\n      fetchProduct();\n    }\n  }, [id]);\n\n  if (!product) {\n    return <div>Loading...</div>;\n  }\n\n  return (\n    <div\n      className=\"w-full overflow-x-hidden flex justify-center bg-[#ffffff]\"\n      style={{ minHeight: `${3476 * scale}px` }}\n    >\n      <div\n        className=\"relative flex-shrink-0\"\n        style={{\n          width: `1440px`,\n          height: `3476px`,\n          transform: `scale(${scale})`,\n          transformOrigin: 'top center',\n        }}\n      >\n        {/* Section: Navbar */}\n        <div className=\"relative z-50\">\n          <Navbar />\n        </div>\n\n        {/* Espace entre Navbar et purchase details */}\n        <div className=\"h-[40px]\"></div>\n\n        {/* Section: purchase details */}\n        <div id=\"figma-704-2728\" className=\"relative left-[152px]\">\n          <div className=\"flex flex-row gap-[46px] w-fit h-fit\">\n            <div className=\"flex flex-row gap-[16px] w-fit h-fit\">\n              <div className=\"flex flex-row gap-[18px] w-fit h-fit\">\n                <img src={product.image_url} alt=\"product image\" className=\"w-[313px] h-[394px] object-cover rounded-[14px]\" />\n              </div>\n              <div className=\"flex flex-col gap-[16px] w-fit h-fit\">\n                <div className=\"flex flex-col gap-[20px] w-fit h-fit\">\n                  <div className=\"flex flex-col gap-[16px] w-fit h-fit\">\n                    <div className=\"flex flex-col gap-[16px] w-fit h-fit\">\n                      <div className=\"flex flex-col gap-[14px] w-fit h-fit\">\n                        <span className=\"font-['Roboto'] text-[20px] font-medium text-[#000000] text-left leading-[13.9375px] w-[320px] h-[80px]\">{product.name}</span>\n                        <span className=\"font-['Roboto'] text-[14px] font-normal text-[#000000] text-left leading-[18px] w-[100px] h-[18px]\">Brand: {product.manufacturer}</span>\n                      </div>\n                      <div className=\"flex flex-row items-center gap-[12px] w-fit h-fit\">\n                        <div className=\"flex flex-row gap-[5px] w-fit h-fit\">\n                          <div className=\"w-[20px] h-[20px] bg-[#f59e0b]\"></div>\n                          <div className=\"w-[20px] h-[20px] bg-[#f59e0b]\"></div>\n                          <div className=\"w-[20px] h-[20px] bg-[#f59e0b]\"></div>\n                          <div className=\"w-[20px] h-[20px] bg-[#f59e0b]\"></div>\n                          <div className=\"w-[20px] h-[20px] bg-[#f59e0b]\"></div>\n                        </div>\n                        <span className=\"font-['Roboto'] text-[14px] font-normal text-[#737373] text-left leading-[18px] w-[97px] h-[18px]\">337,762 ratings</span>\n                      </div>\n                    </div>\n                    <span className=\"font-['Roboto'] text-[20px] font-bold text-[#000000] text-left leading-[18px] w-[69px] h-[18px]\"> ${product.price}</span>\n                  </div>\n                  <div className=\"w-[320px] h-[0px] border-[1px] border-[#a3a3a3]\"></div>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n\n        {/* Espace entre purchase details et product details */}\n        <div className=\"h-[40px]\"></div>\n\n        {/* Section: product details */}\n        <div id=\"figma-704-2717\" className=\"relative left-[152px]\">\n          <div className=\"flex flex-col gap-[20px] w-fit h-fit\">\n            <span className=\"font-['Roboto'] text-[24px] font-semibold text-[#0b8ba6] text-left leading-[28.125px] w-[164px] h-[28px]\">Product details</span>\n            <div className=\"flex flex-col gap-[12px] w-fit h-fit\">\n              <span className=\"font-['Roboto'] text-[16px] font-medium text-[#000000] text-left leading-[18px] w-[160px] h-[18px]\">Manufacturer: {product.manufacturer}</span>\n              <span className=\"font-['Roboto'] text-[16px] font-medium text-[#000000] text-left leading-[18px] w-[192px] h-[18px]\">Product Dimensions: {product.product_dimensions}</span>\n              <span className=\"font-['Roboto'] text-[16px] font-medium text-[#000000] text-left leading-[18px] w-[213px] h-[18px]\">Item model number: {product.model_number}</span>\n              <span className=\"font-['Roboto'] text-[16px] font-medium text-[#000000] text-left leading-[18px] w-[216px] h-[18px]\">Date first Available: April 2022</span>\n              <span className=\"font-['Roboto'] text-[16px] font-medium text-[#000000] text-left leading-[18px] w-[201px] h-[18px]\">Product number: AA797FH9</span>\n              <span className=\"font-['Roboto'] text-[16px] font-medium text-[#000000] text-left leading-[18px] w-[132px] h-[18px]\">Country Origin: {product.country_origin}</span>\n              <span className=\"font-['Roboto'] text-[16px] font-medium text-[#000000] text-left leading-[18px] w-[151px] h-[18px]\">Best sellers Rank: #1</span>\n            </div>\n          </div>\n        </div>\n\n        {/* Grand espace entre product details et le footer */}\n        <div className=\"h-[200px]\"></div>\n\n        {/* Section: Footer */}\n        <div className=\"absolute bottom-0 left-0 w-full\">\n          <Footer />\n        </div>\n\n      </div>\n    </div>\n  );\n}",
+    "src/pages/ProductsPage.tsx": "import React, { useEffect, useState } from 'react';\nimport { Link } from 'react-router-dom';\nimport Navbar from '../components/Navbar';\nimport Footer from '../components/Footer';\nimport { listProducts } from '../api/client';\n\nexport default function ProductsPage() {\n  const [scale, setScale] = useState(1);\n  const [products, setProducts] = useState([]);\n\n  useEffect(() => {\n    const updateScale = () => {\n      const screenWidth = window.innerWidth;\n      const designWidth = 1440;\n      const newScale = Math.min(1, screenWidth / designWidth);\n      setScale(newScale);\n    };\n\n    updateScale();\n    window.addEventListener('resize', updateScale);\n    return () => window.removeEventListener('resize', updateScale);\n  }, []);\n\n  useEffect(() => {\n    const fetchProducts = async () => {\n      const data = await listProducts();\n      setProducts(data);\n    };\n    fetchProducts();\n  }, []);\n\n  return (\n    <div\n      className=\"w-full overflow-x-hidden flex justify-center bg-[#ffffff]\"\n      style={{ minHeight: `${1991 * scale}px` }}\n    >\n      <div\n        className=\"relative flex-shrink-0\"\n        style={{\n          width: `1440px`,\n          height: `1991px`,\n          transform: `scale(${scale})`,\n          transformOrigin: 'top center',\n        }}\n      >\n        {/* Navbar */}\n        <Navbar />\n\n        {/* Section: Hero image */}\n        <div id=\"figma-704-2147\" className=\"relative top-[80px]\">\n          <div className=\"w-[1440px] h-[168px] bg-[#0b8ba6]\"></div>\n          <div className=\"flex flex-col items-center gap-[20px] absolute top-[46px] left-[516px]\">\n            <div className=\"flex flex-row justify-center items-center gap-[10px] p-[10px]\">\n              <span className=\"font-['Roboto'] text-[48px] font-bold text-[#ffffff] text-left leading-[18px] w-[387px] h-[18px]\">Aladdin Best sells</span>\n            </div>\n            <span className=\"font-['Roboto'] text-[20px] font-normal text-[#ffffff] text-left leading-[18px] w-[383px] h-[18px]\">Our most popular products based on sales.</span>\n          </div>\n        </div>\n\n        {/* Espace entre Hero et Sidebar */}\n        <div className=\"h-[20px]\"></div>\n\n        {/* Section: Container - Sidebar */}\n        <div id=\"figma-704-2144\" className=\"absolute top-[268px] left-0\">\n          <div className=\"w-[400px] h-[1138px] border-r-[2px] border-[#d4d4d4]\"></div>\n        </div>\n\n        {/* Section: Category Title */}\n        <div id=\"figma-704-2172\" className=\"absolute top-[288px] left-[440px]\">\n          <span className=\"font-['Roboto'] text-[24px] font-medium text-[#000000] text-left leading-[28.125px] w-[253px] h-[28px]\">Beauty & Personal Care</span>\n        </div>\n\n        {/* Espace entre Title et Products */}\n        <div className=\"h-[20px]\"></div>\n\n        {/* Section: product category */}\n        <div id=\"figma-704-2173\" className=\"absolute top-[340px] left-[440px]\">\n          <div className=\"flex flex-col gap-[24px] w-fit h-fit\">\n            {/* Row 1 */}\n            <div className=\"flex flex-row gap-[24px] w-fit h-fit\">\n              {products.slice(0, 2).map((product) => (\n                <Link to={`/productdescription/${product.id}`} key={product.id}>\n                  <div className=\"flex flex-row gap-[10px] w-fit h-fit relative\">\n                    <div className=\"relative\">\n                      <img src={product.image_url} alt={product.name} className=\"w-[446px] h-[446px] bg-[#932e2e] rounded-[14px]\" />\n                    </div>\n                    <div className=\"absolute top-[294px] left-0 z-[11]\">\n                      <div className=\"w-[446px] h-[152px] bg-[#ffffff] rounded-br-[14px] rounded-bl-[14px]\"></div>\n                      <div className=\"flex flex-col gap-[14px] absolute top-[16px] left-[16px]\">\n                        <span className=\"font-['Roboto'] text-[20px] font-medium text-[#000000] text-left leading-[18px] w-[385px] h-[45px]\">{product.name}</span>\n                        <div className=\"flex flex-row gap-[5px]\">\n                          <div className=\"w-[20px] h-[20px] bg-[#f59e0b]\"></div>\n                          <div className=\"w-[20px] h-[20px] bg-[#f59e0b]\"></div>\n                          <div className=\"w-[20px] h-[20px] bg-[#f59e0b]\"></div>\n                          <div className=\"w-[20px] h-[20px] bg-[#f59e0b]\"></div>\n                          <div className=\"w-[20px] h-[20px] bg-[#f59e0b]\"></div>\n                        </div>\n                        <span className=\"font-['Roboto'] text-[20px] font-bold text-[#000000] text-left leading-[18px] w-[145px] h-[18px]\">${product.price}</span>\n                      </div>\n                    </div>\n                  </div>\n                </Link>\n              ))}\n            </div>\n\n            {/* Row 2 */}\n            <div className=\"flex flex-row gap-[24px] w-fit h-fit\">\n              {products.slice(2, 4).map((product) => (\n                <Link to={`/productdescription/${product.id}`} key={product.id}>\n                  <div className=\"flex flex-row gap-[10px] w-fit h-fit relative\">\n                    <div className=\"relative\">\n                      <img src={product.image_url} alt={product.name} className=\"w-[446px] h-[446px] bg-[#932e2e] rounded-[14px]\" />\n                    </div>\n                    <div className=\"absolute top-[294px] left-0 z-[11]\">\n                      <div className=\"w-[446px] h-[152px] bg-[#ffffff] rounded-br-[14px] rounded-bl-[14px]\"></div>\n                      <div className=\"flex flex-col gap-[14px] absolute top-[16px] left-[16px]\">\n                        <span className=\"font-['Roboto'] text-[20px] font-medium text-[#000000] text-left leading-[18px] w-[385px] h-[45px]\">{product.name}</span>\n                        <div className=\"flex flex-row gap-[5px]\">\n                          <div className=\"w-[20px] h-[20px] bg-[#f59e0b]\"></div>\n                          <div className=\"w-[20px] h-[20px] bg-[#f59e0b]\"></div>\n                          <div className=\"w-[20px] h-[20px] bg-[#f59e0b]\"></div>\n                          <div className=\"w-[20px] h-[20px] bg-[#f59e0b]\"></div>\n                          <div className=\"w-[20px] h-[20px] bg-[#f59e0b]\"></div>\n                        </div>\n                        <span className=\"font-['Roboto'] text-[20px] font-bold text-[#000000] text-left leading-[18px] w-[145px] h-[18px]\">${product.price}</span>\n                      </div>\n                    </div>\n                  </div>\n                </Link>\n              ))}\n            </div>\n          </div>\n        </div>\n\n        {/* Grand espace entre les cartes et le footer */}\n        <div className=\"h-[300px]\"></div>\n\n        {/* Section: Footer */}\n        <div className=\"absolute bottom-0 left-0 w-full\">\n          <Footer />\n        </div>\n      </div>\n    </div>\n  );\n}"
+  },
+  "frontend_api_service": "// AUTO-GENERATED from the OpenAPI contract. Do not edit by hand.\n// Regenerated deterministically; every endpoint maps 1:1 to the backend.\n\nconst BASE_URL = \"http://localhost:8000\";\n\n// ===== Types =====\n\nexport interface CategoryCreate {\n  name: string;\n  description?: string;\n  is_active?: boolean;\n}\n\nexport interface Category {\n  id: number;\n  name: string;\n  description: string;\n  is_active: boolean;\n  created_at: string;\n  updated_at: string;\n}\n\nexport interface ProductCreate {\n  name: string;\n  description?: string;\n  price: number;\n  image_url?: string;\n  manufacturer?: string;\n  product_dimensions?: string;\n  model_number?: string;\n  country_origin?: string;\n  stock_quantity?: number;\n  is_available?: boolean;\n  category_id: number;\n}\n\nexport interface Product {\n  id: number;\n  name: string;\n  description: string;\n  price: number;\n  image_url: string;\n  manufacturer: string;\n  product_dimensions: string;\n  model_number: string;\n  country_origin: string;\n  stock_quantity: number;\n  is_available: boolean;\n  category_id: number;\n  created_at: string;\n  updated_at: string;\n}\n\n// ===== API functions =====\n\nexport async function createCategory(data: CategoryCreate): Promise<Category> {\n  const res = await fetch(`${BASE_URL}/categories`, { method: \"POST\", headers: { \"Content-Type\": \"application/json\" }, body: JSON.stringify(data) });\n  if (!res.ok) throw new Error(`API error ${res.status}: ${res.statusText}`);\n  return res.json();\n}\n\nexport async function listCategories(): Promise<Category[]> {\n  const res = await fetch(`${BASE_URL}/categories`);\n  if (!res.ok) throw new Error(`API error ${res.status}: ${res.statusText}`);\n  return res.json();\n}\n\nexport async function getCategoryById(id: number): Promise<Category> {\n  const res = await fetch(`${BASE_URL}/categories/${id}`);\n  if (!res.ok) throw new Error(`API error ${res.status}: ${res.statusText}`);\n  return res.json();\n}\n\nexport async function listProductsByCategory(id: number): Promise<Product[]> {\n  const res = await fetch(`${BASE_URL}/categories/${id}/products`);\n  if (!res.ok) throw new Error(`API error ${res.status}: ${res.statusText}`);\n  return res.json();\n}\n\nexport async function createProduct(data: ProductCreate): Promise<Product> {\n  const res = await fetch(`${BASE_URL}/products`, { method: \"POST\", headers: { \"Content-Type\": \"application/json\" }, body: JSON.stringify(data) });\n  if (!res.ok) throw new Error(`API error ${res.status}: ${res.statusText}`);\n  return res.json();\n}\n\nexport async function listProducts(): Promise<Product[]> {\n  const res = await fetch(`${BASE_URL}/products`);\n  if (!res.ok) throw new Error(`API error ${res.status}: ${res.statusText}`);\n  return res.json();\n}\n\nexport async function getProductById(id: number): Promise<Product> {\n  const res = await fetch(`${BASE_URL}/products/${id}`);\n  if (!res.ok) throw new Error(`API error ${res.status}: ${res.statusText}`);\n  return res.json();\n}\n",
+  "workflow_state": "binding_done",
   "retry_count": 2,
   "max_retries": 3,
   "tested_entities": [
     "Category",
-    "Customer",
-    "Product",
-    "Order",
-    "OrderItem"
+    "Product"
   ]
 }

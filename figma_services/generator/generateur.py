@@ -592,7 +592,7 @@ def _generate_section_jsx(
     route_by_node_id: dict,
 ) -> str:
     """Génère le JSX d'une section libre de manière déterministe."""
-    from generator.style_converter import generate_section_jsx_deterministic
+    from figma_services.generator.style_converter import generate_section_jsx_deterministic  # ✅
 
     section_name = section_data.get("name", "Section")
     section_tree = _prepare_section_tree(section_data, route_by_node_id)

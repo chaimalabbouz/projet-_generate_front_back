@@ -1,0 +1,28 @@
+{
+  "pages": [
+    {
+      "id": "135:701",
+      "name": "Homepage",
+      "suggested_file": "src/pages/Homepage.tsx",
+      "components_used": [
+        "Logo",
+        "Button",
+        "Pagination"
+      ]
+    }
+  ],
+  "project_structure": {
+    "src/pages": [
+      "Homepage.tsx"
+    ],
+    "src/components": [
+      "Logo.tsx",
+      "Button.tsx",
+      "Pagination.tsx"
+    ]
+  },
+  "summary": {
+    "total_pages": 1,
+    "total_components": 3
+  }
+}

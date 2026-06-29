@@ -1,44 +1,20 @@
 STACK: Python / FastAPI systems
 PROJECT: E-Commerce Platform API
 DESCRIPTION:
-An API for an online store. It manages product categories, products,
-customers, their orders, and the items inside each order. You can list
-products by category, list orders by customer, and list items by order.
+An API for an online store. Users browse product categories, view the products
+of a category, and view the full details of a single product.
 
 FEATURES:
 CATEGORIES:
 - create a category
 - view all categories
 - view category details
-- update a category
 - list products by category
 
 PRODUCTS:
 - create a product
 - view all products
 - view product details
-- update a product
-- delete a product
-- list order items by product
-
-CUSTOMERS:
-- create a customer
-- view all customers
-- view customer details
-- update a customer
-- list orders by customer
-
-ORDERS:
-- create an order
-- view all orders
-- view order details
-- delete an order
-- list items by order
-
-ORDER_ITEMS:
-- create an order item
-- view all order items
-- view order item details
 
 DATA MODELS:
 Category:
@@ -50,24 +26,11 @@ Product:
 - name: string
 - description: string
 - price: integer
+- image_url: string
+- manufacturer: string
+- product_dimensions: string
+- model_number: string
+- country_origin: string
 - stock_quantity: integer
 - is_available: boolean
 - category: Category
-
-Customer:
-- full_name: string
-- email: string
-- phone: string
-- is_premium: boolean
-
-Order:
-- order_number: string
-- total_amount: integer
-- status: string
-- customer: Customer
-
-OrderItem:
-- quantity: integer
-- unit_price: integer
-- order: Order
-- product: Product

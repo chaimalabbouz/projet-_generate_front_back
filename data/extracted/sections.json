@@ -1,0 +1,4681 @@
+{
+  "total_pages": 1,
+  "total_sections": 13,
+  "total_instances_referenced": 25,
+  "pages": [
+    {
+      "page_id": "135:701",
+      "page_name": "Homepage",
+      "page_styles": {
+        "width": 1920.0,
+        "height": 6831.0,
+        "backgroundColor": "#ffffff",
+        "fills": [
+          {
+            "type": "SOLID",
+            "color": {
+              "hex": "#ffffff",
+              "rgb": {
+                "r": 255,
+                "g": 255,
+                "b": 255
+              },
+              "alpha": 1.0
+            }
+          }
+        ]
+      },
+      "ordered_children": [
+        {
+          "kind": "section",
+          "order_index": 0,
+          "data": {
+            "name": "BG",
+            "id": "135:1114",
+            "type": "GROUP",
+            "children": [
+              {
+                "name": "Ellipse 1",
+                "id": "135:1115",
+                "type": "ELLIPSE",
+                "styles": {
+                  "width": 1481.0,
+                  "height": 1481.0,
+                  "fills": [
+                    {
+                      "type": "GRADIENT_LINEAR",
+                      "opacity": 0.20000000298023224,
+                      "gradientStops": [
+                        {
+                          "position": 0.0,
+                          "color": {
+                            "hex": "#ffeac6",
+                            "rgb": {
+                              "r": 255,
+                              "g": 234,
+                              "b": 198
+                            },
+                            "alpha": 1.0
+                          }
+                        },
+                        {
+                          "position": 1.0,
+                          "color": {
+                            "hex": "#ffeac6",
+                            "rgb": {
+                              "r": 255,
+                              "g": 234,
+                              "b": 198
+                            },
+                            "alpha": 0.72
+                          }
+                        },
+                        {
+                          "position": 1.0,
+                          "color": {
+                            "hex": "#ffeac6",
+                            "rgb": {
+                              "r": 255,
+                              "g": 234,
+                              "b": 198
+                            },
+                            "alpha": 0.67
+                          }
+                        }
+                      ],
+                      "gradientHandlePositions": [
+                        {
+                          "x": 0.5985490089397121,
+                          "y": -1.6390569072635712
+                        },
+                        {
+                          "x": 0.4721887000296663,
+                          "y": 2.2230956680820135
+                        },
+                        {
+                          "x": -0.6295137141109861,
+                          "y": -1.6792361562745417
+                        }
+                      ]
+                    }
+                  ],
+                  "strokeWeight": 1.0,
+                  "strokeAlign": "INSIDE",
+                  "effects": [
+                    {
+                      "type": "LAYER_BLUR",
+                      "radius": 700.0
+                    }
+                  ],
+                  "_position": {
+                    "top": 1671.0,
+                    "left": 388.0
+                  }
+                }
+              },
+              {
+                "name": "Ellipse 5",
+                "id": "135:1122",
+                "type": "ELLIPSE",
+                "styles": {
+                  "width": 1481.0,
+                  "height": 1482.0,
+                  "fills": [
+                    {
+                      "type": "GRADIENT_LINEAR",
+                      "opacity": 0.20000000298023224,
+                      "gradientStops": [
+                        {
+                          "position": 0.0,
+                          "color": {
+                            "hex": "#ffeac6",
+                            "rgb": {
+                              "r": 255,
+                              "g": 234,
+                              "b": 198
+                            },
+                            "alpha": 1.0
+                          }
+                        },
+                        {
+                          "position": 1.0,
+                          "color": {
+                            "hex": "#ffeac6",
+                            "rgb": {
+                              "r": 255,
+                              "g": 234,
+                              "b": 198
+                            },
+                            "alpha": 0.72
+                          }
+                        },
+                        {
+                          "position": 1.0,
+                          "color": {
+                            "hex": "#ffeac6",
+                            "rgb": {
+                              "r": 255,
+                              "g": 234,
+                              "b": 198
+                            },
+                            "alpha": 0.67
+                          }
+                        }
+                      ],
+                      "gradientHandlePositions": [
+                        {
+                          "x": 0.5985490089397121,
+                          "y": -1.6390569072635712
+                        },
+                        {
+                          "x": 0.4721887000296663,
+                          "y": 2.2230956680820135
+                        },
+                        {
+                          "x": -0.6295137141109861,
+                          "y": -1.6792361562745417
+                        }
+                      ]
+                    }
+                  ],
+                  "strokeWeight": 1.0,
+                  "strokeAlign": "INSIDE",
+                  "effects": [
+                    {
+                      "type": "LAYER_BLUR",
+                      "radius": 700.0
+                    }
+                  ],
+                  "_position": {
+                    "top": 7452.0,
+                    "left": 388.0
+                  }
+                }
+              },
+              {
+                "name": "Ellipse 2",
+                "id": "135:1116",
+                "type": "ELLIPSE",
+                "styles": {
+                  "width": 581.52,
+                  "height": 466.22,
+                  "fills": [
+                    {
+                      "type": "GRADIENT_LINEAR",
+                      "gradientStops": [
+                        {
+                          "position": 0.0,
+                          "color": {
+                            "hex": "#ffdfa8",
+                            "rgb": {
+                              "r": 255,
+                              "g": 223,
+                              "b": 168
+                            },
+                            "alpha": 1.0
+                          }
+                        },
+                        {
+                          "position": 9.999999747378752e-05,
+                          "color": {
+                            "hex": "#ffe2b0",
+                            "rgb": {
+                              "r": 255,
+                              "g": 226,
+                              "b": 176
+                            },
+                            "alpha": 0.96
+                          }
+                        },
+                        {
+                          "position": 1.0,
+                          "color": {
+                            "hex": "#ffeac6",
+                            "rgb": {
+                              "r": 255,
+                              "g": 234,
+                              "b": 198
+                            },
+                            "alpha": 0.67
+                          }
+                        },
+                        {
+                          "position": 1.0,
+                          "color": {
+                            "hex": "#fad390",
+                            "rgb": {
+                              "r": 250,
+                              "g": 211,
+                              "b": 144
+                            },
+                            "alpha": 0.8
+                          }
+                        }
+                      ],
+                      "gradientHandlePositions": [
+                        {
+                          "x": 0.5985490089397121,
+                          "y": -1.6390569072635712
+                        },
+                        {
+                          "x": 0.4721887000296663,
+                          "y": 2.2230956680820135
+                        },
+                        {
+                          "x": -0.6295137141109861,
+                          "y": -1.6792361562745417
+                        }
+                      ]
+                    }
+                  ],
+                  "strokeWeight": 1.0,
+                  "strokeAlign": "INSIDE",
+                  "effects": [
+                    {
+                      "type": "LAYER_BLUR",
+                      "radius": 200.0
+                    }
+                  ],
+                  "_position": {
+                    "top": 2269.0,
+                    "left": 61.0
+                  }
+                }
+              },
+              {
+                "name": "Ellipse 6",
+                "id": "135:1123",
+                "type": "ELLIPSE",
+                "styles": {
+                  "width": 581.52,
+                  "height": 466.22,
+                  "fills": [
+                    {
+                      "type": "GRADIENT_LINEAR",
+                      "gradientStops": [
+                        {
+                          "position": 0.0,
+                          "color": {
+                            "hex": "#ffdfa8",
+                            "rgb": {
+                              "r": 255,
+                              "g": 223,
+                              "b": 168
+                            },
+                            "alpha": 1.0
+                          }
+                        },
+                        {
+                          "position": 9.999999747378752e-05,
+                          "color": {
+                            "hex": "#ffe2b0",
+                            "rgb": {
+                              "r": 255,
+                              "g": 226,
+                              "b": 176
+                            },
+                            "alpha": 0.96
+                          }
+                        },
+                        {
+                          "position": 1.0,
+                          "color": {
+                            "hex": "#ffeac6",
+                            "rgb": {
+                              "r": 255,
+                              "g": 234,
+                              "b": 198
+                            },
+                            "alpha": 0.67
+                          }
+                        },
+                        {
+                          "position": 1.0,
+                          "color": {
+                            "hex": "#fad390",
+                            "rgb": {
+                              "r": 250,
+                              "g": 211,
+                              "b": 144
+                            },
+                            "alpha": 0.8
+                          }
+                        }
+                      ],
+                      "gradientHandlePositions": [
+                        {
+                          "x": 0.5985490089397121,
+                          "y": -1.6390569072635712
+                        },
+                        {
+                          "x": 0.4721887000296663,
+                          "y": 2.2230956680820135
+                        },
+                        {
+                          "x": -0.6295137141109861,
+                          "y": -1.6792361562745417
+                        }
+                      ]
+                    }
+                  ],
+                  "strokeWeight": 1.0,
+                  "strokeAlign": "INSIDE",
+                  "effects": [
+                    {
+                      "type": "LAYER_BLUR",
+                      "radius": 200.0
+                    }
+                  ],
+                  "_position": {
+                    "top": 9056.0,
+                    "left": 0.0
+                  }
+                }
+              },
+              {
+                "name": "Ellipse 3",
+                "id": "135:1117",
+                "type": "ELLIPSE",
+                "styles": {
+                  "width": 1228.19,
+                  "height": 1228.19,
+                  "fills": [
+                    {
+                      "type": "SOLID",
+                      "opacity": 0.4000000059604645,
+                      "color": {
+                        "hex": "#da4df1",
+                        "rgb": {
+                          "r": 218,
+                          "g": 77,
+                          "b": 241
+                        },
+                        "alpha": 0.4
+                      }
+                    }
+                  ],
+                  "strokeWeight": 1.0,
+                  "strokeAlign": "INSIDE",
+                  "effects": [
+                    {
+                      "type": "LAYER_BLUR",
+                      "radius": 600.0
+                    }
+                  ],
+                  "_position": {
+                    "top": -0.0,
+                    "left": 1383.0
+                  }
+                }
+              },
+              {
+                "name": "Ellipse 4",
+                "id": "135:1118",
+                "type": "VECTOR",
+                "styles": {
+                  "width": 470.55,
+                  "height": 430.71,
+                  "strokeWeight": 1.0,
+                  "strokeAlign": "INSIDE",
+                  "effects": [
+                    {
+                      "type": "LAYER_BLUR",
+                      "radius": 600.0
+                    }
+                  ],
+                  "_position": {
+                    "top": 868.0,
+                    "left": 1788.7
+                  }
+                }
+              }
+            ],
+            "styles": {
+              "_positioning": "absolute"
+            }
+          },
+          "nested_instances": []
+        },
+        {
+          "kind": "section",
+          "order_index": 1,
+          "data": {
+            "name": "Frame 40",
+            "id": "135:727",
+            "type": "FRAME",
+            "styles": {
+              "width": 1920.0,
+              "height": 96.0,
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "primaryAxisAlignItems": "SPACE_BETWEEN",
+                "primaryAxisSizingMode": "FIXED",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "FIXED",
+                "layoutSizingVertical": "HUG",
+                "padding": {
+                  "paddingLeft": 300.0,
+                  "paddingRight": 300.0,
+                  "paddingTop": 20.0,
+                  "paddingBottom": 20.0
+                },
+                "itemSpacing": 385.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#ffffff",
+                    "rgb": {
+                      "r": 255,
+                      "g": 255,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "children": [
+              {
+                "type": "__COMPONENT_PLACEHOLDER__",
+                "react_component_name": "Logo",
+                "id": "135:728",
+                "component_id": "94:658",
+                "props_values": {
+                  "b": "B",
+                  "brooklyn": "Brooklyn"
+                },
+                "styles": {
+                  "width": 208.0,
+                  "height": 56.0,
+                  "layout": {
+                    "layoutSizingHorizontal": "HUG",
+                    "layoutSizingVertical": "HUG",
+                    "layoutGrow": 0.0,
+                    "layoutAlign": "INHERIT"
+                  }
+                }
+              },
+              {
+                "name": "Frame 39",
+                "id": "135:729",
+                "type": "FRAME",
+                "styles": {
+                  "width": 722.0,
+                  "height": 48.0,
+                  "layout": {
+                    "layoutMode": "HORIZONTAL",
+                    "layoutWrap": "NO_WRAP",
+                    "layoutAlign": "INHERIT",
+                    "layoutGrow": 0.0,
+                    "layoutSizingHorizontal": "HUG",
+                    "layoutSizingVertical": "HUG"
+                  },
+                  "strokeWeight": 1.0,
+                  "strokeAlign": "INSIDE"
+                },
+                "children": [
+                  {
+                    "name": "Frame 4",
+                    "id": "135:730",
+                    "type": "FRAME",
+                    "styles": {
+                      "width": 94.0,
+                      "height": 48.0,
+                      "layout": {
+                        "layoutMode": "HORIZONTAL",
+                        "primaryAxisAlignItems": "CENTER",
+                        "counterAxisAlignItems": "CENTER",
+                        "layoutWrap": "NO_WRAP",
+                        "layoutAlign": "INHERIT",
+                        "layoutGrow": 0.0,
+                        "layoutSizingHorizontal": "HUG",
+                        "layoutSizingVertical": "HUG",
+                        "padding": {
+                          "paddingLeft": 24.0,
+                          "paddingRight": 24.0,
+                          "paddingTop": 12.0,
+                          "paddingBottom": 12.0
+                        },
+                        "itemSpacing": 10.0
+                      },
+                      "strokeWeight": 1.0,
+                      "strokeAlign": "INSIDE"
+                    },
+                    "children": [
+                      {
+                        "name": "Home",
+                        "id": "135:731",
+                        "type": "TEXT",
+                        "characters": "Home",
+                        "styles": {
+                          "fontFamily": "Work Sans",
+                          "fontWeight": 500,
+                          "fontSize": 16.0,
+                          "textAlignHorizontal": "LEFT",
+                          "textAlignVertical": "TOP",
+                          "letterSpacing": 0.0,
+                          "lineHeightPx": 24.0,
+                          "lineHeightPercent": 127.87723541259766,
+                          "lineHeightPercentFontSize": 150.0,
+                          "lineHeightUnit": "PIXELS",
+                          "color": {
+                            "hex": "#333333",
+                            "rgb": {
+                              "r": 51,
+                              "g": 51,
+                              "b": 51
+                            },
+                            "alpha": 1.0
+                          },
+                          "width": 46.0,
+                          "height": 24.0
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Frame 5",
+                    "id": "135:732",
+                    "type": "FRAME",
+                    "styles": {
+                      "width": 95.0,
+                      "height": 48.0,
+                      "layout": {
+                        "layoutMode": "HORIZONTAL",
+                        "primaryAxisAlignItems": "CENTER",
+                        "counterAxisAlignItems": "CENTER",
+                        "layoutWrap": "NO_WRAP",
+                        "layoutAlign": "INHERIT",
+                        "layoutGrow": 0.0,
+                        "layoutSizingHorizontal": "HUG",
+                        "layoutSizingVertical": "HUG",
+                        "padding": {
+                          "paddingLeft": 24.0,
+                          "paddingRight": 24.0,
+                          "paddingTop": 12.0,
+                          "paddingBottom": 12.0
+                        },
+                        "itemSpacing": 10.0
+                      },
+                      "strokeWeight": 1.0,
+                      "strokeAlign": "INSIDE"
+                    },
+                    "children": [
+                      {
+                        "name": "About",
+                        "id": "135:733",
+                        "type": "TEXT",
+                        "characters": "About",
+                        "styles": {
+                          "fontFamily": "Work Sans",
+                          "fontWeight": 500,
+                          "fontSize": 16.0,
+                          "textAlignHorizontal": "LEFT",
+                          "textAlignVertical": "TOP",
+                          "letterSpacing": 0.0,
+                          "lineHeightPx": 24.0,
+                          "lineHeightPercent": 127.87723541259766,
+                          "lineHeightPercentFontSize": 150.0,
+                          "lineHeightUnit": "PIXELS",
+                          "color": {
+                            "hex": "#333333",
+                            "rgb": {
+                              "r": 51,
+                              "g": 51,
+                              "b": 51
+                            },
+                            "alpha": 1.0
+                          },
+                          "width": 47.0,
+                          "height": 24.0
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Frame 7",
+                    "id": "135:736",
+                    "type": "FRAME",
+                    "styles": {
+                      "width": 110.0,
+                      "height": 48.0,
+                      "layout": {
+                        "layoutMode": "HORIZONTAL",
+                        "primaryAxisAlignItems": "CENTER",
+                        "counterAxisAlignItems": "CENTER",
+                        "layoutWrap": "NO_WRAP",
+                        "layoutAlign": "INHERIT",
+                        "layoutGrow": 0.0,
+                        "layoutSizingHorizontal": "HUG",
+                        "layoutSizingVertical": "HUG",
+                        "padding": {
+                          "paddingLeft": 24.0,
+                          "paddingRight": 24.0,
+                          "paddingTop": 12.0,
+                          "paddingBottom": 12.0
+                        },
+                        "itemSpacing": 10.0
+                      },
+                      "strokeWeight": 1.0,
+                      "strokeAlign": "INSIDE"
+                    },
+                    "children": [
+                      {
+                        "name": "Process",
+                        "id": "135:737",
+                        "type": "TEXT",
+                        "characters": "Process",
+                        "styles": {
+                          "fontFamily": "Work Sans",
+                          "fontWeight": 500,
+                          "fontSize": 16.0,
+                          "textAlignHorizontal": "LEFT",
+                          "textAlignVertical": "TOP",
+                          "letterSpacing": 0.0,
+                          "lineHeightPx": 24.0,
+                          "lineHeightPercent": 127.87723541259766,
+                          "lineHeightPercentFontSize": 150.0,
+                          "lineHeightUnit": "PIXELS",
+                          "color": {
+                            "hex": "#333333",
+                            "rgb": {
+                              "r": 51,
+                              "g": 51,
+                              "b": 51
+                            },
+                            "alpha": 1.0
+                          },
+                          "width": 62.0,
+                          "height": 24.0
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Frame 8",
+                    "id": "135:738",
+                    "type": "FRAME",
+                    "styles": {
+                      "width": 116.0,
+                      "height": 48.0,
+                      "layout": {
+                        "layoutMode": "HORIZONTAL",
+                        "primaryAxisAlignItems": "CENTER",
+                        "counterAxisAlignItems": "CENTER",
+                        "layoutWrap": "NO_WRAP",
+                        "layoutAlign": "INHERIT",
+                        "layoutGrow": 0.0,
+                        "layoutSizingHorizontal": "HUG",
+                        "layoutSizingVertical": "HUG",
+                        "padding": {
+                          "paddingLeft": 24.0,
+                          "paddingRight": 24.0,
+                          "paddingTop": 12.0,
+                          "paddingBottom": 12.0
+                        },
+                        "itemSpacing": 10.0
+                      },
+                      "strokeWeight": 1.0,
+                      "strokeAlign": "INSIDE"
+                    },
+                    "children": [
+                      {
+                        "name": "Portfolio",
+                        "id": "135:739",
+                        "type": "TEXT",
+                        "characters": "Portfolio",
+                        "styles": {
+                          "fontFamily": "Work Sans",
+                          "fontWeight": 500,
+                          "fontSize": 16.0,
+                          "textAlignHorizontal": "LEFT",
+                          "textAlignVertical": "TOP",
+                          "letterSpacing": 0.0,
+                          "lineHeightPx": 24.0,
+                          "lineHeightPercent": 127.87723541259766,
+                          "lineHeightPercentFontSize": 150.0,
+                          "lineHeightUnit": "PIXELS",
+                          "color": {
+                            "hex": "#333333",
+                            "rgb": {
+                              "r": 51,
+                              "g": 51,
+                              "b": 51
+                            },
+                            "alpha": 1.0
+                          },
+                          "width": 68.0,
+                          "height": 24.0
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Frame 9",
+                    "id": "135:740",
+                    "type": "FRAME",
+                    "styles": {
+                      "width": 82.0,
+                      "height": 48.0,
+                      "layout": {
+                        "layoutMode": "HORIZONTAL",
+                        "primaryAxisAlignItems": "CENTER",
+                        "counterAxisAlignItems": "CENTER",
+                        "layoutWrap": "NO_WRAP",
+                        "layoutAlign": "INHERIT",
+                        "layoutGrow": 0.0,
+                        "layoutSizingHorizontal": "HUG",
+                        "layoutSizingVertical": "HUG",
+                        "padding": {
+                          "paddingLeft": 24.0,
+                          "paddingRight": 24.0,
+                          "paddingTop": 12.0,
+                          "paddingBottom": 12.0
+                        },
+                        "itemSpacing": 10.0
+                      },
+                      "strokeWeight": 1.0,
+                      "strokeAlign": "INSIDE"
+                    },
+                    "children": [
+                      {
+                        "name": "Blog",
+                        "id": "135:741",
+                        "type": "TEXT",
+                        "characters": "Blog",
+                        "styles": {
+                          "fontFamily": "Work Sans",
+                          "fontWeight": 500,
+                          "fontSize": 16.0,
+                          "textAlignHorizontal": "LEFT",
+                          "textAlignVertical": "TOP",
+                          "letterSpacing": 0.0,
+                          "lineHeightPx": 24.0,
+                          "lineHeightPercent": 127.87723541259766,
+                          "lineHeightPercentFontSize": 150.0,
+                          "lineHeightUnit": "PIXELS",
+                          "color": {
+                            "hex": "#333333",
+                            "rgb": {
+                              "r": 51,
+                              "g": 51,
+                              "b": 51
+                            },
+                            "alpha": 1.0
+                          },
+                          "width": 34.0,
+                          "height": 24.0
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Frame 6",
+                    "id": "135:734",
+                    "type": "FRAME",
+                    "styles": {
+                      "width": 114.0,
+                      "height": 48.0,
+                      "layout": {
+                        "layoutMode": "HORIZONTAL",
+                        "primaryAxisAlignItems": "CENTER",
+                        "counterAxisAlignItems": "CENTER",
+                        "layoutWrap": "NO_WRAP",
+                        "layoutAlign": "INHERIT",
+                        "layoutGrow": 0.0,
+                        "layoutSizingHorizontal": "HUG",
+                        "layoutSizingVertical": "HUG",
+                        "padding": {
+                          "paddingLeft": 24.0,
+                          "paddingRight": 24.0,
+                          "paddingTop": 12.0,
+                          "paddingBottom": 12.0
+                        },
+                        "itemSpacing": 10.0
+                      },
+                      "strokeWeight": 1.0,
+                      "strokeAlign": "INSIDE"
+                    },
+                    "children": [
+                      {
+                        "name": "Services",
+                        "id": "135:735",
+                        "type": "TEXT",
+                        "characters": "Services",
+                        "styles": {
+                          "fontFamily": "Work Sans",
+                          "fontWeight": 500,
+                          "fontSize": 16.0,
+                          "textAlignHorizontal": "LEFT",
+                          "textAlignVertical": "TOP",
+                          "letterSpacing": 0.0,
+                          "lineHeightPx": 24.0,
+                          "lineHeightPercent": 127.87723541259766,
+                          "lineHeightPercentFontSize": 150.0,
+                          "lineHeightUnit": "PIXELS",
+                          "color": {
+                            "hex": "#333333",
+                            "rgb": {
+                              "r": 51,
+                              "g": 51,
+                              "b": 51
+                            },
+                            "alpha": 1.0
+                          },
+                          "width": 66.0,
+                          "height": 24.0
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "__COMPONENT_PLACEHOLDER__",
+                    "react_component_name": "Button",
+                    "id": "135:742",
+                    "component_id": "89:7226",
+                    "props_values": {
+                      "button": "Contact"
+                    },
+                    "styles": {
+                      "width": 111.0,
+                      "height": 48.0,
+                      "layout": {
+                        "layoutSizingHorizontal": "HUG",
+                        "layoutSizingVertical": "HUG",
+                        "layoutGrow": 0.0,
+                        "layoutAlign": "INHERIT"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "nested_instances": [
+            {
+              "id": "135:728",
+              "name": "Logo",
+              "component_id": "94:658",
+              "react_component_name": "Logo",
+              "props_values": {
+                "b": "B",
+                "brooklyn": "Brooklyn"
+              }
+            },
+            {
+              "id": "135:742",
+              "name": "Button",
+              "component_id": "89:7226",
+              "react_component_name": "Button",
+              "props_values": {
+                "button": "Contact"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "section",
+          "order_index": 2,
+          "data": {
+            "name": "unsplash:wKOKidNT14w",
+            "id": "135:710",
+            "type": "FRAME",
+            "styles": {
+              "width": 536.0,
+              "height": 636.0,
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#ffffff",
+                    "rgb": {
+                      "r": 255,
+                      "g": 255,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                },
+                {
+                  "type": "IMAGE",
+                  "imageRef": "/src/assets/c78149f6f59250b6b8cb1b0e75f260c837bd67f9.png",
+                  "scaleMode": "STRETCH"
+                }
+              ],
+              "cornerRadius": 25.0,
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE",
+              "effects": [
+                {
+                  "type": "DROP_SHADOW",
+                  "radius": 116.0,
+                  "offset": {
+                    "x": 0.0,
+                    "y": 24.0
+                  },
+                  "blendMode": "NORMAL",
+                  "color": {
+                    "hex": "#2b384c",
+                    "rgb": {
+                      "r": 43,
+                      "g": 56,
+                      "b": 76
+                    },
+                    "alpha": 0.09
+                  }
+                }
+              ]
+            }
+          },
+          "nested_instances": []
+        },
+        {
+          "kind": "section",
+          "order_index": 3,
+          "data": {
+            "name": "Frame 15",
+            "id": "135:704",
+            "type": "FRAME",
+            "styles": {
+              "width": 648.0,
+              "height": 336.0,
+              "layout": {
+                "layoutMode": "VERTICAL",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG",
+                "itemSpacing": 24.0
+              },
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "children": [
+              {
+                "name": "Frame 13",
+                "id": "135:705",
+                "type": "FRAME",
+                "styles": {
+                  "width": 579.0,
+                  "height": 168.0,
+                  "layout": {
+                    "layoutMode": "VERTICAL",
+                    "layoutWrap": "NO_WRAP",
+                    "layoutAlign": "INHERIT",
+                    "layoutGrow": 0.0,
+                    "layoutSizingHorizontal": "HUG",
+                    "layoutSizingVertical": "HUG",
+                    "itemSpacing": 16.0
+                  },
+                  "strokeWeight": 1.0,
+                  "strokeAlign": "INSIDE"
+                },
+                "children": [
+                  {
+                    "name": "Frame 12",
+                    "id": "135:706",
+                    "type": "FRAME",
+                    "styles": {
+                      "width": 579.0,
+                      "height": 168.0,
+                      "layout": {
+                        "layoutMode": "VERTICAL",
+                        "layoutWrap": "NO_WRAP",
+                        "layoutAlign": "INHERIT",
+                        "layoutGrow": 0.0,
+                        "layoutSizingHorizontal": "HUG",
+                        "layoutSizingVertical": "HUG"
+                      },
+                      "strokeWeight": 1.0,
+                      "strokeAlign": "INSIDE"
+                    },
+                    "children": [
+                      {
+                        "name": "Hello, I’m Brooklyn Gilbert",
+                        "id": "135:707",
+                        "type": "TEXT",
+                        "characters": "Hello, I’m\nBrooklyn Gilbert",
+                        "styles": {
+                          "fontFamily": "Work Sans",
+                          "fontWeight": 600,
+                          "fontSize": 72.0,
+                          "textAlignHorizontal": "LEFT",
+                          "textAlignVertical": "TOP",
+                          "letterSpacing": 0.0,
+                          "lineHeightPx": 84.0,
+                          "lineHeightPercent": 99.46006774902344,
+                          "lineHeightPercentFontSize": 116.66666412353516,
+                          "lineHeightUnit": "PIXELS",
+                          "color": {
+                            "hex": "#132238",
+                            "rgb": {
+                              "r": 19,
+                              "g": 34,
+                              "b": 56
+                            },
+                            "alpha": 1.0
+                          },
+                          "width": 579.0,
+                          "height": 168.0
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "I'm a Freelance UI/UX Designer and Developer based in London, England. I strives to build immersive and beautiful web applications through carefully crafted code and user-centric design.",
+                "id": "135:708",
+                "type": "TEXT",
+                "characters": "I'm a Freelance UI/UX Designer and Developer based in London, England. I strives to build immersive and beautiful web applications through carefully crafted code and user-centric design.",
+                "styles": {
+                  "fontFamily": "Work Sans",
+                  "fontWeight": 400,
+                  "fontSize": 18.0,
+                  "textAlignHorizontal": "LEFT",
+                  "textAlignVertical": "TOP",
+                  "letterSpacing": 0.0,
+                  "lineHeightPx": 24.0,
+                  "lineHeightPercent": 113.66865539550781,
+                  "lineHeightPercentFontSize": 133.3333282470703,
+                  "lineHeightUnit": "PIXELS",
+                  "color": {
+                    "hex": "#556070",
+                    "rgb": {
+                      "r": 85,
+                      "g": 96,
+                      "b": 112
+                    },
+                    "alpha": 1.0
+                  },
+                  "width": 648.0,
+                  "height": 72.0
+                }
+              },
+              {
+                "type": "__COMPONENT_PLACEHOLDER__",
+                "react_component_name": "Button",
+                "id": "135:709",
+                "component_id": "89:7226",
+                "props_values": {
+                  "button": "Say Hello!"
+                },
+                "styles": {
+                  "width": 126.0,
+                  "height": 48.0,
+                  "layout": {
+                    "layoutSizingHorizontal": "HUG",
+                    "layoutSizingVertical": "HUG",
+                    "layoutGrow": 0.0,
+                    "layoutAlign": "INHERIT"
+                  }
+                }
+              }
+            ]
+          },
+          "nested_instances": [
+            {
+              "id": "135:709",
+              "name": "Button",
+              "component_id": "89:7226",
+              "react_component_name": "Button",
+              "props_values": {
+                "button": "Say Hello!"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "section",
+          "order_index": 4,
+          "data": {
+            "name": "Rectangle 32",
+            "id": "135:702",
+            "type": "RECTANGLE",
+            "styles": {
+              "width": 133.0,
+              "height": 6.0,
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#ffc8c8",
+                    "rgb": {
+                      "r": 255,
+                      "g": 200,
+                      "b": 200
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            }
+          },
+          "nested_instances": []
+        },
+        {
+          "kind": "section",
+          "order_index": 5,
+          "data": {
+            "name": "Rectangle 33",
+            "id": "135:703",
+            "type": "RECTANGLE",
+            "styles": {
+              "width": 92.0,
+              "height": 6.0,
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#ffc8c8",
+                    "rgb": {
+                      "r": 255,
+                      "g": 200,
+                      "b": 200
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            }
+          },
+          "nested_instances": []
+        },
+        {
+          "kind": "section",
+          "order_index": 6,
+          "data": {
+            "name": "Frame 1",
+            "id": "135:711",
+            "type": "FRAME",
+            "styles": {
+              "width": 648.0,
+              "height": 106.0,
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "CENTER",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG",
+                "itemSpacing": 12.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "opacity": 0.5,
+                  "color": {
+                    "hex": "#edd8ff",
+                    "rgb": {
+                      "r": 237,
+                      "g": 216,
+                      "b": 255
+                    },
+                    "alpha": 0.5
+                  }
+                }
+              ],
+              "cornerRadius": 6.0,
+              "strokes": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#ffffff",
+                    "rgb": {
+                      "r": 255,
+                      "g": 255,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "children": [
+              {
+                "name": "Frame 17",
+                "id": "135:712",
+                "type": "FRAME",
+                "styles": {
+                  "width": 200.0,
+                  "height": 72.0,
+                  "layout": {
+                    "layoutMode": "VERTICAL",
+                    "layoutWrap": "NO_WRAP",
+                    "layoutAlign": "INHERIT",
+                    "layoutGrow": 0.0,
+                    "layoutSizingHorizontal": "HUG",
+                    "layoutSizingVertical": "HUG",
+                    "itemSpacing": 8.0
+                  },
+                  "strokeWeight": 1.0,
+                  "strokeAlign": "INSIDE"
+                },
+                "children": [
+                  {
+                    "name": "15 Y.",
+                    "id": "135:713",
+                    "type": "TEXT",
+                    "characters": "15 Y.",
+                    "styles": {
+                      "fontFamily": "Work Sans",
+                      "fontWeight": 600,
+                      "fontSize": 32.0,
+                      "textAlignHorizontal": "CENTER",
+                      "textAlignVertical": "TOP",
+                      "letterSpacing": 0.0,
+                      "lineHeightPx": 40.0,
+                      "lineHeightPercent": 106.56436920166016,
+                      "lineHeightPercentFontSize": 125.0,
+                      "lineHeightUnit": "PIXELS",
+                      "color": {
+                        "hex": "#424e60",
+                        "rgb": {
+                          "r": 66,
+                          "g": 78,
+                          "b": 96
+                        },
+                        "alpha": 1.0
+                      },
+                      "width": 200.0,
+                      "height": 40.0
+                    }
+                  },
+                  {
+                    "name": "Experience",
+                    "id": "135:714",
+                    "type": "TEXT",
+                    "characters": "Experience",
+                    "styles": {
+                      "fontFamily": "Work Sans",
+                      "fontWeight": 400,
+                      "fontSize": 16.0,
+                      "textAlignHorizontal": "CENTER",
+                      "textAlignVertical": "TOP",
+                      "letterSpacing": 0.0,
+                      "lineHeightPx": 24.0,
+                      "lineHeightPercent": 127.87723541259766,
+                      "lineHeightPercentFontSize": 150.0,
+                      "lineHeightUnit": "PIXELS",
+                      "color": {
+                        "hex": "#697484",
+                        "rgb": {
+                          "r": 105,
+                          "g": 116,
+                          "b": 132
+                        },
+                        "alpha": 1.0
+                      },
+                      "width": 200.0,
+                      "height": 24.0
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "Line 1",
+                "id": "135:715",
+                "type": "LINE",
+                "styles": {
+                  "width": 0.0,
+                  "height": 106.0,
+                  "strokes": [
+                    {
+                      "type": "SOLID",
+                      "color": {
+                        "hex": "#ffffff",
+                        "rgb": {
+                          "r": 255,
+                          "g": 255,
+                          "b": 255
+                        },
+                        "alpha": 1.0
+                      }
+                    }
+                  ],
+                  "strokeWeight": 3.0,
+                  "strokeAlign": "CENTER"
+                }
+              },
+              {
+                "name": "Frame 18",
+                "id": "135:716",
+                "type": "FRAME",
+                "styles": {
+                  "width": 200.0,
+                  "height": 72.0,
+                  "layout": {
+                    "layoutMode": "VERTICAL",
+                    "layoutWrap": "NO_WRAP",
+                    "layoutAlign": "INHERIT",
+                    "layoutGrow": 0.0,
+                    "layoutSizingHorizontal": "HUG",
+                    "layoutSizingVertical": "HUG",
+                    "itemSpacing": 8.0
+                  },
+                  "strokeWeight": 1.0,
+                  "strokeAlign": "INSIDE"
+                },
+                "children": [
+                  {
+                    "name": "250+",
+                    "id": "135:717",
+                    "type": "TEXT",
+                    "characters": "250+",
+                    "styles": {
+                      "fontFamily": "Work Sans",
+                      "fontWeight": 600,
+                      "fontSize": 32.0,
+                      "textAlignHorizontal": "CENTER",
+                      "textAlignVertical": "TOP",
+                      "letterSpacing": 0.0,
+                      "lineHeightPx": 40.0,
+                      "lineHeightPercent": 106.56436920166016,
+                      "lineHeightPercentFontSize": 125.0,
+                      "lineHeightUnit": "PIXELS",
+                      "color": {
+                        "hex": "#424e60",
+                        "rgb": {
+                          "r": 66,
+                          "g": 78,
+                          "b": 96
+                        },
+                        "alpha": 1.0
+                      },
+                      "width": 200.0,
+                      "height": 40.0
+                    }
+                  },
+                  {
+                    "name": "Project Completed",
+                    "id": "135:718",
+                    "type": "TEXT",
+                    "characters": "Project Completed",
+                    "styles": {
+                      "fontFamily": "Work Sans",
+                      "fontWeight": 400,
+                      "fontSize": 16.0,
+                      "textAlignHorizontal": "CENTER",
+                      "textAlignVertical": "TOP",
+                      "letterSpacing": 0.0,
+                      "lineHeightPx": 24.0,
+                      "lineHeightPercent": 127.87723541259766,
+                      "lineHeightPercentFontSize": 150.0,
+                      "lineHeightUnit": "PIXELS",
+                      "color": {
+                        "hex": "#697484",
+                        "rgb": {
+                          "r": 105,
+                          "g": 116,
+                          "b": 132
+                        },
+                        "alpha": 1.0
+                      },
+                      "width": 200.0,
+                      "height": 24.0
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "Line 2",
+                "id": "135:719",
+                "type": "LINE",
+                "styles": {
+                  "width": 0.0,
+                  "height": 106.0,
+                  "strokes": [
+                    {
+                      "type": "SOLID",
+                      "color": {
+                        "hex": "#ffffff",
+                        "rgb": {
+                          "r": 255,
+                          "g": 255,
+                          "b": 255
+                        },
+                        "alpha": 1.0
+                      }
+                    }
+                  ],
+                  "strokeWeight": 3.0,
+                  "strokeAlign": "CENTER"
+                }
+              },
+              {
+                "name": "Frame 19",
+                "id": "135:720",
+                "type": "FRAME",
+                "styles": {
+                  "width": 200.0,
+                  "height": 72.0,
+                  "layout": {
+                    "layoutMode": "VERTICAL",
+                    "layoutWrap": "NO_WRAP",
+                    "layoutAlign": "INHERIT",
+                    "layoutGrow": 0.0,
+                    "layoutSizingHorizontal": "HUG",
+                    "layoutSizingVertical": "HUG",
+                    "itemSpacing": 8.0
+                  },
+                  "strokeWeight": 1.0,
+                  "strokeAlign": "INSIDE"
+                },
+                "children": [
+                  {
+                    "name": "58",
+                    "id": "135:721",
+                    "type": "TEXT",
+                    "characters": "58",
+                    "styles": {
+                      "fontFamily": "Work Sans",
+                      "fontWeight": 600,
+                      "fontSize": 32.0,
+                      "textAlignHorizontal": "CENTER",
+                      "textAlignVertical": "TOP",
+                      "letterSpacing": 0.0,
+                      "lineHeightPx": 40.0,
+                      "lineHeightPercent": 106.56436920166016,
+                      "lineHeightPercentFontSize": 125.0,
+                      "lineHeightUnit": "PIXELS",
+                      "color": {
+                        "hex": "#424e60",
+                        "rgb": {
+                          "r": 66,
+                          "g": 78,
+                          "b": 96
+                        },
+                        "alpha": 1.0
+                      },
+                      "width": 200.0,
+                      "height": 40.0
+                    }
+                  },
+                  {
+                    "name": "Happy Client",
+                    "id": "135:722",
+                    "type": "TEXT",
+                    "characters": "Happy Client",
+                    "styles": {
+                      "fontFamily": "Work Sans",
+                      "fontWeight": 400,
+                      "fontSize": 16.0,
+                      "textAlignHorizontal": "CENTER",
+                      "textAlignVertical": "TOP",
+                      "letterSpacing": 0.0,
+                      "lineHeightPx": 24.0,
+                      "lineHeightPercent": 127.87723541259766,
+                      "lineHeightPercentFontSize": 150.0,
+                      "lineHeightUnit": "PIXELS",
+                      "color": {
+                        "hex": "#697484",
+                        "rgb": {
+                          "r": 105,
+                          "g": 116,
+                          "b": 132
+                        },
+                        "alpha": 1.0
+                      },
+                      "width": 200.0,
+                      "height": 24.0
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "nested_instances": []
+        },
+        {
+          "kind": "section",
+          "order_index": 7,
+          "data": {
+            "name": "Frame 288",
+            "id": "231:1338",
+            "type": "FRAME",
+            "styles": {
+              "width": 1921.0,
+              "height": 5678.0,
+              "layout": {
+                "layoutMode": "VERTICAL",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG"
+              },
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "children": [
+              {
+                "name": "Group 1",
+                "id": "231:1337",
+                "type": "GROUP",
+                "children": [
+                  {
+                    "name": "Work Process",
+                    "id": "135:778",
+                    "type": "FRAME",
+                    "styles": {
+                      "width": 1920.0,
+                      "height": 988.0,
+                      "layout": {
+                        "layoutMode": "VERTICAL",
+                        "layoutWrap": "NO_WRAP",
+                        "layoutSizingHorizontal": "HUG",
+                        "layoutSizingVertical": "HUG",
+                        "padding": {
+                          "paddingLeft": 300.0,
+                          "paddingRight": 300.0,
+                          "paddingTop": 248.0,
+                          "paddingBottom": 140.0
+                        },
+                        "itemSpacing": 10.0
+                      },
+                      "fills": [
+                        {
+                          "type": "SOLID",
+                          "color": {
+                            "hex": "#f0f1f3",
+                            "rgb": {
+                              "r": 240,
+                              "g": 241,
+                              "b": 243
+                            },
+                            "alpha": 1.0
+                          }
+                        }
+                      ],
+                      "strokeWeight": 1.0,
+                      "strokeAlign": "INSIDE",
+                      "_position": {
+                        "top": 0.0,
+                        "left": 0.0
+                      }
+                    },
+                    "children": [
+                      {
+                        "name": "Work Process",
+                        "id": "135:779",
+                        "type": "FRAME",
+                        "styles": {
+                          "width": 1320.0,
+                          "height": 600.0,
+                          "layout": {
+                            "layoutMode": "HORIZONTAL",
+                            "counterAxisAlignItems": "CENTER",
+                            "layoutWrap": "NO_WRAP",
+                            "layoutAlign": "INHERIT",
+                            "layoutGrow": 0.0,
+                            "layoutSizingHorizontal": "HUG",
+                            "layoutSizingVertical": "HUG",
+                            "itemSpacing": 143.0
+                          },
+                          "strokeWeight": 1.0,
+                          "strokeAlign": "INSIDE"
+                        },
+                        "children": [
+                          {
+                            "name": "Work Process",
+                            "id": "135:780",
+                            "type": "FRAME",
+                            "styles": {
+                              "width": 529.0,
+                              "height": 240.0,
+                              "layout": {
+                                "layoutMode": "VERTICAL",
+                                "layoutWrap": "NO_WRAP",
+                                "layoutAlign": "INHERIT",
+                                "layoutGrow": 0.0,
+                                "layoutSizingHorizontal": "HUG",
+                                "layoutSizingVertical": "HUG",
+                                "itemSpacing": 24.0
+                              },
+                              "strokeWeight": 1.0,
+                              "strokeAlign": "INSIDE"
+                            },
+                            "children": [
+                              {
+                                "name": "Work Process",
+                                "id": "135:781",
+                                "type": "TEXT",
+                                "characters": "Work Process",
+                                "styles": {
+                                  "fontFamily": "Work Sans",
+                                  "fontWeight": 600,
+                                  "fontSize": 48.0,
+                                  "textAlignHorizontal": "LEFT",
+                                  "textAlignVertical": "TOP",
+                                  "letterSpacing": 0.0,
+                                  "lineHeightPx": 56.0,
+                                  "lineHeightPercent": 99.46006774902344,
+                                  "lineHeightPercentFontSize": 116.66666412353516,
+                                  "lineHeightUnit": "PIXELS",
+                                  "color": {
+                                    "hex": "#132238",
+                                    "rgb": {
+                                      "r": 19,
+                                      "g": 34,
+                                      "b": 56
+                                    },
+                                    "alpha": 1.0
+                                  },
+                                  "width": 323.0,
+                                  "height": 56.0
+                                }
+                              },
+                              {
+                                "name": "Frame 31",
+                                "id": "135:782",
+                                "type": "FRAME",
+                                "styles": {
+                                  "width": 529.0,
+                                  "height": 160.0,
+                                  "layout": {
+                                    "layoutMode": "VERTICAL",
+                                    "layoutWrap": "NO_WRAP",
+                                    "layoutAlign": "INHERIT",
+                                    "layoutGrow": 0.0,
+                                    "layoutSizingHorizontal": "HUG",
+                                    "layoutSizingVertical": "HUG",
+                                    "itemSpacing": 16.0
+                                  },
+                                  "strokeWeight": 1.0,
+                                  "strokeAlign": "INSIDE"
+                                },
+                                "children": [
+                                  {
+                                    "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum. Suspendis imperdiet,",
+                                    "id": "135:783",
+                                    "type": "TEXT",
+                                    "characters": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum. Suspendis imperdiet,",
+                                    "styles": {
+                                      "fontFamily": "Work Sans",
+                                      "fontWeight": 400,
+                                      "fontSize": 18.0,
+                                      "textAlignHorizontal": "LEFT",
+                                      "textAlignVertical": "TOP",
+                                      "letterSpacing": 0.0,
+                                      "lineHeightPx": 24.0,
+                                      "lineHeightPercent": 113.66865539550781,
+                                      "lineHeightPercentFontSize": 133.3333282470703,
+                                      "lineHeightUnit": "PIXELS",
+                                      "color": {
+                                        "hex": "#697484",
+                                        "rgb": {
+                                          "r": 105,
+                                          "g": 116,
+                                          "b": 132
+                                        },
+                                        "alpha": 1.0
+                                      },
+                                      "width": 529.0,
+                                      "height": 96.0
+                                    }
+                                  },
+                                  {
+                                    "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non.",
+                                    "id": "135:784",
+                                    "type": "TEXT",
+                                    "characters": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non.",
+                                    "styles": {
+                                      "fontFamily": "Work Sans",
+                                      "fontWeight": 400,
+                                      "fontSize": 18.0,
+                                      "textAlignHorizontal": "LEFT",
+                                      "textAlignVertical": "TOP",
+                                      "letterSpacing": 0.0,
+                                      "lineHeightPx": 24.0,
+                                      "lineHeightPercent": 113.66865539550781,
+                                      "lineHeightPercentFontSize": 133.3333282470703,
+                                      "lineHeightUnit": "PIXELS",
+                                      "color": {
+                                        "hex": "#697484",
+                                        "rgb": {
+                                          "r": 105,
+                                          "g": 116,
+                                          "b": 132
+                                        },
+                                        "alpha": 1.0
+                                      },
+                                      "width": 529.0,
+                                      "height": 48.0
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "name": "Work Process card",
+                            "id": "135:785",
+                            "type": "GROUP",
+                            "styles": {
+                              "width": 648.0,
+                              "height": 600.0,
+                              "layout": {
+                                "layoutAlign": "INHERIT",
+                                "layoutGrow": 0.0,
+                                "layoutSizingHorizontal": "FIXED",
+                                "layoutSizingVertical": "FIXED"
+                              },
+                              "cornerRadius": 12.0,
+                              "strokeWeight": 1.0,
+                              "strokeAlign": "INSIDE",
+                              "_positioning": "absolute"
+                            },
+                            "children": [
+                              {
+                                "type": "__COMPONENT_PLACEHOLDER__",
+                                "react_component_name": "Work Process Card",
+                                "id": "135:788",
+                                "component_id": "89:7163",
+                                "props_values": {
+                                  "1Research": "2. Design",
+                                  "loremIpsumDolorSitAmetConsecteturAdipiscingElitNullaPurusArcu": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu."
+                                },
+                                "styles": {
+                                  "width": 312.0,
+                                  "height": 276.0,
+                                  "layout": {
+                                    "layoutSizingHorizontal": "HUG",
+                                    "layoutSizingVertical": "HUG"
+                                  },
+                                  "_position": {
+                                    "top": 300.0,
+                                    "left": 0.0
+                                  }
+                                }
+                              },
+                              {
+                                "type": "__COMPONENT_PLACEHOLDER__",
+                                "react_component_name": "Work Process Card",
+                                "id": "135:790",
+                                "component_id": "89:7163",
+                                "props_values": {
+                                  "1Research": "2. Analyze",
+                                  "loremIpsumDolorSitAmetConsecteturAdipiscingElitNullaPurusArcu": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu."
+                                },
+                                "styles": {
+                                  "width": 312.0,
+                                  "height": 276.0,
+                                  "layout": {
+                                    "layoutSizingHorizontal": "HUG",
+                                    "layoutSizingVertical": "HUG"
+                                  },
+                                  "_position": {
+                                    "top": 24.0,
+                                    "left": 336.0
+                                  }
+                                }
+                              },
+                              {
+                                "type": "__COMPONENT_PLACEHOLDER__",
+                                "react_component_name": "Work Process Card",
+                                "id": "135:791",
+                                "component_id": "89:7163",
+                                "props_values": {
+                                  "1Research": "4. Launch",
+                                  "loremIpsumDolorSitAmetConsecteturAdipiscingElitNullaPurusArcu": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu."
+                                },
+                                "styles": {
+                                  "width": 312.0,
+                                  "height": 276.0,
+                                  "layout": {
+                                    "layoutSizingHorizontal": "HUG",
+                                    "layoutSizingVertical": "HUG"
+                                  },
+                                  "_position": {
+                                    "top": 324.0,
+                                    "left": 336.0
+                                  }
+                                }
+                              },
+                              {
+                                "type": "__COMPONENT_PLACEHOLDER__",
+                                "react_component_name": "Work Process Card",
+                                "id": "135:787",
+                                "component_id": "89:7164",
+                                "props_values": {
+                                  "1Research": "1. Research",
+                                  "loremIpsumDolorSitAmetConsecteturAdipiscingElitNullaPurusArcu": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu."
+                                },
+                                "styles": {
+                                  "width": 312.0,
+                                  "height": 276.0,
+                                  "layout": {
+                                    "layoutSizingHorizontal": "HUG",
+                                    "layoutSizingVertical": "HUG"
+                                  },
+                                  "_position": {
+                                    "top": 0.0,
+                                    "left": 0.0
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "styles": {
+                  "_positioning": "absolute"
+                }
+              },
+              {
+                "name": "Portfolio",
+                "id": "135:792",
+                "type": "FRAME",
+                "styles": {
+                  "width": 1920.0,
+                  "height": 1472.0,
+                  "layout": {
+                    "layoutMode": "VERTICAL",
+                    "primaryAxisAlignItems": "MAX",
+                    "counterAxisAlignItems": "CENTER",
+                    "layoutWrap": "NO_WRAP",
+                    "layoutAlign": "INHERIT",
+                    "layoutGrow": 0.0,
+                    "layoutSizingHorizontal": "HUG",
+                    "layoutSizingVertical": "HUG",
+                    "padding": {
+                      "paddingTop": 100.0,
+                      "paddingBottom": 100.0
+                    },
+                    "itemSpacing": 50.0
+                  },
+                  "strokeWeight": 1.0,
+                  "strokeAlign": "INSIDE"
+                },
+                "children": [
+                  {
+                    "name": "Portfolio",
+                    "id": "135:793",
+                    "type": "FRAME",
+                    "styles": {
+                      "width": 1920.0,
+                      "height": 1174.0,
+                      "layout": {
+                        "layoutMode": "VERTICAL",
+                        "layoutWrap": "NO_WRAP",
+                        "layoutAlign": "INHERIT",
+                        "layoutGrow": 0.0,
+                        "layoutSizingHorizontal": "HUG",
+                        "layoutSizingVertical": "HUG",
+                        "itemSpacing": 70.0
+                      },
+                      "strokeWeight": 1.0,
+                      "strokeAlign": "INSIDE"
+                    },
+                    "children": [
+                      {
+                        "name": "Frame 286",
+                        "id": "135:794",
+                        "type": "FRAME",
+                        "styles": {
+                          "width": 1920.0,
+                          "height": 128.0,
+                          "layout": {
+                            "layoutMode": "VERTICAL",
+                            "primaryAxisAlignItems": "SPACE_BETWEEN",
+                            "counterAxisAlignItems": "CENTER",
+                            "primaryAxisSizingMode": "FIXED",
+                            "counterAxisSizingMode": "FIXED",
+                            "layoutWrap": "NO_WRAP",
+                            "layoutAlign": "INHERIT",
+                            "layoutGrow": 0.0,
+                            "layoutSizingHorizontal": "FIXED",
+                            "layoutSizingVertical": "FIXED",
+                            "padding": {
+                              "paddingLeft": 300.0,
+                              "paddingRight": 300.0
+                            },
+                            "itemSpacing": 24.0
+                          },
+                          "strokeWeight": 1.0,
+                          "strokeAlign": "INSIDE"
+                        },
+                        "children": [
+                          {
+                            "name": "Portfolio",
+                            "id": "135:795",
+                            "type": "TEXT",
+                            "characters": "Portfolio",
+                            "styles": {
+                              "fontFamily": "Work Sans",
+                              "fontWeight": 600,
+                              "fontSize": 48.0,
+                              "textAlignHorizontal": "LEFT",
+                              "textAlignVertical": "TOP",
+                              "letterSpacing": 0.0,
+                              "lineHeightPx": 56.0,
+                              "lineHeightPercent": 99.46006774902344,
+                              "lineHeightPercentFontSize": 116.66666412353516,
+                              "lineHeightUnit": "PIXELS",
+                              "color": {
+                                "hex": "#132238",
+                                "rgb": {
+                                  "r": 19,
+                                  "g": 34,
+                                  "b": 56
+                                },
+                                "alpha": 1.0
+                              },
+                              "width": 205.0,
+                              "height": 56.0
+                            }
+                          },
+                          {
+                            "name": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.",
+                            "id": "135:796",
+                            "type": "TEXT",
+                            "characters": "There are many variations of passages of Lorem Ipsum available,\r\nbut the majority have suffered alteration.",
+                            "styles": {
+                              "fontFamily": "Work Sans",
+                              "fontWeight": 400,
+                              "fontSize": 18.0,
+                              "textAlignHorizontal": "CENTER",
+                              "textAlignVertical": "TOP",
+                              "letterSpacing": 0.0,
+                              "lineHeightPx": 24.0,
+                              "lineHeightPercent": 113.66865539550781,
+                              "lineHeightPercentFontSize": 133.3333282470703,
+                              "lineHeightUnit": "PIXELS",
+                              "color": {
+                                "hex": "#87909d",
+                                "rgb": {
+                                  "r": 135,
+                                  "g": 144,
+                                  "b": 157
+                                },
+                                "alpha": 1.0
+                              },
+                              "width": 577.0,
+                              "height": 48.0
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Project Card",
+                        "id": "135:797",
+                        "type": "FRAME",
+                        "styles": {
+                          "width": 1920.0,
+                          "height": 976.0,
+                          "layout": {
+                            "layoutMode": "VERTICAL",
+                            "primaryAxisAlignItems": "CENTER",
+                            "counterAxisAlignItems": "CENTER",
+                            "layoutWrap": "NO_WRAP",
+                            "layoutAlign": "INHERIT",
+                            "layoutGrow": 0.0,
+                            "layoutSizingHorizontal": "HUG",
+                            "layoutSizingVertical": "HUG",
+                            "padding": {
+                              "paddingLeft": 300.0,
+                              "paddingRight": 300.0
+                            },
+                            "itemSpacing": 24.0
+                          },
+                          "strokeWeight": 1.0,
+                          "strokeAlign": "INSIDE"
+                        },
+                        "children": [
+                          {
+                            "name": "Project Card 1",
+                            "id": "135:798",
+                            "type": "FRAME",
+                            "styles": {
+                              "width": 1320.0,
+                              "height": 476.0,
+                              "layout": {
+                                "layoutMode": "HORIZONTAL",
+                                "layoutWrap": "NO_WRAP",
+                                "layoutAlign": "INHERIT",
+                                "layoutGrow": 0.0,
+                                "layoutSizingHorizontal": "HUG",
+                                "layoutSizingVertical": "HUG",
+                                "itemSpacing": 24.0
+                              },
+                              "strokeWeight": 1.0,
+                              "strokeAlign": "INSIDE"
+                            },
+                            "children": [
+                              {
+                                "type": "__COMPONENT_PLACEHOLDER__",
+                                "react_component_name": "Project",
+                                "id": "135:799",
+                                "component_id": "89:7040",
+                                "props_values": {
+                                  "uIUXDESIGN": "UI-UX DESIGN",
+                                  "productAdminDashboard": "Product Admin Dashboard",
+                                  "vivamusEleifendConvallisAnteNonPharetraLiberoMolestieLaoreetDonecIdImperdietLacus": "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.",
+                                  "button": "Case Study",
+                                  "unsplash9anj7QWy2gUrl": "/src/assets/8f107a905f0e2c2a0cc5bae15845adf0de3205ca.png"
+                                },
+                                "styles": {
+                                  "width": 424.0,
+                                  "height": 476.0,
+                                  "layout": {
+                                    "layoutSizingHorizontal": "HUG",
+                                    "layoutSizingVertical": "HUG",
+                                    "layoutGrow": 0.0,
+                                    "layoutAlign": "INHERIT"
+                                  }
+                                }
+                              },
+                              {
+                                "type": "__COMPONENT_PLACEHOLDER__",
+                                "react_component_name": "Project",
+                                "id": "135:800",
+                                "component_id": "89:7038",
+                                "props_values": {
+                                  "uIUXDESIGN": "UI-UX DESIGN",
+                                  "productAdminDashboard": "Product Admin Dashboard",
+                                  "vivamusEleifendConvallisAnteNonPharetraLiberoMolestieLaoreetDonecIdImperdietLacus": "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.",
+                                  "button": "Case Study",
+                                  "unsplash9anj7QWy2gUrl": "/src/assets/f9342afb7c1cf7f650c9ef0b35c8f6585d27e980.png"
+                                },
+                                "styles": {
+                                  "width": 424.0,
+                                  "height": 476.0,
+                                  "layout": {
+                                    "layoutSizingHorizontal": "HUG",
+                                    "layoutSizingVertical": "HUG",
+                                    "layoutGrow": 0.0,
+                                    "layoutAlign": "INHERIT"
+                                  }
+                                }
+                              },
+                              {
+                                "type": "__COMPONENT_PLACEHOLDER__",
+                                "react_component_name": "Project",
+                                "id": "135:801",
+                                "component_id": "89:7038",
+                                "props_values": {
+                                  "uIUXDESIGN": "UI-UX DESIGN",
+                                  "productAdminDashboard": "Product Admin Dashboard",
+                                  "vivamusEleifendConvallisAnteNonPharetraLiberoMolestieLaoreetDonecIdImperdietLacus": "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.",
+                                  "button": "Case Study",
+                                  "unsplash9anj7QWy2gUrl": "/src/assets/2da37f82fa800f0711d0ad48045ab742c6f8daf5.png"
+                                },
+                                "styles": {
+                                  "width": 424.0,
+                                  "height": 476.0,
+                                  "layout": {
+                                    "layoutSizingHorizontal": "HUG",
+                                    "layoutSizingVertical": "HUG",
+                                    "layoutGrow": 0.0,
+                                    "layoutAlign": "INHERIT"
+                                  }
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "Project Card 2",
+                            "id": "135:802",
+                            "type": "FRAME",
+                            "styles": {
+                              "width": 1320.0,
+                              "height": 476.0,
+                              "layout": {
+                                "layoutMode": "HORIZONTAL",
+                                "layoutWrap": "NO_WRAP",
+                                "layoutAlign": "INHERIT",
+                                "layoutGrow": 0.0,
+                                "layoutSizingHorizontal": "HUG",
+                                "layoutSizingVertical": "HUG",
+                                "itemSpacing": 24.0
+                              },
+                              "strokeWeight": 1.0,
+                              "strokeAlign": "INSIDE"
+                            },
+                            "children": [
+                              {
+                                "type": "__COMPONENT_PLACEHOLDER__",
+                                "react_component_name": "Project",
+                                "id": "135:803",
+                                "component_id": "89:7038",
+                                "props_values": {
+                                  "uIUXDESIGN": "UI-UX DESIGN",
+                                  "productAdminDashboard": "Product Admin Dashboard",
+                                  "vivamusEleifendConvallisAnteNonPharetraLiberoMolestieLaoreetDonecIdImperdietLacus": "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.",
+                                  "button": "Case Study",
+                                  "unsplash9anj7QWy2gUrl": "/src/assets/ead171064222333091f36ac1c03c25f06480e9df.png"
+                                },
+                                "styles": {
+                                  "width": 424.0,
+                                  "height": 476.0,
+                                  "layout": {
+                                    "layoutSizingHorizontal": "HUG",
+                                    "layoutSizingVertical": "HUG",
+                                    "layoutGrow": 0.0,
+                                    "layoutAlign": "INHERIT"
+                                  }
+                                }
+                              },
+                              {
+                                "type": "__COMPONENT_PLACEHOLDER__",
+                                "react_component_name": "Project",
+                                "id": "135:804",
+                                "component_id": "89:7038",
+                                "props_values": {
+                                  "uIUXDESIGN": "UI-UX DESIGN",
+                                  "productAdminDashboard": "Product Admin Dashboard",
+                                  "vivamusEleifendConvallisAnteNonPharetraLiberoMolestieLaoreetDonecIdImperdietLacus": "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.",
+                                  "button": "Case Study",
+                                  "unsplash9anj7QWy2gUrl": "/src/assets/01120caf35209da234d0ce9c533b0ea0cacd38d4.png"
+                                },
+                                "styles": {
+                                  "width": 424.0,
+                                  "height": 476.0,
+                                  "layout": {
+                                    "layoutSizingHorizontal": "HUG",
+                                    "layoutSizingVertical": "HUG",
+                                    "layoutGrow": 0.0,
+                                    "layoutAlign": "INHERIT"
+                                  }
+                                }
+                              },
+                              {
+                                "type": "__COMPONENT_PLACEHOLDER__",
+                                "react_component_name": "Project",
+                                "id": "135:805",
+                                "component_id": "89:7038",
+                                "props_values": {
+                                  "uIUXDESIGN": "UI-UX DESIGN",
+                                  "productAdminDashboard": "Product Admin Dashboard",
+                                  "vivamusEleifendConvallisAnteNonPharetraLiberoMolestieLaoreetDonecIdImperdietLacus": "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.",
+                                  "button": "Case Study",
+                                  "unsplash9anj7QWy2gUrl": "/src/assets/3da3ab315a91b5f2dd6f1061e5b0be3e60938f12.png"
+                                },
+                                "styles": {
+                                  "width": 424.0,
+                                  "height": 476.0,
+                                  "layout": {
+                                    "layoutSizingHorizontal": "HUG",
+                                    "layoutSizingVertical": "HUG",
+                                    "layoutGrow": 0.0,
+                                    "layoutAlign": "INHERIT"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "__COMPONENT_PLACEHOLDER__",
+                    "react_component_name": "Button",
+                    "id": "135:806",
+                    "component_id": "89:7226",
+                    "props_values": {
+                      "button": "More Project"
+                    },
+                    "styles": {
+                      "width": 149.0,
+                      "height": 48.0,
+                      "layout": {
+                        "layoutSizingHorizontal": "HUG",
+                        "layoutSizingVertical": "HUG",
+                        "layoutGrow": 0.0,
+                        "layoutAlign": "INHERIT"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "Call to action",
+                "id": "135:807",
+                "type": "FRAME",
+                "styles": {
+                  "width": 1921.0,
+                  "height": 472.0,
+                  "layout": {
+                    "layoutMode": "VERTICAL",
+                    "primaryAxisAlignItems": "CENTER",
+                    "counterAxisAlignItems": "CENTER",
+                    "layoutWrap": "NO_WRAP",
+                    "layoutAlign": "INHERIT",
+                    "layoutGrow": 0.0,
+                    "layoutSizingHorizontal": "HUG",
+                    "layoutSizingVertical": "HUG",
+                    "padding": {
+                      "paddingLeft": 650.0,
+                      "paddingRight": 650.0,
+                      "paddingTop": 100.0,
+                      "paddingBottom": 100.0
+                    },
+                    "itemSpacing": 32.0
+                  },
+                  "fills": [
+                    {
+                      "type": "SOLID",
+                      "color": {
+                        "hex": "#132238",
+                        "rgb": {
+                          "r": 19,
+                          "g": 34,
+                          "b": 56
+                        },
+                        "alpha": 1.0
+                      }
+                    }
+                  ],
+                  "strokeWeight": 1.0,
+                  "strokeAlign": "INSIDE"
+                },
+                "children": [
+                  {
+                    "name": "Do you have Project Idia? Let's discuss your project!",
+                    "id": "135:809",
+                    "type": "TEXT",
+                    "characters": "Do you have Project Idia?\nLet's discuss your project!",
+                    "styles": {
+                      "fontFamily": "Work Sans",
+                      "fontWeight": 600,
+                      "fontSize": 48.0,
+                      "textAlignHorizontal": "CENTER",
+                      "textAlignVertical": "TOP",
+                      "letterSpacing": 0.0,
+                      "lineHeightPx": 56.0,
+                      "lineHeightPercent": 99.46006774902344,
+                      "lineHeightPercentFontSize": 116.66666412353516,
+                      "lineHeightUnit": "PIXELS",
+                      "color": {
+                        "hex": "#ffffff",
+                        "rgb": {
+                          "r": 255,
+                          "g": 255,
+                          "b": 255
+                        },
+                        "alpha": 1.0
+                      },
+                      "width": 621.0,
+                      "height": 112.0
+                    }
+                  },
+                  {
+                    "name": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.",
+                    "id": "135:810",
+                    "type": "TEXT",
+                    "characters": "There are many variations of passages of Lorem Ipsum available,\r\nbut the majority have suffered alteration.",
+                    "styles": {
+                      "fontFamily": "Work Sans",
+                      "fontWeight": 400,
+                      "fontSize": 18.0,
+                      "textAlignHorizontal": "CENTER",
+                      "textAlignVertical": "TOP",
+                      "letterSpacing": 0.0,
+                      "lineHeightPx": 24.0,
+                      "lineHeightPercent": 113.66865539550781,
+                      "lineHeightPercentFontSize": 133.3333282470703,
+                      "lineHeightUnit": "PIXELS",
+                      "color": {
+                        "hex": "#a5acb5",
+                        "rgb": {
+                          "r": 165,
+                          "g": 172,
+                          "b": 181
+                        },
+                        "alpha": 1.0
+                      },
+                      "width": 581.0,
+                      "height": 48.0
+                    }
+                  },
+                  {
+                    "type": "__COMPONENT_PLACEHOLDER__",
+                    "react_component_name": "Button",
+                    "id": "135:811",
+                    "component_id": "89:7224",
+                    "props_values": {
+                      "letSWorkTogether": "Let’s work Together"
+                    },
+                    "styles": {
+                      "width": 240.0,
+                      "height": 48.0,
+                      "layout": {
+                        "layoutSizingHorizontal": "HUG",
+                        "layoutSizingVertical": "HUG",
+                        "layoutGrow": 0.0,
+                        "layoutAlign": "INHERIT"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "Blog",
+                "id": "135:812",
+                "type": "FRAME",
+                "styles": {
+                  "width": 1920.0,
+                  "height": 784.0,
+                  "layout": {
+                    "layoutMode": "VERTICAL",
+                    "primaryAxisAlignItems": "MAX",
+                    "counterAxisAlignItems": "CENTER",
+                    "layoutWrap": "NO_WRAP",
+                    "layoutAlign": "INHERIT",
+                    "layoutGrow": 0.0,
+                    "layoutSizingHorizontal": "HUG",
+                    "layoutSizingVertical": "HUG",
+                    "padding": {
+                      "paddingTop": 100.0,
+                      "paddingBottom": 100.0
+                    },
+                    "itemSpacing": 24.0
+                  },
+                  "strokeWeight": 1.0,
+                  "strokeAlign": "INSIDE"
+                },
+                "children": [
+                  {
+                    "name": "Blog",
+                    "id": "135:813",
+                    "type": "FRAME",
+                    "styles": {
+                      "width": 1920.0,
+                      "height": 552.0,
+                      "layout": {
+                        "layoutMode": "VERTICAL",
+                        "primaryAxisAlignItems": "CENTER",
+                        "counterAxisAlignItems": "CENTER",
+                        "layoutWrap": "NO_WRAP",
+                        "layoutAlign": "INHERIT",
+                        "layoutGrow": 0.0,
+                        "layoutSizingHorizontal": "HUG",
+                        "layoutSizingVertical": "HUG",
+                        "padding": {
+                          "paddingLeft": 300.0,
+                          "paddingRight": 300.0
+                        },
+                        "itemSpacing": 70.0
+                      },
+                      "strokeWeight": 1.0,
+                      "strokeAlign": "INSIDE"
+                    },
+                    "children": [
+                      {
+                        "name": "Blog & Text",
+                        "id": "135:814",
+                        "type": "FRAME",
+                        "styles": {
+                          "width": 540.0,
+                          "height": 132.0,
+                          "layout": {
+                            "layoutMode": "VERTICAL",
+                            "counterAxisAlignItems": "CENTER",
+                            "layoutWrap": "NO_WRAP",
+                            "layoutAlign": "INHERIT",
+                            "layoutGrow": 0.0,
+                            "layoutSizingHorizontal": "HUG",
+                            "layoutSizingVertical": "HUG",
+                            "itemSpacing": 24.0
+                          },
+                          "strokeWeight": 1.0,
+                          "strokeAlign": "INSIDE"
+                        },
+                        "children": [
+                          {
+                            "name": "Blog",
+                            "id": "135:815",
+                            "type": "TEXT",
+                            "characters": "Blog",
+                            "styles": {
+                              "fontFamily": "Poppins",
+                              "fontPostScriptName": "Poppins-SemiBold",
+                              "fontWeight": 600,
+                              "fontSize": 48.0,
+                              "textAlignHorizontal": "LEFT",
+                              "textAlignVertical": "TOP",
+                              "letterSpacing": 0.0,
+                              "lineHeightPx": 56.0,
+                              "lineHeightPercent": 77.77777862548828,
+                              "lineHeightPercentFontSize": 116.66666412353516,
+                              "lineHeightUnit": "PIXELS",
+                              "color": {
+                                "hex": "#132238",
+                                "rgb": {
+                                  "r": 19,
+                                  "g": 34,
+                                  "b": 56
+                                },
+                                "alpha": 1.0
+                              },
+                              "width": 108.0,
+                              "height": 56.0
+                            }
+                          },
+                          {
+                            "name": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.",
+                            "id": "135:816",
+                            "type": "TEXT",
+                            "characters": "There are many variations of passages of Lorem Ipsum available,\r\nbut the majority have suffered alteration.",
+                            "styles": {
+                              "fontFamily": "Public Sans",
+                              "fontWeight": 400,
+                              "fontSize": 18.0,
+                              "textAlignHorizontal": "CENTER",
+                              "textAlignVertical": "TOP",
+                              "letterSpacing": 0.0,
+                              "lineHeightPx": 26.0,
+                              "lineHeightPercent": 122.93144226074219,
+                              "lineHeightPercentFontSize": 144.44444274902344,
+                              "lineHeightUnit": "PIXELS",
+                              "color": {
+                                "hex": "#87909d",
+                                "rgb": {
+                                  "r": 135,
+                                  "g": 144,
+                                  "b": 157
+                                },
+                                "alpha": 1.0
+                              },
+                              "width": 540.0,
+                              "height": 52.0
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Blog Card",
+                        "id": "135:817",
+                        "type": "FRAME",
+                        "styles": {
+                          "width": 1320.0,
+                          "height": 350.0,
+                          "layout": {
+                            "layoutMode": "HORIZONTAL",
+                            "primaryAxisAlignItems": "CENTER",
+                            "counterAxisAlignItems": "CENTER",
+                            "layoutWrap": "NO_WRAP",
+                            "layoutAlign": "INHERIT",
+                            "layoutGrow": 0.0,
+                            "layoutSizingHorizontal": "HUG",
+                            "layoutSizingVertical": "HUG",
+                            "itemSpacing": 24.0
+                          },
+                          "strokeWeight": 1.0,
+                          "strokeAlign": "INSIDE"
+                        },
+                        "children": [
+                          {
+                            "type": "__COMPONENT_PLACEHOLDER__",
+                            "react_component_name": "Blog",
+                            "id": "135:818",
+                            "component_id": "89:7155",
+                            "props_values": {
+                              "22Oct2020": "22 Oct, 2020",
+                              "value": "/",
+                              "246Comments": "246 Comments",
+                              "loremIpsumDolorSitConseaNullaPurusArcu": "Lorem ipsum dolor sit consea. Nulla purus arcu",
+                              "unsplashHh0OAiyeF1YUrl": "/src/assets/46c1b0b7047e0794dd8853d66cdde08771fd30d1.png"
+                            },
+                            "styles": {
+                              "width": 312.0,
+                              "height": 350.0,
+                              "layout": {
+                                "layoutSizingHorizontal": "HUG",
+                                "layoutSizingVertical": "HUG",
+                                "layoutGrow": 0.0,
+                                "layoutAlign": "INHERIT"
+                              }
+                            }
+                          },
+                          {
+                            "type": "__COMPONENT_PLACEHOLDER__",
+                            "react_component_name": "Blog",
+                            "id": "135:819",
+                            "component_id": "89:7108",
+                            "props_values": {
+                              "22Oct2020": "22 Oct, 2020",
+                              "value": "/",
+                              "246Comments": "246 Comments",
+                              "loremIpsumDolorSitConseaNullaPurusArcu": "Lorem ipsum dolor sit consea. Nulla purus arcu",
+                              "unsplashHh0OAiyeF1YUrl": "/src/assets/6256b708bb0c4a6fd8a44b369112956ce0963c34.png"
+                            },
+                            "styles": {
+                              "width": 312.0,
+                              "height": 350.0,
+                              "layout": {
+                                "layoutSizingHorizontal": "HUG",
+                                "layoutSizingVertical": "HUG",
+                                "layoutGrow": 0.0,
+                                "layoutAlign": "INHERIT"
+                              }
+                            }
+                          },
+                          {
+                            "type": "__COMPONENT_PLACEHOLDER__",
+                            "react_component_name": "Blog",
+                            "id": "135:820",
+                            "component_id": "89:7108",
+                            "props_values": {
+                              "22Oct2020": "22 Oct, 2020",
+                              "value": "/",
+                              "246Comments": "246 Comments",
+                              "loremIpsumDolorSitConseaNullaPurusArcu": "Lorem ipsum dolor sit consea. Nulla purus arcu",
+                              "unsplashHh0OAiyeF1YUrl": "/src/assets/e2b8fe341e5180e7839d7d0d049b6900cd354219.png"
+                            },
+                            "styles": {
+                              "width": 312.0,
+                              "height": 350.0,
+                              "layout": {
+                                "layoutSizingHorizontal": "HUG",
+                                "layoutSizingVertical": "HUG",
+                                "layoutGrow": 0.0,
+                                "layoutAlign": "INHERIT"
+                              }
+                            }
+                          },
+                          {
+                            "type": "__COMPONENT_PLACEHOLDER__",
+                            "react_component_name": "Blog",
+                            "id": "135:821",
+                            "component_id": "89:7108",
+                            "props_values": {
+                              "22Oct2020": "22 Oct, 2020",
+                              "value": "/",
+                              "246Comments": "246 Comments",
+                              "loremIpsumDolorSitConseaNullaPurusArcu": "Lorem ipsum dolor sit consea. Nulla purus arcu",
+                              "unsplashHh0OAiyeF1YUrl": "/src/assets/d85394fd2c31f590ee6e19eb4d05f39feb09abd5.png"
+                            },
+                            "styles": {
+                              "width": 312.0,
+                              "height": 350.0,
+                              "layout": {
+                                "layoutSizingHorizontal": "HUG",
+                                "layoutSizingVertical": "HUG",
+                                "layoutGrow": 0.0,
+                                "layoutAlign": "INHERIT"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "__COMPONENT_PLACEHOLDER__",
+                    "react_component_name": "Pagination",
+                    "id": "135:822",
+                    "component_id": "89:7181",
+                    "props_values": {},
+                    "styles": {
+                      "width": 70.0,
+                      "height": 8.0,
+                      "layout": {
+                        "layoutSizingHorizontal": "HUG",
+                        "layoutSizingVertical": "HUG",
+                        "layoutGrow": 0.0,
+                        "layoutAlign": "INHERIT"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "What I do?",
+                "id": "135:823",
+                "type": "FRAME",
+                "styles": {
+                  "width": 1920.0,
+                  "height": 876.0,
+                  "layout": {
+                    "layoutMode": "HORIZONTAL",
+                    "counterAxisAlignItems": "CENTER",
+                    "layoutWrap": "NO_WRAP",
+                    "layoutAlign": "INHERIT",
+                    "layoutGrow": 0.0,
+                    "layoutSizingHorizontal": "HUG",
+                    "layoutSizingVertical": "HUG",
+                    "padding": {
+                      "paddingLeft": 300.0,
+                      "paddingRight": 300.0,
+                      "paddingTop": 150.0,
+                      "paddingBottom": 150.0
+                    },
+                    "itemSpacing": 143.0
+                  },
+                  "fills": [
+                    {
+                      "type": "SOLID",
+                      "color": {
+                        "hex": "#f0f1f3",
+                        "rgb": {
+                          "r": 240,
+                          "g": 241,
+                          "b": 243
+                        },
+                        "alpha": 1.0
+                      }
+                    }
+                  ],
+                  "strokeWeight": 1.0,
+                  "strokeAlign": "INSIDE"
+                },
+                "children": [
+                  {
+                    "name": "Frame 287",
+                    "id": "135:824",
+                    "type": "FRAME",
+                    "styles": {
+                      "width": 529.0,
+                      "height": 338.0,
+                      "layout": {
+                        "layoutMode": "VERTICAL",
+                        "layoutWrap": "NO_WRAP",
+                        "layoutAlign": "INHERIT",
+                        "layoutGrow": 0.0,
+                        "layoutSizingHorizontal": "HUG",
+                        "layoutSizingVertical": "HUG",
+                        "itemSpacing": 50.0
+                      },
+                      "strokeWeight": 1.0,
+                      "strokeAlign": "INSIDE"
+                    },
+                    "children": [
+                      {
+                        "name": "Work Process",
+                        "id": "135:825",
+                        "type": "FRAME",
+                        "styles": {
+                          "width": 529.0,
+                          "height": 240.0,
+                          "layout": {
+                            "layoutMode": "VERTICAL",
+                            "layoutWrap": "NO_WRAP",
+                            "layoutAlign": "INHERIT",
+                            "layoutGrow": 0.0,
+                            "layoutSizingHorizontal": "HUG",
+                            "layoutSizingVertical": "HUG",
+                            "itemSpacing": 24.0
+                          },
+                          "strokeWeight": 1.0,
+                          "strokeAlign": "INSIDE"
+                        },
+                        "children": [
+                          {
+                            "name": "What I do?",
+                            "id": "135:826",
+                            "type": "TEXT",
+                            "characters": "What I do?",
+                            "styles": {
+                              "fontFamily": "Work Sans",
+                              "fontWeight": 600,
+                              "fontSize": 48.0,
+                              "textAlignHorizontal": "LEFT",
+                              "textAlignVertical": "TOP",
+                              "letterSpacing": 0.0,
+                              "lineHeightPx": 56.0,
+                              "lineHeightPercent": 99.46006774902344,
+                              "lineHeightPercentFontSize": 116.66666412353516,
+                              "lineHeightUnit": "PIXELS",
+                              "color": {
+                                "hex": "#333333",
+                                "rgb": {
+                                  "r": 51,
+                                  "g": 51,
+                                  "b": 51
+                                },
+                                "alpha": 1.0
+                              },
+                              "width": 254.0,
+                              "height": 56.0
+                            }
+                          },
+                          {
+                            "name": "Frame 31",
+                            "id": "135:827",
+                            "type": "FRAME",
+                            "styles": {
+                              "width": 529.0,
+                              "height": 160.0,
+                              "layout": {
+                                "layoutMode": "VERTICAL",
+                                "layoutWrap": "NO_WRAP",
+                                "layoutAlign": "INHERIT",
+                                "layoutGrow": 0.0,
+                                "layoutSizingHorizontal": "HUG",
+                                "layoutSizingVertical": "HUG",
+                                "itemSpacing": 16.0
+                              },
+                              "strokeWeight": 1.0,
+                              "strokeAlign": "INSIDE"
+                            },
+                            "children": [
+                              {
+                                "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum. Suspendis imperdiet,",
+                                "id": "135:828",
+                                "type": "TEXT",
+                                "characters": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum. Suspendis imperdiet,",
+                                "styles": {
+                                  "fontFamily": "Work Sans",
+                                  "fontWeight": 400,
+                                  "fontSize": 18.0,
+                                  "textAlignHorizontal": "LEFT",
+                                  "textAlignVertical": "TOP",
+                                  "letterSpacing": 0.0,
+                                  "lineHeightPx": 24.0,
+                                  "lineHeightPercent": 113.66865539550781,
+                                  "lineHeightPercentFontSize": 133.3333282470703,
+                                  "lineHeightUnit": "PIXELS",
+                                  "color": {
+                                    "hex": "#87909d",
+                                    "rgb": {
+                                      "r": 135,
+                                      "g": 144,
+                                      "b": 157
+                                    },
+                                    "alpha": 1.0
+                                  },
+                                  "width": 529.0,
+                                  "height": 96.0
+                                }
+                              },
+                              {
+                                "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non.",
+                                "id": "135:829",
+                                "type": "TEXT",
+                                "characters": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non.",
+                                "styles": {
+                                  "fontFamily": "Work Sans",
+                                  "fontWeight": 400,
+                                  "fontSize": 18.0,
+                                  "textAlignHorizontal": "LEFT",
+                                  "textAlignVertical": "TOP",
+                                  "letterSpacing": 0.0,
+                                  "lineHeightPx": 24.0,
+                                  "lineHeightPercent": 113.66865539550781,
+                                  "lineHeightPercentFontSize": 133.3333282470703,
+                                  "lineHeightUnit": "PIXELS",
+                                  "color": {
+                                    "hex": "#87909d",
+                                    "rgb": {
+                                      "r": 135,
+                                      "g": 144,
+                                      "b": 157
+                                    },
+                                    "alpha": 1.0
+                                  },
+                                  "width": 529.0,
+                                  "height": 48.0
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "__COMPONENT_PLACEHOLDER__",
+                        "react_component_name": "Button",
+                        "id": "135:830",
+                        "component_id": "89:7226",
+                        "props_values": {
+                          "button": "Say Hello!"
+                        },
+                        "styles": {
+                          "width": 126.0,
+                          "height": 48.0,
+                          "layout": {
+                            "layoutSizingHorizontal": "HUG",
+                            "layoutSizingVertical": "HUG",
+                            "layoutGrow": 0.0,
+                            "layoutAlign": "INHERIT"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "name": "What I do cards",
+                    "id": "135:831",
+                    "type": "FRAME",
+                    "styles": {
+                      "width": 648.0,
+                      "height": 576.0,
+                      "layout": {
+                        "layoutMode": "VERTICAL",
+                        "layoutWrap": "NO_WRAP",
+                        "layoutAlign": "INHERIT",
+                        "layoutGrow": 0.0,
+                        "layoutSizingHorizontal": "HUG",
+                        "layoutSizingVertical": "HUG",
+                        "itemSpacing": 24.0
+                      },
+                      "strokeWeight": 1.0,
+                      "strokeAlign": "INSIDE"
+                    },
+                    "children": [
+                      {
+                        "type": "__COMPONENT_PLACEHOLDER__",
+                        "react_component_name": "What I do card",
+                        "id": "135:832",
+                        "component_id": "89:7170",
+                        "props_values": {
+                          "userExperienceUX": "User Experience (UX)",
+                          "loremIpsumDolorSitAmetConsecteturAdipiscingElitNullaPurusArcuVariusEgetVelitNonLaoreetImperdietOrciMaurisUltricesEgetLoremAcVestibulum": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum."
+                        },
+                        "styles": {
+                          "width": 648.0,
+                          "height": 176.0,
+                          "layout": {
+                            "layoutSizingHorizontal": "HUG",
+                            "layoutSizingVertical": "HUG",
+                            "layoutGrow": 0.0,
+                            "layoutAlign": "INHERIT"
+                          }
+                        }
+                      },
+                      {
+                        "type": "__COMPONENT_PLACEHOLDER__",
+                        "react_component_name": "What I do card",
+                        "id": "135:833",
+                        "component_id": "89:7169",
+                        "props_values": {
+                          "userExperienceUX": "User Interface (UI)",
+                          "loremIpsumDolorSitAmetConsecteturAdipiscingElitNullaPurusArcuVariusEgetVelitNonLaoreetImperdietOrciMaurisUltricesEgetLoremAcVestibulum": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum."
+                        },
+                        "styles": {
+                          "width": 648.0,
+                          "height": 176.0,
+                          "layout": {
+                            "layoutSizingHorizontal": "HUG",
+                            "layoutSizingVertical": "HUG",
+                            "layoutGrow": 0.0,
+                            "layoutAlign": "INHERIT"
+                          }
+                        }
+                      },
+                      {
+                        "type": "__COMPONENT_PLACEHOLDER__",
+                        "react_component_name": "What I do card",
+                        "id": "135:834",
+                        "component_id": "89:7169",
+                        "props_values": {
+                          "userExperienceUX": "Web Development",
+                          "loremIpsumDolorSitAmetConsecteturAdipiscingElitNullaPurusArcuVariusEgetVelitNonLaoreetImperdietOrciMaurisUltricesEgetLoremAcVestibulum": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum."
+                        },
+                        "styles": {
+                          "width": 648.0,
+                          "height": 176.0,
+                          "layout": {
+                            "layoutSizingHorizontal": "HUG",
+                            "layoutSizingVertical": "HUG",
+                            "layoutGrow": 0.0,
+                            "layoutAlign": "INHERIT"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Hapyy Clients",
+                "id": "135:835",
+                "type": "FRAME",
+                "styles": {
+                  "width": 1920.0,
+                  "height": 552.0,
+                  "layout": {
+                    "layoutMode": "VERTICAL",
+                    "counterAxisAlignItems": "CENTER",
+                    "layoutWrap": "NO_WRAP",
+                    "layoutAlign": "INHERIT",
+                    "layoutGrow": 0.0,
+                    "layoutSizingHorizontal": "HUG",
+                    "layoutSizingVertical": "HUG",
+                    "padding": {
+                      "paddingLeft": 300.0,
+                      "paddingRight": 300.0,
+                      "paddingTop": 100.0,
+                      "paddingBottom": 100.0
+                    },
+                    "itemSpacing": 24.0
+                  },
+                  "strokeWeight": 1.0,
+                  "strokeAlign": "INSIDE"
+                },
+                "children": [
+                  {
+                    "name": "Frame 281",
+                    "id": "135:836",
+                    "type": "FRAME",
+                    "styles": {
+                      "width": 577.0,
+                      "height": 128.0,
+                      "layout": {
+                        "layoutMode": "VERTICAL",
+                        "primaryAxisAlignItems": "CENTER",
+                        "counterAxisAlignItems": "CENTER",
+                        "layoutWrap": "NO_WRAP",
+                        "layoutAlign": "INHERIT",
+                        "layoutGrow": 0.0,
+                        "layoutSizingHorizontal": "HUG",
+                        "layoutSizingVertical": "HUG",
+                        "itemSpacing": 24.0
+                      },
+                      "strokeWeight": 1.0,
+                      "strokeAlign": "INSIDE"
+                    },
+                    "children": [
+                      {
+                        "name": "Happy Clients",
+                        "id": "135:837",
+                        "type": "TEXT",
+                        "characters": "Happy Clients",
+                        "styles": {
+                          "fontFamily": "Work Sans",
+                          "fontWeight": 600,
+                          "fontSize": 48.0,
+                          "textAlignHorizontal": "CENTER",
+                          "textAlignVertical": "TOP",
+                          "letterSpacing": 0.0,
+                          "lineHeightPx": 56.0,
+                          "lineHeightPercent": 99.46006774902344,
+                          "lineHeightPercentFontSize": 116.66666412353516,
+                          "lineHeightUnit": "PIXELS",
+                          "color": {
+                            "hex": "#132238",
+                            "rgb": {
+                              "r": 19,
+                              "g": 34,
+                              "b": 56
+                            },
+                            "alpha": 1.0
+                          },
+                          "width": 327.0,
+                          "height": 56.0
+                        }
+                      },
+                      {
+                        "name": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.",
+                        "id": "135:838",
+                        "type": "TEXT",
+                        "characters": "There are many variations of passages of Lorem Ipsum available,\r\nbut the majority have suffered alteration.",
+                        "styles": {
+                          "fontFamily": "Work Sans",
+                          "fontWeight": 400,
+                          "fontSize": 18.0,
+                          "textAlignHorizontal": "CENTER",
+                          "textAlignVertical": "TOP",
+                          "letterSpacing": 0.0,
+                          "lineHeightPx": 24.0,
+                          "lineHeightPercent": 113.66865539550781,
+                          "lineHeightPercentFontSize": 133.3333282470703,
+                          "lineHeightUnit": "PIXELS",
+                          "color": {
+                            "hex": "#87909d",
+                            "rgb": {
+                              "r": 135,
+                              "g": 144,
+                              "b": 157
+                            },
+                            "alpha": 1.0
+                          },
+                          "width": 577.0,
+                          "height": 48.0
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Frame 280",
+                    "id": "135:839",
+                    "type": "FRAME",
+                    "styles": {
+                      "width": 1320.0,
+                      "height": 200.0,
+                      "layout": {
+                        "layoutMode": "HORIZONTAL",
+                        "layoutWrap": "NO_WRAP",
+                        "layoutAlign": "INHERIT",
+                        "layoutGrow": 0.0,
+                        "layoutSizingHorizontal": "HUG",
+                        "layoutSizingVertical": "HUG",
+                        "itemSpacing": 24.0
+                      },
+                      "strokeWeight": 1.0,
+                      "strokeAlign": "INSIDE"
+                    },
+                    "children": [
+                      {
+                        "name": "google",
+                        "id": "135:840",
+                        "type": "FRAME",
+                        "styles": {
+                          "width": 200.0,
+                          "height": 200.0,
+                          "layout": {
+                            "layoutAlign": "INHERIT",
+                            "layoutGrow": 0.0,
+                            "layoutSizingHorizontal": "FIXED",
+                            "layoutSizingVertical": "FIXED",
+                            "layoutMode": "GRID",
+                            "gridColumns": 2
+                          },
+                          "fills": [
+                            {
+                              "type": "SOLID",
+                              "visible": false,
+                              "color": {
+                                "hex": "#ffffff",
+                                "rgb": {
+                                  "r": 255,
+                                  "g": 255,
+                                  "b": 255
+                                },
+                                "alpha": 1.0
+                              }
+                            }
+                          ],
+                          "strokeWeight": 1.0,
+                          "strokeAlign": "INSIDE"
+                        },
+                        "children": [
+                          {
+                            "name": "Vector",
+                            "id": "135:841",
+                            "type": "VECTOR",
+                            "styles": {
+                              "width": 35.0,
+                              "height": 35.0,
+                              "fills": [
+                                {
+                                  "type": "SOLID",
+                                  "color": {
+                                    "hex": "#b8bcc2",
+                                    "rgb": {
+                                      "r": 184,
+                                      "g": 188,
+                                      "b": 194
+                                    },
+                                    "alpha": 1.0
+                                  }
+                                }
+                              ],
+                              "strokeWeight": 4.194631099700928,
+                              "strokeAlign": "INSIDE"
+                            }
+                          },
+                          {
+                            "name": "Vector",
+                            "id": "135:842",
+                            "type": "VECTOR",
+                            "styles": {
+                              "width": 5.0,
+                              "height": 34.0,
+                              "fills": [
+                                {
+                                  "type": "SOLID",
+                                  "color": {
+                                    "hex": "#b8bcc2",
+                                    "rgb": {
+                                      "r": 184,
+                                      "g": 188,
+                                      "b": 194
+                                    },
+                                    "alpha": 1.0
+                                  }
+                                }
+                              ],
+                              "strokeWeight": 4.194631099700928,
+                              "strokeAlign": "INSIDE"
+                            }
+                          },
+                          {
+                            "name": "Vector",
+                            "id": "135:843",
+                            "type": "VECTOR",
+                            "styles": {
+                              "width": 23.0,
+                              "height": 23.0,
+                              "fills": [
+                                {
+                                  "type": "SOLID",
+                                  "color": {
+                                    "hex": "#b8bcc2",
+                                    "rgb": {
+                                      "r": 184,
+                                      "g": 188,
+                                      "b": 194
+                                    },
+                                    "alpha": 1.0
+                                  }
+                                }
+                              ],
+                              "strokeWeight": 4.194631099700928,
+                              "strokeAlign": "INSIDE"
+                            }
+                          },
+                          {
+                            "name": "Vector",
+                            "id": "135:844",
+                            "type": "VECTOR",
+                            "styles": {
+                              "width": 23.0,
+                              "height": 23.0,
+                              "fills": [
+                                {
+                                  "type": "SOLID",
+                                  "color": {
+                                    "hex": "#b8bcc2",
+                                    "rgb": {
+                                      "r": 184,
+                                      "g": 188,
+                                      "b": 194
+                                    },
+                                    "alpha": 1.0
+                                  }
+                                }
+                              ],
+                              "strokeWeight": 4.194631099700928,
+                              "strokeAlign": "INSIDE"
+                            }
+                          },
+                          {
+                            "name": "Vector",
+                            "id": "135:845",
+                            "type": "VECTOR",
+                            "styles": {
+                              "width": 22.0,
+                              "height": 33.0,
+                              "fills": [
+                                {
+                                  "type": "SOLID",
+                                  "color": {
+                                    "hex": "#b8bcc2",
+                                    "rgb": {
+                                      "r": 184,
+                                      "g": 188,
+                                      "b": 194
+                                    },
+                                    "alpha": 1.0
+                                  }
+                                }
+                              ],
+                              "strokeWeight": 4.194631099700928,
+                              "strokeAlign": "INSIDE"
+                            }
+                          },
+                          {
+                            "name": "Vector",
+                            "id": "135:846",
+                            "type": "VECTOR",
+                            "styles": {
+                              "width": 21.0,
+                              "height": 23.0,
+                              "fills": [
+                                {
+                                  "type": "SOLID",
+                                  "color": {
+                                    "hex": "#b8bcc2",
+                                    "rgb": {
+                                      "r": 184,
+                                      "g": 188,
+                                      "b": 194
+                                    },
+                                    "alpha": 1.0
+                                  }
+                                }
+                              ],
+                              "strokeWeight": 4.194631099700928,
+                              "strokeAlign": "INSIDE"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "dribbble",
+                        "id": "135:847",
+                        "type": "FRAME",
+                        "styles": {
+                          "width": 200.0,
+                          "height": 200.0,
+                          "layout": {
+                            "layoutAlign": "INHERIT",
+                            "layoutGrow": 0.0,
+                            "layoutSizingHorizontal": "FIXED",
+                            "layoutSizingVertical": "FIXED"
+                          },
+                          "fills": [
+                            {
+                              "type": "SOLID",
+                              "visible": false,
+                              "color": {
+                                "hex": "#ffffff",
+                                "rgb": {
+                                  "r": 255,
+                                  "g": 255,
+                                  "b": 255
+                                },
+                                "alpha": 1.0
+                              }
+                            }
+                          ],
+                          "strokeWeight": 1.0,
+                          "strokeAlign": "INSIDE",
+                          "_positioning": "absolute"
+                        },
+                        "children": [
+                          {
+                            "name": "Vector",
+                            "id": "135:848",
+                            "type": "VECTOR",
+                            "styles": {
+                              "width": 140.0,
+                              "height": 35.0,
+                              "fills": [
+                                {
+                                  "type": "SOLID",
+                                  "color": {
+                                    "hex": "#b8bcc2",
+                                    "rgb": {
+                                      "r": 184,
+                                      "g": 188,
+                                      "b": 194
+                                    },
+                                    "alpha": 1.0
+                                  }
+                                }
+                              ],
+                              "strokeWeight": 4.88095235824585,
+                              "strokeAlign": "INSIDE",
+                              "_position": {
+                                "top": 82.0,
+                                "left": 30.0
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "linkedin",
+                        "id": "135:849",
+                        "type": "FRAME",
+                        "styles": {
+                          "width": 200.0,
+                          "height": 200.0,
+                          "layout": {
+                            "layoutAlign": "INHERIT",
+                            "layoutGrow": 0.0,
+                            "layoutSizingHorizontal": "FIXED",
+                            "layoutSizingVertical": "FIXED"
+                          },
+                          "fills": [
+                            {
+                              "type": "SOLID",
+                              "visible": false,
+                              "color": {
+                                "hex": "#ffffff",
+                                "rgb": {
+                                  "r": 255,
+                                  "g": 255,
+                                  "b": 255
+                                },
+                                "alpha": 1.0
+                              }
+                            }
+                          ],
+                          "strokeWeight": 1.0,
+                          "strokeAlign": "INSIDE",
+                          "_positioning": "absolute"
+                        },
+                        "children": [
+                          {
+                            "name": "Vector",
+                            "id": "135:850",
+                            "type": "VECTOR",
+                            "styles": {
+                              "width": 37.0,
+                              "height": 37.0,
+                              "fills": [
+                                {
+                                  "type": "SOLID",
+                                  "color": {
+                                    "hex": "#006699",
+                                    "rgb": {
+                                      "r": 0,
+                                      "g": 102,
+                                      "b": 153
+                                    },
+                                    "alpha": 1.0
+                                  }
+                                }
+                              ],
+                              "strokeWeight": 8.682194709777832,
+                              "strokeAlign": "INSIDE",
+                              "_position": {
+                                "top": 82.0,
+                                "left": 133.0
+                              }
+                            }
+                          },
+                          {
+                            "name": "Vector",
+                            "id": "135:851",
+                            "type": "VECTOR",
+                            "styles": {
+                              "width": 63.0,
+                              "height": 25.0,
+                              "fills": [
+                                {
+                                  "type": "SOLID",
+                                  "color": {
+                                    "hex": "#000000",
+                                    "rgb": {
+                                      "r": 0,
+                                      "g": 0,
+                                      "b": 0
+                                    },
+                                    "alpha": 1.0
+                                  }
+                                }
+                              ],
+                              "strokeWeight": 8.682194709777832,
+                              "strokeAlign": "INSIDE",
+                              "_position": {
+                                "top": 88.0,
+                                "left": 30.0
+                              }
+                            }
+                          },
+                          {
+                            "name": "Vector",
+                            "id": "135:852",
+                            "type": "VECTOR",
+                            "styles": {
+                              "width": 37.0,
+                              "height": 24.0,
+                              "fills": [
+                                {
+                                  "type": "SOLID",
+                                  "color": {
+                                    "hex": "#000000",
+                                    "rgb": {
+                                      "r": 0,
+                                      "g": 0,
+                                      "b": 0
+                                    },
+                                    "alpha": 1.0
+                                  }
+                                }
+                              ],
+                              "strokeWeight": 8.682194709777832,
+                              "strokeAlign": "INSIDE",
+                              "_position": {
+                                "top": 89.0,
+                                "left": 91.0
+                              }
+                            }
+                          },
+                          {
+                            "name": "Vector",
+                            "id": "135:853",
+                            "type": "VECTOR",
+                            "styles": {
+                              "width": 26.0,
+                              "height": 25.0,
+                              "fills": [
+                                {
+                                  "type": "SOLID",
+                                  "color": {
+                                    "hex": "#ffffff",
+                                    "rgb": {
+                                      "r": 255,
+                                      "g": 255,
+                                      "b": 255
+                                    },
+                                    "alpha": 1.0
+                                  }
+                                }
+                              ],
+                              "strokeWeight": 8.682194709777832,
+                              "strokeAlign": "INSIDE",
+                              "_position": {
+                                "top": 88.0,
+                                "left": 138.0
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "amazon",
+                        "id": "135:854",
+                        "type": "FRAME",
+                        "styles": {
+                          "width": 200.0,
+                          "height": 200.0,
+                          "layout": {
+                            "layoutAlign": "INHERIT",
+                            "layoutGrow": 0.0,
+                            "layoutSizingHorizontal": "FIXED",
+                            "layoutSizingVertical": "FIXED"
+                          },
+                          "fills": [
+                            {
+                              "type": "SOLID",
+                              "visible": false,
+                              "color": {
+                                "hex": "#ffffff",
+                                "rgb": {
+                                  "r": 255,
+                                  "g": 255,
+                                  "b": 255
+                                },
+                                "alpha": 1.0
+                              }
+                            }
+                          ],
+                          "strokeWeight": 1.0,
+                          "strokeAlign": "INSIDE",
+                          "_positioning": "absolute"
+                        },
+                        "children": [
+                          {
+                            "name": "Vector",
+                            "id": "135:855",
+                            "type": "VECTOR",
+                            "styles": {
+                              "width": 140.0,
+                              "height": 25.0,
+                              "fills": [
+                                {
+                                  "type": "SOLID",
+                                  "color": {
+                                    "hex": "#b8bcc2",
+                                    "rgb": {
+                                      "r": 184,
+                                      "g": 188,
+                                      "b": 194
+                                    },
+                                    "alpha": 1.0
+                                  }
+                                }
+                              ],
+                              "strokeWeight": 6.2710041999816895,
+                              "strokeAlign": "INSIDE",
+                              "_position": {
+                                "top": 94.0,
+                                "left": 30.0
+                              }
+                            }
+                          },
+                          {
+                            "name": "Group",
+                            "id": "135:856",
+                            "type": "GROUP",
+                            "children": [
+                              {
+                                "name": "Vector",
+                                "id": "135:857",
+                                "type": "VECTOR",
+                                "styles": {
+                                  "width": 13.87,
+                                  "height": 13.59,
+                                  "fills": [
+                                    {
+                                      "type": "SOLID",
+                                      "color": {
+                                        "hex": "#b8bcc2",
+                                        "rgb": {
+                                          "r": 184,
+                                          "g": 188,
+                                          "b": 194
+                                        },
+                                        "alpha": 1.0
+                                      }
+                                    }
+                                  ],
+                                  "strokeWeight": 6.2710041999816895,
+                                  "strokeAlign": "INSIDE"
+                                }
+                              },
+                              {
+                                "name": "Vector",
+                                "id": "135:858",
+                                "type": "VECTOR",
+                                "styles": {
+                                  "width": 67.55,
+                                  "height": 15.13,
+                                  "fills": [
+                                    {
+                                      "type": "SOLID",
+                                      "color": {
+                                        "hex": "#b8bcc2",
+                                        "rgb": {
+                                          "r": 184,
+                                          "g": 188,
+                                          "b": 194
+                                        },
+                                        "alpha": 1.0
+                                      }
+                                    }
+                                  ],
+                                  "strokeWeight": 6.2710041999816895,
+                                  "strokeAlign": "INSIDE"
+                                }
+                              }
+                            ],
+                            "styles": {
+                              "_position": {
+                                "top": 119.3,
+                                "left": 50.0
+                              },
+                              "layout": {
+                                "layoutMode": "GRID",
+                                "gridColumns": 2
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "medium",
+                        "id": "135:859",
+                        "type": "FRAME",
+                        "styles": {
+                          "width": 200.0,
+                          "height": 200.0,
+                          "layout": {
+                            "layoutAlign": "INHERIT",
+                            "layoutGrow": 0.0,
+                            "layoutSizingHorizontal": "FIXED",
+                            "layoutSizingVertical": "FIXED"
+                          },
+                          "fills": [
+                            {
+                              "type": "SOLID",
+                              "visible": false,
+                              "color": {
+                                "hex": "#ffffff",
+                                "rgb": {
+                                  "r": 255,
+                                  "g": 255,
+                                  "b": 255
+                                },
+                                "alpha": 1.0
+                              }
+                            }
+                          ],
+                          "strokeWeight": 1.0,
+                          "strokeAlign": "INSIDE",
+                          "_positioning": "absolute"
+                        },
+                        "children": [
+                          {
+                            "name": "Vector",
+                            "id": "135:860",
+                            "type": "VECTOR",
+                            "styles": {
+                              "width": 140.0,
+                              "height": 28.0,
+                              "fills": [
+                                {
+                                  "type": "SOLID",
+                                  "color": {
+                                    "hex": "#b8bcc2",
+                                    "rgb": {
+                                      "r": 184,
+                                      "g": 188,
+                                      "b": 194
+                                    },
+                                    "alpha": 1.0
+                                  }
+                                }
+                              ],
+                              "strokeWeight": 6.565804481506348,
+                              "strokeAlign": "INSIDE",
+                              "_position": {
+                                "top": 86.0,
+                                "left": 30.0
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "spotify",
+                        "id": "135:861",
+                        "type": "FRAME",
+                        "styles": {
+                          "width": 200.0,
+                          "height": 200.0,
+                          "layout": {
+                            "layoutAlign": "INHERIT",
+                            "layoutGrow": 0.0,
+                            "layoutSizingHorizontal": "FIXED",
+                            "layoutSizingVertical": "FIXED"
+                          },
+                          "fills": [
+                            {
+                              "type": "SOLID",
+                              "visible": false,
+                              "color": {
+                                "hex": "#ffffff",
+                                "rgb": {
+                                  "r": 255,
+                                  "g": 255,
+                                  "b": 255
+                                },
+                                "alpha": 1.0
+                              }
+                            }
+                          ],
+                          "strokeWeight": 1.0,
+                          "strokeAlign": "INSIDE",
+                          "_positioning": "absolute"
+                        },
+                        "children": [
+                          {
+                            "name": "Vector",
+                            "id": "135:862",
+                            "type": "VECTOR",
+                            "styles": {
+                              "width": 140.0,
+                              "height": 42.0,
+                              "fills": [
+                                {
+                                  "type": "SOLID",
+                                  "color": {
+                                    "hex": "#b8bcc2",
+                                    "rgb": {
+                                      "r": 184,
+                                      "g": 188,
+                                      "b": 194
+                                    },
+                                    "alpha": 1.0
+                                  }
+                                }
+                              ],
+                              "strokeWeight": 1.0,
+                              "strokeAlign": "INSIDE",
+                              "_position": {
+                                "top": 79.0,
+                                "left": 30.0
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Testimonial",
+                "id": "135:863",
+                "type": "FRAME",
+                "styles": {
+                  "width": 1920.0,
+                  "height": 534.0,
+                  "layout": {
+                    "layoutMode": "VERTICAL",
+                    "counterAxisAlignItems": "CENTER",
+                    "layoutWrap": "NO_WRAP",
+                    "layoutAlign": "INHERIT",
+                    "layoutGrow": 0.0,
+                    "layoutSizingHorizontal": "HUG",
+                    "layoutSizingVertical": "HUG",
+                    "padding": {
+                      "paddingLeft": 524.0,
+                      "paddingRight": 524.0,
+                      "paddingBottom": 100.0
+                    },
+                    "itemSpacing": 50.0
+                  },
+                  "strokeWeight": 1.0,
+                  "strokeAlign": "INSIDE"
+                },
+                "children": [
+                  {
+                    "name": "Frame 283",
+                    "id": "135:864",
+                    "type": "FRAME",
+                    "styles": {
+                      "width": 872.0,
+                      "height": 376.0,
+                      "layout": {
+                        "layoutMode": "VERTICAL",
+                        "primaryAxisAlignItems": "CENTER",
+                        "counterAxisAlignItems": "CENTER",
+                        "layoutWrap": "NO_WRAP",
+                        "layoutAlign": "INHERIT",
+                        "layoutGrow": 0.0,
+                        "layoutSizingHorizontal": "HUG",
+                        "layoutSizingVertical": "HUG",
+                        "itemSpacing": 70.0
+                      },
+                      "strokeWeight": 1.0,
+                      "strokeAlign": "INSIDE"
+                    },
+                    "children": [
+                      {
+                        "name": "Happy Clients",
+                        "id": "135:865",
+                        "type": "FRAME",
+                        "styles": {
+                          "width": 577.0,
+                          "height": 128.0,
+                          "layout": {
+                            "layoutMode": "VERTICAL",
+                            "counterAxisAlignItems": "CENTER",
+                            "layoutWrap": "NO_WRAP",
+                            "layoutAlign": "INHERIT",
+                            "layoutGrow": 0.0,
+                            "layoutSizingHorizontal": "HUG",
+                            "layoutSizingVertical": "HUG",
+                            "itemSpacing": 24.0
+                          },
+                          "strokeWeight": 1.0,
+                          "strokeAlign": "INSIDE"
+                        },
+                        "children": [
+                          {
+                            "name": "Testimonial",
+                            "id": "135:866",
+                            "type": "TEXT",
+                            "characters": "Testimonial",
+                            "styles": {
+                              "fontFamily": "Work Sans",
+                              "fontWeight": 600,
+                              "fontSize": 48.0,
+                              "textAlignHorizontal": "CENTER",
+                              "textAlignVertical": "TOP",
+                              "letterSpacing": 0.0,
+                              "lineHeightPx": 56.0,
+                              "lineHeightPercent": 99.46006774902344,
+                              "lineHeightPercentFontSize": 116.66666412353516,
+                              "lineHeightUnit": "PIXELS",
+                              "color": {
+                                "hex": "#333333",
+                                "rgb": {
+                                  "r": 51,
+                                  "g": 51,
+                                  "b": 51
+                                },
+                                "alpha": 1.0
+                              },
+                              "width": 274.0,
+                              "height": 56.0
+                            }
+                          },
+                          {
+                            "name": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.",
+                            "id": "135:867",
+                            "type": "TEXT",
+                            "characters": "There are many variations of passages of Lorem Ipsum available,\r\nbut the majority have suffered alteration.",
+                            "styles": {
+                              "fontFamily": "Work Sans",
+                              "fontWeight": 400,
+                              "fontSize": 18.0,
+                              "textAlignHorizontal": "CENTER",
+                              "textAlignVertical": "TOP",
+                              "letterSpacing": 0.0,
+                              "lineHeightPx": 24.0,
+                              "lineHeightPercent": 113.66865539550781,
+                              "lineHeightPercentFontSize": 133.3333282470703,
+                              "lineHeightUnit": "PIXELS",
+                              "color": {
+                                "hex": "#87909d",
+                                "rgb": {
+                                  "r": 135,
+                                  "g": 144,
+                                  "b": 157
+                                },
+                                "alpha": 1.0
+                              },
+                              "width": 577.0,
+                              "height": 48.0
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Frame 282",
+                        "id": "135:868",
+                        "type": "FRAME",
+                        "styles": {
+                          "width": 872.0,
+                          "height": 178.0,
+                          "layout": {
+                            "layoutMode": "VERTICAL",
+                            "primaryAxisAlignItems": "CENTER",
+                            "counterAxisAlignItems": "CENTER",
+                            "layoutWrap": "NO_WRAP",
+                            "layoutAlign": "INHERIT",
+                            "layoutGrow": 0.0,
+                            "layoutSizingHorizontal": "HUG",
+                            "layoutSizingVertical": "HUG",
+                            "itemSpacing": 24.0
+                          },
+                          "strokeWeight": 1.0,
+                          "strokeAlign": "INSIDE"
+                        },
+                        "children": [
+                          {
+                            "name": "“Nulla efficitur nisl sit amet velit malesuada dapibus. Duis mollis felis turpis, nec semper odio convallis at. Curabitur imperdiet semper arcu, a finibus arcu suscipit in. Donec quis placerat nibh. Maecenas est purus, eleifend ac cursus sed, tincidunt ut sapien. Morbi ornare elit at libero suscipit porta.”",
+                            "id": "135:869",
+                            "type": "TEXT",
+                            "characters": "“Nulla efficitur nisl sit amet velit malesuada dapibus. Duis mollis felis turpis, nec semper odio convallis at. Curabitur imperdiet semper arcu, a finibus arcu suscipit in. Donec quis placerat nibh. Maecenas est purus, eleifend ac cursus sed, tincidunt ut sapien.\nMorbi ornare elit at libero suscipit porta.”",
+                            "styles": {
+                              "fontFamily": "Work Sans",
+                              "fontWeight": 500,
+                              "fontSize": 18.0,
+                              "textAlignHorizontal": "CENTER",
+                              "textAlignVertical": "TOP",
+                              "letterSpacing": 0.0,
+                              "lineHeightPx": 24.0,
+                              "lineHeightPercent": 113.66865539550781,
+                              "lineHeightPercentFontSize": 133.3333282470703,
+                              "lineHeightUnit": "PIXELS",
+                              "color": {
+                                "hex": "#2b384c",
+                                "rgb": {
+                                  "r": 43,
+                                  "g": 56,
+                                  "b": 76
+                                },
+                                "alpha": 1.0
+                              },
+                              "width": 872.0,
+                              "height": 96.0
+                            }
+                          },
+                          {
+                            "name": "Clients name & company",
+                            "id": "135:870",
+                            "type": "FRAME",
+                            "styles": {
+                              "width": 268.0,
+                              "height": 58.0,
+                              "layout": {
+                                "layoutMode": "VERTICAL",
+                                "primaryAxisAlignItems": "CENTER",
+                                "counterAxisAlignItems": "CENTER",
+                                "layoutWrap": "NO_WRAP",
+                                "layoutAlign": "INHERIT",
+                                "layoutGrow": 0.0,
+                                "layoutSizingHorizontal": "HUG",
+                                "layoutSizingVertical": "HUG",
+                                "itemSpacing": 8.0
+                              },
+                              "strokeWeight": 1.0,
+                              "strokeAlign": "INSIDE"
+                            },
+                            "children": [
+                              {
+                                "name": "Frame 36",
+                                "id": "135:871",
+                                "type": "FRAME",
+                                "styles": {
+                                  "width": 131.0,
+                                  "height": 26.0,
+                                  "layout": {
+                                    "layoutMode": "HORIZONTAL",
+                                    "primaryAxisAlignItems": "CENTER",
+                                    "counterAxisAlignItems": "CENTER",
+                                    "layoutWrap": "NO_WRAP",
+                                    "layoutAlign": "INHERIT",
+                                    "layoutGrow": 0.0,
+                                    "layoutSizingHorizontal": "HUG",
+                                    "layoutSizingVertical": "HUG",
+                                    "itemSpacing": 24.0
+                                  },
+                                  "strokeWeight": 1.0,
+                                  "strokeAlign": "INSIDE"
+                                },
+                                "children": [
+                                  {
+                                    "name": "Esther Howard",
+                                    "id": "135:872",
+                                    "type": "TEXT",
+                                    "characters": "Esther Howard",
+                                    "styles": {
+                                      "fontFamily": "Poppins",
+                                      "fontPostScriptName": "Poppins-Medium",
+                                      "fontWeight": 500,
+                                      "fontSize": 18.0,
+                                      "textAlignHorizontal": "LEFT",
+                                      "textAlignVertical": "TOP",
+                                      "letterSpacing": 0.0,
+                                      "lineHeightPx": 26.0,
+                                      "lineHeightPercent": 96.29629516601562,
+                                      "lineHeightPercentFontSize": 144.44444274902344,
+                                      "lineHeightUnit": "PIXELS",
+                                      "color": {
+                                        "hex": "#000000",
+                                        "rgb": {
+                                          "r": 0,
+                                          "g": 0,
+                                          "b": 0
+                                        },
+                                        "alpha": 1.0
+                                      },
+                                      "width": 131.0,
+                                      "height": 26.0
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "name": "Managing Director, ABC company",
+                                "id": "135:873",
+                                "type": "TEXT",
+                                "characters": "Managing Director, ABC company",
+                                "styles": {
+                                  "fontFamily": "Poppins",
+                                  "fontPostScriptName": "Poppins-Light",
+                                  "fontWeight": 300,
+                                  "fontSize": 16.0,
+                                  "textAlignHorizontal": "LEFT",
+                                  "textAlignVertical": "TOP",
+                                  "letterSpacing": 0.0,
+                                  "lineHeightPx": 24.0,
+                                  "lineHeightPercent": 100.0,
+                                  "lineHeightPercentFontSize": 150.0,
+                                  "lineHeightUnit": "PIXELS",
+                                  "color": {
+                                    "hex": "#000000",
+                                    "rgb": {
+                                      "r": 0,
+                                      "g": 0,
+                                      "b": 0
+                                    },
+                                    "alpha": 1.0
+                                  },
+                                  "width": 268.0,
+                                  "height": 24.0
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "__COMPONENT_PLACEHOLDER__",
+                    "react_component_name": "Pagination",
+                    "id": "135:874",
+                    "component_id": "89:7181",
+                    "props_values": {},
+                    "styles": {
+                      "width": 70.0,
+                      "height": 8.0,
+                      "layout": {
+                        "layoutSizingHorizontal": "HUG",
+                        "layoutSizingVertical": "HUG",
+                        "layoutGrow": 0.0,
+                        "layoutAlign": "INHERIT"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "nested_instances": [
+            {
+              "id": "135:788",
+              "name": "Work Process Card",
+              "component_id": "89:7163",
+              "react_component_name": "Work Process Card",
+              "props_values": {
+                "1Research": "2. Design",
+                "loremIpsumDolorSitAmetConsecteturAdipiscingElitNullaPurusArcu": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu."
+              }
+            },
+            {
+              "id": "135:790",
+              "name": "Work Process Card",
+              "component_id": "89:7163",
+              "react_component_name": "Work Process Card",
+              "props_values": {
+                "1Research": "2. Analyze",
+                "loremIpsumDolorSitAmetConsecteturAdipiscingElitNullaPurusArcu": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu."
+              }
+            },
+            {
+              "id": "135:791",
+              "name": "Work Process Card",
+              "component_id": "89:7163",
+              "react_component_name": "Work Process Card",
+              "props_values": {
+                "1Research": "4. Launch",
+                "loremIpsumDolorSitAmetConsecteturAdipiscingElitNullaPurusArcu": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu."
+              }
+            },
+            {
+              "id": "135:787",
+              "name": "Work Process Card",
+              "component_id": "89:7164",
+              "react_component_name": "Work Process Card",
+              "props_values": {
+                "1Research": "1. Research",
+                "loremIpsumDolorSitAmetConsecteturAdipiscingElitNullaPurusArcu": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu."
+              }
+            },
+            {
+              "id": "135:799",
+              "name": "Project",
+              "component_id": "89:7040",
+              "react_component_name": "Project",
+              "props_values": {
+                "uIUXDESIGN": "UI-UX DESIGN",
+                "productAdminDashboard": "Product Admin Dashboard",
+                "vivamusEleifendConvallisAnteNonPharetraLiberoMolestieLaoreetDonecIdImperdietLacus": "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.",
+                "button": "Case Study",
+                "unsplash9anj7QWy2gUrl": "/src/assets/8f107a905f0e2c2a0cc5bae15845adf0de3205ca.png"
+              }
+            },
+            {
+              "id": "135:800",
+              "name": "Project",
+              "component_id": "89:7038",
+              "react_component_name": "Project",
+              "props_values": {
+                "uIUXDESIGN": "UI-UX DESIGN",
+                "productAdminDashboard": "Product Admin Dashboard",
+                "vivamusEleifendConvallisAnteNonPharetraLiberoMolestieLaoreetDonecIdImperdietLacus": "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.",
+                "button": "Case Study",
+                "unsplash9anj7QWy2gUrl": "/src/assets/f9342afb7c1cf7f650c9ef0b35c8f6585d27e980.png"
+              }
+            },
+            {
+              "id": "135:801",
+              "name": "Project",
+              "component_id": "89:7038",
+              "react_component_name": "Project",
+              "props_values": {
+                "uIUXDESIGN": "UI-UX DESIGN",
+                "productAdminDashboard": "Product Admin Dashboard",
+                "vivamusEleifendConvallisAnteNonPharetraLiberoMolestieLaoreetDonecIdImperdietLacus": "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.",
+                "button": "Case Study",
+                "unsplash9anj7QWy2gUrl": "/src/assets/2da37f82fa800f0711d0ad48045ab742c6f8daf5.png"
+              }
+            },
+            {
+              "id": "135:803",
+              "name": "Project",
+              "component_id": "89:7038",
+              "react_component_name": "Project",
+              "props_values": {
+                "uIUXDESIGN": "UI-UX DESIGN",
+                "productAdminDashboard": "Product Admin Dashboard",
+                "vivamusEleifendConvallisAnteNonPharetraLiberoMolestieLaoreetDonecIdImperdietLacus": "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.",
+                "button": "Case Study",
+                "unsplash9anj7QWy2gUrl": "/src/assets/ead171064222333091f36ac1c03c25f06480e9df.png"
+              }
+            },
+            {
+              "id": "135:804",
+              "name": "Project",
+              "component_id": "89:7038",
+              "react_component_name": "Project",
+              "props_values": {
+                "uIUXDESIGN": "UI-UX DESIGN",
+                "productAdminDashboard": "Product Admin Dashboard",
+                "vivamusEleifendConvallisAnteNonPharetraLiberoMolestieLaoreetDonecIdImperdietLacus": "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.",
+                "button": "Case Study",
+                "unsplash9anj7QWy2gUrl": "/src/assets/01120caf35209da234d0ce9c533b0ea0cacd38d4.png"
+              }
+            },
+            {
+              "id": "135:805",
+              "name": "Project",
+              "component_id": "89:7038",
+              "react_component_name": "Project",
+              "props_values": {
+                "uIUXDESIGN": "UI-UX DESIGN",
+                "productAdminDashboard": "Product Admin Dashboard",
+                "vivamusEleifendConvallisAnteNonPharetraLiberoMolestieLaoreetDonecIdImperdietLacus": "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.",
+                "button": "Case Study",
+                "unsplash9anj7QWy2gUrl": "/src/assets/3da3ab315a91b5f2dd6f1061e5b0be3e60938f12.png"
+              }
+            },
+            {
+              "id": "135:806",
+              "name": "Button",
+              "component_id": "89:7226",
+              "react_component_name": "Button",
+              "props_values": {
+                "button": "More Project"
+              }
+            },
+            {
+              "id": "135:811",
+              "name": "Button",
+              "component_id": "89:7224",
+              "react_component_name": "Button",
+              "props_values": {
+                "letSWorkTogether": "Let’s work Together"
+              }
+            },
+            {
+              "id": "135:818",
+              "name": "Blog",
+              "component_id": "89:7155",
+              "react_component_name": "Blog",
+              "props_values": {
+                "22Oct2020": "22 Oct, 2020",
+                "value": "/",
+                "246Comments": "246 Comments",
+                "loremIpsumDolorSitConseaNullaPurusArcu": "Lorem ipsum dolor sit consea. Nulla purus arcu",
+                "unsplashHh0OAiyeF1YUrl": "/src/assets/46c1b0b7047e0794dd8853d66cdde08771fd30d1.png"
+              }
+            },
+            {
+              "id": "135:819",
+              "name": "Blog",
+              "component_id": "89:7108",
+              "react_component_name": "Blog",
+              "props_values": {
+                "22Oct2020": "22 Oct, 2020",
+                "value": "/",
+                "246Comments": "246 Comments",
+                "loremIpsumDolorSitConseaNullaPurusArcu": "Lorem ipsum dolor sit consea. Nulla purus arcu",
+                "unsplashHh0OAiyeF1YUrl": "/src/assets/6256b708bb0c4a6fd8a44b369112956ce0963c34.png"
+              }
+            },
+            {
+              "id": "135:820",
+              "name": "Blog",
+              "component_id": "89:7108",
+              "react_component_name": "Blog",
+              "props_values": {
+                "22Oct2020": "22 Oct, 2020",
+                "value": "/",
+                "246Comments": "246 Comments",
+                "loremIpsumDolorSitConseaNullaPurusArcu": "Lorem ipsum dolor sit consea. Nulla purus arcu",
+                "unsplashHh0OAiyeF1YUrl": "/src/assets/e2b8fe341e5180e7839d7d0d049b6900cd354219.png"
+              }
+            },
+            {
+              "id": "135:821",
+              "name": "Blog",
+              "component_id": "89:7108",
+              "react_component_name": "Blog",
+              "props_values": {
+                "22Oct2020": "22 Oct, 2020",
+                "value": "/",
+                "246Comments": "246 Comments",
+                "loremIpsumDolorSitConseaNullaPurusArcu": "Lorem ipsum dolor sit consea. Nulla purus arcu",
+                "unsplashHh0OAiyeF1YUrl": "/src/assets/d85394fd2c31f590ee6e19eb4d05f39feb09abd5.png"
+              }
+            },
+            {
+              "id": "135:822",
+              "name": "Pagination",
+              "component_id": "89:7181",
+              "react_component_name": "Pagination",
+              "props_values": {}
+            },
+            {
+              "id": "135:830",
+              "name": "Button",
+              "component_id": "89:7226",
+              "react_component_name": "Button",
+              "props_values": {
+                "button": "Say Hello!"
+              }
+            },
+            {
+              "id": "135:832",
+              "name": "What I do card",
+              "component_id": "89:7170",
+              "react_component_name": "What I do card",
+              "props_values": {
+                "userExperienceUX": "User Experience (UX)",
+                "loremIpsumDolorSitAmetConsecteturAdipiscingElitNullaPurusArcuVariusEgetVelitNonLaoreetImperdietOrciMaurisUltricesEgetLoremAcVestibulum": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum."
+              }
+            },
+            {
+              "id": "135:833",
+              "name": "What I do card",
+              "component_id": "89:7169",
+              "react_component_name": "What I do card",
+              "props_values": {
+                "userExperienceUX": "User Interface (UI)",
+                "loremIpsumDolorSitAmetConsecteturAdipiscingElitNullaPurusArcuVariusEgetVelitNonLaoreetImperdietOrciMaurisUltricesEgetLoremAcVestibulum": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum."
+              }
+            },
+            {
+              "id": "135:834",
+              "name": "What I do card",
+              "component_id": "89:7169",
+              "react_component_name": "What I do card",
+              "props_values": {
+                "userExperienceUX": "Web Development",
+                "loremIpsumDolorSitAmetConsecteturAdipiscingElitNullaPurusArcuVariusEgetVelitNonLaoreetImperdietOrciMaurisUltricesEgetLoremAcVestibulum": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum."
+              }
+            },
+            {
+              "id": "135:874",
+              "name": "Pagination",
+              "component_id": "89:7181",
+              "react_component_name": "Pagination",
+              "props_values": {}
+            }
+          ]
+        },
+        {
+          "kind": "section",
+          "order_index": 8,
+          "data": {
+            "name": "Text",
+            "id": "135:743",
+            "type": "TEXT",
+            "characters": " ",
+            "styles": {
+              "fontFamily": "Poppins",
+              "fontPostScriptName": "Poppins-SemiBold",
+              "fontWeight": 600,
+              "fontSize": 20.0,
+              "textAlignHorizontal": "LEFT",
+              "textAlignVertical": "TOP",
+              "letterSpacing": 0.0,
+              "lineHeightPx": 24.0,
+              "lineHeightPercent": 80.0,
+              "lineHeightPercentFontSize": 120.0,
+              "lineHeightUnit": "PIXELS",
+              "color": {
+                "hex": "#000000",
+                "rgb": {
+                  "r": 0,
+                  "g": 0,
+                  "b": 0
+                },
+                "alpha": 1.0
+              },
+              "width": 0.0,
+              "height": 24.0
+            }
+          },
+          "nested_instances": []
+        },
+        {
+          "kind": "section",
+          "order_index": 9,
+          "data": {
+            "name": "Ellipse 5",
+            "id": "135:1120",
+            "type": "ELLIPSE",
+            "styles": {
+              "width": 1228.19,
+              "height": 1228.19,
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "opacity": 0.4000000059604645,
+                  "color": {
+                    "hex": "#da4df1",
+                    "rgb": {
+                      "r": 218,
+                      "g": 77,
+                      "b": 241
+                    },
+                    "alpha": 0.4
+                  }
+                }
+              ],
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE",
+              "effects": [
+                {
+                  "type": "LAYER_BLUR",
+                  "radius": 500.0
+                }
+              ]
+            }
+          },
+          "nested_instances": []
+        },
+        {
+          "kind": "section",
+          "order_index": 10,
+          "data": {
+            "name": "Ellipse 4",
+            "id": "135:1119",
+            "type": "ELLIPSE",
+            "styles": {
+              "width": 1472.22,
+              "height": 1472.22,
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "opacity": 0.699999988079071,
+                  "color": {
+                    "hex": "#c4f5e9",
+                    "rgb": {
+                      "r": 196,
+                      "g": 245,
+                      "b": 233
+                    },
+                    "alpha": 0.7
+                  }
+                }
+              ],
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE",
+              "effects": [
+                {
+                  "type": "LAYER_BLUR",
+                  "radius": 600.0
+                }
+              ]
+            }
+          },
+          "nested_instances": []
+        },
+        {
+          "kind": "section",
+          "order_index": 11,
+          "data": {
+            "name": "Icon",
+            "id": "135:723",
+            "type": "FRAME",
+            "styles": {
+              "width": 50.0,
+              "height": 50.0,
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG",
+                "padding": {
+                  "paddingLeft": 16.0,
+                  "paddingRight": 16.0,
+                  "paddingTop": 16.0,
+                  "paddingBottom": 16.0
+                },
+                "itemSpacing": 10.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#ffffff",
+                    "rgb": {
+                      "r": 255,
+                      "g": 255,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 4.0,
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "children": [
+              {
+                "name": "House",
+                "id": "135:724",
+                "componentId": "17:465",
+                "type": "INSTANCE",
+                "styles": {
+                  "width": 24.0,
+                  "height": 24.0,
+                  "layout": {
+                    "layoutAlign": "INHERIT",
+                    "layoutGrow": 0.0,
+                    "layoutSizingHorizontal": "FIXED",
+                    "layoutSizingVertical": "FIXED",
+                    "layoutMode": "GRID",
+                    "gridColumns": 2
+                  },
+                  "fills": [
+                    {
+                      "type": "SOLID",
+                      "visible": false,
+                      "color": {
+                        "hex": "#ffffff",
+                        "rgb": {
+                          "r": 255,
+                          "g": 255,
+                          "b": 255
+                        },
+                        "alpha": 1.0
+                      }
+                    }
+                  ],
+                  "strokeWeight": 1.0,
+                  "strokeAlign": "INSIDE"
+                },
+                "children": [
+                  {
+                    "name": "Vector",
+                    "id": "I135:724;21:2758",
+                    "type": "VECTOR",
+                    "styles": {
+                      "width": 24.0,
+                      "height": 24.0,
+                      "strokeWeight": 1.5,
+                      "strokeAlign": "INSIDE"
+                    }
+                  },
+                  {
+                    "name": "Vector",
+                    "id": "I135:724;21:2759",
+                    "type": "VECTOR",
+                    "styles": {
+                      "width": 16.5,
+                      "height": 16.99,
+                      "strokes": [
+                        {
+                          "type": "SOLID",
+                          "color": {
+                            "hex": "#363a3d",
+                            "rgb": {
+                              "r": 54,
+                              "g": 58,
+                              "b": 61
+                            },
+                            "alpha": 1.0
+                          }
+                        }
+                      ],
+                      "strokeWeight": 1.5,
+                      "strokeAlign": "CENTER"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "nested_instances": []
+        },
+        {
+          "kind": "section",
+          "order_index": 12,
+          "data": {
+            "name": "Icon",
+            "id": "135:725",
+            "type": "FRAME",
+            "styles": {
+              "width": 50.0,
+              "height": 50.0,
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG",
+                "padding": {
+                  "paddingLeft": 16.0,
+                  "paddingRight": 16.0,
+                  "paddingTop": 16.0,
+                  "paddingBottom": 16.0
+                },
+                "itemSpacing": 10.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#ffffff",
+                    "rgb": {
+                      "r": 255,
+                      "g": 255,
+                      "b": 255
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 5.0,
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "children": [
+              {
+                "name": "PhoneCall",
+                "id": "135:726",
+                "componentId": "17:493",
+                "type": "INSTANCE",
+                "styles": {
+                  "width": 24.0,
+                  "height": 24.0,
+                  "layout": {
+                    "layoutAlign": "INHERIT",
+                    "layoutGrow": 0.0,
+                    "layoutSizingHorizontal": "FIXED",
+                    "layoutSizingVertical": "FIXED",
+                    "layoutMode": "GRID",
+                    "gridColumns": 3
+                  },
+                  "fills": [
+                    {
+                      "type": "SOLID",
+                      "visible": false,
+                      "color": {
+                        "hex": "#ffffff",
+                        "rgb": {
+                          "r": 255,
+                          "g": 255,
+                          "b": 255
+                        },
+                        "alpha": 1.0
+                      }
+                    }
+                  ],
+                  "strokeWeight": 1.0,
+                  "strokeAlign": "INSIDE"
+                },
+                "children": [
+                  {
+                    "name": "Vector",
+                    "id": "I135:726;21:1839",
+                    "type": "VECTOR",
+                    "styles": {
+                      "width": 24.0,
+                      "height": 24.0,
+                      "strokeWeight": 1.5,
+                      "strokeAlign": "INSIDE"
+                    }
+                  },
+                  {
+                    "name": "Vector",
+                    "id": "I135:726;21:1840",
+                    "type": "VECTOR",
+                    "styles": {
+                      "width": 5.31,
+                      "height": 5.31,
+                      "strokes": [
+                        {
+                          "type": "SOLID",
+                          "color": {
+                            "hex": "#1b1d1f",
+                            "rgb": {
+                              "r": 27,
+                              "g": 29,
+                              "b": 31
+                            },
+                            "alpha": 1.0
+                          }
+                        }
+                      ],
+                      "strokeWeight": 1.5,
+                      "strokeAlign": "CENTER"
+                    }
+                  },
+                  {
+                    "name": "Vector",
+                    "id": "I135:726;21:1841",
+                    "type": "VECTOR",
+                    "styles": {
+                      "width": 3.19,
+                      "height": 3.19,
+                      "strokes": [
+                        {
+                          "type": "SOLID",
+                          "color": {
+                            "hex": "#1b1d1f",
+                            "rgb": {
+                              "r": 27,
+                              "g": 29,
+                              "b": 31
+                            },
+                            "alpha": 1.0
+                          }
+                        }
+                      ],
+                      "strokeWeight": 1.5,
+                      "strokeAlign": "CENTER"
+                    }
+                  },
+                  {
+                    "name": "Vector",
+                    "id": "I135:726;21:1842",
+                    "type": "VECTOR",
+                    "styles": {
+                      "width": 17.22,
+                      "height": 17.22,
+                      "strokes": [
+                        {
+                          "type": "SOLID",
+                          "color": {
+                            "hex": "#1b1d1f",
+                            "rgb": {
+                              "r": 27,
+                              "g": 29,
+                              "b": 31
+                            },
+                            "alpha": 1.0
+                          }
+                        }
+                      ],
+                      "strokeWeight": 1.5,
+                      "strokeAlign": "CENTER"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "nested_instances": []
+        }
+      ]
+    }
+  ]
+}

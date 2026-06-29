@@ -22,39 +22,39 @@ class FigmaGeneratorAgent:
         try:
             # ─── Récupération du Figma (avec ID dynamique) ───
             print("\n=== ETAPE 0: FIGMA EXTRACTION ===")
-            run_figma_extraction_pipeline(figma_id=FIGMA_FILE_KEY)
+            #run_figma_extraction_pipeline(figma_id=FIGMA_FILE_KEY)
 
             # ─── Extraction ───
             
-            extract_tree_3levels()
+            #extract_tree_3levels()
 
             
-            extract_reusable_components()
+            #extract_reusable_components()
 
             
-            prepare_payload()
+            #prepare_payload()
 
             # ─── Planning ───
             
-            run_analyste()
+            #run_analyste()
 
             
-            run_architecte()
+            #run_architecte()
 
            
-            extract_sections()
-            download_figma_images_and_rewrite_jsons()
+            #extract_sections()
+            #download_figma_images_and_rewrite_jsons()
 
             
             #run_icon_downloader()
 
             # ─── Génération ───
             
-            run_setup()
+            #run_setup()
 
             
-            #run_generateur_pages_only()
-            run_generateur()
+            run_generateur_pages_only()
+            #run_generateur()
             
             run_icon_injector()
 
