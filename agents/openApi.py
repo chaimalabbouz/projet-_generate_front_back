@@ -105,3 +105,4 @@ class OpenAPIAgent:
 
         if not isinstance(data["paths"], dict):
             raise ValueError("paths must be a dictionary")
+        

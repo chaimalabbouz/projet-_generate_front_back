@@ -49,7 +49,7 @@ class GraphState(BaseModel):
 
     retry_count: int = 0
 
-    max_retries: int = 3
+    max_retries: int = 6
 
     # ---------------- TOOL CONTEXT ----------------
     tool_context: Optional[Dict[str, Any]] = None

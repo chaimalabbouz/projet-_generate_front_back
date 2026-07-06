@@ -181,3 +181,40 @@ Boucle avec un frontend_fixer_agent similaire à votre boucle backend actuelle.
 Sur la notion de "skill"
 Oui, très pertinent, et facile à ajouter : au lieu de mettre toutes les règles dans le prompt système de chaque agent (comme votre planner_agent actuel, déjà très long), externaliser dans un fichier "skill" par agent (ex: SKILL_frontend_agent.md, SKILL_route_config.md) contenant les règles stables (ex: "transformer N instances en .map()", "jamais utiliser l'id Figma comme id métier"). L'agent va le lire au début de sa tâche, comme référence, plutôt que tout réinjecter en dur dans le prompt à chaque fois. Avantage : prompts plus courts, règles centralisées/réutilisables, plus faciles à corriger sans toucher au code de l'agent. C'est exactement le même principe que les skills que j'utilise moi-même (docx/pptx/etc.) — une bonne pratique à reprendre ici.
 
+###################pour le test:
+Il reproduit exactement ce pattern :
+
+crée un objet en DB :
+_create_entity(db)
+récupère l’id
+appelle l’endpoint avec TestClient
+ajoute aussi automatiquement :
+test success
+test not_found
+
+
+
+
+
+
+
+
+
+
+
+
+
+check.mjs — l'agent testeur
+Il lance deux commandes l'une après l'autre : tsc --noEmit (vérifie les types TypeScript) puis vite build (teste le build). Il capture la sortie de chaque commande, affiche ✅ ou ❌, et s'arrête au premier échec. À la fin il te dit « tout compile » ou « ça ne compile pas ».
+Outils utilisés : spawn (module node:child_process) pour exécuter les commandes, et tsc + vite que tu as déjà dans ton projet.
+fix.mjs — l'agent correcteur
+Il tourne en boucle (5 fois max) : il lance tsc, récupère les erreurs, repère quels fichiers sont fautifs, envoie chaque fichier + ses erreurs à l'API de Claude en lui demandant le fichier corrigé, réécrit le fichier, puis recommence jusqu'à ce que tsc passe.
+Outils utilisés : execSync (node:child_process) pour lancer tsc, readFileSync/writeFileSync (node:fs) pour lire et réécrire les fichiers, fetch pour appeler l'API Anthropic (nécessite ta clé ANTHROPIC_API_KEY), et une expression régulière pour extraire les noms de fichiers des messages d'erreur.
+
+
+!!!!! afaire demain ncahla
+
+1)modifer la base de donne pour ajouter des llm pour remplir les donner et ca doit etre si possible automatique
+2)laisser le front et back travaille enselbble comme bonne version :saya en principoe nchalla 
+3)modifer le venv en docker container semi sandbox
+4)modifer le planer pour intreagir avec l exterieur 

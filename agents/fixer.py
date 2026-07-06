@@ -8,6 +8,13 @@ from orchestrator.state import GraphState
 
 FIXER_MODEL = "devstral-latest"
 
+# =========================
+# SKILLS PATH
+# =========================
+# Le dossier skills/ est dans prompts/skills/
+SKILLS_PATH = os.path.join(PROMPTS_PATH, "skills")
+SKILLS_ENTRIES_PATH = os.path.join(SKILLS_PATH, "entries")
+
 
 # =========================
 # TOOLS
@@ -68,6 +75,33 @@ def list_entity_files(entity: str) -> str:
     return "\n".join(result)
 
 
+@tool
+def read_skill(skill_name: str) -> str:
+    """
+    Read a specific skill entry from the skills catalog.
+    Only use this AFTER consulting the index and identifying a matching skill.
+
+    Args:
+        skill_name: The name of the skill file WITHOUT extension.
+                    Example: 'none_required_shadowing' (not 'none_required_shadowing.md').
+    """
+    # Nettoie le nom au cas où le LLM ajoute .md ou un chemin
+    clean_name = skill_name.strip().replace(".md", "").replace("entries/", "").replace("\\", "/").split("/")[-1]
+    skill_path = os.path.join(SKILLS_ENTRIES_PATH, f"{clean_name}.md")
+
+    if not os.path.exists(skill_path):
+        available = []
+        if os.path.exists(SKILLS_ENTRIES_PATH):
+            available = [f.replace(".md", "") for f in os.listdir(SKILLS_ENTRIES_PATH) if f.endswith(".md")]
+        return (
+            f"Skill '{clean_name}' not found in the catalog.\n"
+            f"Available skills: {', '.join(available)}"
+        )
+
+    with open(skill_path, "r", encoding="utf-8") as f:
+        return f.read()
+
+
 class FixerAgent:
     def __init__(self):
         self.llm = ChatMistralAI(
@@ -76,11 +110,23 @@ class FixerAgent:
             temperature=0.1,
         )
 
+        # Prompt principal du fixer
         prompt_path = os.path.join(PROMPTS_PATH, "fixer.txt")
         with open(prompt_path, "r", encoding="utf-8") as f:
             self.system_prompt = f.read()
 
-        self.tools = [read_file, write_file, list_entity_files]
+        # Charge le protocole (README.md du dossier skills)
+        skills_readme_path = os.path.join(SKILLS_PATH, "README.md")
+        with open(skills_readme_path, "r", encoding="utf-8") as f:
+            self.skills_protocol = f.read()
+
+        # Charge l'index (envoyé à chaque appel)
+        skills_index_path = os.path.join(SKILLS_PATH, "index.md")
+        with open(skills_index_path, "r", encoding="utf-8") as f:
+            self.skills_index = f.read()
+
+        # Ajout de l'outil read_skill
+        self.tools = [read_file, write_file, list_entity_files, read_skill]
 
         self.agent = create_react_agent(
             model=self.llm,
@@ -112,11 +158,21 @@ class FixerAgent:
 
             prompt = f"""{self.system_prompt}
 
-ENTITY TO FIX: {current_entity}
+═══════════════════════════════════════
+SKILLS PROTOCOL (MANDATORY — read carefully)
+═══════════════════════════════════════
+{self.skills_protocol}
 
 ═══════════════════════════════════════
-AUTHORITATIVE SPEC (source of truth — the code MUST match this)
+SKILLS INDEX (bug catalog — consult BEFORE any diagnosis)
 ═══════════════════════════════════════
+{self.skills_index}
+
+═══════════════════════════════════════
+ENTITY TO FIX: {current_entity}
+═══════════════════════════════════════
+
+AUTHORITATIVE SPEC (source of truth — the code MUST match this)
 {spec_context}
 
 ═══════════════════════════════════════
@@ -133,11 +189,37 @@ ERROR OUTPUT
 ═══════════════════════════════════════
 {error_output}
 
-Use your tools to:
-1. List the entity files with list_entity_files("{current_entity}")
-2. Read each file with read_file (read the test file too, to understand expectations)
-3. Analyze the error and identify which APPLICATION file is wrong
-4. Write ONLY the application files that need fixing with write_file
+═══════════════════════════════════════
+MANDATORY PROCEDURE (follow in order, no exception)
+═══════════════════════════════════════
+STEP 1 — Extract the literal error message from the ERROR OUTPUT above
+         (exception type, exact message, file, line).
+
+STEP 2 — Consult the SKILLS INDEX above. For each entry, explicitly state:
+         "entry <X>: matches / does not match — reason".
+         This step is MANDATORY even if you think you know the answer.
+
+STEP 3 — Decide the match result:
+         - Clear match → announce the entry, go to STEP 4.
+         - Partial match → announce your hesitation, go to STEP 4 with the best candidate.
+         - No match → announce "no skill entry matches", proceed with normal reasoning.
+
+STEP 4 — If a skill matched, call read_skill("<skill_name>") to read the FULL detail.
+         Read ALL sections: Symptom, Context, Root cause, Fix, Anti-fixes, Confirmation.
+
+STEP 5 — Use your tools to gather context:
+         - list_entity_files("{current_entity}") to see the files
+         - read_file(...) to read the relevant application files
+           (route + service if the skill suggests an inter-file bug; read the test too)
+
+STEP 6 — Before writing anything, verbalize your diagnosis in this exact format:
+         > Diagnostic: The error <message> matches skill <name>.
+         > Root cause: <one sentence summary>.
+         > Fix applied: <precise action> in <file>.
+         > Anti-fixes respected: <list what the skill forbids and you are NOT doing>.
+
+STEP 7 — Apply the fix using write_file. ONLY modify application files
+         (app/models, app/schemas, app/services, app/routes).
 """
 
             result = self.agent.invoke({
@@ -149,7 +231,6 @@ Use your tools to:
                     for tool_call in message.tool_calls:
                         if tool_call["name"] == "write_file":
                             path = tool_call["args"]["path"]
-                            # ne pas refléter dans le state une écriture qui a été refusée
                             normalized = path.replace("\\", "/").lstrip("/")
                             if normalized.startswith("tests/") or "/tests/" in normalized:
                                 print(f"  ⛔ Ignored test write attempt: {path}")
@@ -157,6 +238,9 @@ Use your tools to:
                             content = tool_call["args"]["content"]
                             state.generated_files[path] = content
                             print(f"  🔧 Fixed: {path}")
+                        elif tool_call["name"] == "read_skill":
+                            skill_name = tool_call["args"].get("skill_name", "?")
+                            print(f"  📖 Consulted skill: {skill_name}")
 
             # remettre l'entité en test (le tester ne régénère pas, il relance pytest)
             new_task_queue = []
@@ -199,7 +283,6 @@ Use your tools to:
     def _build_spec_context(self, entity: str, task_queue: list, dependency_graph: dict) -> str:
         parts = []
 
-        # entité courante : modèle + schémas
         model_fields = self._get_model_fields(entity, task_queue)
         if model_fields:
             lines = [self._fmt_field(f) for f in model_fields]
@@ -210,7 +293,6 @@ Use your tools to:
             fnames = ", ".join(fld["name"] for fld in s.get("fields", []))
             parts.append(f"--- {entity} SCHEMA {s.get('name')} ---\n  {fnames}")
 
-        # fonctions de service (signatures attendues)
         svc = self._get_service_functions(entity, task_queue)
         if svc:
             svc_lines = []
@@ -221,7 +303,6 @@ Use your tools to:
                 svc_lines.append(f"  {fn['name']}({params}) -> {fn.get('output_type', '?')}")
             parts.append(f"--- {entity} SERVICE functions (expected signatures) ---\n" + "\n".join(svc_lines))
 
-        # dépendances : modèle
         deps = []
         if dependency_graph and entity in dependency_graph:
             deps = dependency_graph.get(entity, []) or []

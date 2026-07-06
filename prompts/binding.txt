@@ -29,6 +29,28 @@ WHAT YOU MUST NEVER DO  (hard rules)
   A missing binding is fine; a wrong binding is not.
 
 ═══════════════════════════════════════
+TYPESCRIPT RULES (the project is TypeScript strict — follow ALL of these)
+═══════════════════════════════════════
+- Every useState MUST be typed:
+  - a list  -> useState<Entity[]>([])      e.g. useState<Product[]>([])
+  - one item -> useState<Entity | null>(null)   e.g. useState<Product | null>(null)
+  Never write useState([]) or useState(null) without a type.
+
+- Import TYPES separately with `import type` (the project uses verbatimModuleSyntax):
+    import { listProducts } from '../api/client';
+    import type { Product } from '../api/client';
+  Never mix a function and a type in the same import statement.
+
+- URL params from useParams() are strings. If a client function expects a number,
+  convert it: getProductById(Number(id)). Guard with `if (id)` before fetching.
+
+- Do NOT import React if you do not use React.xxx directly. Use only:
+    import { useEffect, useState } from 'react';
+  Do not leave unused imports (no unused React, no unused Link, etc).
+
+- The data-loading useEffect that depends on a url param must list it in its
+  dependency array, e.g. useEffect(() => { ... }, [id]).
+═══════════════════════════════════════
 HOW TO DECIDE
 ═══════════════════════════════════════
 1. read_page to see the page.

@@ -15,6 +15,10 @@ PLANNER_MODEL ="llama-3.3-70b-versatile"#cette model fait le raisonement mais on
 _OpenApi_PLANNER_MODEL = "mistral-medium-3.5"
 BACKEND_MODEL = "codestral-latest"
 TESTER_MODEL = "codestral-latest"
+BINDING_MODEL = "devstral-latest"
+
+
+
 
 ####path
 PROMPTS_PATH = "prompts" 

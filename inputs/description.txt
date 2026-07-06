@@ -1,36 +1,72 @@
 STACK: Python / FastAPI systems
-PROJECT: E-Commerce Platform API
-DESCRIPTION:
-An API for an online store. Users browse product categories, view the products
-of a category, and view the full details of a single product.
+
+PROJECT: Medical Clinic Platform API
+
+DESCRIPTION: An API for a medical clinic website. Visitors can explore the clinic's services, browse the list of doctors and view their profiles, read medical blog articles, subscribe to the newsletter, and submit a consultation request.
 
 FEATURES:
-CATEGORIES:
-- create a category
-- view all categories
-- view category details
-- list products by category
 
-PRODUCTS:
-- create a product
-- view all products
-- view product details
+SERVICES:
+- create a service
+- view all services
+- view service details
+
+DOCTORS:
+- create a doctor
+- view all doctors
+- view doctor details
+
+BLOG:
+- create a blog post
+- view all blog posts
+- view blog post details
+
+CONSULTATION:
+- create a consultation request (submit form)
+- view all consultation requests
+
+NEWSLETTER:
+- subscribe with email
+- view all subscribers
 
 DATA MODELS:
-Category:
-- name: string
-- description: string
-- is_active: boolean
 
-Product:
+Service:
 - name: string
-- description: string
-- price: integer
 - image_url: string
-- manufacturer: string
-- product_dimensions: string
-- model_number: string
-- country_origin: string
-- stock_quantity: integer
-- is_available: boolean
-- category: Category
+- description: string
+
+Doctor:
+- name: string
+- image_url: string
+- specialty: string
+- occupation: string
+- biography: string
+- experience: string
+- certificates: string
+- skills: string
+- location: string
+- phone: string
+- email: string
+- awards: string
+- hours: string
+
+Blog:
+- title: string
+- image_url: string
+
+- content: string
+- author_name: string
+- author_image_url: string
+
+Consultation:
+- name: string
+- email: string
+- phone: string
+- departement: string
+- time: string
+- message: string
+
+Newsletter:
+- email: string
+

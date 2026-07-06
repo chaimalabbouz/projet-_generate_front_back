@@ -26,6 +26,8 @@ _SQLA_VALUES = {
     "Boolean": "True",
     "String": '"test_string"',
     "Text": '"test_text"',
+    "Date": "date(2024, 1, 1)",
+    "DateTime": "datetime(2024, 1, 1, 12, 0, 0)",
 }
 
 # pydantic/python type -> python literal (used in JSON request payloads)
@@ -34,6 +36,8 @@ _PY_VALUES = {
     "float": "1.5",
     "bool": "True",
     "str": '"test_string"',
+    "date": '"2024-01-01"',
+    "datetime": '"2024-01-01T12:00:00"',
 }
 
 
@@ -243,7 +247,7 @@ class TestGenerator:
         ok_url = path.replace("{id}", "{obj_id}")
         fk_names = {n for n, _ in self._fk_fields(entity)}
         # build an UPDATED payload: reuse the seeded row's FK ids, change scalars
-        updated = {"str": '"updated_string"', "int": "2", "bool": "False", "float": "2.5"}
+        updated = {"str": '"updated_string"', "int": "2", "bool": "False", "float": "2.5","date": '"2024-06-15"',"datetime": '"2024-06-15T10:00:00"',}
         items, checks = [], []
         for f in self._create_schema_fields(entity):
             name, ftype = f["name"], f.get("type")
@@ -293,6 +297,7 @@ class TestGenerator:
         )
         return (
             "import pytest\n"
+            "from datetime import date, datetime\n"
             "from fastapi import FastAPI\n"
             "from fastapi.testclient import TestClient\n"
             "from sqlalchemy import create_engine\n"

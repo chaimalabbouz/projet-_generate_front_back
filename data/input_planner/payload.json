@@ -1,273 +1,1068 @@
 {
   "figma_tree": {
     "max_depth": 3,
-    "total_canvases": 1,
+    "total_canvases": 2,
     "document": {
       "children": [
         {
-          "id": "2:5",
-          "name": "🎯  Design",
+          "id": "0:1",
+          "name": "design",
           "type": "CANVAS",
           "children": [
             {
-              "id": "135:701",
+              "id": "71:340",
               "name": "Homepage",
               "type": "FRAME",
               "children": [
                 {
-                  "id": "135:1120",
-                  "name": "Ellipse 5",
-                  "type": "ELLIPSE"
-                },
-                {
-                  "id": "135:1119",
-                  "name": "Ellipse 4",
-                  "type": "ELLIPSE"
-                },
-                {
-                  "id": "135:1114",
-                  "name": "BG",
-                  "type": "GROUP",
+                  "id": "71:460",
+                  "name": "Frame 1618873267",
+                  "type": "FRAME",
                   "children": [
                     {
-                      "id": "135:1115",
-                      "name": "Ellipse 1",
-                      "type": "ELLIPSE"
+                      "id": "71:341",
+                      "name": "Header",
+                      "type": "INSTANCE",
+                      "layoutMode": "HORIZONTAL",
+                      "componentId": "63:880",
+                      "has_children": true,
+                      "children_count": 3
                     },
                     {
-                      "id": "135:1122",
-                      "name": "Ellipse 5",
-                      "type": "ELLIPSE"
-                    },
-                    {
-                      "id": "135:1116",
-                      "name": "Ellipse 2",
-                      "type": "ELLIPSE"
-                    },
-                    {
-                      "id": "135:1123",
-                      "name": "Ellipse 6",
-                      "type": "ELLIPSE"
-                    },
-                    {
-                      "id": "135:1117",
-                      "name": "Ellipse 3",
-                      "type": "ELLIPSE"
-                    },
-                    {
-                      "id": "135:1118",
-                      "name": "Ellipse 4",
-                      "type": "VECTOR"
+                      "id": "71:416",
+                      "name": "Banner",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 1
                     }
                   ]
                 },
                 {
-                  "id": "135:702",
-                  "name": "Rectangle 32",
-                  "type": "RECTANGLE"
+                  "id": "71:459",
+                  "name": "The Heart and Science  Of Medicine Service",
+                  "type": "FRAME",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "id": "71:458",
+                      "name": "img",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "71:448",
+                      "name": "Details",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 1
+                    }
+                  ]
                 },
                 {
-                  "id": "135:703",
-                  "name": "Rectangle 33",
-                  "type": "RECTANGLE"
-                },
-                {
-                  "id": "135:704",
-                  "name": "Frame 15",
+                  "id": "73:364",
+                  "name": "Highly innovative technology & services",
                   "type": "FRAME",
                   "layoutMode": "VERTICAL",
                   "children": [
                     {
-                      "id": "135:705",
-                      "name": "Frame 13",
+                      "id": "73:567",
+                      "name": "Highly innovative technology & services",
+                      "type": "TEXT",
+                      "characters": "Highly innovative technology & services"
+                    },
+                    {
+                      "id": "73:566",
+                      "name": "Details",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 3
+                    }
+                  ]
+                },
+                {
+                  "id": "73:608",
+                  "name": "Find Support for Your Mental Health",
+                  "type": "FRAME",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "id": "73:607",
+                      "name": "img",
+                      "type": "FRAME",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "73:582",
+                      "name": "Details",
                       "type": "FRAME",
                       "layoutMode": "VERTICAL",
                       "has_children": true,
                       "children_count": 1
+                    }
+                  ]
+                },
+                {
+                  "id": "73:670",
+                  "name": "Team of doctors",
+                  "type": "FRAME",
+                  "layoutMode": "VERTICAL",
+                  "children": [
+                    {
+                      "id": "73:611",
+                      "name": "title",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 2
                     },
                     {
-                      "id": "135:708",
-                      "name": "I'm a Freelance UI/UX Designer and Developer based in London, England. I strives to build immersive and beautiful web applications through carefully crafted code and user-centric design.",
-                      "type": "TEXT",
-                      "characters": "I'm a Freelance UI/UX Designer and Developer based in London, England. I strives to build immersive and beautiful web applications through carefully crafted code and user-centric design."
+                      "id": "73:645",
+                      "name": "Members",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 3
+                    }
+                  ]
+                },
+                {
+                  "id": "74:717",
+                  "name": "Customers Testimonials",
+                  "type": "FRAME",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "id": "74:718",
+                      "name": "info",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 4
                     },
                     {
-                      "id": "135:709",
-                      "name": "Button",
+                      "id": "74:725",
+                      "name": "Frame 1618873271",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 3
+                    }
+                  ]
+                },
+                {
+                  "id": "74:773",
+                  "name": "Blog post",
+                  "type": "FRAME",
+                  "layoutMode": "VERTICAL",
+                  "children": [
+                    {
+                      "id": "74:756",
+                      "name": "title",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "74:772",
+                      "name": "Cards",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 3
+                    }
+                  ]
+                },
+                {
+                  "id": "74:926",
+                  "name": "Frame 1618873278",
+                  "type": "FRAME",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "id": "74:927",
+                      "name": "Rectangle 418",
+                      "type": "RECTANGLE"
+                    },
+                    {
+                      "id": "74:819",
+                      "name": "details",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "74:871",
+                      "name": "Forms",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 5
+                    }
+                  ]
+                },
+                {
+                  "id": "74:1178",
+                  "name": "Footer",
+                  "type": "INSTANCE",
+                  "layoutMode": "VERTICAL",
+                  "componentId": "68:347",
+                  "children": [
+                    {
+                      "id": "I74:1178;68:348",
+                      "name": "links",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "I74:1178;68:373",
+                      "name": "Contact",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 2
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "76:459",
+              "name": "Services",
+              "type": "FRAME",
+              "children": [
+                {
+                  "id": "77:2414",
+                  "name": "Frame 1618873279",
+                  "type": "FRAME",
+                  "layoutMode": "VERTICAL",
+                  "children": [
+                    {
+                      "id": "76:580",
+                      "name": "Find Support for Your Mental Health",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "76:504",
+                      "name": "Highly innovative technology & services",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "76:690",
+                      "name": "Frame 1618873278",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 3
+                    }
+                  ]
+                },
+                {
+                  "id": "76:764",
+                  "name": "Footer",
+                  "type": "INSTANCE",
+                  "layoutMode": "VERTICAL",
+                  "componentId": "68:347",
+                  "children": [
+                    {
+                      "id": "I76:764;68:348",
+                      "name": "links",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "I76:764;68:373",
+                      "name": "Contact",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 2
+                    }
+                  ]
+                },
+                {
+                  "id": "79:1349",
+                  "name": "Frame 1618873281",
+                  "type": "FRAME",
+                  "layoutMode": "VERTICAL",
+                  "children": [
+                    {
+                      "id": "77:2369",
+                      "name": "Header",
                       "type": "INSTANCE",
                       "layoutMode": "HORIZONTAL",
-                      "componentId": "89:7226",
+                      "componentId": "63:880",
                       "has_children": true,
-                      "children_count": 1
-                    }
-                  ]
-                },
-                {
-                  "id": "135:710",
-                  "name": "unsplash:wKOKidNT14w",
-                  "type": "FRAME"
-                },
-                {
-                  "id": "135:711",
-                  "name": "Frame 1",
-                  "type": "FRAME",
-                  "layoutMode": "HORIZONTAL",
-                  "children": [
-                    {
-                      "id": "135:712",
-                      "name": "Frame 17",
-                      "type": "FRAME",
-                      "layoutMode": "VERTICAL",
-                      "has_children": true,
-                      "children_count": 2
+                      "children_count": 3
                     },
                     {
-                      "id": "135:715",
-                      "name": "Line 1",
-                      "type": "LINE"
-                    },
-                    {
-                      "id": "135:716",
-                      "name": "Frame 18",
-                      "type": "FRAME",
-                      "layoutMode": "VERTICAL",
-                      "has_children": true,
-                      "children_count": 2
-                    },
-                    {
-                      "id": "135:719",
-                      "name": "Line 2",
-                      "type": "LINE"
-                    },
-                    {
-                      "id": "135:720",
-                      "name": "Frame 19",
+                      "id": "77:2340",
+                      "name": "title",
                       "type": "FRAME",
                       "layoutMode": "VERTICAL",
                       "has_children": true,
                       "children_count": 2
                     }
                   ]
-                },
+                }
+              ]
+            },
+            {
+              "id": "77:2415",
+              "name": "Services Details",
+              "type": "FRAME",
+              "children": [
                 {
-                  "id": "135:723",
-                  "name": "Icon",
+                  "id": "79:1199",
+                  "name": "Details",
                   "type": "FRAME",
                   "layoutMode": "HORIZONTAL",
                   "children": [
                     {
-                      "id": "135:724",
-                      "name": "House",
-                      "type": "INSTANCE",
-                      "componentId": "17:465",
-                      "has_children": true,
-                      "children_count": 2
-                    }
-                  ]
-                },
-                {
-                  "id": "135:725",
-                  "name": "Icon",
-                  "type": "FRAME",
-                  "layoutMode": "HORIZONTAL",
-                  "children": [
-                    {
-                      "id": "135:726",
-                      "name": "PhoneCall",
-                      "type": "INSTANCE",
-                      "componentId": "17:493",
+                      "id": "79:1265",
+                      "name": "info",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
                       "has_children": true,
                       "children_count": 4
                     }
                   ]
                 },
                 {
-                  "id": "135:727",
-                  "name": "Frame 40",
-                  "type": "FRAME",
-                  "layoutMode": "HORIZONTAL",
+                  "id": "77:2594",
+                  "name": "Footer",
+                  "type": "INSTANCE",
+                  "layoutMode": "VERTICAL",
+                  "componentId": "68:347",
                   "children": [
                     {
-                      "id": "135:728",
-                      "name": "Logo",
-                      "type": "INSTANCE",
+                      "id": "I77:2594;68:348",
+                      "name": "links",
+                      "type": "FRAME",
                       "layoutMode": "HORIZONTAL",
-                      "componentId": "94:658",
                       "has_children": true,
                       "children_count": 2
                     },
                     {
-                      "id": "135:729",
-                      "name": "Frame 39",
+                      "id": "I77:2594;68:373",
+                      "name": "Contact",
                       "type": "FRAME",
                       "layoutMode": "HORIZONTAL",
                       "has_children": true,
-                      "children_count": 7
+                      "children_count": 2
                     }
                   ]
                 },
                 {
-                  "id": "135:743",
-                  "name": "Text",
-                  "type": "TEXT",
-                  "characters": " "
-                },
-                {
-                  "id": "231:1338",
-                  "name": "Frame 288",
+                  "id": "79:1344",
+                  "name": "Frame 1618873280",
                   "type": "FRAME",
                   "layoutMode": "VERTICAL",
                   "children": [
                     {
-                      "id": "231:1337",
-                      "name": "Group 1",
-                      "type": "GROUP",
+                      "id": "77:2595",
+                      "name": "Header",
+                      "type": "INSTANCE",
+                      "layoutMode": "HORIZONTAL",
+                      "componentId": "63:880",
                       "has_children": true,
-                      "children_count": 1
+                      "children_count": 3
                     },
                     {
-                      "id": "135:792",
-                      "name": "Portfolio",
+                      "id": "77:2416",
+                      "name": "title",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 2
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "76:1347",
+              "name": "Doctor lists",
+              "type": "FRAME",
+              "children": [
+                {
+                  "id": "79:1350",
+                  "name": "Frame 1618873280",
+                  "type": "FRAME",
+                  "layoutMode": "VERTICAL",
+                  "children": [
+                    {
+                      "id": "79:1351",
+                      "name": "Header",
+                      "type": "INSTANCE",
+                      "layoutMode": "HORIZONTAL",
+                      "componentId": "63:880",
+                      "has_children": true,
+                      "children_count": 3
+                    },
+                    {
+                      "id": "79:1352",
+                      "name": "title",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 2
+                    }
+                  ]
+                },
+                {
+                  "id": "76:1488",
+                  "name": "Team of doctors",
+                  "type": "FRAME",
+                  "layoutMode": "VERTICAL",
+                  "children": [
+                    {
+                      "id": "76:1489",
+                      "name": "title",
                       "type": "FRAME",
                       "layoutMode": "VERTICAL",
                       "has_children": true,
                       "children_count": 2
                     },
                     {
-                      "id": "135:807",
-                      "name": "Call to action",
+                      "id": "76:1492",
+                      "name": "Members",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 2
+                    }
+                  ]
+                },
+                {
+                  "id": "76:1578",
+                  "name": "Frame 1618873278",
+                  "type": "FRAME",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "id": "76:1579",
+                      "name": "Rectangle 418",
+                      "type": "RECTANGLE"
+                    },
+                    {
+                      "id": "76:1580",
+                      "name": "details",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "76:1639",
+                      "name": "Forms",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 5
+                    }
+                  ]
+                },
+                {
+                  "id": "76:1652",
+                  "name": "Footer",
+                  "type": "INSTANCE",
+                  "layoutMode": "VERTICAL",
+                  "componentId": "68:347",
+                  "children": [
+                    {
+                      "id": "I76:1652;68:348",
+                      "name": "links",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "I76:1652;68:373",
+                      "name": "Contact",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 2
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "79:1668",
+              "name": "Doctor Details",
+              "type": "FRAME",
+              "children": [
+                {
+                  "id": "79:1669",
+                  "name": "Frame 1618873280",
+                  "type": "FRAME",
+                  "layoutMode": "VERTICAL",
+                  "children": [
+                    {
+                      "id": "79:1670",
+                      "name": "Header",
+                      "type": "INSTANCE",
+                      "layoutMode": "HORIZONTAL",
+                      "componentId": "63:880",
+                      "has_children": true,
+                      "children_count": 3
+                    },
+                    {
+                      "id": "79:1671",
+                      "name": "title",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 2
+                    }
+                  ]
+                },
+                {
+                  "id": "79:1944",
+                  "name": "Details",
+                  "type": "FRAME",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "id": "79:1945",
+                      "name": "img",
+                      "type": "RECTANGLE"
+                    },
+                    {
+                      "id": "79:1946",
+                      "name": "info",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 3
+                    }
+                  ]
+                },
+                {
+                  "id": "79:1726",
+                  "name": "Frame 1618873278",
+                  "type": "FRAME",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "id": "79:1727",
+                      "name": "Rectangle 418",
+                      "type": "RECTANGLE"
+                    },
+                    {
+                      "id": "79:1728",
+                      "name": "details",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "79:1787",
+                      "name": "Forms",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 5
+                    }
+                  ]
+                },
+                {
+                  "id": "79:1800",
+                  "name": "Footer",
+                  "type": "INSTANCE",
+                  "layoutMode": "VERTICAL",
+                  "componentId": "68:347",
+                  "children": [
+                    {
+                      "id": "I79:1800;68:348",
+                      "name": "links",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "I79:1800;68:373",
+                      "name": "Contact",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 2
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "80:2026",
+              "name": "Blog",
+              "type": "FRAME",
+              "children": [
+                {
+                  "id": "80:2027",
+                  "name": "Frame 1618873280",
+                  "type": "FRAME",
+                  "layoutMode": "VERTICAL",
+                  "children": [
+                    {
+                      "id": "80:2028",
+                      "name": "Header",
+                      "type": "INSTANCE",
+                      "layoutMode": "HORIZONTAL",
+                      "componentId": "63:880",
+                      "has_children": true,
+                      "children_count": 3
+                    },
+                    {
+                      "id": "80:2029",
+                      "name": "title",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 2
+                    }
+                  ]
+                },
+                {
+                  "id": "80:2332",
+                  "name": "Blog post",
+                  "type": "FRAME",
+                  "layoutMode": "VERTICAL",
+                  "children": [
+                    {
+                      "id": "80:2336",
+                      "name": "Cards",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 3
+                    },
+                    {
+                      "id": "80:2356",
+                      "name": "Cards",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 3
+                    },
+                    {
+                      "id": "80:2372",
+                      "name": "Cards",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 3
+                    }
+                  ]
+                },
+                {
+                  "id": "80:2117",
+                  "name": "Frame 1618873278",
+                  "type": "FRAME",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "id": "80:2118",
+                      "name": "Rectangle 418",
+                      "type": "RECTANGLE"
+                    },
+                    {
+                      "id": "80:2119",
+                      "name": "details",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "80:2178",
+                      "name": "Forms",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 5
+                    }
+                  ]
+                },
+                {
+                  "id": "80:2191",
+                  "name": "Footer",
+                  "type": "INSTANCE",
+                  "layoutMode": "VERTICAL",
+                  "componentId": "68:347",
+                  "children": [
+                    {
+                      "id": "I80:2191;68:348",
+                      "name": "links",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "I80:2191;68:373",
+                      "name": "Contact",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 2
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "82:2697",
+              "name": "About Us",
+              "type": "FRAME",
+              "children": [
+                {
+                  "id": "82:2698",
+                  "name": "Frame 1618873280",
+                  "type": "FRAME",
+                  "layoutMode": "VERTICAL",
+                  "children": [
+                    {
+                      "id": "82:2699",
+                      "name": "Header",
+                      "type": "INSTANCE",
+                      "layoutMode": "HORIZONTAL",
+                      "componentId": "63:880",
+                      "has_children": true,
+                      "children_count": 3
+                    },
+                    {
+                      "id": "82:2700",
+                      "name": "title",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 2
+                    }
+                  ]
+                },
+                {
+                  "id": "82:2707",
+                  "name": "Footer",
+                  "type": "INSTANCE",
+                  "layoutMode": "VERTICAL",
+                  "componentId": "68:347",
+                  "children": [
+                    {
+                      "id": "I82:2707;68:348",
+                      "name": "links",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "I82:2707;68:373",
+                      "name": "Contact",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 2
+                    }
+                  ]
+                },
+                {
+                  "id": "82:3255",
+                  "name": "Frame 1618873284",
+                  "type": "FRAME",
+                  "layoutMode": "VERTICAL",
+                  "children": [
+                    {
+                      "id": "82:3256",
+                      "name": "Highly innovative technology",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "82:3271",
+                      "name": "Health Point History",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 3
+                    },
+                    {
+                      "id": "82:3291",
+                      "name": "Highly innovative technology",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "82:3317",
+                      "name": "Customers Testimonials",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 2
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "82:2904",
+              "name": "Contact Us",
+              "type": "FRAME",
+              "children": [
+                {
+                  "id": "82:2905",
+                  "name": "Frame 1618873280",
+                  "type": "FRAME",
+                  "layoutMode": "VERTICAL",
+                  "children": [
+                    {
+                      "id": "82:2906",
+                      "name": "Header",
+                      "type": "INSTANCE",
+                      "layoutMode": "HORIZONTAL",
+                      "componentId": "63:880",
+                      "has_children": true,
+                      "children_count": 3
+                    },
+                    {
+                      "id": "82:2907",
+                      "name": "title",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 2
+                    }
+                  ]
+                },
+                {
+                  "id": "82:2914",
+                  "name": "Footer",
+                  "type": "INSTANCE",
+                  "layoutMode": "VERTICAL",
+                  "componentId": "68:347",
+                  "children": [
+                    {
+                      "id": "I82:2914;68:348",
+                      "name": "links",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "I82:2914;68:373",
+                      "name": "Contact",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 2
+                    }
+                  ]
+                },
+                {
+                  "id": "82:2915",
+                  "name": "Frame 1618873270",
+                  "type": "FRAME",
+                  "layoutMode": "VERTICAL",
+                  "children": [
+                    {
+                      "id": "82:2916",
+                      "name": "Frame 1618873265",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "82:2946",
+                      "name": "Frame 1618873269",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "82:2961",
+                      "name": "Office Contacts",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 2
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "80:2388",
+              "name": "Blog Details",
+              "type": "FRAME",
+              "children": [
+                {
+                  "id": "80:2389",
+                  "name": "Frame 1618873280",
+                  "type": "FRAME",
+                  "layoutMode": "VERTICAL",
+                  "children": [
+                    {
+                      "id": "80:2390",
+                      "name": "Header",
+                      "type": "INSTANCE",
+                      "layoutMode": "HORIZONTAL",
+                      "componentId": "63:880",
+                      "has_children": true,
+                      "children_count": 3
+                    },
+                    {
+                      "id": "80:2391",
+                      "name": "title",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 1
+                    }
+                  ]
+                },
+                {
+                  "id": "80:2719",
+                  "name": "Details",
+                  "type": "FRAME",
+                  "layoutMode": "VERTICAL",
+                  "children": [
+                    {
+                      "id": "80:2720",
+                      "name": "Image",
+                      "type": "RECTANGLE"
+                    },
+                    {
+                      "id": "80:2721",
+                      "name": "details",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 1
+                    }
+                  ]
+                },
+                {
+                  "id": "80:2447",
+                  "name": "Frame 1618873278",
+                  "type": "FRAME",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "id": "80:2448",
+                      "name": "Rectangle 418",
+                      "type": "RECTANGLE"
+                    },
+                    {
+                      "id": "80:2449",
+                      "name": "details",
                       "type": "FRAME",
                       "layoutMode": "VERTICAL",
                       "has_children": true,
                       "children_count": 3
                     },
                     {
-                      "id": "135:812",
-                      "name": "Blog",
+                      "id": "80:2508",
+                      "name": "Forms",
                       "type": "FRAME",
                       "layoutMode": "VERTICAL",
                       "has_children": true,
-                      "children_count": 2
-                    },
+                      "children_count": 5
+                    }
+                  ]
+                },
+                {
+                  "id": "80:2521",
+                  "name": "Footer",
+                  "type": "INSTANCE",
+                  "layoutMode": "VERTICAL",
+                  "componentId": "68:347",
+                  "children": [
                     {
-                      "id": "135:823",
-                      "name": "What I do?",
+                      "id": "I80:2521;68:348",
+                      "name": "links",
                       "type": "FRAME",
                       "layoutMode": "HORIZONTAL",
                       "has_children": true,
                       "children_count": 2
                     },
                     {
-                      "id": "135:835",
-                      "name": "Hapyy Clients",
+                      "id": "I80:2521;68:373",
+                      "name": "Contact",
                       "type": "FRAME",
-                      "layoutMode": "VERTICAL",
+                      "layoutMode": "HORIZONTAL",
                       "has_children": true,
                       "children_count": 2
-                    },
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "4002:5284",
+          "name": "non used now",
+          "type": "CANVAS",
+          "children": [
+            {
+              "id": "63:531",
+              "name": "Iconography",
+              "type": "FRAME",
+              "layoutMode": "VERTICAL",
+              "children": [
+                {
+                  "id": "63:532",
+                  "name": "Title",
+                  "type": "FRAME",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
                     {
-                      "id": "135:863",
-                      "name": "Testimonial",
+                      "id": "67:300",
+                      "name": "logo",
+                      "type": "INSTANCE",
+                      "componentId": "62:509",
+                      "has_children": true,
+                      "children_count": 1
+                    }
+                  ]
+                },
+                {
+                  "id": "63:534",
+                  "name": "Typography: Headlines",
+                  "type": "FRAME",
+                  "layoutMode": "VERTICAL",
+                  "children": [
+                    {
+                      "id": "63:535",
+                      "name": "Content",
                       "type": "FRAME",
                       "layoutMode": "VERTICAL",
                       "has_children": true,
@@ -284,122 +1079,99 @@
   },
   "reusable_components": [
     {
-      "component_id": "89:7181",
-      "name": "Pagination",
-      "kind": "standalone"
-    },
-    {
-      "component_id": "94:658",
-      "name": "Logo",
-      "kind": "standalone"
-    },
-    {
-      "component_set_id": "89:7039",
-      "name": "Project",
+      "component_set_id": "63:626",
+      "name": "Buttons",
       "kind": "variant_set",
       "variant_component_ids": [
-        "89:7038",
-        "89:7040"
+        "63:627",
+        "73:550",
+        "63:631",
+        "73:546",
+        "63:635"
       ],
       "variant_props": {
-        "Property 1": [
-          "Hover",
-          "Normal"
+        "State": [
+          "Default",
+          "Bordered",
+          "Text",
+          "Big",
+          "Big with border"
         ]
       }
     },
     {
-      "component_set_id": "89:7154",
-      "name": "Blog",
+      "component_set_id": "74:872",
+      "name": "Input",
       "kind": "variant_set",
       "variant_component_ids": [
-        "89:7108",
-        "89:7155"
+        "63:643",
+        "74:873"
       ],
       "variant_props": {
-        "Property 1": [
-          "Normal",
-          "Hover"
+        "State": [
+          "Default",
+          "Message"
         ]
       }
     },
     {
-      "component_set_id": "89:7165",
-      "name": "Work Process Card",
+      "component_set_id": "63:653",
+      "name": "Rating Star",
       "kind": "variant_set",
       "variant_component_ids": [
-        "89:7163",
-        "89:7164"
+        "63:654",
+        "63:656",
+        "63:661"
       ],
       "variant_props": {
-        "Property 1": [
-          "Hover",
-          "Normal"
+        "Half": [
+          "False",
+          "True"
+        ],
+        "None": [
+          "True",
+          "False"
         ]
       }
     },
     {
-      "component_set_id": "89:7168",
-      "name": "Address Card",
+      "component_set_id": "63:510",
+      "name": "logo",
       "kind": "variant_set",
       "variant_component_ids": [
-        "89:7166",
-        "89:7167"
+        "62:509",
+        "63:511"
       ],
       "variant_props": {
-        "Property 1": [
-          "Hover",
-          "Normal"
+        "State": [
+          "Default",
+          "white"
         ]
       }
     },
     {
-      "component_set_id": "89:7171",
-      "name": "What I do card",
+      "component_set_id": "63:879",
+      "name": "Header",
       "kind": "variant_set",
       "variant_component_ids": [
-        "89:7169",
-        "89:7170"
+        "63:880"
       ],
       "variant_props": {
-        "Property 1": [
-          "Hover",
-          "Normal"
+        "State": [
+          "Light"
         ]
       }
     },
     {
-      "component_set_id": "89:7227",
-      "name": "Button",
+      "component_set_id": "69:414",
+      "name": "Footer",
       "kind": "variant_set",
       "variant_component_ids": [
-        "89:7226",
-        "89:7221",
-        "89:7224",
-        "89:7222",
-        "89:7219",
-        "89:7225",
-        "123:493",
-        "123:499",
-        "123:495",
-        "123:526",
-        "123:530",
-        "123:509"
+        "68:347"
       ],
       "variant_props": {
-        "Property 1": [
-          "Right Icon Hover",
-          "Normal",
-          "Hover",
-          "Left Icon Normal",
-          "Left Icon Hover",
-          "Right Icon Normal",
-          "Border Normal Button",
-          "Letf Icon Border Button",
-          "Border Hover Button",
-          "Left Icon Border Hover Button",
-          "Right Icon Bordar normal",
-          "Right Icon Bordar Hover"
+        "State": [
+          "Light"
         ]
       }
     }

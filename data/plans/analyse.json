@@ -1,28 +1,110 @@
 {
   "pages": [
     {
-      "id": "135:701",
+      "id": "71:340",
       "name": "Homepage",
       "suggested_file": "src/pages/Homepage.tsx",
       "components_used": [
-        "Logo",
-        "Button",
-        "Pagination"
+        "Header",
+        "Footer"
+      ]
+    },
+    {
+      "id": "76:459",
+      "name": "Services",
+      "suggested_file": "src/pages/Services.tsx",
+      "components_used": [
+        "Header",
+        "Footer"
+      ]
+    },
+    {
+      "id": "77:2415",
+      "name": "ServicesDetails",
+      "suggested_file": "src/pages/ServicesDetails.tsx",
+      "components_used": [
+        "Header",
+        "Footer"
+      ]
+    },
+    {
+      "id": "76:1347",
+      "name": "DoctorLists",
+      "suggested_file": "src/pages/DoctorLists.tsx",
+      "components_used": [
+        "Header",
+        "Footer"
+      ]
+    },
+    {
+      "id": "79:1668",
+      "name": "DoctorDetails",
+      "suggested_file": "src/pages/DoctorDetails.tsx",
+      "components_used": [
+        "Header",
+        "Footer"
+      ]
+    },
+    {
+      "id": "80:2026",
+      "name": "Blog",
+      "suggested_file": "src/pages/Blog.tsx",
+      "components_used": [
+        "Header",
+        "Footer"
+      ]
+    },
+    {
+      "id": "82:2697",
+      "name": "AboutUs",
+      "suggested_file": "src/pages/AboutUs.tsx",
+      "components_used": [
+        "Header",
+        "Footer"
+      ]
+    },
+    {
+      "id": "82:2904",
+      "name": "ContactUs",
+      "suggested_file": "src/pages/ContactUs.tsx",
+      "components_used": [
+        "Header",
+        "Footer"
+      ]
+    },
+    {
+      "id": "80:2388",
+      "name": "BlogDetails",
+      "suggested_file": "src/pages/BlogDetails.tsx",
+      "components_used": [
+        "Header",
+        "Footer"
       ]
     }
   ],
   "project_structure": {
     "src/pages": [
-      "Homepage.tsx"
+      "Homepage.tsx",
+      "Services.tsx",
+      "ServicesDetails.tsx",
+      "DoctorLists.tsx",
+      "DoctorDetails.tsx",
+      "Blog.tsx",
+      "AboutUs.tsx",
+      "ContactUs.tsx",
+      "BlogDetails.tsx"
     ],
     "src/components": [
-      "Logo.tsx",
-      "Button.tsx",
-      "Pagination.tsx"
+      "Header.tsx",
+      "Footer.tsx",
+      "Buttons.tsx",
+      "Input.tsx",
+      "RatingStar.tsx",
+      "Logo.tsx"
     ]
   },
   "summary": {
-    "total_pages": 1,
-    "total_components": 3
+    "total_pages": 9,
+    "total_components": 6
   }
 }

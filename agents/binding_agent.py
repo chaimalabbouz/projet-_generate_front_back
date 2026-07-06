@@ -23,28 +23,63 @@ FRONTEND_ROOT = os.path.join(GENERATED_PROJECT_PATH, "frontend")
 # =========================================================================
 PAGE_CONTEXT = {
     "Homepage.jsx": {
-        "shows": "Category",        # les cards sont des catégories
-        "needs_id": None,           # page d'accueil, ne reçoit aucun id
-        "from": None,
-        "navigate_to": {
-            "target": "Products.jsx",   # un clic sur une catégorie mène ici
-            "passes": "category_id"     # en passant l'id de la catégorie cliquée
+        "shows": None,                 # vue globale du site (pas d'entité spécifique)
+        "needs_id": None,
+                   
+    },
+    "Services.jsx": {
+        "shows": "Service",
+        "needs_id": None,
+            "navigate_to": {
+            "target": "ServiceDetails.jsx",
+            "passes": "service_id"
         }
     },
-    "Products.jsx": {
-        "shows": "Product",         # affiche les produits
-        "needs_id": "category_id",  # reçoit l'id de catégorie depuis Homepage
-        "from": "Homepage.jsx",
+    "ServiceDetails.jsx": {
+        "shows": "Service",
+        "needs_id": "service_id",
+        "from": "Services.jsx",
+        
+    },
+    "DoctorList.jsx": {
+        "shows": "Doctor",
+        "needs_id": None,
+        
         "navigate_to": {
-            "target": "ProductDescription.jsx",
-            "passes": "product_id"
+            "target": "DoctorDetails.jsx",
+            "passes": "doctor_id"
         }
     },
-    "ProductDescription.jsx": {
-        "shows": "Product",         # affiche UN produit en détail
-        "needs_id": "product_id",   # reçoit l'id du produit cliqué
-        "from": "Products.jsx",
-        "navigate_to": None         # page finale, ne navigue plus
+    "DoctorDetails.jsx": {
+        "shows": "Doctor",
+        "needs_id": "doctor_id",
+        "from": "DoctorLists.jsx",
+        
+    },
+    "Blog.jsx": {
+        "shows": "Blog",
+        "needs_id": None,
+        
+        "navigate_to": {
+            "target": "BlogDetails.tsx",
+            "passes": "blog_id"
+        }
+    },
+    "BlogDetails.jsx": {
+        "shows": "Blog",
+        "needs_id": "blog_id",
+        "from": "Blog.jsx",
+        
+    },
+    "AboutUs.jsx": {
+        "shows": None,
+        "needs_id": None,
+        
+    },
+    "ContactUs.jsx": {
+        "shows": "Consultation",       # formulaire de prise de consultation
+        "needs_id": None,
+        
     },
 }
 

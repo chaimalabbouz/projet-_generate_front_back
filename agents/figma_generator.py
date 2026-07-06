@@ -56,7 +56,7 @@ class FigmaGeneratorAgent:
             run_generateur_pages_only()
             #run_generateur()
             
-            run_icon_injector()
+            #run_icon_injector()
 
             
             #run_validateur()

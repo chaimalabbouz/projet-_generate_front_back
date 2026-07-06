@@ -60,6 +60,32 @@ MODEL RULES
 ═══════════════════════════════════════
 SCHEMA RULES
 ═══════════════════════════════════════
+═══════════════════════════════════════
+CRITICAL: FIELD NAMING vs TYPE NAMING (PYDANTIC SHADOWING TRAP)
+═══════════════════════════════════════
+If a field name is IDENTICAL to a Python type name (date, type, id, list,
+str, int, bool, time, datetime), you MUST use ONE of these two techniques
+to avoid a silent Pydantic bug where the field becomes "must be None":
+
+TECHNIQUE 1 (PREFERRED) — Add this as the VERY FIRST line of the file:
+    from __future__ import annotations
+
+TECHNIQUE 2 — Use fully qualified type names:
+    import datetime
+    ...
+    date: Optional[datetime.date] = None      # NOT: date: Optional[date]
+
+WHY THIS MATTERS:
+In a class body, Python evaluates the assigned value BEFORE resolving the
+annotation. So `date: Optional[date] = None` becomes `Optional[None]` which
+Pydantic interprets as "this field must be None". The code LOOKS correct
+but silently rejects any real date value at runtime.
+
+RULE:
+- If ANY field in the schema has a name matching a type (date, type, id...),
+  add `from __future__ import annotations` as the first import.
+- This has zero downside and prevents an entire class of runtime bugs.
+- Apply this rule PROACTIVELY, even when in doubt.
 - Import: from pydantic import BaseModel, ConfigDict
 - Import: from datetime import datetime, date   (only the ones used)
 - Import: from typing import Optional   (only if needed)
@@ -77,11 +103,38 @@ SERVICE RULES
 - Import: from typing import List, Optional   (only the ones used)
 - Import: from app.models.{entity} import {Entity}
 - Import: from app.schemas.{entity} import {Entity}Create   (only if used)
-- Generate exactly the functions listed in task["functions"], with their exact signatures.
-- Every function takes db: Session as first parameter
+- Generate exactly the functions listed in task["functions"].
 - Functions that fetch by id must raise HTTPException(status_code=404) if not found
 - Use db.query().filter().first() for get by id
 - Use db.query().all() for list
+
+═══════════════════════════════════════
+CRITICAL: PARAMETER ORDER CONVENTION (STRICT — NO EXCEPTIONS)
+═══════════════════════════════════════
+Every service function MUST follow this EXACT parameter order.
+`db: Session` is ALWAYS the FIRST parameter. No exception.
+
+MANDATORY signatures:
+
+    def create_X(db: Session, x_data: XCreate) -> X:
+        ...
+
+    def list_X(db: Session) -> List[X]:
+        ...
+
+    def get_X_by_id(db: Session, x_id: int) -> X:
+        ...
+
+    def update_X(db: Session, x_id: int, x_data: XCreate) -> X:
+        ...
+
+    def delete_X(db: Session, x_id: int) -> None:
+        ...
+
+FORBIDDEN — DO NOT generate these variants:
+    def create_X(x_data: XCreate, db: Session)     ← WRONG (db must be first)
+    def get_X_by_id(x_id: int, db: Session)        ← WRONG (db must be first)
+
 - IMPORTANT: any function parameter typed Optional[...] REQUIRES "Optional" to be imported.
  
 ═══════════════════════════════════════
@@ -103,7 +156,44 @@ ROUTE RULES
     from app.services.{entity} import list_{entity}s as list_{entity}s_service
 - Always call service functions with their alias.
 - Generate routes at the exact "path" given in the task (do not invent prefixes).
- 
+
+═══════════════════════════════════════
+CRITICAL: SERVICE CALL ARGUMENT ORDER (STRICT — NO EXCEPTIONS)
+═══════════════════════════════════════
+Service functions ALWAYS have `db` as their FIRST parameter
+(see SERVICE RULES above). Therefore every route MUST pass
+`db` as the FIRST argument when calling a service.
+
+MANDATORY call patterns:
+
+    @router.post("/x", status_code=201, response_model=X)
+    def create_x(payload: XCreate, db: Session = Depends(get_db)):
+        return create_x_service(db, payload)         ← db FIRST
+
+    @router.get("/x", response_model=List[X])
+    def list_x(db: Session = Depends(get_db)):
+        return list_x_service(db)
+
+    @router.get("/x/{id}", response_model=X)
+    def get_x_by_id(id: int, db: Session = Depends(get_db)):
+        return get_x_by_id_service(db, id)           ← db FIRST
+
+    @router.put("/x/{id}", response_model=X)
+    def update_x(id: int, payload: XCreate, db: Session = Depends(get_db)):
+        return update_x_service(db, id, payload)     ← db FIRST
+
+    @router.delete("/x/{id}", status_code=204, response_model=None)
+    def delete_x(id: int, db: Session = Depends(get_db)):
+        delete_x_service(db, id)                     ← db FIRST
+        return None
+
+FORBIDDEN — DO NOT generate these variants:
+    return create_x_service(payload, db)     ← WRONG (db must be first)
+    return get_x_by_id_service(id, db)       ← WRONG (db must be first)
+
+The rule is: whatever order the service defines its parameters,
+the route MUST pass arguments in the SAME order. Since services
+always start with `db`, routes always start with `db`.
 ═══════════════════════════════════════
 MAIN RULES
 ═══════════════════════════════════════
