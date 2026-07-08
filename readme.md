@@ -216,5 +216,5 @@ Outils utilisés : execSync (node:child_process) pour lancer tsc, readFileSync/w
 
 1)modifer la base de donne pour ajouter des llm pour remplir les donner et ca doit etre si possible automatique
 2)laisser le front et back travaille enselbble comme bonne version :saya en principoe nchalla 
-3)modifer le venv en docker container semi sandbox
+3)modifer le venv en docker container semi sandbox:sayaaa
 4)modifer le planer pour intreagir avec l exterieur 

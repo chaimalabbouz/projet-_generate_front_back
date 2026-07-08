@@ -97,24 +97,25 @@ class TesterAgent:
     # RUN PYTEST
     # =========================
     def _run_pytest(self, test_file: str) -> dict:
-        if os.name == "nt":
-            python_path = os.path.join(GENERATED_PROJECT_PATH, "venv", "Scripts", "python")
-        else:
-            python_path = os.path.join(GENERATED_PROJECT_PATH, "venv", "bin", "python")
+     test_file_container = test_file.replace("\\", "/")
 
-        full_test_path = os.path.join(GENERATED_PROJECT_PATH, test_file)
+     result = subprocess.run(
+        [
+            "docker", "run", "--rm",
+            "--network", "none",
+            "-v", f"{GENERATED_PROJECT_PATH}:/app",
+            "-w", "/app",
+            "genproj-runner",
+            "python", "-m", "pytest", test_file_container, "-v", "--tb=short",
+        ],
+        capture_output=True,
+        text=True,
+    )
 
-        result = subprocess.run(
-            [python_path, "-m", "pytest", full_test_path, "-v", "--tb=short"],
-            capture_output=True,
-            text=True,
-            cwd=GENERATED_PROJECT_PATH
-        )
+    output = result.stdout + result.stderr
 
-        output = result.stdout + result.stderr
-
-        return {
-            "status": "passed" if result.returncode == 0 else "failed",
-            "output": output,
-            "errors": result.stderr if result.returncode != 0 else None
-        }
+    return {
+        "status": "passed" if result.returncode == 0 else "failed",
+        "output": output,
+        "errors": result.stderr if result.returncode != 0 else None,
+    }
