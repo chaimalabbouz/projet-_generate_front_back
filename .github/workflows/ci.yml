@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [dev-microservices, main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pytest
+
+      - name: Check syntax
+        run: python -m compileall shared services -q
+
+      - name: Check imports
+        env:
+          MISTRAL_API_KEY: fake-key-for-ci
+        run: |
+          python -c "from shared.state import GraphState"
+          python -c "from shared.celery_app import celery_app"
+          python -c "from services.planner.graph import create_planner_graph"
+          python -c "from services.backend.graph import create_backend_graph"
+
+      - name: Run tests
+        env:
+          MISTRAL_API_KEY: fake-key-for-ci
+        run: pytest tests/ -v

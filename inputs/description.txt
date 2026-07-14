@@ -21,13 +21,6 @@ BLOG:
 - view all blog posts
 - view blog post details
 
-CONSULTATION:
-- create a consultation request (submit form)
-- view all consultation requests
-
-NEWSLETTER:
-- subscribe with email
-- view all subscribers
 
 DATA MODELS:
 
@@ -59,14 +52,5 @@ Blog:
 - author_name: string
 - author_image_url: string
 
-Consultation:
-- name: string
-- email: string
-- phone: string
-- departement: string
-- time: string
-- message: string
 
-Newsletter:
-- email: string
 
