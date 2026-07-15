@@ -1,6 +1,6 @@
 pour activer le virtuel (venv):venv\Scripts\activate
 
-
+python -m services.design.run_local
 
 
 juste comprendre ceci :Voici le document décrivant votre projet. C'est la spécification technique complète que vous pourrez utiliser pour continuer le développement ou l'envoyer à une discussion.

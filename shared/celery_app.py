@@ -1,14 +1,16 @@
 from celery import Celery
 from shared.settings import REDIS_URL
 
+
 celery_app = Celery(
     "codegen",
     broker=REDIS_URL,      # la file d'attente
     backend=REDIS_URL,     # le stockage des résultats
     include=[
         "services.planner.tasks",
-        "services.backend.tasks",    
-        # "services.frontend.tasks",
+        "services.backend.tasks", 
+        "services.design.tasks",   
+         "services.frontend.tasks",
     ],
 )
 
@@ -23,6 +25,7 @@ celery_app.conf.update(
     task_routes={
         "planner.run":  {"queue": "planner"},
         "backend.run":  {"queue": "backend"},
+        "design.run":   {"queue": "design"},
         "frontend.run": {"queue": "frontend"},
     },
 
@@ -37,5 +40,8 @@ celery_app.conf.update(
     # (défaut = 1h, trop court pour un pipeline LLM long)
     broker_transport_options={"visibility_timeout": 7200},
 
-    result_expires=86400,   # les résultats vivent 24h
+    result_expires=86400,   
 )
+
+
+
