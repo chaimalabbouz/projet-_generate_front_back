@@ -14,63 +14,6 @@
             "type": "FRAME",
             "children": [
               {
-                "id": "135:1120",
-                "name": "Ellipse 5",
-                "type": "ELLIPSE"
-              },
-              {
-                "id": "135:1119",
-                "name": "Ellipse 4",
-                "type": "ELLIPSE"
-              },
-              {
-                "id": "135:1114",
-                "name": "BG",
-                "type": "GROUP",
-                "children": [
-                  {
-                    "id": "135:1115",
-                    "name": "Ellipse 1",
-                    "type": "ELLIPSE"
-                  },
-                  {
-                    "id": "135:1122",
-                    "name": "Ellipse 5",
-                    "type": "ELLIPSE"
-                  },
-                  {
-                    "id": "135:1116",
-                    "name": "Ellipse 2",
-                    "type": "ELLIPSE"
-                  },
-                  {
-                    "id": "135:1123",
-                    "name": "Ellipse 6",
-                    "type": "ELLIPSE"
-                  },
-                  {
-                    "id": "135:1117",
-                    "name": "Ellipse 3",
-                    "type": "ELLIPSE"
-                  },
-                  {
-                    "id": "135:1118",
-                    "name": "Ellipse 4",
-                    "type": "VECTOR"
-                  }
-                ]
-              },
-              {
-                "id": "135:702",
-                "name": "Rectangle 32",
-                "type": "RECTANGLE"
-              },
-              {
-                "id": "135:703",
-                "name": "Rectangle 33",
-                "type": "RECTANGLE"
-              },
-              {
                 "id": "135:704",
                 "name": "Frame 15",
                 "type": "FRAME",
@@ -239,6 +182,37 @@
                     "layoutMode": "VERTICAL",
                     "has_children": true,
                     "children_count": 3
+                  },
+                  {
+                    "id": "135:812",
+                    "name": "Blog",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 2
+                  },
+                  {
+                    "id": "135:823",
+                    "name": "What I do?",
+                    "type": "FRAME",
+                    "layoutMode": "HORIZONTAL",
+                    "has_children": true,
+                    "children_count": 2
+                  },
+                  {
+                    "id": "135:863",
+                    "name": "Testimonial",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 2
+                  },
+                  {
+                    "id": "231:1339",
+                    "name": "Group 2",
+                    "type": "GROUP",
+                    "has_children": true,
+                    "children_count": 2
                   }
                 ]
               }

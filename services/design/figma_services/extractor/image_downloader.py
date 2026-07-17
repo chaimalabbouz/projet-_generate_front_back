@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 from shared.settings import ARCHITECTURE_FILE, SECTIONS_OUTPUT_FILE
 
 
-from config.settings  import ASSETS_DIR
+from shared.settings import ASSETS_DIR
 IMAGE_REF_RE = re.compile(r"^[a-f0-9]{32,64}$", re.IGNORECASE)
 
 

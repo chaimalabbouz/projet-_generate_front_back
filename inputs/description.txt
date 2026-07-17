@@ -1,56 +1,24 @@
-STACK: Python / FastAPI systems
+STACK: Python / FastAPI
 
-PROJECT: Medical Clinic Platform API
+PROJECT: Contact Landing Page API
 
-DESCRIPTION: An API for a medical clinic website. Visitors can explore the clinic's services, browse the list of doctors and view their profiles, read medical blog articles, subscribe to the newsletter, and submit a consultation request.
+DESCRIPTION:
+An API for a company landing page. Visitors can submit project inquiries through a contact form. The submitted requests are stored in the database and can be managed by administrators.
 
 FEATURES:
 
-SERVICES:
-- create a service
-- view all services
-- view service details
-
-DOCTORS:
-- create a doctor
-- view all doctors
-- view doctor details
-
-BLOG:
-- create a blog post
-- view all blog posts
-- view blog post details
+CONTACT REQUESTS:
+- create a contact request
+- view all contact requests
+- view contact request details
 
 
 DATA MODELS:
 
-Service:
+ContactRequest:
 - name: string
-- image_url: string
-- description: string
-
-Doctor:
-- name: string
-- image_url: string
-- specialty: string
-- occupation: string
-- biography: string
-- experience: string
-- certificates: string
-- skills: string
-- location: string
-- phone: string
 - email: string
-- awards: string
-- hours: string
-
-Blog:
-- title: string
-- image_url: string
-
-- content: string
-- author_name: string
-- author_image_url: string
-
-
-
+- location: string
+- budget: string
+- subject: string
+- message: string

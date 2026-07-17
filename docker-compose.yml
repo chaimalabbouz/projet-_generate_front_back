@@ -1,0 +1,100 @@
+services:
+
+  # ---------- INFRASTRUCTURE ----------
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-rootpass}
+      MYSQL_DATABASE: llm_config
+      MYSQL_USER: llm_user
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-1234}
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3307:3306"        # 3307 côté hôte pour ne pas heurter ton MySQL WSL
+
+  # ---------- ORCHESTRATEUR ----------
+  orchestrator:
+    build: .
+    command: uvicorn orchestrator.api:app --host 0.0.0.0 --port 8080
+    ports:
+      - "8080:8080"
+    env_file: .env
+    environment:
+      REDIS_URL: redis://redis:6379/0
+      MYSQL_HOST: mysql
+    depends_on:
+      - redis
+      - mysql
+
+  # ---------- WORKERS ----------
+  worker-planner:
+    build: .
+    command: celery -A shared.celery_app worker -Q planner -l info
+    env_file: .env
+    environment:
+      REDIS_URL: redis://redis:6379/0
+      GENERATED_PROJECT_PATH: /workspace/generated
+      DATA_PATH: /workspace/data
+      MYSQL_HOST: mysql
+    volumes:
+      - C:/Users/binitns/Desktop/generated_project:/workspace/generated
+      - ./data:/workspace/data
+    depends_on:
+      - redis
+
+  worker-backend:
+    build: .
+    command: celery -A shared.celery_app worker -Q backend -l info
+    env_file: .env
+    environment:
+      REDIS_URL: redis://redis:6379/0
+      GENERATED_PROJECT_PATH: /workspace/generated
+      DATA_PATH: /workspace/data
+      MYSQL_HOST: mysql
+    volumes:
+      - C:/Users/binitns/Desktop/generated_project:/workspace/generated
+      - ./data:/workspace/data
+    depends_on:
+      - redis
+
+  worker-design:
+    build: .
+    command: celery -A shared.celery_app worker -Q design -l info
+    env_file: .env
+    environment:
+      REDIS_URL: redis://redis:6379/0
+      GENERATED_PROJECT_PATH: /workspace/generated
+      DATA_PATH: /workspace/data
+      MYSQL_HOST: mysql
+    volumes:
+      - C:/Users/binitns/Desktop/generated_project:/workspace/generated
+      - ./data:/workspace/data
+    depends_on:
+      - redis
+      - mysql
+
+  worker-frontend:
+    build: .
+    command: celery -A shared.celery_app worker -Q frontend -l info
+    env_file: .env
+    environment:
+      REDIS_URL: redis://redis:6379/0
+      GENERATED_PROJECT_PATH: /workspace/generated
+      DATA_PATH: /workspace/data
+      MYSQL_HOST: mysql
+    volumes:
+      - C:/Users/binitns/Desktop/generated_project:/workspace/generated
+      - ./data:/workspace/data
+    depends_on:
+      - redis
+      - mysql
+
+volumes:
+  mysql_data:

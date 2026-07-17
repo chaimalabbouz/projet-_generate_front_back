@@ -15,63 +15,6 @@
               "type": "FRAME",
               "children": [
                 {
-                  "id": "135:1120",
-                  "name": "Ellipse 5",
-                  "type": "ELLIPSE"
-                },
-                {
-                  "id": "135:1119",
-                  "name": "Ellipse 4",
-                  "type": "ELLIPSE"
-                },
-                {
-                  "id": "135:1114",
-                  "name": "BG",
-                  "type": "GROUP",
-                  "children": [
-                    {
-                      "id": "135:1115",
-                      "name": "Ellipse 1",
-                      "type": "ELLIPSE"
-                    },
-                    {
-                      "id": "135:1122",
-                      "name": "Ellipse 5",
-                      "type": "ELLIPSE"
-                    },
-                    {
-                      "id": "135:1116",
-                      "name": "Ellipse 2",
-                      "type": "ELLIPSE"
-                    },
-                    {
-                      "id": "135:1123",
-                      "name": "Ellipse 6",
-                      "type": "ELLIPSE"
-                    },
-                    {
-                      "id": "135:1117",
-                      "name": "Ellipse 3",
-                      "type": "ELLIPSE"
-                    },
-                    {
-                      "id": "135:1118",
-                      "name": "Ellipse 4",
-                      "type": "VECTOR"
-                    }
-                  ]
-                },
-                {
-                  "id": "135:702",
-                  "name": "Rectangle 32",
-                  "type": "RECTANGLE"
-                },
-                {
-                  "id": "135:703",
-                  "name": "Rectangle 33",
-                  "type": "RECTANGLE"
-                },
-                {
                   "id": "135:704",
                   "name": "Frame 15",
                   "type": "FRAME",
@@ -240,6 +183,37 @@
                       "layoutMode": "VERTICAL",
                       "has_children": true,
                       "children_count": 3
+                    },
+                    {
+                      "id": "135:812",
+                      "name": "Blog",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "135:823",
+                      "name": "What I do?",
+                      "type": "FRAME",
+                      "layoutMode": "HORIZONTAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "135:863",
+                      "name": "Testimonial",
+                      "type": "FRAME",
+                      "layoutMode": "VERTICAL",
+                      "has_children": true,
+                      "children_count": 2
+                    },
+                    {
+                      "id": "231:1339",
+                      "name": "Group 2",
+                      "type": "GROUP",
+                      "has_children": true,
+                      "children_count": 2
                     }
                   ]
                 }
@@ -252,9 +226,29 @@
   },
   "reusable_components": [
     {
+      "component_id": "89:7181",
+      "name": "Pagination",
+      "kind": "standalone"
+    },
+    {
       "component_id": "94:658",
       "name": "Logo",
       "kind": "standalone"
+    },
+    {
+      "component_set_id": "89:7039",
+      "name": "Project",
+      "kind": "variant_set",
+      "variant_component_ids": [
+        "89:7038",
+        "89:7040"
+      ],
+      "variant_props": {
+        "Property 1": [
+          "Hover",
+          "Normal"
+        ]
+      }
     },
     {
       "component_set_id": "89:7154",
@@ -272,6 +266,21 @@
       }
     },
     {
+      "component_set_id": "89:7165",
+      "name": "Work Process Card",
+      "kind": "variant_set",
+      "variant_component_ids": [
+        "89:7163",
+        "89:7164"
+      ],
+      "variant_props": {
+        "Property 1": [
+          "Hover",
+          "Normal"
+        ]
+      }
+    },
+    {
       "component_set_id": "89:7168",
       "name": "Address Card",
       "kind": "variant_set",
@@ -283,6 +292,59 @@
         "Property 1": [
           "Hover",
           "Normal"
+        ]
+      }
+    },
+    {
+      "component_set_id": "89:7171",
+      "name": "What I do card",
+      "kind": "variant_set",
+      "variant_component_ids": [
+        "89:7169",
+        "89:7170"
+      ],
+      "variant_props": {
+        "Property 1": [
+          "Hover",
+          "Normal"
+        ]
+      }
+    },
+    {
+      "component_set_id": "89:7180",
+      "name": "Social Media card",
+      "kind": "variant_set",
+      "variant_component_ids": [
+        "89:7178",
+        "89:7179"
+      ],
+      "variant_props": {
+        "Property 1": [
+          "Hover",
+          "Normal"
+        ]
+      }
+    },
+    {
+      "component_set_id": "89:7227",
+      "name": "Button",
+      "kind": "variant_set",
+      "variant_component_ids": [
+        "89:7221",
+        "89:7222",
+        "89:7225",
+        "123:493",
+        "123:495",
+        "123:526"
+      ],
+      "variant_props": {
+        "Property 1": [
+          "Right Icon Hover",
+          "Hover",
+          "Left Icon Hover",
+          "Border Normal Button",
+          "Letf Icon Border Button",
+          "Right Icon Bordar normal"
         ]
       }
     }

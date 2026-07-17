@@ -1,5 +1,15 @@
 venv
 __pycache__
 *.pyc
-generated_project
+*.pyo
 .git
+.github
+.pytest_cache
+generated_project
+data
+.env
+*.md
+tests
+run_*.py
+test_*.py
+fix_imports.py

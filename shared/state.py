@@ -7,7 +7,7 @@ class GraphState(BaseModel):
     # ---------------- INPUT ----------------
     user_input: str
     stack: Optional[str] = None
-
+    figma_file_id: Optional[str] = None 
     # ---------------- OPENAPI ----------------
     openapi_spec: Optional[Dict[str, Any]] = None
 

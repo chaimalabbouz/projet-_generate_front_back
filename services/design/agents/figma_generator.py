@@ -22,22 +22,23 @@ from shared.state import GraphState
 class FigmaGeneratorAgent:
     def run(self, state: GraphState) -> GraphState:
         try:
+            figma_id = state.figma_file_id or FIGMA_FILE_KEY
             # ─── EXTRACTION (sautée si le cache Figma existe déjà) ───
             if not os.path.exists(RAW_OUTPUT_FILE):
-                print("\n=== ETAPE 0: FIGMA EXTRACTION ===")
-                run_figma_extraction_pipeline(figma_id=FIGMA_FILE_KEY)
+                print(f"\n=== FIGMA EXTRACTION (id={figma_id}) ===")
+                run_figma_extraction_pipeline(figma_id=figma_id)
 
                 # ─── Extraction ───
-                #extract_tree_3levels()
-                #extract_reusable_components()
-                #prepare_payload()
+                extract_tree_3levels()
+                extract_reusable_components()
+                prepare_payload()
 
                 # ─── Planning ───
-                #run_analyste()
-                #run_architecte()
+                run_analyste()
+                run_architecte()
 
-                #extract_sections()
-                #download_figma_images_and_rewrite_jsons()
+                extract_sections()
+                download_figma_images_and_rewrite_jsons()
 
                 #run_icon_downloader()
             else:
@@ -49,7 +50,7 @@ class FigmaGeneratorAgent:
             #run_generateur_pages_only()
             run_generateur()
 
-            #run_icon_injector()
+            
 
             state.workflow_state = "figma_generation_done"
 
