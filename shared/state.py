@@ -43,6 +43,7 @@ class GraphState(BaseModel):
     workflow_state: Optional[str] = None
     retry_count: int = 0
     max_retries: int = 6
+    abandoned_entities: List[str] = Field(default_factory=list)
 
     # ---------------- TOOL CONTEXT ----------------
     tool_context: Optional[Dict[str, Any]] = None

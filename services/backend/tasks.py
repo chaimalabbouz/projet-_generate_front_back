@@ -36,13 +36,21 @@ def run_backend(self, state_dict: dict) -> dict:
             f"Backend failed ({result.workflow_state}): {result.error_log}"
         )
 
-    # ---- garde supplémentaire : des tests ont-ils échoué ? ----
+    # ---- garde : on échoue seulement si AUCUNE entité n'a réussi ----
     routes = [t for t in (result.task_queue or []) if t.get("type") == "route"]
-    failed = [t["entity"] for t in routes if t.get("test_status") == "failed"]
-    if failed:
-        raise RuntimeError(f"Backend: tests toujours en échec pour {failed}")
+    passed = [t for t in routes if t.get("test_status") == "passed"]
+    abandoned = result.abandoned_entities or []
+
+    if routes and not passed:
+        raise RuntimeError(f"Backend : aucune entité générée avec succès. Abandonnées : {abandoned}")
 
     done = len([t for t in (result.task_queue or []) if t.get("status") == "done"])
-    print(f"[BACKEND TASK] ✓ {done} fichiers générés, {len(routes)} entités testées")
+    print(f"[BACKEND TASK] ✓ {done} fichiers, {len(passed)}/{len(routes)} entités OK")
+    if abandoned:
+        print(f"[BACKEND TASK] ⚠ entités abandonnées : {abandoned}")
+
+
+
+
 
     return result.to_transport()

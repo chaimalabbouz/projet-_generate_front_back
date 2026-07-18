@@ -30,7 +30,7 @@ class BackendAgent:
             if state.generated_files is None:
                 state.generated_files = {}
  
-            current_entity = self._get_current_entity(state.task_queue)
+            current_entity = self._get_current_entity(state.task_queue, state.abandoned_entities)
  
             if current_entity is None:
                 state.workflow_state = "backend_done"
@@ -64,15 +64,19 @@ class BackendAgent:
     # =========================
     # GET CURRENT ENTITY
     # =========================
-    def _get_current_entity(self, task_queue: list):
+    def _get_current_entity(self, task_queue: list, abandoned: list = None):
+        abandoned = abandoned or []
+
         for task in task_queue:
-            if task.get("status") == "pending" and task.get("entity") is not None:
+            if (task.get("status") == "pending"
+                    and task.get("entity") is not None
+                    and task.get("entity") not in abandoned):
                 return task["entity"]
- 
+
         for task in task_queue:
             if task.get("status") == "pending" and task.get("type") == "main":
                 return "main"
- 
+
         return None
  
     # =========================

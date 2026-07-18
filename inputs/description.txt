@@ -1,24 +1,61 @@
 STACK: Python / FastAPI
 
-PROJECT: Contact Landing Page API
+PROJECT: E-Commerce Cart API
 
-DESCRIPTION:
-An API for a company landing page. Visitors can submit project inquiries through a contact form. The submitted requests are stored in the database and can be managed by administrators.
+DESCRIPTION: An API for an online shop. Products belong to a category. Customers create a cart, and add cart items referencing existing products. Cart items can be updated (change quantity) or removed.
 
 FEATURES:
 
-CONTACT REQUESTS:
-- create a contact request
-- view all contact requests
-- view contact request details
+CATEGORIES:
+- create a category
+- view all categories
+- view category details
+- update a category
+- delete a category
 
+PRODUCTS:
+- create a product
+- view all products
+- view product details
+- view products by category
+- update a product
+- delete a product
+
+CARTS:
+- create a cart
+- view all carts
+- view cart details
+- delete a cart
+
+CART ITEMS:
+- create a cart item
+- view all cart items
+- view cart item details
+- view cart items by cart
+- update a cart item
+- delete a cart item
 
 DATA MODELS:
 
-ContactRequest:
+Category:
 - name: string
-- email: string
-- location: string
-- budget: string
-- subject: string
-- message: string
+- description: string
+
+Product:
+- name: string
+- description: string
+- price: float
+- stock_quantity: integer
+- is_available: boolean
+- category_id: integer (foreign key to Category)
+
+Cart:
+- customer_name: string
+- customer_email: string
+- is_checked_out: boolean
+
+CartItem:
+- quantity: integer
+- unit_price: float
+- cart_id: integer (foreign key to Cart)
+- product_id: integer (foreign key to Product)

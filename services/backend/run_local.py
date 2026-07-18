@@ -11,6 +11,7 @@ Deux modes :
 import sys
 import json
 from pathlib import Path
+import time
 
 from shared.state import GraphState
 from shared.settings import INPUT_FILE
@@ -24,7 +25,7 @@ def get_planner_output(task_id: str | None) -> dict:
 
     # --- MODE DEBUG : on relit le dernier plan sur le disque (0 appel LLM) ---
     if task_id == "debug":
-        from shared.settings import DEBUG_PATH, INPUT_FILE
+        from shared.settings import DEBUG_PATH
 
         plan_path = Path(DEBUG_PATH) / "debug_plan.json"
         if not plan_path.exists():
@@ -78,7 +79,10 @@ def main():
     print("\n" + "=" * 60 + "\n")
 
     graph = create_backend_graph()
+
+    t0 = time.time()
     result = graph.invoke(state, config={"recursion_limit": 200})
+    duration = time.time() - t0
 
     if isinstance(result, dict):
         result = GraphState(**result)
@@ -115,6 +119,30 @@ def main():
         print("\n⚠ TERMINÉ AVEC DES TESTS EN ÉCHEC")
     else:
         print("\n✅ SUCCÈS COMPLET")
+
+    # ---------- MÉTRIQUES ----------
+    abandoned = result.abandoned_entities or []
+    total_entities = len(routes)
+
+    print("\n" + "=" * 60)
+    print("MÉTRIQUES")
+    print("=" * 60)
+
+    rate = (len(passed) / total_entities * 100) if total_entities else 0
+    print(f"Taux de réussite     : {len(passed)}/{total_entities} entités ({rate:.0f}%)")
+    if abandoned:
+        print(f"Entités abandonnées  : {abandoned}")
+
+    print(f"Durée totale         : {duration:.1f}s")
+    if total_entities:
+        print(f"Temps moyen / entité : {duration / total_entities:.1f}s")
+    print(f"Fichiers générés     : {len(done)}/{len(tasks)}")
+
+    print("\nDétail :")
+    for t in routes:
+        st = t.get("test_status")
+        icon = "✓" if st == "passed" else ("⚠" if st == "abandoned" else "✗")
+        print(f"  {icon} {t.get('entity'):<20} {st}")    
 
     # ---------- TEST DE SÉRIALISATION ----------
     print("\n--- test de transport vers le Frontend ---")

@@ -138,7 +138,7 @@ class FixerAgent:
     # =========================
     def run(self, state: GraphState) -> GraphState:
         try:
-            current_entity = self._get_failed_entity(state.task_queue)
+            current_entity = self._get_failed_entity(state.task_queue, state.abandoned_entities)
 
             if current_entity is None:
                 state.workflow_state = "fixer_done"
@@ -263,11 +263,15 @@ STEP 7 — Apply the fix using write_file. ONLY modify application files
     # =========================
     # GET FAILED ENTITY
     # =========================
-    def _get_failed_entity(self, task_queue: list) -> str:
+    def _get_failed_entity(self, task_queue: list, abandoned: list = None) -> str:
+        abandoned = abandoned or []
         for task in task_queue:
-            if task.get("type") == "route" and task.get("test_status") == "failed":
+            if (task.get("type") == "route"
+                    and task.get("test_status") == "failed"
+                    and task.get("entity") not in abandoned):
                 return task.get("entity")
         return None
+
 
     # =========================
     # GET ERROR OUTPUT
