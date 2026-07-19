@@ -30,6 +30,7 @@ class PlannerAgent:
             plan = self._call_llm(state.openapi_spec)
             plan = self._normalize_plan(plan)
             self._validate_plan(plan)
+            
 
             state.dependency_graph = plan["dependency_graph"]
             state.file_plan = plan["file_plan"]

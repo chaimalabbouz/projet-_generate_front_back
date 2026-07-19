@@ -38,7 +38,7 @@ class FigmaGeneratorAgent:
                 run_architecte()
 
                 extract_sections()
-                download_figma_images_and_rewrite_jsons()
+                download_figma_images_and_rewrite_jsons(figma_id=figma_id)
 
                 #run_icon_downloader()
             else:

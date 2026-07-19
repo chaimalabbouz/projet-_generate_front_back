@@ -64,7 +64,23 @@ HOW TO DECIDE
      listYByX(id) using useParams.
    - needs_id null -> a global list page; call listX().
 5. write_page with the result.
+═══════════════════════════════════════
+SCAN THE WHOLE PAGE
+═══════════════════════════════════════
+"shows": null means no main LIST — it does NOT mean nothing to bind.
+Always scan the page for:
 
+1. FORM — input fields + a submit button.
+   If the labels match an entity's *Create schema: add typed state,
+   bind value/onChange, call createX on submit.
+
+2. REPEATED CARDS — 3+ identical blocks (image + title + subtitle).
+   If they match an entity, replace with .map() over listX().
+
+3. ACTION BUTTONS — Delete/Update/Edit inside a bound block.
+   Wire to deleteX(item.id) / updateX(item.id, data).
+
+Bind only if the fields clearly match a schema. When unsure, leave untouched.
 ═══════════════════════════════════════
 OUTPUT
 ═══════════════════════════════════════

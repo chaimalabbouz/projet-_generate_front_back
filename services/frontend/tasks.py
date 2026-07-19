@@ -1,10 +1,9 @@
+import time
 from shared.celery_app import celery_app
 from shared.state import GraphState
 from services.frontend.graph import create_frontend_graph
 
-FAILED_STATES = {
-    "seed_failed", "frontend_api_failed", "binding_error", "binding_no_pages",
-}
+FAILED_STATES = {"seed_failed", "frontend_api_failed", "binding_error"}
 
 _graph = None
 
@@ -18,35 +17,50 @@ def get_graph():
 
 @celery_app.task(name="frontend.run", bind=True, max_retries=1)
 def run_frontend(self, chord_results: list) -> dict:
-    """
-    Callback du chord. Reçoit une LISTE :
-      [ state_du_backend (dict riche),  ack_du_design (dict minimal) ]
-
-    On repart du state Backend (il a openapi_spec, task_queue...).
-    Le Design n'apporte rien au state : ses pages sont déjà sur le disque.
-    """
     print("[FRONTEND TASK] démarrage")
+    t0 = time.time()
 
     backend_state, design_ack = chord_results
 
-    # garde : le Design a-t-il échoué ?
     if (design_ack or {}).get("workflow_state") == "figma_generation_failed":
         raise RuntimeError(f"Design a échoué : {design_ack.get('error_log')}")
 
     state = GraphState(**backend_state)
 
+    # récupère les métriques du Design (branche parallèle)
+    design_metrics = (design_ack or {}).get("metrics", {})
+    state.metrics = {**(state.metrics or {}), **design_metrics}
+
     result = get_graph().invoke(state)
     if isinstance(result, dict):
         result = GraphState(**result)
 
-    # garde : le Frontend a-t-il échoué ?
-    if result.workflow_state in FAILED_STATES:
-        print(f"[FRONTEND TASK] ✗ ÉCHEC : {result.workflow_state}")
-        raise RuntimeError(
-            f"Frontend failed ({result.workflow_state}): {result.error_log}"
-        )
+    duration = round(time.time() - t0, 1)
 
-    bound = len(result.frontend_pages or {})
-    print(f"[FRONTEND TASK] ✓ {bound} pages bindées")
+    if result.workflow_state in FAILED_STATES:
+        raise RuntimeError(f"Frontend failed ({result.workflow_state}): {result.error_log}")
+
+    # ---- MÉTRIQUES + CALCUL DU PARALLÉLISME ----
+    m = dict(result.metrics or {})
+    m["frontend"] = {
+        "duration_s": duration,
+        "pages_bound": len(result.frontend_pages or {}),
+    }
+
+    # temps total réel vs séquentiel
+    all_starts = [v["started_at"] for v in m.values() if "started_at" in v]
+    all_ends = [v["ended_at"] for v in m.values() if "ended_at" in v]
+    sequential = sum(v["duration_s"] for v in m.values() if "duration_s" in v)
+
+    if all_starts and all_ends:
+        real = round(max(all_ends) - min(all_starts) + duration, 1)
+        m["pipeline"] = {
+            "total_real_s": real,
+            "total_sequential_s": round(sequential, 1),
+            "parallelism_gain_pct": round((1 - real / sequential) * 100) if sequential else 0,
+        }
+
+    result.metrics = m
+    print(f"[FRONTEND TASK] ✓ {len(result.frontend_pages or {})} pages bindées en {duration}s")
 
     return result.to_transport()

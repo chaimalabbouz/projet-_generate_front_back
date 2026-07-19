@@ -8,6 +8,7 @@ class GraphState(BaseModel):
     user_input: str
     stack: Optional[str] = None
     figma_file_id: Optional[str] = None 
+    page_context: Optional[Dict[str, Any]] = None
     # ---------------- OPENAPI ----------------
     openapi_spec: Optional[Dict[str, Any]] = None
 
@@ -48,6 +49,8 @@ class GraphState(BaseModel):
     # ---------------- TOOL CONTEXT ----------------
     tool_context: Optional[Dict[str, Any]] = None
     tested_entities: List[str] = Field(default_factory=list)
+     # ---------------- MÉTRIQUES ----------------
+    metrics: Dict[str, Any] = Field(default_factory=dict)
 
     # ---------------- HELPERS MICROSERVICES ----------------
     # Champs lourds qui ne doivent PAS voyager entre services.

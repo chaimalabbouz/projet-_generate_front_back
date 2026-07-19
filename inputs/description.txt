@@ -1,61 +1,70 @@
-STACK: Python / FastAPI
+STACK: Python / FastAPI systems
 
-PROJECT: E-Commerce Cart API
+PROJECT: Medical Clinic Platform API
 
-DESCRIPTION: An API for an online shop. Products belong to a category. Customers create a cart, and add cart items referencing existing products. Cart items can be updated (change quantity) or removed.
+DESCRIPTION: An API for a medical clinic website. Visitors can explore the clinic's services, browse the list of doctors and view their profiles, read medical blog articles, subscribe to the newsletter, and submit a consultation request.
 
 FEATURES:
 
-CATEGORIES:
-- create a category
-- view all categories
-- view category details
-- update a category
-- delete a category
+SERVICES:
+- create a service
+- view all services
+- view service details
 
-PRODUCTS:
-- create a product
-- view all products
-- view product details
-- view products by category
-- update a product
-- delete a product
+DOCTORS:
+- create a doctor
+- view all doctors
+- view doctor details
 
-CARTS:
-- create a cart
-- view all carts
-- view cart details
-- delete a cart
+BLOG:
+- create a blog post
+- view all blog posts
+- view blog post details
 
-CART ITEMS:
-- create a cart item
-- view all cart items
-- view cart item details
-- view cart items by cart
-- update a cart item
-- delete a cart item
+CONSULTATION:
+- create a consultation request (submit form)
+- view all consultation requests
+
+NEWSLETTER:
+- subscribe with email
+- view all subscribers
 
 DATA MODELS:
 
-Category:
+Service:
 - name: string
+- image_url: string
 - description: string
 
-Product:
+Doctor:
 - name: string
-- description: string
-- price: float
-- stock_quantity: integer
-- is_available: boolean
-- category_id: integer (foreign key to Category)
+- image_url: string
+- specialty: string
+- occupation: string
+- biography: string
+- experience: string
+- certificates: string
+- skills: string
+- location: string
+- phone: string
+- email: string
+- awards: string
+- hours: string
 
-Cart:
-- customer_name: string
-- customer_email: string
-- is_checked_out: boolean
+Blog:
+- title: string
+- image_url: string
 
-CartItem:
-- quantity: integer
-- unit_price: float
-- cart_id: integer (foreign key to Cart)
-- product_id: integer (foreign key to Product)
+- content: string
+- author_name: string
+- author_image_url: string
+
+Consultation:
+- name: string
+- email: string
+- phone: string
+- departement: string
+- message: string
+
+Newsletter:
+- email: string

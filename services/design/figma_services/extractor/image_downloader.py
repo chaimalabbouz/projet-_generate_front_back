@@ -89,12 +89,11 @@ def _download_file(url: str, output_path: Path) -> bool:
         return False
 
 
-def download_figma_images_and_rewrite_jsons() -> dict[str, str]:
+def download_figma_images_and_rewrite_jsons(figma_id: str = None) -> dict[str, str]:
     load_dotenv()
 
     figma_api_key = os.getenv("FIGMA_API_KEY")
-    figma_file_id = os.getenv("FIGMA_FILE_ID")
-
+    figma_file_id = figma_id or os.getenv("FIGMA_FILE_ID")
     if not figma_api_key:
         raise RuntimeError("FIGMA_API_KEY manquant dans .env")
 

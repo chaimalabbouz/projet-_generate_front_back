@@ -203,6 +203,62 @@ C'est un fallback UNIFORME et déterministe (opacité), pas une tentative
 de deviner une couleur de hover différente à chaque fois — n'invente
 jamais une nouvelle couleur bg-[#hex2] pour l'état hover.
 
+16. ÉLÉMENTS DE SAISIE : GÉNÈRE DE VRAIS CHAMPS FONCTIONNELS
+Figma représente les champs de formulaire comme de simples rectangles
+avec du texte statique. Tu dois les détecter et générer un élément HTML
+réellement interactif, PAS un <div> décoratif.
+
+DÉTECTION — un noeud est un champ de saisie si l'un de ces signaux est présent :
+- son nom Figma contient : input, field, search, textbox, textarea, email,
+  password, phone, message, form, placeholder
+- son texte ressemble à un placeholder : "Search...", "Enter your email",
+  "Your name", "Type here", "Write a message"
+- c'est un rectangle contenant un texte grisé/atténué et une icône loupe
+
+CONVERSION :
+- champ court        → <input type="text" placeholder="<texte Figma>" />
+- email              → <input type="email" ... />
+- mot de passe       → <input type="password" ... />
+- téléphone          → <input type="tel" ... />
+- zone longue        → <textarea placeholder="..." />
+- bouton d'envoi     → <button type="submit">
+
+RÈGLES STRICTES :
+- Le texte statique Figma devient l'attribut `placeholder`, jamais du
+  contenu affiché en dur.
+- Conserve EXACTEMENT les mêmes classes Tailwind que le rectangle Figma
+  d'origine (dimensions, fond, bordure, radius, padding).
+- Ajoute systématiquement `outline-none bg-transparent w-full` pour que
+  l'input hérite du style du conteneur sans style natif du navigateur.
+- Si le champ est dans un conteneur avec une icône (loupe, enveloppe),
+  garde l'icône et place l'<input> à côté, dans le même conteneur flex.
+- N'ajoute AUCUN état React (useState) ni gestion de valeur : le composant
+  reste non-contrôlé. Expose seulement les props si la règle 12
+  (interactions) l'exige.
+
+Exemple :
+Figma : rectangle blanc arrondi contenant le texte "Search products..."
+INTERDIT : <div className="...">Search products...</div>
+CORRECT  : <input type="text" placeholder="Search products..."
+                  className="... outline-none bg-transparent w-full" />
+
+17. COMPOSANTS INTERACTIFS : TOUJOURS EXPOSER LEUR API
+Un composant qui contient un <input> ou <textarea> DOIT exposer ces props,
+et les transmettre à l'élément natif :
+  name?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  type?: string;
+
+  <input name={name} value={value} onChange={onChange} type={type} ... />
+
+Un composant bouton DOIT exposer :
+  onClick?: () => void;
+  disabled?: boolean;
+  type?: "button" | "submit";
+
+Sans ces props, le composant est décoratif et inutilisable : le parent ne peut
+ni lire la saisie, ni réagir au clic.
 """.strip()
 
 

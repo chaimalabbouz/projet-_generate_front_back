@@ -24,7 +24,7 @@ FRONTEND_ROOT = os.path.join(GENERATED_PROJECT_PATH, "frontend")
 # agent knows whether a page needs an id and which one. Later this can be
 # auto-derived from the Figma prototype. Keep the SAME shape when you do.)
 # =========================================================================
-PAGE_CONTEXT = {
+DEFAULT_PAGE_CONTEXT = {
     "Homepage.jsx": {
         "shows": None,                 # vue globale du site (pas d'entité spécifique)
         "needs_id": None,
@@ -224,6 +224,7 @@ class BindingAgent:
             # inject context for the module-level tools
             _SPEC = state.openapi_spec
             _API_FUNCTIONS_TEXT = self._build_api_functions_text(state.openapi_spec)
+            page_context = state.page_context or DEFAULT_PAGE_CONTEXT 
 
             pages = self._list_pages()
             if not pages:
@@ -235,7 +236,7 @@ class BindingAgent:
 
             for page_rel in pages:
                 page_name = os.path.basename(page_rel)
-                ctx = PAGE_CONTEXT.get(page_name, {})
+                ctx = page_context.get(page_name, {})
                 prompt = self._build_prompt(page_rel, page_name, ctx)
 
                 result = self.agent.invoke({

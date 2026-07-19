@@ -34,6 +34,7 @@ app.add_middleware(
 class GenerateRequest(BaseModel):
     user_input: str
     figma_file_id: str | None = None    # optionnel : sinon celui du .env
+    page_context: dict | None = None
 
 
 class GenerateResponse(BaseModel):
@@ -56,6 +57,7 @@ def generate(req: GenerateRequest):
     payload = {
         "user_input": req.user_input,
         "figma_file_id": req.figma_file_id,
+        "page_context": req.page_context, 
     }
 
     workflow = chord(
@@ -105,4 +107,5 @@ def result(task_id: str):
             "pages_bound": len(out.get("frontend_pages") or {}),
             "entities": list((out.get("dependency_graph") or {}).keys()),
         },
+        "metrics": out.get("metrics", {}),  
     }

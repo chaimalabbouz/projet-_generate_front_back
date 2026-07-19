@@ -1,0 +1,14 @@
+{
+  "Homepage.tsx":       { "shows": null, "needs_id": null },
+  "Services.tsx":       { "shows": "Service", "needs_id": null,
+                          "navigate_to": { "target": "ServiceDetails.tsx", "passes": "service_id" } },
+  "ServiceDetails.tsx": { "shows": "Service", "needs_id": "service_id", "from": "Services.tsx" },
+  "DoctorList.tsx":     { "shows": "Doctor", "needs_id": null,
+                          "navigate_to": { "target": "DoctorDetails.tsx", "passes": "doctor_id" } },
+  "DoctorDetails.tsx":  { "shows": "Doctor", "needs_id": "doctor_id", "from": "DoctorList.tsx" },
+  "Blog.tsx":           { "shows": "Blog", "needs_id": null,
+                          "navigate_to": { "target": "BlogDetails.tsx", "passes": "blog_id" } },
+  "BlogDetails.tsx":    { "shows": "Blog", "needs_id": "blog_id", "from": "Blog.tsx" },
+  "AboutUs.tsx":        { "shows": null, "needs_id": null },
+  "ContactUs.tsx":      { "shows": "Consultation", "needs_id": null }
+}
