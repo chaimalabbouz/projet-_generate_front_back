@@ -95,6 +95,30 @@ services:
     depends_on:
       - redis
       - mysql
+  
+    # ---------- BACK-OFFICE ----------
+  admin:
+    build: .
+    command: uvicorn services.admin.api:app --host 0.0.0.0 --port 8081
+    ports:
+      - "8081:8081"
+    env_file: .env
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MOONPILOT_DB_HOST: mysql
+      MOONPILOT_DB_PORT: 3306
+      MOONPILOT_DB_USER: llm_user
+      MOONPILOT_DB_PASSWORD: ${MYSQL_PASSWORD:-1234}
+      MOONPILOT_DB_NAME: moonpilot_db
+    depends_on:
+      - mysql
 
+  admin-ui:
+    build: ./admin-ui
+    ports:
+      - "3000:80"
+    depends_on:
+      - admin
 volumes:
   mysql_data:
