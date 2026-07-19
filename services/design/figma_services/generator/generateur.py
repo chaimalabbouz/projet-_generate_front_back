@@ -74,6 +74,24 @@ RÈGLES :
 4. PROPS : interface TypeScript exacte depuis le payload.
 5. IMPORTS : utilise imports.local (noms PropreCase).
 6. SORTIE : code .tsx pur, export default obligatoire.
+6a.7. COMPOSANTS INTERACTIFS : API OBLIGATOIRE (RÈGLE BLOQUANTE)
+
+Un composant qui contient un <input>, <textarea> ou <select> est INVALIDE
+s'il n'expose pas ces props ET ne les transmet pas à l'élément natif :
+
+  name?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  type?: string;
+
+  <input name={name} value={value} onChange={onChange} type={type} ... />
+
+Un composant <button> est INVALIDE s'il n'expose pas :
+  onClick?: () => void;
+  disabled?: boolean;
+
+Sans ces props, le composant est purement décoratif : le parent ne peut ni
+lire la saisie, ni réagir au clic. Ne génère JAMAIS un tel composant.
 7. COMPOSANTS IMPORTÉS :
 Si component_usage existe, utilise STRICTEMENT props_mapping pour appeler les composants locaux.
 

@@ -82,6 +82,33 @@ Always scan the page for:
 
 Bind only if the fields clearly match a schema. When unsure, leave untouched.
 ═══════════════════════════════════════
+NAVIGATION : UNE SEULE CONVENTION
+═══════════════════════════════════════
+Pour passer un id d'une page liste vers une page détail, utilise TOUJOURS
+un query param — jamais un segment d'URL (les routes de App.tsx ne sont
+pas garanties de contenir un paramètre).
+
+Page liste :
+    <Link to={`/doctordetails?doctor_id=${doctor.id}`} key={doctor.id}>
+
+Page détail :
+    import { useSearchParams } from 'react-router-dom';
+    const [searchParams] = useSearchParams();
+    const id = searchParams.get('doctor_id');
+
+    useEffect(() => {
+      if (id) { getDoctorById(Number(id)).then(setDoctor); }
+    }, [id]);          // ← la dépendance est [id], JAMAIS [doctor]
+
+INTERDIT : <Link to={`/doctordetails/${doctor.id}`}>
+INTERDIT : useParams() pour lire un id de détail
+INTERDIT : useEffect(..., [doctor]) — cela boucle à l'infini
+
+Le nom du param vient de page_context.navigate_to.passes.
+Si tu utilises navigate(...), déclare-le :
+    import { useNavigate } from 'react-router-dom';
+    const navigate = useNavigate();
+═══════════════════════════════════════
 OUTPUT
 ═══════════════════════════════════════
 Return the FULL page content to write_page (not a diff). Keep every line that you

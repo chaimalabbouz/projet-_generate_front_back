@@ -198,9 +198,33 @@ always start with `db`, routes always start with `db`.
 MAIN RULES
 ═══════════════════════════════════════
 - Import: from fastapi import FastAPI
-- Import each router from its module
-- Use app.include_router() for each router as described in the task
-- Add startup logic to create all tables: Base.metadata.create_all(bind=engine)
+- Import: from fastapi.middleware.cors import CORSMiddleware
+- Import: from app.database import Base, engine
+- Import each router from its module with an alias:
+    from app.routes.doctor import router as doctor_router
+
+- CORS IS MANDATORY. Without it the generated frontend cannot call the API:
+
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+
+- NEVER add a prefix when including a router. Each route already carries its
+  full path (ex: @router.get("/doctors")). Adding a prefix would produce
+  /doctors/doctors and every endpoint would return 404.
+
+    CORRECT   : app.include_router(doctor_router)
+    FORBIDDEN : app.include_router(doctor_router, prefix="/doctors")
+
+- Add startup logic to create all tables:
+
+    @app.on_event("startup")
+    def startup():
+        Base.metadata.create_all(bind=engine)
  
 ═══════════════════════════════════════
 CODE QUALITY RULES

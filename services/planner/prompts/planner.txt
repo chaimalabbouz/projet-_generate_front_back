@@ -77,7 +77,27 @@ For each entity, generate exactly 4 files in this order:
 
 Plus one global file at the end:
 5. app/main.py                        → FastAPI app + include all routers
+MAIN.PY RULES (CRITICAL)
+- Chaque route contient DÉJÀ son chemin complet (ex: @router.get("/doctors")).
+- main.py DOIT donc inclure les routers SANS préfixe :
+      app.include_router(doctor_router)
+- INTERDIT : app.include_router(doctor_router, prefix="/doctors")
+  Cela produirait /doctors/doctors.
+- Le champ "routers" du plan est une simple liste de chemins de modules,
+  jamais une liste d'objets {prefix, router}.
+  Format correct : "routers": ["app.routes.doctor", "app.routes.blog"]
+- main.py DOIT toujours inclure le middleware CORS, sinon le frontend
+  généré ne pourra jamais appeler l'API :
 
+      from fastapi.middleware.cors import CORSMiddleware
+      app.add_middleware(
+          CORSMiddleware,
+          allow_origins=["*"],
+          allow_credentials=True,
+          allow_methods=["*"],
+          allow_headers=["*"],
+      )
+        
 For each file, include:
 - path: file path
 - type: model | schema | service | route | main
