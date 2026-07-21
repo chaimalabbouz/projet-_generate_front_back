@@ -1,0 +1,553 @@
+{
+  "max_depth": 3,
+  "total_canvases": 1,
+  "document": {
+    "children": [
+      {
+        "id": "0:1",
+        "name": "Design",
+        "type": "CANVAS",
+        "children": [
+          {
+            "id": "2:24400",
+            "name": "Homepage",
+            "type": "FRAME",
+            "layoutMode": "VERTICAL",
+            "children": [
+              {
+                "id": "4003:792",
+                "name": "navbarr",
+                "type": "INSTANCE",
+                "layoutMode": "HORIZONTAL",
+                "componentId": "2004:792",
+                "children": [
+                  {
+                    "id": "I4003:792;2004:774",
+                    "name": "Frame 1261155254",
+                    "type": "FRAME",
+                    "layoutMode": "HORIZONTAL",
+                    "has_children": true,
+                    "children_count": 2
+                  }
+                ]
+              },
+              {
+                "id": "2:24916",
+                "name": "Frame 1000005643",
+                "type": "FRAME",
+                "layoutMode": "VERTICAL",
+                "children": [
+                  {
+                    "id": "2:24917",
+                    "name": "Rectangle 1441",
+                    "type": "RECTANGLE"
+                  },
+                  {
+                    "id": "2:24918",
+                    "name": "Frame 1000005639",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 3
+                  }
+                ]
+              },
+              {
+                "id": "2:24421",
+                "name": "Frame 48095472",
+                "type": "FRAME",
+                "layoutMode": "VERTICAL",
+                "children": [
+                  {
+                    "id": "2:24439",
+                    "name": "Frame 1000005631",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 2
+                  },
+                  {
+                    "id": "2:24448",
+                    "name": "Frame 1000005430",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 2
+                  },
+                  {
+                    "id": "2:24465",
+                    "name": "Frame 1000005634",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 2
+                  },
+                  {
+                    "id": "4:25246",
+                    "name": "Layout / 88 /",
+                    "type": "FRAME",
+                    "has_children": true,
+                    "children_count": 1
+                  },
+                  {
+                    "id": "5:25639",
+                    "name": "Frame 1000005656",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 2
+                  },
+                  {
+                    "id": "5:25867",
+                    "name": "Frame 1000005572",
+                    "type": "FRAME",
+                    "layoutMode": "HORIZONTAL",
+                    "has_children": true,
+                    "children_count": 2
+                  },
+                  {
+                    "id": "9:607",
+                    "name": "Frame 275",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 2
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "1:1422",
+            "name": "Contact",
+            "type": "FRAME",
+            "layoutMode": "VERTICAL",
+            "children": [
+              {
+                "id": "12:9741",
+                "name": "Frame 1261155254",
+                "type": "FRAME",
+                "layoutMode": "HORIZONTAL",
+                "children": [
+                  {
+                    "id": "12:9742",
+                    "name": "Frame 1261155254",
+                    "type": "FRAME",
+                    "layoutMode": "HORIZONTAL",
+                    "has_children": true,
+                    "children_count": 2
+                  }
+                ]
+              },
+              {
+                "id": "4014:1203",
+                "name": "get in toutch form",
+                "type": "INSTANCE",
+                "componentId": "4014:1202",
+                "children": [
+                  {
+                    "id": "I4014:1203;4014:1157",
+                    "name": "Frame 1261155253",
+                    "type": "FRAME",
+                    "has_children": true,
+                    "children_count": 1
+                  },
+                  {
+                    "id": "I4014:1203;4014:1194",
+                    "name": "Frame 1261155246",
+                    "type": "FRAME",
+                    "has_children": true,
+                    "children_count": 2
+                  }
+                ]
+              },
+              {
+                "id": "12:9518",
+                "name": "Frame 275",
+                "type": "FRAME",
+                "layoutMode": "VERTICAL",
+                "children": [
+                  {
+                    "id": "12:9519",
+                    "name": "Frame 187",
+                    "type": "FRAME",
+                    "has_children": true,
+                    "children_count": 1
+                  },
+                  {
+                    "id": "12:9529",
+                    "name": "Desktop - 4",
+                    "type": "FRAME",
+                    "has_children": true,
+                    "children_count": 1
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "13:1749",
+            "name": "Login",
+            "type": "FRAME",
+            "layoutMode": "VERTICAL",
+            "children": [
+              {
+                "id": "13:1750",
+                "name": "Frame 1261155257",
+                "type": "FRAME",
+                "layoutMode": "VERTICAL",
+                "children": [
+                  {
+                    "id": "13:1751",
+                    "name": "Frame 1261155254",
+                    "type": "FRAME",
+                    "layoutMode": "HORIZONTAL",
+                    "has_children": true,
+                    "children_count": 1
+                  },
+                  {
+                    "id": "13:1769",
+                    "name": "Frame 1261155256",
+                    "type": "FRAME",
+                    "layoutMode": "HORIZONTAL",
+                    "has_children": true,
+                    "children_count": 2
+                  }
+                ]
+              },
+              {
+                "id": "13:1791",
+                "name": "Frame 275",
+                "type": "FRAME",
+                "layoutMode": "VERTICAL",
+                "children": [
+                  {
+                    "id": "13:1792",
+                    "name": "Frame 187",
+                    "type": "FRAME",
+                    "has_children": true,
+                    "children_count": 1
+                  },
+                  {
+                    "id": "13:1802",
+                    "name": "Desktop - 4",
+                    "type": "FRAME",
+                    "has_children": true,
+                    "children_count": 1
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "9:738",
+            "name": "Product Page",
+            "type": "FRAME",
+            "layoutMode": "VERTICAL",
+            "children": [
+              {
+                "id": "2004:794",
+                "name": "navbarr",
+                "type": "INSTANCE",
+                "layoutMode": "HORIZONTAL",
+                "componentId": "2004:792",
+                "children": [
+                  {
+                    "id": "I2004:794;2004:774",
+                    "name": "Frame 1261155254",
+                    "type": "FRAME",
+                    "layoutMode": "HORIZONTAL",
+                    "has_children": true,
+                    "children_count": 2
+                  }
+                ]
+              },
+              {
+                "id": "9:3136",
+                "name": "Frame 1261155236",
+                "type": "FRAME",
+                "layoutMode": "VERTICAL",
+                "children": [
+                  {
+                    "id": "9:760",
+                    "name": "Frame 1000005557",
+                    "type": "FRAME",
+                    "layoutMode": "HORIZONTAL",
+                    "has_children": true,
+                    "children_count": 1
+                  },
+                  {
+                    "id": "9:3059",
+                    "name": "Frame 275",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 2
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "9:3137",
+            "name": "Product Details Page",
+            "type": "FRAME",
+            "layoutMode": "VERTICAL",
+            "children": [
+              {
+                "id": "2004:813",
+                "name": "navbarr",
+                "type": "INSTANCE",
+                "layoutMode": "HORIZONTAL",
+                "componentId": "2004:792",
+                "children": [
+                  {
+                    "id": "I2004:813;2004:774",
+                    "name": "Frame 1261155254",
+                    "type": "FRAME",
+                    "layoutMode": "HORIZONTAL",
+                    "has_children": true,
+                    "children_count": 2
+                  }
+                ]
+              },
+              {
+                "id": "11:3796",
+                "name": "Frame 1261155241",
+                "type": "FRAME",
+                "layoutMode": "VERTICAL",
+                "children": [
+                  {
+                    "id": "11:3717",
+                    "name": "Frame 1261155240",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 2
+                  },
+                  {
+                    "id": "11:3652",
+                    "name": "Frame 1000005631",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 2
+                  },
+                  {
+                    "id": "11:3719",
+                    "name": "Frame 275",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 2
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "11:4256",
+            "name": "Cart Page",
+            "type": "FRAME",
+            "layoutMode": "VERTICAL",
+            "children": [
+              {
+                "id": "11:4771",
+                "name": "Frame 1261155245",
+                "type": "FRAME",
+                "layoutMode": "VERTICAL",
+                "children": [
+                  {
+                    "id": "12:9651",
+                    "name": "Frame 1261155245",
+                    "type": "FRAME",
+                    "layoutMode": "HORIZONTAL",
+                    "has_children": true,
+                    "children_count": 1
+                  },
+                  {
+                    "id": "11:4616",
+                    "name": "Frame 1261155244",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 3
+                  }
+                ]
+              },
+              {
+                "id": "11:4694",
+                "name": "Frame 275",
+                "type": "FRAME",
+                "layoutMode": "VERTICAL",
+                "children": [
+                  {
+                    "id": "11:4695",
+                    "name": "Frame 187",
+                    "type": "FRAME",
+                    "has_children": true,
+                    "children_count": 1
+                  },
+                  {
+                    "id": "11:4705",
+                    "name": "Desktop - 4",
+                    "type": "FRAME",
+                    "has_children": true,
+                    "children_count": 1
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "12:1510",
+            "name": "Checkout Page",
+            "type": "FRAME",
+            "children": [
+              {
+                "id": "12:8494",
+                "name": "Frame 275",
+                "type": "FRAME",
+                "layoutMode": "VERTICAL",
+                "children": [
+                  {
+                    "id": "12:8495",
+                    "name": "Frame 187",
+                    "type": "FRAME",
+                    "has_children": true,
+                    "children_count": 1
+                  },
+                  {
+                    "id": "12:8505",
+                    "name": "Desktop - 4",
+                    "type": "FRAME",
+                    "has_children": true,
+                    "children_count": 1
+                  }
+                ]
+              },
+              {
+                "id": "12:8029",
+                "name": "Frame 1261155248",
+                "type": "FRAME",
+                "children": [
+                  {
+                    "id": "4014:1075",
+                    "name": "bills",
+                    "type": "INSTANCE",
+                    "componentId": "4014:1074",
+                    "has_children": true,
+                    "children_count": 3
+                  }
+                ]
+              },
+              {
+                "id": "4017:881",
+                "name": "navbarr",
+                "type": "INSTANCE",
+                "layoutMode": "HORIZONTAL",
+                "componentId": "2004:792",
+                "children": [
+                  {
+                    "id": "I4017:881;2004:774",
+                    "name": "Frame 1261155254",
+                    "type": "FRAME",
+                    "layoutMode": "HORIZONTAL",
+                    "has_children": true,
+                    "children_count": 2
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "12:8652",
+            "name": "Blogs",
+            "type": "FRAME",
+            "children": [
+              {
+                "id": "12:8768",
+                "name": "Frame 1261154948",
+                "type": "FRAME",
+                "layoutMode": "VERTICAL",
+                "children": [
+                  {
+                    "id": "12:8995",
+                    "name": "Frame 1261155250",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 2
+                  }
+                ]
+              },
+              {
+                "id": "12:8833",
+                "name": "Frame 1261154947",
+                "type": "FRAME",
+                "layoutMode": "VERTICAL",
+                "children": [
+                  {
+                    "id": "12:8834",
+                    "name": "Frame 1000005673",
+                    "type": "FRAME",
+                    "layoutMode": "HORIZONTAL",
+                    "has_children": true,
+                    "children_count": 1
+                  },
+                  {
+                    "id": "12:8836",
+                    "name": "Frame 1000005681",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 2
+                  }
+                ]
+              },
+              {
+                "id": "12:8918",
+                "name": "Frame 275",
+                "type": "FRAME",
+                "layoutMode": "VERTICAL",
+                "children": [
+                  {
+                    "id": "12:8919",
+                    "name": "Frame 187",
+                    "type": "FRAME",
+                    "has_children": true,
+                    "children_count": 1
+                  },
+                  {
+                    "id": "12:8929",
+                    "name": "Desktop - 4",
+                    "type": "FRAME",
+                    "has_children": true,
+                    "children_count": 1
+                  }
+                ]
+              },
+              {
+                "id": "4015:1497",
+                "name": "navbarr",
+                "type": "INSTANCE",
+                "layoutMode": "HORIZONTAL",
+                "componentId": "2004:792",
+                "children": [
+                  {
+                    "id": "I4015:1497;2004:774",
+                    "name": "Frame 1261155254",
+                    "type": "FRAME",
+                    "layoutMode": "HORIZONTAL",
+                    "has_children": true,
+                    "children_count": 2
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

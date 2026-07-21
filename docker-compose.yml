@@ -29,6 +29,7 @@ services:
     environment:
       REDIS_URL: redis://redis:6379/0
       MYSQL_HOST: mysql
+      MYSQL_PORT: 3306 
     depends_on:
       - redis
       - mysql
@@ -43,6 +44,7 @@ services:
       GENERATED_PROJECT_PATH: /workspace/generated
       DATA_PATH: /workspace/data
       MYSQL_HOST: mysql
+      MYSQL_PORT: 3306 
     volumes:
       - C:/Users/binitns/Desktop/generated_project:/workspace/generated
       - ./data:/workspace/data
@@ -58,6 +60,7 @@ services:
       GENERATED_PROJECT_PATH: /workspace/generated
       DATA_PATH: /workspace/data
       MYSQL_HOST: mysql
+      MYSQL_PORT: 3306 
     volumes:
       - C:/Users/binitns/Desktop/generated_project:/workspace/generated
       - ./data:/workspace/data
@@ -73,6 +76,7 @@ services:
       GENERATED_PROJECT_PATH: /workspace/generated
       DATA_PATH: /workspace/data
       MYSQL_HOST: mysql
+      MYSQL_PORT: 3306 
     volumes:
       - C:/Users/binitns/Desktop/generated_project:/workspace/generated
       - ./data:/workspace/data
@@ -89,6 +93,7 @@ services:
       GENERATED_PROJECT_PATH: /workspace/generated
       DATA_PATH: /workspace/data
       MYSQL_HOST: mysql
+      MYSQL_PORT: 3306 
     volumes:
       - C:/Users/binitns/Desktop/generated_project:/workspace/generated
       - ./data:/workspace/data

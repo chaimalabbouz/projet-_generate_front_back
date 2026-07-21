@@ -6,12 +6,15 @@ from langchain_mistralai import ChatMistralAI
 from langchain_core.tools import tool
 from langgraph.prebuilt import create_react_agent
 
-import os
+
 from shared.settings import MISTRAL_API_KEY, GENERATED_PROJECT_PATH
 
 PROMPTS_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "prompts")
+SKILLS_PATH = os.path.join(PROMPTS_PATH, "skills")
+SKILLS_ENTRIES_PATH = os.path.join(SKILLS_PATH, "entries")
 from shared.state import GraphState
 from services.frontend.agents.api_client_node import ApiClientGenerator
+
 
 BINDING_MODEL = "devstral-latest"
 
@@ -129,6 +132,24 @@ def list_entities() -> str:
     """
     return _API_FUNCTIONS_TEXT or "No entities available."
 
+@tool
+def list_skills() -> str:
+    """List available interaction patterns. Call BEFORE writing the page."""
+    index_path = os.path.join(SKILLS_PATH, "index.md")
+    if not os.path.exists(index_path):
+        return "No skills available."
+    with open(index_path, "r", encoding="utf-8") as f:
+        return f.read()
+
+
+@tool
+def read_skill(skill_id: str) -> str:
+    """Read one interaction skill by id (ex: 'form_submit'). Only if the pattern is present."""
+    path = os.path.join(SKILLS_ENTRIES_PATH, f"{skill_id}.md")
+    if not os.path.exists(path):
+        return f"Skill '{skill_id}' not found."
+    with open(path, "r", encoding="utf-8") as f:
+        return f.read()
 
 @tool
 def get_entity_schema(name: str) -> str:
@@ -209,7 +230,7 @@ class BindingAgent:
         with open(prompt_path, "r", encoding="utf-8") as f:
             self.system_prompt = f.read()
 
-        self.tools = [list_entities, get_entity_schema, read_page, write_page]
+        self.tools = [read_page,  list_entities,list_skills, read_skill, write_page]
         self.agent = create_react_agent(model=self.llm, tools=self.tools)
 
     # =========================

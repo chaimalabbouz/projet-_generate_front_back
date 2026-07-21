@@ -59,12 +59,12 @@ def seed_prompt3():
     conn.commit()
     conn.close()
     
-    print(f"✅ 3ème prompt ajouté")
+    print(" 3ème prompt ajouté")
     print(f"   - ID: {prompt_id}")
-    print(f"   - Nom: architecte_structure_pages")
-    print(f"   - model_id: 1")
-    print(f"   - temperature: 0")
-    print(f"   - max_tokens: NULL (vide)")
+    print("   - Nom: architecte_structure_pages")
+    print("   - model_id: 1")
+    print("   - temperature: 0")
+    print("   - max_tokens: NULL (vide)")
 
 if __name__ == "__main__":
     seed_prompt3()

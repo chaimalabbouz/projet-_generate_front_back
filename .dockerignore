@@ -8,7 +8,8 @@ __pycache__
 generated_project
 data
 .env
-*.md
+README.md
+CHANGELOG.md
 tests
 run_*.py
 test_*.py

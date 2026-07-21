@@ -862,7 +862,7 @@ def run_architecte():
     config = get_prompt_config("analyse_architecture_composant")
     
     SYSTEM_PROMPT = config['prompt']
-    MODEL = config['model_name']
+    
     TEMPERATURE = config['temperature']
     MAX_TOKENS = config['max_tokens'] if config['max_tokens'] else None
 

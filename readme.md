@@ -7,7 +7,9 @@ si on modifer le .env:
 docker compose down
 docker compose up -d
 on fait un build quand on modifie le code 
-
+si on modifie le code:
+docker compose build worker-design worker-frontend
+docker compose up -d
 
 
 

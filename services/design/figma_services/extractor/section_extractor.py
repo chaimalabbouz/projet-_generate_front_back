@@ -59,7 +59,7 @@ def _build_raw_index(raw_path: Path = MINIMAL_OUTPUT_FILE) -> dict[str, dict]:
     """Charge raw.json une seule fois et construit un index {node_id: node}.
     Évite de re-parser le fichier pour chaque enfant.
     """
-    print(f"[sections_extractor] Construction de l'index raw...")
+    print("[sections_extractor] Construction de l'index raw...")
 
     with open(raw_path, "r", encoding="utf-8") as f:
         raw = json.load(f)
@@ -1228,7 +1228,7 @@ def extract_sections() -> dict:
 
     size_kb = SECTIONS_OUTPUT_FILE.stat().st_size / 1024
 
-    print(f"\n[sections_extractor] Résumé :")
+    print("\n[sections_extractor] Résumé :")
     print(f"  - Pages                : {len(result_pages)}")
     print(f"  - Sections (libres)    : {total_sections}")
     print(f"  - Instances total      : {total_instances}")

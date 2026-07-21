@@ -1,0 +1,96 @@
+{
+  "pages": [
+    {
+      "id": "2:24400",
+      "name": "Homepage",
+      "suggested_file": "src/pages/Homepage.tsx",
+      "components_used": [
+        "navbarr",
+        "card"
+      ]
+    },
+    {
+      "id": "1:1422",
+      "name": "Contact",
+      "suggested_file": "src/pages/Contact.tsx",
+      "components_used": [
+        "getInToutchForm",
+        "navbarr"
+      ]
+    },
+    {
+      "id": "13:1749",
+      "name": "Login",
+      "suggested_file": "src/pages/Login.tsx",
+      "components_used": [
+        "navbarr"
+      ]
+    },
+    {
+      "id": "9:738",
+      "name": "ProductPage",
+      "suggested_file": "src/pages/ProductPage.tsx",
+      "components_used": [
+        "navbarr",
+        "card"
+      ]
+    },
+    {
+      "id": "9:3137",
+      "name": "ProductDetailsPage",
+      "suggested_file": "src/pages/ProductDetailsPage.tsx",
+      "components_used": [
+        "navbarr",
+        "card"
+      ]
+    },
+    {
+      "id": "11:4256",
+      "name": "CartPage",
+      "suggested_file": "src/pages/CartPage.tsx",
+      "components_used": [
+        "navbarr",
+        "card"
+      ]
+    },
+    {
+      "id": "12:1510",
+      "name": "CheckoutPage",
+      "suggested_file": "src/pages/CheckoutPage.tsx",
+      "components_used": [
+        "navbarr",
+        "bills"
+      ]
+    },
+    {
+      "id": "12:8652",
+      "name": "Blogs",
+      "suggested_file": "src/pages/Blogs.tsx",
+      "components_used": [
+        "navbarr"
+      ]
+    }
+  ],
+  "project_structure": {
+    "src/pages": [
+      "Homepage.tsx",
+      "Contact.tsx",
+      "Login.tsx",
+      "ProductPage.tsx",
+      "ProductDetailsPage.tsx",
+      "CartPage.tsx",
+      "CheckoutPage.tsx",
+      "Blogs.tsx"
+    ],
+    "src/components": [
+      "navbarr.tsx",
+      "card.tsx",
+      "getInToutchForm.tsx",
+      "bills.tsx"
+    ]
+  },
+  "summary": {
+    "total_pages": 8,
+    "total_components": 4
+  }
+}

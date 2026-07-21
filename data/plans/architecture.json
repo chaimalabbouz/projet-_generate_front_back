@@ -1,0 +1,6241 @@
+{
+  "generation_order": [
+    "profile",
+    "Shopping cart page",
+    "navbarr",
+    "barre de recherche",
+    "Quantity Selector",
+    "Frame 1000005649",
+    "Buttom",
+    "card",
+    "get in toutch form",
+    "comments forms",
+    "delet product",
+    "shopping cart",
+    "bills"
+  ],
+  "total_components": 13,
+  "components": [
+    {
+      "component_id": "2004:792",
+      "name": "navbarr",
+      "kind": "standalone",
+      "suggested_file": "src/components/navbarr.tsx",
+      "variant_component_ids": [
+        "2004:792"
+      ],
+      "architecture": {
+        "props": [
+          {
+            "name": "navItem",
+            "figma_name": "nav item",
+            "type": "string",
+            "default": "Home",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "product",
+            "figma_name": "Product",
+            "type": "string",
+            "default": "Product ",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          }
+        ],
+        "layout": "horizontal",
+        "has_image": true,
+        "has_text": true,
+        "external_deps": [],
+        "children_structure": [
+          "Éléments de navigation horizontaux",
+          "Texte de navigation (Home, Contact Us, Blog)",
+          "Icône de profil",
+          "Icône de panier d'achat"
+        ],
+        "children_tree": {
+          "name": "navbarr",
+          "layoutMode": "HORIZONTAL",
+          "children": [
+            {
+              "type": "FRAME",
+              "name": "Frame 1261155254",
+              "layoutMode": "HORIZONTAL",
+              "children": [
+                {
+                  "type": "FRAME",
+                  "name": "Frame 1261155255",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "type": "FRAME",
+                      "name": "nav",
+                      "layoutMode": "HORIZONTAL",
+                      "children": [
+                        {
+                          "type": "TEXT",
+                          "name": "nav item",
+                          "textPreview": "Home"
+                        },
+                        {
+                          "type": "FRAME",
+                          "name": "nav item",
+                          "layoutMode": "HORIZONTAL"
+                        },
+                        {
+                          "type": "TEXT",
+                          "name": "nav item",
+                          "textPreview": "Contact Us"
+                        },
+                        {
+                          "type": "TEXT",
+                          "name": "nav item",
+                          "textPreview": "Blog"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "FRAME",
+                  "name": "Frame 1261155224",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "type": "INSTANCE",
+                      "name": "profile",
+                      "layoutMode": "HORIZONTAL",
+                      "children": [
+                        {
+                          "type": "VECTOR",
+                          "name": "Vector"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "INSTANCE",
+                      "name": "Shopping cart page",
+                      "children": [
+                        {
+                          "type": "VECTOR",
+                          "name": "Shopping cart page"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "styles": {
+        "root": {
+          "width": 1462.0,
+          "height": 152.0,
+          "layout": {
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "layoutWrap": "NO_WRAP",
+            "layoutSizingHorizontal": "FIXED",
+            "layoutSizingVertical": "FIXED",
+            "padding": {
+              "paddingTop": 40.0,
+              "paddingBottom": 40.0
+            },
+            "itemSpacing": 285.0
+          },
+          "strokeWeight": 1.0,
+          "strokeAlign": "INSIDE"
+        },
+        "nodes": {
+          "Frame 1261155254": {
+            "type": "FRAME",
+            "width": 742.0,
+            "height": 20.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 342.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Frame 1261155255": {
+            "type": "FRAME",
+            "width": 333.0,
+            "height": 20.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 370.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "nav": {
+            "type": "FRAME",
+            "width": 333.0,
+            "height": 20.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "counterAxisAlignItems": "MAX",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 40.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "nav item": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "CENTER",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 20.203125,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "color": {
+              "hex": "#000000",
+              "rgb": {
+                "r": 0,
+                "g": 0,
+                "b": 0
+              },
+              "alpha": 1.0
+            },
+            "width": 44.0,
+            "height": 20.0
+          },
+          "Product": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "CENTER",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 20.203125,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "color": {
+              "hex": "#000000",
+              "rgb": {
+                "r": 0,
+                "g": 0,
+                "b": 0
+              },
+              "alpha": 1.0
+            },
+            "width": 56.0,
+            "height": 20.0
+          },
+          "Frame 1261155224": {
+            "type": "FRAME",
+            "width": 67.0,
+            "height": 20.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 29.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "profile": {
+            "type": "INSTANCE",
+            "width": 20.0,
+            "height": 20.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "counterAxisAlignItems": "CENTER",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 10.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Vector": {
+            "type": "VECTOR",
+            "width": 20.0,
+            "height": 20.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#000000",
+                  "rgb": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Shopping cart page": {
+            "type": "INSTANCE",
+            "width": 18.0,
+            "height": 20.0,
+            "layout": {
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "FIXED"
+            },
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": false,
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          }
+        }
+      },
+      "interactions": {
+        "root": [],
+        "nodes": {
+          "nav item": [
+            {
+              "trigger": "ON_CLICK",
+              "actions": [
+                {
+                  "type": "NODE",
+                  "navigation": "NAVIGATE"
+                }
+              ]
+            }
+          ],
+          "Frame 1261155254": [
+            {
+              "trigger": "ON_CLICK",
+              "actions": [
+                {
+                  "type": "NODE",
+                  "navigation": "NAVIGATE"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "imports": {
+        "local": [
+          {
+            "name": "profile",
+            "component_id": "4018:929",
+            "props": {}
+          },
+          {
+            "name": "Shopping cart page",
+            "component_id": "4019:1627",
+            "props": {}
+          }
+        ],
+        "external": []
+      }
+    },
+    {
+      "component_id": "4003:818",
+      "name": "barre de recherche",
+      "kind": "standalone",
+      "suggested_file": "src/components/barre de recherche.tsx",
+      "variant_component_ids": [
+        "4003:818"
+      ],
+      "architecture": {
+        "props": [
+          {
+            "name": "searchAnItem",
+            "figma_name": "Search An Item",
+            "type": "string",
+            "default": "Search An Item",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          }
+        ],
+        "layout": "horizontal",
+        "has_image": false,
+        "has_text": true,
+        "external_deps": [],
+        "children_structure": [
+          "Texte de recherche",
+          "Icône de recherche"
+        ],
+        "children_tree": {
+          "name": "barre de recherche",
+          "layoutMode": "HORIZONTAL",
+          "children": [
+            {
+              "type": "TEXT",
+              "name": "Search An Item",
+              "textPreview": "Search An Item"
+            },
+            {
+              "type": "FRAME",
+              "name": "Frame 48095395",
+              "layoutMode": "HORIZONTAL",
+              "children": [
+                {
+                  "type": "FRAME",
+                  "name": "akar-icons:search",
+                  "children": [
+                    {
+                      "type": "GROUP",
+                      "name": "Group",
+                      "children": [
+                        {
+                          "type": "VECTOR",
+                          "name": "Vector"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "styles": {
+        "root": {
+          "width": 344.0,
+          "height": 56.0,
+          "layout": {
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "SPACE_BETWEEN",
+            "counterAxisAlignItems": "CENTER",
+            "primaryAxisSizingMode": "FIXED",
+            "layoutWrap": "NO_WRAP",
+            "layoutSizingHorizontal": "FIXED",
+            "layoutSizingVertical": "HUG",
+            "padding": {
+              "paddingLeft": 20.0,
+              "paddingRight": 8.0,
+              "paddingTop": 8.0,
+              "paddingBottom": 8.0
+            },
+            "itemSpacing": 10.0
+          },
+          "fills": [
+            {
+              "type": "SOLID",
+              "opacity": 0.15000000596046448,
+              "color": {
+                "hex": "#000000",
+                "rgb": {
+                  "r": 0,
+                  "g": 0,
+                  "b": 0
+                },
+                "alpha": 0.15
+              }
+            }
+          ],
+          "cornerRadius": 42.0,
+          "strokes": [
+            {
+              "type": "SOLID",
+              "opacity": 0.6000000238418579,
+              "color": {
+                "hex": "#ffffff",
+                "rgb": {
+                  "r": 255,
+                  "g": 255,
+                  "b": 255
+                },
+                "alpha": 0.6
+              }
+            }
+          ],
+          "strokeWeight": 0.8615384697914124,
+          "strokeAlign": "INSIDE",
+          "effects": [
+            {
+              "type": "BACKGROUND_BLUR",
+              "radius": 22.0
+            }
+          ]
+        },
+        "nodes": {
+          "Search An Item": {
+            "type": "TEXT",
+            "fontFamily": "Exo",
+            "fontPostScriptName": "ExoRoman-Regular",
+            "fontWeight": 400,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "CENTER",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 21.263999938964844,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "color": {
+              "hex": "#cecccc",
+              "rgb": {
+                "r": 206,
+                "g": 204,
+                "b": 204
+              },
+              "alpha": 1.0
+            },
+            "width": 113.0,
+            "height": 21.0
+          },
+          "Frame 48095395": {
+            "type": "FRAME",
+            "width": 40.0,
+            "height": 40.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "padding": {
+                "paddingLeft": 11.0,
+                "paddingRight": 11.0,
+                "paddingTop": 11.0,
+                "paddingBottom": 11.0
+              },
+              "itemSpacing": 10.0
+            },
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#282828",
+                  "rgb": {
+                    "r": 40,
+                    "g": 40,
+                    "b": 40
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "cornerRadius": 24.0,
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "akar-icons:search": {
+            "type": "FRAME",
+            "width": 18.0,
+            "height": 18.0,
+            "layout": {
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "FIXED"
+            },
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": false,
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Vector": {
+            "type": "VECTOR",
+            "width": 14.25,
+            "height": 14.25,
+            "strokes": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 2.0,
+            "strokeAlign": "CENTER"
+          }
+        }
+      },
+      "interactions": {
+        "root": [],
+        "nodes": {}
+      },
+      "imports": {
+        "local": [],
+        "external": []
+      }
+    },
+    {
+      "component_id": "4010:805",
+      "name": "Quantity Selector",
+      "kind": "standalone",
+      "suggested_file": "src/components/Quantity Selector.tsx",
+      "variant_component_ids": [
+        "4010:805"
+      ],
+      "architecture": {
+        "props": [
+          {
+            "name": "1",
+            "figma_name": "1",
+            "type": "string",
+            "default": "1",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          }
+        ],
+        "layout": "horizontal",
+        "has_image": true,
+        "has_text": true,
+        "external_deps": [],
+        "children_structure": [
+          "Bouton de suppression",
+          "Quantit├® affich├®e",
+          "Bouton d'ajout"
+        ],
+        "children_tree": {
+          "name": "Quantity Selector",
+          "layoutMode": "HORIZONTAL",
+          "children": [
+            {
+              "type": "FRAME",
+              "name": "Remove",
+              "children": [
+                {
+                  "type": "VECTOR",
+                  "name": "Vector 218"
+                }
+              ]
+            },
+            {
+              "type": "TEXT",
+              "name": "1",
+              "textPreview": "1"
+            },
+            {
+              "type": "FRAME",
+              "name": "Add",
+              "children": [
+                {
+                  "type": "VECTOR",
+                  "name": "Vector"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "styles": {
+        "root": {
+          "width": 127.0,
+          "height": 49.0,
+          "layout": {
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "layoutWrap": "NO_WRAP",
+            "layoutSizingHorizontal": "FIXED",
+            "layoutSizingVertical": "FIXED",
+            "padding": {
+              "paddingLeft": 24.0,
+              "paddingRight": 24.0,
+              "paddingTop": 16.0,
+              "paddingBottom": 16.0
+            },
+            "itemSpacing": 20.0
+          },
+          "fills": [
+            {
+              "type": "SOLID",
+              "color": {
+                "hex": "#ffffff",
+                "rgb": {
+                  "r": 255,
+                  "g": 255,
+                  "b": 255
+                },
+                "alpha": 1.0
+              }
+            }
+          ],
+          "cornerRadius": 104.0,
+          "strokes": [
+            {
+              "type": "SOLID",
+              "color": {
+                "hex": "#d7d7d7",
+                "rgb": {
+                  "r": 215,
+                  "g": 215,
+                  "b": 215
+                },
+                "alpha": 1.0
+              }
+            }
+          ],
+          "strokeWeight": 1.0,
+          "strokeAlign": "INSIDE"
+        },
+        "nodes": {
+          "Vector 218": {
+            "type": "VECTOR",
+            "width": 10.0,
+            "height": 0.0,
+            "cornerRadius": 2.0,
+            "strokes": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#414141",
+                  "rgb": {
+                    "r": 65,
+                    "g": 65,
+                    "b": 65
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "CENTER"
+          },
+          "1": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Bold",
+            "fontWeight": 700,
+            "fontSize": 18.0,
+            "textAlignHorizontal": "CENTER",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 22.728515625,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "color": {
+              "hex": "#414141",
+              "rgb": {
+                "r": 65,
+                "g": 65,
+                "b": 65
+              },
+              "alpha": 1.0
+            },
+            "width": 7.0,
+            "height": 23.0
+          },
+          "Vector": {
+            "type": "VECTOR",
+            "width": 10.0,
+            "height": 10.0,
+            "cornerRadius": 2.0,
+            "strokes": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#414141",
+                  "rgb": {
+                    "r": 65,
+                    "g": 65,
+                    "b": 65
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "CENTER"
+          }
+        }
+      },
+      "interactions": {
+        "root": [],
+        "nodes": {}
+      },
+      "imports": {
+        "local": [],
+        "external": []
+      }
+    },
+    {
+      "component_id": "5:25698",
+      "name": "Frame 1000005649",
+      "kind": "standalone",
+      "suggested_file": "src/components/Frame 1000005649.tsx",
+      "variant_component_ids": [
+        "5:25698"
+      ],
+      "architecture": {
+        "props": [
+          {
+            "name": "oliverBennett",
+            "figma_name": "Oliver Bennett",
+            "type": "string",
+            "default": "Oliver Bennett",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "18Jan2022",
+            "figma_name": "18 Jan 2022",
+            "type": "string",
+            "default": "18 Jan 2022",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "loremIpsumIsADummyTextUsedAsTheHeadingOfABlog",
+            "figma_name": "Lorem Ipsum Is a Dummy Text Used As The Heading Of a Blog",
+            "type": "string",
+            "default": "Lorem Ipsum Is a Dummy Text Used As The Heading Of a Blog",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          }
+        ],
+        "layout": "vertical",
+        "has_image": false,
+        "has_text": true,
+        "external_deps": [],
+        "children_structure": [
+          "Rectangle en haut",
+          "Informations de l'auteur",
+          "Titre du blog en bas"
+        ],
+        "children_tree": {
+          "name": "Frame 1000005649",
+          "layoutMode": "VERTICAL",
+          "children": [
+            {
+              "type": "RECTANGLE",
+              "name": "Rectangle 19271"
+            },
+            {
+              "type": "FRAME",
+              "name": "Frame 1261155235",
+              "layoutMode": "VERTICAL",
+              "children": [
+                {
+                  "type": "FRAME",
+                  "name": "Frame 1000005648",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "type": "ELLIPSE",
+                      "name": "Ellipse 1139"
+                    },
+                    {
+                      "type": "TEXT",
+                      "name": "Oliver Bennett",
+                      "textPreview": "Oliver Bennett"
+                    },
+                    {
+                      "type": "ELLIPSE",
+                      "name": "Ellipse 1138"
+                    },
+                    {
+                      "type": "TEXT",
+                      "name": "18 Jan 2022",
+                      "textPreview": "18 Jan 2022"
+                    }
+                  ]
+                },
+                {
+                  "type": "TEXT",
+                  "name": "Lorem Ipsum Is a Dummy Text Used As The Heading Of a Blog",
+                  "textPreview": "Lorem Ipsum Is a Dummy Text Us"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "styles": {
+        "root": {
+          "width": 396.0,
+          "height": 415.0,
+          "layout": {
+            "layoutMode": "VERTICAL",
+            "layoutWrap": "NO_WRAP",
+            "layoutSizingHorizontal": "HUG",
+            "layoutSizingVertical": "HUG",
+            "itemSpacing": 30.0
+          },
+          "strokeWeight": 1.0,
+          "strokeAlign": "INSIDE"
+        },
+        "nodes": {
+          "Rectangle 19271": {
+            "type": "RECTANGLE",
+            "width": 396.0,
+            "height": 275.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#a6a6a6",
+                  "rgb": {
+                    "r": 166,
+                    "g": 166,
+                    "b": 166
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "cornerRadius": 20.0,
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Frame 1261155235": {
+            "type": "FRAME",
+            "width": 396.0,
+            "height": 110.0,
+            "layout": {
+              "layoutMode": "VERTICAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 20.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Frame 1000005648": {
+            "type": "FRAME",
+            "width": 250.0,
+            "height": 28.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "counterAxisAlignItems": "CENTER",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 10.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Ellipse 1139": {
+            "type": "ELLIPSE",
+            "width": 28.0,
+            "height": 28.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#a6a6a6",
+                  "rgb": {
+                    "r": 166,
+                    "g": 166,
+                    "b": 166
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 0.6666666865348816,
+            "strokeAlign": "INSIDE"
+          },
+          "Oliver Bennett": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 25.600000381469727,
+            "lineHeightPercent": 126.71307373046875,
+            "lineHeightPercentFontSize": 160.0,
+            "lineHeightUnit": "FONT_SIZE_%",
+            "color": {
+              "hex": "#404040",
+              "rgb": {
+                "r": 64,
+                "g": 64,
+                "b": 64
+              },
+              "alpha": 1.0
+            },
+            "width": 105.0,
+            "height": 26.0
+          },
+          "Ellipse 1138": {
+            "type": "ELLIPSE",
+            "width": 6.0,
+            "height": 6.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#404040",
+                  "rgb": {
+                    "r": 64,
+                    "g": 64,
+                    "b": 64
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "18 Jan 2022": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 25.600000381469727,
+            "lineHeightPercent": 126.71307373046875,
+            "lineHeightPercentFontSize": 160.0,
+            "lineHeightUnit": "FONT_SIZE_%",
+            "color": {
+              "hex": "#404040",
+              "rgb": {
+                "r": 64,
+                "g": 64,
+                "b": 64
+              },
+              "alpha": 1.0
+            },
+            "width": 81.0,
+            "height": 26.0
+          },
+          "Lorem Ipsum Is a Dummy Text Used As The Heading Of a Blog": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 20.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 31.0,
+            "lineHeightPercent": 122.75328826904297,
+            "lineHeightPercentFontSize": 155.0,
+            "lineHeightUnit": "PIXELS",
+            "color": {
+              "hex": "#404040",
+              "rgb": {
+                "r": 64,
+                "g": 64,
+                "b": 64
+              },
+              "alpha": 1.0
+            },
+            "width": 396.0,
+            "height": 62.0
+          }
+        }
+      },
+      "interactions": {
+        "root": [],
+        "nodes": {}
+      },
+      "imports": {
+        "local": [],
+        "external": []
+      }
+    },
+    {
+      "component_id": "3:24963",
+      "name": "card",
+      "kind": "standalone",
+      "suggested_file": "src/components/card.tsx",
+      "variant_component_ids": [
+        "3:24963"
+      ],
+      "architecture": {
+        "props": [
+          {
+            "name": "13",
+            "figma_name": "_13%",
+            "type": "string",
+            "default": "-13%",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "doubleBedSideTables",
+            "figma_name": "Double Bed & Side Tables",
+            "type": "string",
+            "default": "Double Bed & Side Tables",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "oldprice",
+            "figma_name": "oldprice",
+            "type": "string",
+            "default": "$230.00",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "newprice",
+            "figma_name": "newprice",
+            "type": "string",
+            "default": "$200.00",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "addButtom",
+            "figma_name": "add buttom",
+            "type": "string",
+            "default": "+",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          }
+        ],
+        "layout": "vertical",
+        "has_image": false,
+        "has_text": true,
+        "external_deps": [],
+        "children_structure": [
+          "Carte de produit avec remise",
+          "Détails du produit",
+          "Nom du produit",
+          "Prix avec ancien et nouveau prix",
+          "Bouton d'ajout"
+        ],
+        "children_tree": {
+          "name": "card",
+          "layoutMode": "VERTICAL",
+          "children": [
+            {
+              "type": "FRAME",
+              "name": "product card",
+              "children": [
+                {
+                  "type": "FRAME",
+                  "name": "discount",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "type": "TEXT",
+                      "name": "_13%",
+                      "textPreview": "-13%"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "FRAME",
+              "name": "Product details",
+              "layoutMode": "VERTICAL",
+              "children": [
+                {
+                  "type": "FRAME",
+                  "name": "product name",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "type": "TEXT",
+                      "name": "Double Bed & Side Tables",
+                      "textPreview": "Double Bed & Side Tables"
+                    }
+                  ]
+                },
+                {
+                  "type": "FRAME",
+                  "name": "prix",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "type": "FRAME",
+                      "name": "price",
+                      "layoutMode": "HORIZONTAL",
+                      "children": [
+                        {
+                          "type": "TEXT",
+                          "name": "oldprice",
+                          "textPreview": "$230.00"
+                        },
+                        {
+                          "type": "TEXT",
+                          "name": "newprice",
+                          "textPreview": "$200.00"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "INSTANCE",
+              "name": "Buttom",
+              "layoutMode": "HORIZONTAL",
+              "children": [
+                {
+                  "type": "TEXT",
+                  "name": "add buttom",
+                  "textPreview": "+"
+                },
+                {
+                  "type": "FRAME",
+                  "name": "material-symbols:arrow-back-ios-new",
+                  "children": [
+                    {
+                      "type": "VECTOR",
+                      "name": "Vector"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "styles": {
+        "root": {
+          "width": 286.0,
+          "height": 455.0,
+          "layout": {
+            "layoutMode": "VERTICAL",
+            "counterAxisAlignItems": "CENTER",
+            "layoutWrap": "NO_WRAP",
+            "layoutSizingHorizontal": "HUG",
+            "layoutSizingVertical": "HUG",
+            "itemSpacing": 12.0
+          },
+          "strokeWeight": 1.0,
+          "strokeAlign": "INSIDE"
+        },
+        "nodes": {
+          "product card": {
+            "type": "FRAME",
+            "width": 286.0,
+            "height": 360.0,
+            "layout": {
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "FIXED"
+            },
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#a6a6a6",
+                  "rgb": {
+                    "r": 166,
+                    "g": 166,
+                    "b": 166
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "cornerRadius": 14.0,
+            "strokeWeight": 1.5232198238372803,
+            "strokeAlign": "INSIDE"
+          },
+          "discount": {
+            "type": "FRAME",
+            "width": 50.0,
+            "height": 27.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "padding": {
+                "paddingLeft": 12.0,
+                "paddingRight": 12.0,
+                "paddingTop": 6.0,
+                "paddingBottom": 6.0
+              },
+              "itemSpacing": 10.0
+            },
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#3d3d3d",
+                  "rgb": {
+                    "r": 61,
+                    "g": 61,
+                    "b": 61
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "cornerRadius": 10.0,
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "_13%": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 12.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 15.15234375,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "color": {
+              "hex": "#ffffff",
+              "rgb": {
+                "r": 255,
+                "g": 255,
+                "b": 255
+              },
+              "alpha": 1.0
+            },
+            "width": 26.0,
+            "height": 15.0
+          },
+          "Product details": {
+            "type": "FRAME",
+            "width": 259.0,
+            "height": 54.0,
+            "layout": {
+              "layoutMode": "VERTICAL",
+              "counterAxisAlignItems": "CENTER",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 8.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "product name": {
+            "type": "FRAME",
+            "width": 257.0,
+            "height": 28.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "counterAxisAlignItems": "CENTER",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 10.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Double Bed & Side Tables": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 22.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 27.779296875,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "color": {
+              "hex": "#404040",
+              "rgb": {
+                "r": 64,
+                "g": 64,
+                "b": 64
+              },
+              "alpha": 1.0
+            },
+            "width": 257.0,
+            "height": 28.0
+          },
+          "prix": {
+            "type": "FRAME",
+            "width": 259.0,
+            "height": 18.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "primaryAxisAlignItems": "SPACE_BETWEEN",
+              "counterAxisAlignItems": "CENTER",
+              "primaryAxisSizingMode": "FIXED",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 8.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "price": {
+            "type": "FRAME",
+            "width": 111.0,
+            "height": 18.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 4.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "oldprice": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 14.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 17.677734375,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "textCase": "TITLE",
+            "textDecoration": "STRIKETHROUGH",
+            "color": {
+              "hex": "#404040",
+              "rgb": {
+                "r": 64,
+                "g": 64,
+                "b": 64
+              },
+              "alpha": 1.0
+            },
+            "width": 53.0,
+            "height": 18.0
+          },
+          "newprice": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 14.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 17.677734375,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "textCase": "TITLE",
+            "color": {
+              "hex": "#000000",
+              "rgb": {
+                "r": 0,
+                "g": 0,
+                "b": 0
+              },
+              "alpha": 1.0
+            },
+            "width": 54.0,
+            "height": 18.0
+          },
+          "Buttom": {
+            "type": "INSTANCE",
+            "width": 34.0,
+            "height": 17.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "primaryAxisAlignItems": "CENTER",
+              "counterAxisAlignItems": "CENTER",
+              "primaryAxisSizingMode": "FIXED",
+              "counterAxisSizingMode": "FIXED",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "FIXED",
+              "padding": {
+                "paddingLeft": 24.0,
+                "paddingRight": 24.0,
+                "paddingTop": 16.0,
+                "paddingBottom": 16.0
+              },
+              "itemSpacing": 10.0
+            },
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#282828",
+                  "rgb": {
+                    "r": 40,
+                    "g": 40,
+                    "b": 40
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "cornerRadius": 104.0,
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "add buttom": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Bold",
+            "fontWeight": 700,
+            "fontSize": 18.0,
+            "textAlignHorizontal": "CENTER",
+            "textAlignVertical": "CENTER",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 22.728515625,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "color": {
+              "hex": "#ffffff",
+              "rgb": {
+                "r": 255,
+                "g": 255,
+                "b": 255
+              },
+              "alpha": 1.0
+            },
+            "width": 11.0,
+            "height": 23.0
+          },
+          "material-symbols:arrow-back-ios-new": {
+            "type": "FRAME",
+            "width": 24.0,
+            "height": 24.0,
+            "layout": {
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "FIXED"
+            },
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": false,
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Vector": {
+            "type": "VECTOR",
+            "width": 9.0,
+            "height": 15.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          }
+        }
+      },
+      "interactions": {
+        "root": [
+          {
+            "trigger": "ON_CLICK",
+            "actions": [
+              {
+                "type": "NODE",
+                "navigation": "NAVIGATE"
+              }
+            ]
+          }
+        ],
+        "nodes": {
+          "product card": [
+            {
+              "trigger": "ON_CLICK",
+              "actions": [
+                {
+                  "type": "NODE",
+                  "navigation": "NAVIGATE"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "imports": {
+        "local": [
+          {
+            "name": "Buttom",
+            "component_id": "4015:1275",
+            "props": {}
+          }
+        ],
+        "external": []
+      }
+    },
+    {
+      "component_id": "4014:1202",
+      "name": "get in toutch form",
+      "kind": "standalone",
+      "suggested_file": "src/components/get in toutch form.tsx",
+      "variant_component_ids": [
+        "4014:1202"
+      ],
+      "architecture": {
+        "props": [
+          {
+            "name": "sendUsAMessage",
+            "figma_name": "Send us a message",
+            "type": "string",
+            "default": "Send us a message",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "loremIpsumDolorSitAmetConsecteturAdipiscingElitNullaFringillaNuncInMolestieFeugiat",
+            "figma_name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fringilla nunc in molestie feugiat.",
+            "type": "string",
+            "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fringilla nunc in molestie feugiat. ",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "yourName",
+            "figma_name": "Your Name",
+            "type": "string",
+            "default": "Your Name",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "yourEMail",
+            "figma_name": "Your E-mail",
+            "type": "string",
+            "default": "Your E-mail",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "phoneNumber",
+            "figma_name": "Phone Number",
+            "type": "string",
+            "default": "Phone Number",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "subject",
+            "figma_name": "Subject",
+            "type": "string",
+            "default": "Subject",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "message",
+            "figma_name": "Message",
+            "type": "string",
+            "default": "Message",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "buttom",
+            "figma_name": "Buttom",
+            "type": "string",
+            "default": "Send Message",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "getInTouchWithUs",
+            "figma_name": "Get In Touch With Us",
+            "type": "string",
+            "default": "Get In Touch With Us",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          }
+        ],
+        "layout": "horizontal",
+        "has_image": false,
+        "has_text": true,
+        "external_deps": [],
+        "children_structure": [
+          "Titre Get In Touch With Us",
+          "Champs de formulaire",
+          "Bouton d'envoi"
+        ],
+        "children_tree": {
+          "name": "get in toutch form",
+          "children": [
+            {
+              "type": "FRAME",
+              "name": "Frame 1261155253",
+              "children": [
+                {
+                  "type": "FRAME",
+                  "name": "Frame 1261155252",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "type": "FRAME",
+                      "name": "Frame 1000005732",
+                      "layoutMode": "VERTICAL",
+                      "children": [
+                        {
+                          "type": "FRAME",
+                          "name": "Frame 1000005731",
+                          "layoutMode": "VERTICAL"
+                        },
+                        {
+                          "type": "FRAME",
+                          "name": "Frame 1000005714",
+                          "layoutMode": "VERTICAL"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "FRAME",
+              "name": "Frame 1261155246",
+              "children": [
+                {
+                  "type": "VECTOR",
+                  "name": "Rectangle 3397"
+                },
+                {
+                  "type": "TEXT",
+                  "name": "Get In Touch With Us",
+                  "textPreview": "Get In Touch With Us"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "styles": {
+        "root": {
+          "width": 1240.0,
+          "height": 667.0,
+          "strokeWeight": 1.0,
+          "strokeAlign": "INSIDE"
+        },
+        "nodes": {
+          "Frame 1261155253": {
+            "type": "FRAME",
+            "width": 1240.0,
+            "height": 590.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokes": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#dedfe1",
+                  "rgb": {
+                    "r": 222,
+                    "g": 223,
+                    "b": 225
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Frame 1261155252": {
+            "type": "FRAME",
+            "width": 1156.0,
+            "height": 455.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "primaryAxisAlignItems": "SPACE_BETWEEN",
+              "primaryAxisSizingMode": "FIXED",
+              "layoutWrap": "NO_WRAP",
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 137.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Frame 1000005732": {
+            "type": "FRAME",
+            "width": 736.0,
+            "height": 455.0,
+            "layout": {
+              "layoutMode": "VERTICAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 40.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Frame 1000005731": {
+            "type": "FRAME",
+            "width": 602.67,
+            "height": 91.0,
+            "layout": {
+              "layoutMode": "VERTICAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 4.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Send us a message": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 22.0,
+            "textAlignHorizontal": "CENTER",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 35.20000076293945,
+            "lineHeightPercent": 126.71307373046875,
+            "lineHeightPercentFontSize": 160.0,
+            "lineHeightUnit": "FONT_SIZE_%",
+            "color": {
+              "hex": "#3d3d3d",
+              "rgb": {
+                "r": 61,
+                "g": 61,
+                "b": 61
+              },
+              "alpha": 1.0
+            },
+            "width": 190.0,
+            "height": 35.0
+          },
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fringilla nunc in molestie feugiat.": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 25.600000381469727,
+            "lineHeightPercent": 126.71307373046875,
+            "lineHeightPercentFontSize": 160.0,
+            "lineHeightUnit": "FONT_SIZE_%",
+            "color": {
+              "hex": "#666666",
+              "rgb": {
+                "r": 102,
+                "g": 102,
+                "b": 102
+              },
+              "alpha": 1.0
+            },
+            "width": 602.67,
+            "height": 52.0
+          },
+          "Frame 1000005714": {
+            "type": "FRAME",
+            "width": 736.0,
+            "height": 324.0,
+            "layout": {
+              "layoutMode": "VERTICAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 26.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Frame 1000005713": {
+            "type": "FRAME",
+            "width": 736.0,
+            "height": 249.0,
+            "layout": {
+              "layoutMode": "VERTICAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 16.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Frame 1000005712": {
+            "type": "FRAME",
+            "width": 736.0,
+            "height": 100.0,
+            "layout": {
+              "layoutMode": "VERTICAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 16.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Frame 1000005710": {
+            "type": "FRAME",
+            "width": 736.0,
+            "height": 42.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 16.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Frame 1000005704": {
+            "type": "FRAME",
+            "width": 360.0,
+            "height": 42.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "counterAxisAlignItems": "CENTER",
+              "primaryAxisSizingMode": "FIXED",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "HUG",
+              "padding": {
+                "paddingLeft": 16.0,
+                "paddingRight": 215.0,
+                "paddingTop": 10.0,
+                "paddingBottom": 10.0
+              },
+              "itemSpacing": 10.0
+            },
+            "cornerRadius": 20.0,
+            "strokes": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#c5c5c5",
+                  "rgb": {
+                    "r": 197,
+                    "g": 197,
+                    "b": 197
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Your Name": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 14.0,
+            "textAlignHorizontal": "CENTER",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 22.399999618530273,
+            "lineHeightPercent": 126.71307373046875,
+            "lineHeightPercentFontSize": 160.0,
+            "lineHeightUnit": "FONT_SIZE_%",
+            "color": {
+              "hex": "#979797",
+              "rgb": {
+                "r": 151,
+                "g": 151,
+                "b": 151
+              },
+              "alpha": 1.0
+            },
+            "width": 70.0,
+            "height": 22.0
+          },
+          "Frame 1000005705": {
+            "type": "FRAME",
+            "width": 360.0,
+            "height": 42.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "counterAxisAlignItems": "CENTER",
+              "primaryAxisSizingMode": "FIXED",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "HUG",
+              "padding": {
+                "paddingLeft": 16.0,
+                "paddingRight": 215.0,
+                "paddingTop": 10.0,
+                "paddingBottom": 10.0
+              },
+              "itemSpacing": 10.0
+            },
+            "cornerRadius": 20.0,
+            "strokes": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#c5c5c5",
+                  "rgb": {
+                    "r": 197,
+                    "g": 197,
+                    "b": 197
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Your E-mail": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 14.0,
+            "textAlignHorizontal": "CENTER",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 22.399999618530273,
+            "lineHeightPercent": 126.71307373046875,
+            "lineHeightPercentFontSize": 160.0,
+            "lineHeightUnit": "FONT_SIZE_%",
+            "color": {
+              "hex": "#979797",
+              "rgb": {
+                "r": 151,
+                "g": 151,
+                "b": 151
+              },
+              "alpha": 1.0
+            },
+            "width": 72.0,
+            "height": 22.0
+          },
+          "Frame 1000005711": {
+            "type": "FRAME",
+            "width": 736.0,
+            "height": 42.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 16.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Frame 1000005706": {
+            "type": "FRAME",
+            "width": 360.0,
+            "height": 42.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "counterAxisAlignItems": "CENTER",
+              "primaryAxisSizingMode": "FIXED",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "HUG",
+              "padding": {
+                "paddingLeft": 16.0,
+                "paddingRight": 215.0,
+                "paddingTop": 10.0,
+                "paddingBottom": 10.0
+              },
+              "itemSpacing": 10.0
+            },
+            "cornerRadius": 20.0,
+            "strokes": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#c5c5c5",
+                  "rgb": {
+                    "r": 197,
+                    "g": 197,
+                    "b": 197
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Phone Number": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 14.0,
+            "textAlignHorizontal": "CENTER",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 22.399999618530273,
+            "lineHeightPercent": 126.71307373046875,
+            "lineHeightPercentFontSize": 160.0,
+            "lineHeightUnit": "FONT_SIZE_%",
+            "color": {
+              "hex": "#979797",
+              "rgb": {
+                "r": 151,
+                "g": 151,
+                "b": 151
+              },
+              "alpha": 1.0
+            },
+            "width": 94.0,
+            "height": 22.0
+          },
+          "Frame 1000005707": {
+            "type": "FRAME",
+            "width": 360.0,
+            "height": 42.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "counterAxisAlignItems": "CENTER",
+              "primaryAxisSizingMode": "FIXED",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "HUG",
+              "padding": {
+                "paddingLeft": 16.0,
+                "paddingRight": 215.0,
+                "paddingTop": 10.0,
+                "paddingBottom": 10.0
+              },
+              "itemSpacing": 10.0
+            },
+            "cornerRadius": 20.0,
+            "strokes": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#c5c5c5",
+                  "rgb": {
+                    "r": 197,
+                    "g": 197,
+                    "b": 197
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Subject": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 14.0,
+            "textAlignHorizontal": "CENTER",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 22.399999618530273,
+            "lineHeightPercent": 126.71307373046875,
+            "lineHeightPercentFontSize": 160.0,
+            "lineHeightUnit": "FONT_SIZE_%",
+            "color": {
+              "hex": "#979797",
+              "rgb": {
+                "r": 151,
+                "g": 151,
+                "b": 151
+              },
+              "alpha": 1.0
+            },
+            "width": 47.0,
+            "height": 22.0
+          },
+          "Frame 1000005708": {
+            "type": "FRAME",
+            "width": 736.0,
+            "height": 133.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "primaryAxisSizingMode": "FIXED",
+              "counterAxisSizingMode": "FIXED",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "FIXED",
+              "padding": {
+                "paddingLeft": 16.0,
+                "paddingRight": 215.0,
+                "paddingTop": 10.0,
+                "paddingBottom": 10.0
+              },
+              "itemSpacing": 10.0
+            },
+            "cornerRadius": 20.0,
+            "strokes": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#c5c5c5",
+                  "rgb": {
+                    "r": 197,
+                    "g": 197,
+                    "b": 197
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Message": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 14.0,
+            "textAlignHorizontal": "CENTER",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 22.399999618530273,
+            "lineHeightPercent": 126.71307373046875,
+            "lineHeightPercentFontSize": 160.0,
+            "lineHeightUnit": "FONT_SIZE_%",
+            "color": {
+              "hex": "#979797",
+              "rgb": {
+                "r": 151,
+                "g": 151,
+                "b": 151
+              },
+              "alpha": 1.0
+            },
+            "width": 57.0,
+            "height": 22.0
+          },
+          "Buttom": {
+            "type": "INSTANCE",
+            "width": 355.0,
+            "height": 49.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "primaryAxisAlignItems": "CENTER",
+              "counterAxisAlignItems": "CENTER",
+              "primaryAxisSizingMode": "FIXED",
+              "counterAxisSizingMode": "FIXED",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "FIXED",
+              "padding": {
+                "paddingLeft": 24.0,
+                "paddingRight": 24.0,
+                "paddingTop": 16.0,
+                "paddingBottom": 16.0
+              },
+              "itemSpacing": 10.0
+            },
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#282828",
+                  "rgb": {
+                    "r": 40,
+                    "g": 40,
+                    "b": 40
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "cornerRadius": 104.0,
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "material-symbols:arrow-back-ios-new": {
+            "type": "FRAME",
+            "width": 24.0,
+            "height": 24.0,
+            "layout": {
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "FIXED"
+            },
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": false,
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Vector": {
+            "type": "VECTOR",
+            "width": 9.0,
+            "height": 15.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Rectangle 3397": {
+            "type": "VECTOR",
+            "width": 1240.0,
+            "height": 78.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#a6a6a6",
+                  "rgb": {
+                    "r": 166,
+                    "g": 166,
+                    "b": 166
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "rectangleCornerRadii": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Get In Touch With Us": {
+            "type": "TEXT",
+            "fontFamily": "Poppins",
+            "fontPostScriptName": "Poppins-SemiBold",
+            "fontWeight": 600,
+            "fontSize": 20.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "CENTER",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 30.0,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "color": {
+              "hex": "#ffffff",
+              "rgb": {
+                "r": 255,
+                "g": 255,
+                "b": 255
+              },
+              "alpha": 1.0
+            },
+            "width": 208.0,
+            "height": 30.0
+          }
+        }
+      },
+      "interactions": {
+        "root": [],
+        "nodes": {}
+      },
+      "imports": {
+        "local": [
+          {
+            "name": "Buttom",
+            "component_id": "4004:866",
+            "props": {}
+          }
+        ],
+        "external": []
+      }
+    },
+    {
+      "component_id": "4011:861",
+      "name": "comments forms",
+      "kind": "standalone",
+      "suggested_file": "src/components/comments forms.tsx",
+      "variant_component_ids": [
+        "4011:861"
+      ],
+      "architecture": {
+        "props": [
+          {
+            "name": "yourName",
+            "figma_name": "Your Name:",
+            "type": "string",
+            "default": "Your Name:",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "johnDoe",
+            "figma_name": "John Doe",
+            "type": "string",
+            "default": "John Doe",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "yourEmail",
+            "figma_name": "Your Email:",
+            "type": "string",
+            "default": "Your Email:",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "personGmailCom",
+            "figma_name": "person@gmail.com",
+            "type": "string",
+            "default": "person@gmail.com",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "writeYourReview",
+            "figma_name": "Write your review...",
+            "type": "string",
+            "default": "Write your review...",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "buttom",
+            "figma_name": "Buttom",
+            "type": "string",
+            "default": "Post Review",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          }
+        ],
+        "layout": "horizontal",
+        "has_image": false,
+        "has_text": true,
+        "external_deps": [],
+        "children_structure": [
+          "Champ de texte pour le nom",
+          "Champ de texte pour l'email",
+          "Zone de texte pour la rédaction d'un commentaire",
+          "Bouton pour poster le commentaire"
+        ],
+        "children_tree": {
+          "name": "comments forms",
+          "layoutMode": "HORIZONTAL",
+          "children": [
+            {
+              "type": "FRAME",
+              "name": "Frame 1261155022",
+              "layoutMode": "VERTICAL",
+              "children": [
+                {
+                  "type": "FRAME",
+                  "name": "Frame 1261155019",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "type": "FRAME",
+                      "name": "Frame 1261155017",
+                      "layoutMode": "VERTICAL",
+                      "children": [
+                        {
+                          "type": "TEXT",
+                          "name": "Your Name:",
+                          "textPreview": "Your Name:"
+                        },
+                        {
+                          "type": "FRAME",
+                          "name": "Frame 48095388",
+                          "layoutMode": "HORIZONTAL"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "FRAME",
+                      "name": "Frame 1261155019",
+                      "layoutMode": "VERTICAL",
+                      "children": [
+                        {
+                          "type": "TEXT",
+                          "name": "Your Email:",
+                          "textPreview": "Your Email:"
+                        },
+                        {
+                          "type": "FRAME",
+                          "name": "Frame 48095388",
+                          "layoutMode": "HORIZONTAL"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "FRAME",
+                  "name": "TextFrame",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "type": "TEXT",
+                      "name": "Write your review...",
+                      "textPreview": "Write your review..."
+                    }
+                  ]
+                },
+                {
+                  "type": "FRAME",
+                  "name": "Frame 1261155242",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "type": "INSTANCE",
+                      "name": "Buttom",
+                      "layoutMode": "HORIZONTAL",
+                      "children": [
+                        {
+                          "type": "TEXT",
+                          "name": "Buttom",
+                          "textPreview": "Post Review"
+                        },
+                        {
+                          "type": "FRAME",
+                          "name": "material-symbols:arrow-back-ios-new"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "styles": {
+        "root": {
+          "width": 1240.0,
+          "height": 406.0,
+          "layout": {
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisSizingMode": "FIXED",
+            "layoutWrap": "NO_WRAP",
+            "layoutSizingHorizontal": "FIXED",
+            "layoutSizingVertical": "HUG",
+            "padding": {
+              "paddingLeft": 16.0,
+              "paddingRight": 31.0,
+              "paddingTop": 34.0,
+              "paddingBottom": 34.0
+            },
+            "itemSpacing": 20.0
+          },
+          "fills": [
+            {
+              "type": "SOLID",
+              "color": {
+                "hex": "#f2f2f2",
+                "rgb": {
+                  "r": 242,
+                  "g": 242,
+                  "b": 242
+                },
+                "alpha": 1.0
+              }
+            }
+          ],
+          "cornerRadius": 14.0,
+          "strokes": [
+            {
+              "type": "SOLID",
+              "color": {
+                "hex": "#d3d3d3",
+                "rgb": {
+                  "r": 211,
+                  "g": 211,
+                  "b": 211
+                },
+                "alpha": 1.0
+              }
+            }
+          ],
+          "strokeWeight": 1.0,
+          "strokeAlign": "CENTER"
+        },
+        "nodes": {
+          "Frame 1261155022": {
+            "type": "FRAME",
+            "width": 1193.0,
+            "height": 338.0,
+            "layout": {
+              "layoutMode": "VERTICAL",
+              "counterAxisSizingMode": "FIXED",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 1.0,
+              "layoutSizingHorizontal": "FILL",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 30.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Frame 1261155019": {
+            "type": "FRAME",
+            "width": 1193.0,
+            "height": 93.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "primaryAxisAlignItems": "SPACE_BETWEEN",
+              "primaryAxisSizingMode": "FIXED",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "STRETCH",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "FILL",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 120.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Frame 1261155017": {
+            "type": "FRAME",
+            "width": 547.0,
+            "height": 93.0,
+            "layout": {
+              "layoutMode": "VERTICAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 10.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Your Name:": {
+            "type": "TEXT",
+            "fontFamily": "Exo",
+            "fontPostScriptName": "ExoRoman-Regular",
+            "fontWeight": 400,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 27.283199310302734,
+            "lineHeightPercent": 128.30699157714844,
+            "lineHeightPercentFontSize": 170.51998901367188,
+            "lineHeightUnit": "FONT_SIZE_%",
+            "color": {
+              "hex": "#3d3d3d",
+              "rgb": {
+                "r": 61,
+                "g": 61,
+                "b": 61
+              },
+              "alpha": 1.0
+            },
+            "width": 85.0,
+            "height": 27.0
+          },
+          "Frame 48095388": {
+            "type": "FRAME",
+            "width": 547.0,
+            "height": 56.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "counterAxisAlignItems": "CENTER",
+              "primaryAxisSizingMode": "FIXED",
+              "counterAxisSizingMode": "FIXED",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "FIXED",
+              "padding": {
+                "paddingLeft": 20.0,
+                "paddingRight": 8.0,
+                "paddingTop": 8.0,
+                "paddingBottom": 8.0
+              },
+              "itemSpacing": 10.0
+            },
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": false,
+                "opacity": 0.15000000596046448,
+                "color": {
+                  "hex": "#000000",
+                  "rgb": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0
+                  },
+                  "alpha": 0.15
+                }
+              }
+            ],
+            "cornerRadius": 42.0,
+            "strokes": [
+              {
+                "type": "SOLID",
+                "opacity": 0.15000000596046448,
+                "color": {
+                  "hex": "#000000",
+                  "rgb": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0
+                  },
+                  "alpha": 0.15
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE",
+            "effects": [
+              {
+                "type": "BACKGROUND_BLUR",
+                "radius": 22.0
+              }
+            ]
+          },
+          "John Doe": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "CENTER",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 20.203125,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "color": {
+              "hex": "#919191",
+              "rgb": {
+                "r": 145,
+                "g": 145,
+                "b": 145
+              },
+              "alpha": 1.0
+            },
+            "width": 66.0,
+            "height": 20.0
+          },
+          "Your Email:": {
+            "type": "TEXT",
+            "fontFamily": "Exo",
+            "fontPostScriptName": "ExoRoman-Regular",
+            "fontWeight": 400,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 27.283199310302734,
+            "lineHeightPercent": 128.30699157714844,
+            "lineHeightPercentFontSize": 170.51998901367188,
+            "lineHeightUnit": "FONT_SIZE_%",
+            "color": {
+              "hex": "#3d3d3d",
+              "rgb": {
+                "r": 61,
+                "g": 61,
+                "b": 61
+              },
+              "alpha": 1.0
+            },
+            "width": 84.0,
+            "height": 27.0
+          },
+          "person@gmail.com": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "CENTER",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 20.203125,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "color": {
+              "hex": "#919191",
+              "rgb": {
+                "r": 145,
+                "g": 145,
+                "b": 145
+              },
+              "alpha": 1.0
+            },
+            "width": 139.0,
+            "height": 20.0
+          },
+          "TextFrame": {
+            "type": "FRAME",
+            "width": 1193.0,
+            "height": 136.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "primaryAxisSizingMode": "FIXED",
+              "counterAxisSizingMode": "FIXED",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "STRETCH",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "FILL",
+              "layoutSizingVertical": "FIXED",
+              "padding": {
+                "paddingLeft": 20.0,
+                "paddingRight": 8.0,
+                "paddingTop": 18.0,
+                "paddingBottom": 8.0
+              },
+              "itemSpacing": 10.0
+            },
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": false,
+                "opacity": 0.15000000596046448,
+                "color": {
+                  "hex": "#000000",
+                  "rgb": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0
+                  },
+                  "alpha": 0.15
+                }
+              }
+            ],
+            "cornerRadius": 22.0,
+            "strokes": [
+              {
+                "type": "SOLID",
+                "opacity": 0.15000000596046448,
+                "color": {
+                  "hex": "#000000",
+                  "rgb": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0
+                  },
+                  "alpha": 0.15
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE",
+            "effects": [
+              {
+                "type": "BACKGROUND_BLUR",
+                "radius": 22.0
+              }
+            ]
+          },
+          "Write your review...": {
+            "type": "TEXT",
+            "fontFamily": "Exo",
+            "fontPostScriptName": "ExoRoman-Regular",
+            "fontWeight": 400,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 27.283199310302734,
+            "lineHeightPercent": 128.30699157714844,
+            "lineHeightPercentFontSize": 170.51998901367188,
+            "lineHeightUnit": "FONT_SIZE_%",
+            "color": {
+              "hex": "#949494",
+              "rgb": {
+                "r": 148,
+                "g": 148,
+                "b": 148
+              },
+              "alpha": 1.0
+            },
+            "width": 140.0,
+            "height": 27.0
+          },
+          "Frame 1261155242": {
+            "type": "FRAME",
+            "width": 1193.0,
+            "height": 49.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "primaryAxisAlignItems": "SPACE_BETWEEN",
+              "counterAxisAlignItems": "CENTER",
+              "primaryAxisSizingMode": "FIXED",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "STRETCH",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "FILL",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 30.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Buttom": {
+            "type": "INSTANCE",
+            "width": 355.0,
+            "height": 49.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "primaryAxisAlignItems": "CENTER",
+              "counterAxisAlignItems": "CENTER",
+              "primaryAxisSizingMode": "FIXED",
+              "counterAxisSizingMode": "FIXED",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "FIXED",
+              "padding": {
+                "paddingLeft": 24.0,
+                "paddingRight": 24.0,
+                "paddingTop": 16.0,
+                "paddingBottom": 16.0
+              },
+              "itemSpacing": 10.0
+            },
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#282828",
+                  "rgb": {
+                    "r": 40,
+                    "g": 40,
+                    "b": 40
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "cornerRadius": 104.0,
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "material-symbols:arrow-back-ios-new": {
+            "type": "FRAME",
+            "width": 24.0,
+            "height": 24.0,
+            "layout": {
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "FIXED"
+            },
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": false,
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Vector": {
+            "type": "VECTOR",
+            "width": 9.0,
+            "height": 15.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          }
+        }
+      },
+      "interactions": {
+        "root": [],
+        "nodes": {}
+      },
+      "imports": {
+        "local": [
+          {
+            "name": "Buttom",
+            "component_id": "4004:866",
+            "props": {}
+          }
+        ],
+        "external": []
+      }
+    },
+    {
+      "component_id": "4012:939",
+      "name": "shopping cart",
+      "kind": "standalone",
+      "suggested_file": "src/components/shopping cart.tsx",
+      "variant_component_ids": [
+        "4012:939"
+      ],
+      "architecture": {
+        "props": [
+          {
+            "name": "product",
+            "figma_name": "Product",
+            "type": "string",
+            "default": "Product",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "price",
+            "figma_name": "Price",
+            "type": "string",
+            "default": "Price",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "quantity",
+            "figma_name": "Quantity",
+            "type": "string",
+            "default": "Quantity",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "total",
+            "figma_name": "Total",
+            "type": "string",
+            "default": "Total",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "doubleBedDressing",
+            "figma_name": "Double Bed & Dressing",
+            "type": "string",
+            "default": "Double Bed & Dressing",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "180",
+            "figma_name": "$180",
+            "type": "string",
+            "default": "$180",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "1",
+            "figma_name": "1",
+            "type": "string",
+            "default": "1",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "proceedToCheckout",
+            "figma_name": "Proceed To Checkout",
+            "type": "string",
+            "default": "Proceed To Checkout",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "cartTotal",
+            "figma_name": "Cart Total",
+            "type": "string",
+            "default": "Cart Total",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "totalPrice",
+            "figma_name": "Total price",
+            "type": "string",
+            "default": "Total price",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "400",
+            "figma_name": "$400",
+            "type": "string",
+            "default": "$400",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          }
+        ],
+        "layout": "vertical",
+        "has_image": false,
+        "has_text": true,
+        "external_deps": [],
+        "children_structure": [
+          "En-tête du panier",
+          "Liste des articles",
+          "Pied de page avec total et bouton de paiement"
+        ],
+        "children_tree": {
+          "name": "shopping cart",
+          "children": [
+            {
+              "type": "RECTANGLE",
+              "name": "Rectangle 3396"
+            },
+            {
+              "type": "VECTOR",
+              "name": "Rectangle 3397"
+            },
+            {
+              "type": "TEXT",
+              "name": "Product",
+              "textPreview": "Product"
+            },
+            {
+              "type": "TEXT",
+              "name": "Price",
+              "textPreview": "Price"
+            },
+            {
+              "type": "TEXT",
+              "name": "Quantity",
+              "textPreview": "Quantity"
+            },
+            {
+              "type": "TEXT",
+              "name": "Total",
+              "textPreview": "Total"
+            },
+            {
+              "type": "GROUP",
+              "name": "Cart Item",
+              "children": [
+                {
+                  "type": "FRAME",
+                  "name": "Frame 1261155024",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "type": "RECTANGLE",
+                      "name": "Rectangle 54"
+                    },
+                    {
+                      "type": "TEXT",
+                      "name": "Double Bed & Dressing",
+                      "textPreview": "Double Bed & Dressing"
+                    }
+                  ]
+                },
+                {
+                  "type": "TEXT",
+                  "name": "$180",
+                  "textPreview": "$180"
+                },
+                {
+                  "type": "TEXT",
+                  "name": "$180",
+                  "textPreview": "$180"
+                },
+                {
+                  "type": "INSTANCE",
+                  "name": "Quantity Selector",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "type": "FRAME",
+                      "name": "Remove",
+                      "children": [
+                        {
+                          "type": "VECTOR",
+                          "name": "Vector 218"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "TEXT",
+                      "name": "1",
+                      "textPreview": "1"
+                    },
+                    {
+                      "type": "FRAME",
+                      "name": "Add",
+                      "children": [
+                        {
+                          "type": "VECTOR",
+                          "name": "Vector"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "INSTANCE",
+                  "name": "delet product",
+                  "children": [
+                    {
+                      "type": "VECTOR",
+                      "name": "delet product"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "GROUP",
+              "name": "Cart Item",
+              "children": [
+                {
+                  "type": "FRAME",
+                  "name": "Frame 1261155024",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "type": "RECTANGLE",
+                      "name": "Rectangle 54"
+                    },
+                    {
+                      "type": "TEXT",
+                      "name": "Double Bed & Dressing",
+                      "textPreview": "Double Bed & Dressing"
+                    }
+                  ]
+                },
+                {
+                  "type": "TEXT",
+                  "name": "$180",
+                  "textPreview": "$180"
+                },
+                {
+                  "type": "TEXT",
+                  "name": "$180",
+                  "textPreview": "$180"
+                },
+                {
+                  "type": "INSTANCE",
+                  "name": "Quantity Selector",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "type": "FRAME",
+                      "name": "Remove",
+                      "children": [
+                        {
+                          "type": "VECTOR",
+                          "name": "Vector 218"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "TEXT",
+                      "name": "1",
+                      "textPreview": "1"
+                    },
+                    {
+                      "type": "FRAME",
+                      "name": "Add",
+                      "children": [
+                        {
+                          "type": "VECTOR",
+                          "name": "Vector"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "INSTANCE",
+                  "name": "delet product",
+                  "children": [
+                    {
+                      "type": "VECTOR",
+                      "name": "delet product"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "GROUP",
+              "name": "Cart Item",
+              "children": [
+                {
+                  "type": "FRAME",
+                  "name": "Frame 1261155024",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "type": "RECTANGLE",
+                      "name": "Rectangle 54"
+                    },
+                    {
+                      "type": "TEXT",
+                      "name": "Double Bed & Dressing",
+                      "textPreview": "Double Bed & Dressing"
+                    }
+                  ]
+                },
+                {
+                  "type": "TEXT",
+                  "name": "$180",
+                  "textPreview": "$180"
+                },
+                {
+                  "type": "TEXT",
+                  "name": "$180",
+                  "textPreview": "$180"
+                },
+                {
+                  "type": "INSTANCE",
+                  "name": "Quantity Selector",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "type": "FRAME",
+                      "name": "Remove",
+                      "children": [
+                        {
+                          "type": "VECTOR",
+                          "name": "Vector 218"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "TEXT",
+                      "name": "1",
+                      "textPreview": "1"
+                    },
+                    {
+                      "type": "FRAME",
+                      "name": "Add",
+                      "children": [
+                        {
+                          "type": "VECTOR",
+                          "name": "Vector"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "INSTANCE",
+                  "name": "delet product",
+                  "children": [
+                    {
+                      "type": "VECTOR",
+                      "name": "delet product"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "GROUP",
+              "name": "Cart Item",
+              "children": [
+                {
+                  "type": "FRAME",
+                  "name": "Frame 1261155024",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "type": "RECTANGLE",
+                      "name": "Rectangle 54"
+                    },
+                    {
+                      "type": "TEXT",
+                      "name": "Double Bed & Dressing",
+                      "textPreview": "Double Bed & Dressing"
+                    }
+                  ]
+                },
+                {
+                  "type": "TEXT",
+                  "name": "$180",
+                  "textPreview": "$180"
+                },
+                {
+                  "type": "TEXT",
+                  "name": "$180",
+                  "textPreview": "$180"
+                },
+                {
+                  "type": "INSTANCE",
+                  "name": "Quantity Selector",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "type": "FRAME",
+                      "name": "Remove",
+                      "children": [
+                        {
+                          "type": "VECTOR",
+                          "name": "Vector 218"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "TEXT",
+                      "name": "1",
+                      "textPreview": "1"
+                    },
+                    {
+                      "type": "FRAME",
+                      "name": "Add",
+                      "children": [
+                        {
+                          "type": "VECTOR",
+                          "name": "Vector"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "INSTANCE",
+                  "name": "delet product",
+                  "children": [
+                    {
+                      "type": "VECTOR",
+                      "name": "delet product"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "styles": {
+        "root": {
+          "width": 1240.0,
+          "height": 555.0,
+          "strokeWeight": 1.0,
+          "strokeAlign": "INSIDE"
+        },
+        "nodes": {
+          "Rectangle 3396": {
+            "type": "RECTANGLE",
+            "width": 710.0,
+            "height": 555.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "cornerRadius": 10.0,
+            "strokes": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#dedfe1",
+                  "rgb": {
+                    "r": 222,
+                    "g": 223,
+                    "b": 225
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Rectangle 3397": {
+            "type": "VECTOR",
+            "width": 710.0,
+            "height": 78.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#a6a6a6",
+                  "rgb": {
+                    "r": 166,
+                    "g": 166,
+                    "b": 166
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "rectangleCornerRadii": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Product": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 22.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 27.779296875,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "color": {
+              "hex": "#ffffff",
+              "rgb": {
+                "r": 255,
+                "g": 255,
+                "b": 255
+              },
+              "alpha": 1.0
+            },
+            "width": 77.0,
+            "height": 28.0
+          },
+          "Price": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 22.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 27.779296875,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "color": {
+              "hex": "#ffffff",
+              "rgb": {
+                "r": 255,
+                "g": 255,
+                "b": 255
+              },
+              "alpha": 1.0
+            },
+            "width": 49.0,
+            "height": 28.0
+          },
+          "Quantity": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 22.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 27.779296875,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "color": {
+              "hex": "#ffffff",
+              "rgb": {
+                "r": 255,
+                "g": 255,
+                "b": 255
+              },
+              "alpha": 1.0
+            },
+            "width": 86.0,
+            "height": 28.0
+          },
+          "Total": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 22.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 27.779296875,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "color": {
+              "hex": "#ffffff",
+              "rgb": {
+                "r": 255,
+                "g": 255,
+                "b": 255
+              },
+              "alpha": 1.0
+            },
+            "width": 50.0,
+            "height": 28.0
+          },
+          "Frame 1261155024": {
+            "type": "FRAME",
+            "width": 244.62,
+            "height": 53.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "counterAxisAlignItems": "CENTER",
+              "primaryAxisSizingMode": "FIXED",
+              "layoutWrap": "NO_WRAP",
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 15.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Rectangle 54": {
+            "type": "RECTANGLE",
+            "width": 53.0,
+            "height": 53.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#d9d9d9",
+                  "rgb": {
+                    "r": 217,
+                    "g": 217,
+                    "b": 217
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "cornerRadius": 5.0,
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Double Bed & Dressing": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 20.203125,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "textCase": "TITLE",
+            "color": {
+              "hex": "#3d3d3d",
+              "rgb": {
+                "r": 61,
+                "g": 61,
+                "b": 61
+              },
+              "alpha": 1.0
+            },
+            "width": 168.0,
+            "height": 20.0
+          },
+          "$180": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 20.203125,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "color": {
+              "hex": "#949494",
+              "rgb": {
+                "r": 148,
+                "g": 148,
+                "b": 148
+              },
+              "alpha": 1.0
+            },
+            "width": 35.24,
+            "height": 20.0
+          },
+          "Quantity Selector": {
+            "type": "INSTANCE",
+            "width": 127.0,
+            "height": 49.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "primaryAxisAlignItems": "CENTER",
+              "counterAxisAlignItems": "CENTER",
+              "primaryAxisSizingMode": "FIXED",
+              "counterAxisSizingMode": "FIXED",
+              "layoutWrap": "NO_WRAP",
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "FIXED",
+              "padding": {
+                "paddingLeft": 24.0,
+                "paddingRight": 24.0,
+                "paddingTop": 16.0,
+                "paddingBottom": 16.0
+              },
+              "itemSpacing": 20.0
+            },
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "cornerRadius": 104.0,
+            "strokes": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#d7d7d7",
+                  "rgb": {
+                    "r": 215,
+                    "g": 215,
+                    "b": 215
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Vector 218": {
+            "type": "VECTOR",
+            "width": 10.0,
+            "height": 0.0,
+            "cornerRadius": 2.0,
+            "strokes": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#414141",
+                  "rgb": {
+                    "r": 65,
+                    "g": 65,
+                    "b": 65
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "CENTER"
+          },
+          "1": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Bold",
+            "fontWeight": 700,
+            "fontSize": 18.0,
+            "textAlignHorizontal": "CENTER",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 22.728515625,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "color": {
+              "hex": "#414141",
+              "rgb": {
+                "r": 65,
+                "g": 65,
+                "b": 65
+              },
+              "alpha": 1.0
+            },
+            "width": 7.0,
+            "height": 23.0
+          },
+          "Vector": {
+            "type": "VECTOR",
+            "width": 10.0,
+            "height": 10.0,
+            "cornerRadius": 2.0,
+            "strokes": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#414141",
+                  "rgb": {
+                    "r": 65,
+                    "g": 65,
+                    "b": 65
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "CENTER"
+          },
+          "delet product": {
+            "type": "INSTANCE",
+            "width": 12.44,
+            "height": 12.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": false,
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Line 7": {
+            "type": "LINE",
+            "width": 698.0,
+            "height": 0.0,
+            "strokes": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#dedfe1",
+                  "rgb": {
+                    "r": 222,
+                    "g": 223,
+                    "b": 225
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Line 9": {
+            "type": "LINE",
+            "width": 698.0,
+            "height": 0.0,
+            "strokes": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#dedfe1",
+                  "rgb": {
+                    "r": 222,
+                    "g": 223,
+                    "b": 225
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Line 10": {
+            "type": "LINE",
+            "width": 698.0,
+            "height": 0.0,
+            "strokes": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#dedfe1",
+                  "rgb": {
+                    "r": 222,
+                    "g": 223,
+                    "b": 225
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Rectangle 3399": {
+            "type": "RECTANGLE",
+            "width": 498.0,
+            "height": 434.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "cornerRadius": 10.0,
+            "strokes": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#dedfe1",
+                  "rgb": {
+                    "r": 222,
+                    "g": 223,
+                    "b": 225
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Frame 285": {
+            "type": "FRAME",
+            "width": 498.0,
+            "height": 71.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "primaryAxisAlignItems": "CENTER",
+              "counterAxisAlignItems": "CENTER",
+              "primaryAxisSizingMode": "FIXED",
+              "layoutWrap": "NO_WRAP",
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "HUG",
+              "padding": {
+                "paddingTop": 25.0,
+                "paddingBottom": 25.0
+              },
+              "itemSpacing": 10.0
+            },
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#000000",
+                  "rgb": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "rectangleCornerRadii": [
+              0.0,
+              0.0,
+              10.0,
+              10.0
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Proceed To Checkout": {
+            "type": "TEXT",
+            "fontFamily": "Exo",
+            "fontPostScriptName": "Exo-Medium",
+            "fontWeight": 500,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 21.263999938964844,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "color": {
+              "hex": "#ffffff",
+              "rgb": {
+                "r": 255,
+                "g": 255,
+                "b": 255
+              },
+              "alpha": 1.0
+            },
+            "width": 155.0,
+            "height": 21.0
+          },
+          "Rectangle 3398": {
+            "type": "VECTOR",
+            "width": 498.0,
+            "height": 78.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#a6a6a6",
+                  "rgb": {
+                    "r": 166,
+                    "g": 166,
+                    "b": 166
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "rectangleCornerRadii": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Cart Total": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 20.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "CENTER",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 25.25390625,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "color": {
+              "hex": "#ffffff",
+              "rgb": {
+                "r": 255,
+                "g": 255,
+                "b": 255
+              },
+              "alpha": 1.0
+            },
+            "width": 88.0,
+            "height": 25.0
+          },
+          "Total price": {
+            "type": "FRAME",
+            "width": 444.0,
+            "height": 20.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 329.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "$400": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 20.203125,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "color": {
+              "hex": "#949494",
+              "rgb": {
+                "r": 148,
+                "g": 148,
+                "b": 148
+              },
+              "alpha": 1.0
+            },
+            "width": 39.0,
+            "height": 20.0
+          }
+        }
+      },
+      "interactions": {
+        "root": [],
+        "nodes": {
+          "Frame 285": [
+            {
+              "trigger": "ON_CLICK",
+              "actions": [
+                {
+                  "type": "NODE",
+                  "navigation": "NAVIGATE"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "imports": {
+        "local": [
+          {
+            "name": "Quantity Selector",
+            "component_id": "4010:805",
+            "props": {}
+          },
+          {
+            "name": "delet product",
+            "component_id": "4012:1015",
+            "props": {}
+          }
+        ],
+        "external": []
+      }
+    },
+    {
+      "component_id": "4012:1015",
+      "name": "delet product",
+      "kind": "standalone",
+      "suggested_file": "src/components/delet product.tsx",
+      "variant_component_ids": [
+        "4012:1015"
+      ],
+      "architecture": {
+        "props": [],
+        "layout": "none",
+        "has_image": true,
+        "has_text": false,
+        "external_deps": [],
+        "children_structure": [
+          "Icône de suppression"
+        ],
+        "children_tree": {
+          "name": "delet product",
+          "children": [
+            {
+              "type": "VECTOR",
+              "name": "delet product"
+            }
+          ]
+        }
+      },
+      "styles": {
+        "root": {
+          "width": 12.44,
+          "height": 12.0,
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "color": {
+                "hex": "#ffffff",
+                "rgb": {
+                  "r": 255,
+                  "g": 255,
+                  "b": 255
+                },
+                "alpha": 1.0
+              }
+            }
+          ],
+          "strokeWeight": 1.0,
+          "strokeAlign": "INSIDE"
+        },
+        "nodes": {
+          "delet product": {
+            "type": "VECTOR",
+            "width": 12.44,
+            "height": 12.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#3d3d3d",
+                  "rgb": {
+                    "r": 61,
+                    "g": 61,
+                    "b": 61
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          }
+        }
+      },
+      "interactions": {
+        "root": [],
+        "nodes": {}
+      },
+      "imports": {
+        "local": [],
+        "external": []
+      }
+    },
+    {
+      "component_id": "4014:1074",
+      "name": "bills",
+      "kind": "standalone",
+      "suggested_file": "src/components/bills.tsx",
+      "variant_component_ids": [
+        "4014:1074"
+      ],
+      "architecture": {
+        "props": [
+          {
+            "name": "firstName",
+            "figma_name": "First Name*",
+            "type": "string",
+            "default": "First Name*",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "lastName",
+            "figma_name": "Last Name*",
+            "type": "string",
+            "default": "Last Name*",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "emailAddress",
+            "figma_name": "Email Address*",
+            "type": "string",
+            "default": "Email Address*",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "phoneNumber",
+            "figma_name": "Phone Number*",
+            "type": "string",
+            "default": "Phone Number*",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "streetAddress",
+            "figma_name": "Street Address*",
+            "type": "string",
+            "default": "Street Address*",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "townCity",
+            "figma_name": "Town / City*",
+            "type": "string",
+            "default": "Town / City*",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "country",
+            "figma_name": "Country*",
+            "type": "string",
+            "default": "Country*",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "postcodeZip",
+            "figma_name": "Postcode / Zip*",
+            "type": "string",
+            "default": "Postcode / Zip*",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "buttom",
+            "figma_name": "Buttom",
+            "type": "string",
+            "default": "Proceed to Next Step",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "personal",
+            "figma_name": "Personal",
+            "type": "string",
+            "default": "Personal",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "billing",
+            "figma_name": "Billing",
+            "type": "string",
+            "default": "Billing",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          },
+          {
+            "name": "confirmation",
+            "figma_name": "Confirmation",
+            "type": "string",
+            "default": "Confirmation",
+            "source": "text",
+            "figma_declared": false,
+            "required": true
+          }
+        ],
+        "layout": "vertical",
+        "has_image": false,
+        "has_text": true,
+        "external_deps": [],
+        "children_structure": [
+          "Champs de saisie pour les informations personnelles",
+          "Champs de saisie pour l'adresse",
+          "Champs de saisie pour les coordonnées",
+          "Bouton de soumission",
+          "Options de facturation"
+        ],
+        "children_tree": {
+          "name": "bills",
+          "children": [
+            {
+              "type": "RECTANGLE",
+              "name": "Rectangle 3396"
+            },
+            {
+              "type": "FRAME",
+              "name": "Frame 1261155039",
+              "layoutMode": "VERTICAL",
+              "children": [
+                {
+                  "type": "FRAME",
+                  "name": "name",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "type": "FRAME",
+                      "name": "Frame 1261155029",
+                      "layoutMode": "VERTICAL",
+                      "children": [
+                        {
+                          "type": "TEXT",
+                          "name": "First Name*",
+                          "textPreview": "First Name*"
+                        },
+                        {
+                          "type": "RECTANGLE",
+                          "name": "Rectangle 3397"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "FRAME",
+                      "name": "Frame 1261155030",
+                      "layoutMode": "VERTICAL",
+                      "children": [
+                        {
+                          "type": "TEXT",
+                          "name": "Last Name*",
+                          "textPreview": "Last Name*"
+                        },
+                        {
+                          "type": "RECTANGLE",
+                          "name": "Rectangle 3397"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "FRAME",
+                  "name": "adress_phoennbre",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "type": "FRAME",
+                      "name": "Frame 1261155031",
+                      "layoutMode": "VERTICAL",
+                      "children": [
+                        {
+                          "type": "TEXT",
+                          "name": "Email Address*",
+                          "textPreview": "Email Address*"
+                        },
+                        {
+                          "type": "RECTANGLE",
+                          "name": "Rectangle 3397"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "FRAME",
+                      "name": "Frame 1261155032",
+                      "layoutMode": "VERTICAL",
+                      "children": [
+                        {
+                          "type": "TEXT",
+                          "name": "Phone Number*",
+                          "textPreview": "Phone Number*"
+                        },
+                        {
+                          "type": "RECTANGLE",
+                          "name": "Rectangle 3397"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "FRAME",
+                  "name": "street adress",
+                  "layoutMode": "VERTICAL",
+                  "children": [
+                    {
+                      "type": "TEXT",
+                      "name": "Street Address*",
+                      "textPreview": "Street Address*"
+                    },
+                    {
+                      "type": "RECTANGLE",
+                      "name": "Rectangle 3397"
+                    }
+                  ]
+                },
+                {
+                  "type": "FRAME",
+                  "name": "town",
+                  "layoutMode": "VERTICAL",
+                  "children": [
+                    {
+                      "type": "TEXT",
+                      "name": "Town / City*",
+                      "textPreview": "Town / City*"
+                    },
+                    {
+                      "type": "RECTANGLE",
+                      "name": "Rectangle 3397"
+                    }
+                  ]
+                },
+                {
+                  "type": "FRAME",
+                  "name": "country",
+                  "layoutMode": "VERTICAL",
+                  "children": [
+                    {
+                      "type": "TEXT",
+                      "name": "Country*",
+                      "textPreview": "Country*"
+                    },
+                    {
+                      "type": "RECTANGLE",
+                      "name": "Rectangle 3397"
+                    }
+                  ]
+                },
+                {
+                  "type": "FRAME",
+                  "name": "postcode",
+                  "layoutMode": "VERTICAL",
+                  "children": [
+                    {
+                      "type": "TEXT",
+                      "name": "Postcode / Zip*",
+                      "textPreview": "Postcode / Zip*"
+                    },
+                    {
+                      "type": "RECTANGLE",
+                      "name": "Rectangle 3397"
+                    }
+                  ]
+                },
+                {
+                  "type": "INSTANCE",
+                  "name": "submit buttom",
+                  "layoutMode": "HORIZONTAL",
+                  "children": [
+                    {
+                      "type": "TEXT",
+                      "name": "Buttom",
+                      "textPreview": "Proceed to Next Step"
+                    },
+                    {
+                      "type": "FRAME",
+                      "name": "material-symbols:arrow-back-ios-new",
+                      "children": [
+                        {
+                          "type": "VECTOR",
+                          "name": "Vector"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "FRAME",
+              "name": "Frame 1261155246",
+              "children": [
+                {
+                  "type": "VECTOR",
+                  "name": "Rectangle 3397"
+                },
+                {
+                  "type": "FRAME",
+                  "name": "Frame 1261155247",
+                  "children": [
+                    {
+                      "type": "TEXT",
+                      "name": "Personal",
+                      "textPreview": "Personal"
+                    },
+                    {
+                      "type": "TEXT",
+                      "name": "Billing",
+                      "textPreview": "Billing"
+                    },
+                    {
+                      "type": "TEXT",
+                      "name": "Confirmation",
+                      "textPreview": "Confirmation"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "styles": {
+        "root": {
+          "width": 710.0,
+          "height": 793.0,
+          "strokeWeight": 1.0,
+          "strokeAlign": "INSIDE"
+        },
+        "nodes": {
+          "Rectangle 3396": {
+            "type": "RECTANGLE",
+            "width": 710.0,
+            "height": 715.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "rectangleCornerRadii": [
+              0.0,
+              0.0,
+              10.0,
+              10.0
+            ],
+            "strokes": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#dedfe1",
+                  "rgb": {
+                    "r": 222,
+                    "g": 223,
+                    "b": 225
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Frame 1261155039": {
+            "type": "FRAME",
+            "width": 660.0,
+            "height": 657.0,
+            "layout": {
+              "layoutMode": "VERTICAL",
+              "primaryAxisAlignItems": "CENTER",
+              "primaryAxisSizingMode": "FIXED",
+              "counterAxisSizingMode": "FIXED",
+              "layoutWrap": "NO_WRAP",
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "FIXED",
+              "itemSpacing": 25.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "name": {
+            "type": "FRAME",
+            "width": 660.0,
+            "height": 73.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 46.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Frame 1261155029": {
+            "type": "FRAME",
+            "width": 307.0,
+            "height": 73.0,
+            "layout": {
+              "layoutMode": "VERTICAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 10.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "First Name*": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 20.203125,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "textCase": "TITLE",
+            "color": {
+              "hex": "#3d3d3d",
+              "rgb": {
+                "r": 61,
+                "g": 61,
+                "b": 61
+              },
+              "alpha": 1.0
+            },
+            "width": 87.0,
+            "height": 20.0
+          },
+          "Rectangle 3397": {
+            "type": "RECTANGLE",
+            "width": 307.0,
+            "height": 43.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "cornerRadius": 10.0,
+            "strokes": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#dedfe1",
+                  "rgb": {
+                    "r": 222,
+                    "g": 223,
+                    "b": 225
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Frame 1261155030": {
+            "type": "FRAME",
+            "width": 307.0,
+            "height": 73.0,
+            "layout": {
+              "layoutMode": "VERTICAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 10.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Last Name*": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 20.203125,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "textCase": "TITLE",
+            "color": {
+              "hex": "#3d3d3d",
+              "rgb": {
+                "r": 61,
+                "g": 61,
+                "b": 61
+              },
+              "alpha": 1.0
+            },
+            "width": 86.0,
+            "height": 20.0
+          },
+          "adress_phoennbre": {
+            "type": "FRAME",
+            "width": 660.0,
+            "height": 73.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 46.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Frame 1261155031": {
+            "type": "FRAME",
+            "width": 307.0,
+            "height": 73.0,
+            "layout": {
+              "layoutMode": "VERTICAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 10.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Email Address*": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 20.203125,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "textCase": "TITLE",
+            "color": {
+              "hex": "#3d3d3d",
+              "rgb": {
+                "r": 61,
+                "g": 61,
+                "b": 61
+              },
+              "alpha": 1.0
+            },
+            "width": 111.0,
+            "height": 20.0
+          },
+          "Frame 1261155032": {
+            "type": "FRAME",
+            "width": 307.0,
+            "height": 73.0,
+            "layout": {
+              "layoutMode": "VERTICAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 10.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Phone Number*": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 20.203125,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "textCase": "TITLE",
+            "color": {
+              "hex": "#3d3d3d",
+              "rgb": {
+                "r": 61,
+                "g": 61,
+                "b": 61
+              },
+              "alpha": 1.0
+            },
+            "width": 116.0,
+            "height": 20.0
+          },
+          "street adress": {
+            "type": "FRAME",
+            "width": 660.0,
+            "height": 73.0,
+            "layout": {
+              "layoutMode": "VERTICAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 10.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Street Address*": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 20.203125,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "textCase": "TITLE",
+            "color": {
+              "hex": "#3d3d3d",
+              "rgb": {
+                "r": 61,
+                "g": 61,
+                "b": 61
+              },
+              "alpha": 1.0
+            },
+            "width": 115.0,
+            "height": 20.0
+          },
+          "town": {
+            "type": "FRAME",
+            "width": 660.0,
+            "height": 73.0,
+            "layout": {
+              "layoutMode": "VERTICAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 10.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Town / City*": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 20.203125,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "textCase": "TITLE",
+            "color": {
+              "hex": "#3d3d3d",
+              "rgb": {
+                "r": 61,
+                "g": 61,
+                "b": 61
+              },
+              "alpha": 1.0
+            },
+            "width": 92.0,
+            "height": 20.0
+          },
+          "country": {
+            "type": "FRAME",
+            "width": 660.0,
+            "height": 73.0,
+            "layout": {
+              "layoutMode": "VERTICAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 10.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Country*": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 20.203125,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "textCase": "TITLE",
+            "color": {
+              "hex": "#3d3d3d",
+              "rgb": {
+                "r": 61,
+                "g": 61,
+                "b": 61
+              },
+              "alpha": 1.0
+            },
+            "width": 66.0,
+            "height": 20.0
+          },
+          "postcode": {
+            "type": "FRAME",
+            "width": 660.0,
+            "height": 73.0,
+            "layout": {
+              "layoutMode": "VERTICAL",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 10.0
+            },
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Postcode / Zip*": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Regular",
+            "fontWeight": 400,
+            "fontSize": 16.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "TOP",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 20.203125,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "textCase": "TITLE",
+            "color": {
+              "hex": "#3d3d3d",
+              "rgb": {
+                "r": 61,
+                "g": 61,
+                "b": 61
+              },
+              "alpha": 1.0
+            },
+            "width": 114.0,
+            "height": 20.0
+          },
+          "submit buttom": {
+            "type": "INSTANCE",
+            "width": 355.0,
+            "height": 49.0,
+            "layout": {
+              "layoutMode": "HORIZONTAL",
+              "primaryAxisAlignItems": "CENTER",
+              "counterAxisAlignItems": "CENTER",
+              "primaryAxisSizingMode": "FIXED",
+              "counterAxisSizingMode": "FIXED",
+              "layoutWrap": "NO_WRAP",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "FIXED",
+              "padding": {
+                "paddingLeft": 24.0,
+                "paddingRight": 24.0,
+                "paddingTop": 16.0,
+                "paddingBottom": 16.0
+              },
+              "itemSpacing": 10.0
+            },
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#282828",
+                  "rgb": {
+                    "r": 40,
+                    "g": 40,
+                    "b": 40
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "cornerRadius": 104.0,
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Buttom": {
+            "type": "TEXT",
+            "fontFamily": "Exo",
+            "fontPostScriptName": "ExoRoman-SemiBold",
+            "fontWeight": 600,
+            "fontSize": 20.0,
+            "textAlignHorizontal": "CENTER",
+            "textAlignVertical": "CENTER",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 26.579999923706055,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "color": {
+              "hex": "#ffffff",
+              "rgb": {
+                "r": 255,
+                "g": 255,
+                "b": 255
+              },
+              "alpha": 1.0
+            },
+            "width": 195.0,
+            "height": 27.0
+          },
+          "material-symbols:arrow-back-ios-new": {
+            "type": "FRAME",
+            "width": 24.0,
+            "height": 24.0,
+            "layout": {
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "FIXED"
+            },
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": false,
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Vector": {
+            "type": "VECTOR",
+            "width": 9.0,
+            "height": 15.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Personal": {
+            "type": "TEXT",
+            "fontFamily": "Poppins",
+            "fontPostScriptName": "Poppins-SemiBold",
+            "fontWeight": 600,
+            "fontSize": 20.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "CENTER",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 30.0,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "color": {
+              "hex": "#ffffff",
+              "rgb": {
+                "r": 255,
+                "g": 255,
+                "b": 255
+              },
+              "alpha": 1.0
+            },
+            "width": 89.0,
+            "height": 30.0
+          },
+          "Billing": {
+            "type": "TEXT",
+            "fontFamily": "Poppins",
+            "fontPostScriptName": "Poppins-Medium",
+            "fontWeight": 500,
+            "fontSize": 20.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "CENTER",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 30.0,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "color": {
+              "hex": "#ffffff",
+              "rgb": {
+                "r": 255,
+                "g": 255,
+                "b": 255
+              },
+              "alpha": 1.0
+            },
+            "width": 61.0,
+            "height": 30.0
+          },
+          "Confirmation": {
+            "type": "TEXT",
+            "fontFamily": "Poppins",
+            "fontPostScriptName": "Poppins-Medium",
+            "fontWeight": 500,
+            "fontSize": 20.0,
+            "textAlignHorizontal": "LEFT",
+            "textAlignVertical": "CENTER",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 30.0,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "color": {
+              "hex": "#ffffff",
+              "rgb": {
+                "r": 255,
+                "g": 255,
+                "b": 255
+              },
+              "alpha": 1.0
+            },
+            "width": 134.0,
+            "height": 30.0
+          }
+        }
+      },
+      "interactions": {
+        "root": [],
+        "nodes": {}
+      },
+      "imports": {
+        "local": [
+          {
+            "name": "Buttom",
+            "component_id": "4004:866",
+            "props": {}
+          }
+        ],
+        "external": []
+      }
+    },
+    {
+      "component_id": "4018:929",
+      "name": "profile",
+      "kind": "standalone",
+      "suggested_file": "src/components/profile.tsx",
+      "variant_component_ids": [
+        "4018:929"
+      ],
+      "architecture": {
+        "props": [],
+        "layout": "horizontal",
+        "has_image": true,
+        "has_text": false,
+        "external_deps": [],
+        "children_structure": [
+          "Vecteur horizontal"
+        ],
+        "children_tree": {
+          "name": "profile",
+          "layoutMode": "HORIZONTAL",
+          "children": [
+            {
+              "type": "VECTOR",
+              "name": "Vector"
+            }
+          ]
+        }
+      },
+      "styles": {
+        "root": {
+          "width": 20.0,
+          "height": 20.0,
+          "layout": {
+            "layoutMode": "HORIZONTAL",
+            "counterAxisAlignItems": "CENTER",
+            "layoutWrap": "NO_WRAP",
+            "layoutSizingHorizontal": "HUG",
+            "layoutSizingVertical": "HUG",
+            "itemSpacing": 10.0
+          },
+          "strokeWeight": 1.0,
+          "strokeAlign": "INSIDE"
+        },
+        "nodes": {
+          "Vector": {
+            "type": "VECTOR",
+            "width": 20.0,
+            "height": 20.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#000000",
+                  "rgb": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          }
+        }
+      },
+      "interactions": {
+        "root": [
+          {
+            "trigger": "ON_CLICK",
+            "actions": [
+              {
+                "type": "NODE",
+                "navigation": "NAVIGATE"
+              }
+            ]
+          }
+        ],
+        "nodes": {}
+      },
+      "imports": {
+        "local": [],
+        "external": []
+      }
+    },
+    {
+      "component_id": "4019:1627",
+      "name": "Shopping cart page",
+      "kind": "standalone",
+      "suggested_file": "src/components/Shopping cart page.tsx",
+      "variant_component_ids": [
+        "4019:1627"
+      ],
+      "architecture": {
+        "props": [],
+        "layout": "none",
+        "has_image": false,
+        "has_text": false,
+        "external_deps": [],
+        "children_structure": [
+          "Page de panier d'achat"
+        ],
+        "children_tree": {
+          "name": "Shopping cart page",
+          "children": [
+            {
+              "type": "VECTOR",
+              "name": "Shopping cart page"
+            }
+          ]
+        }
+      },
+      "styles": {
+        "root": {
+          "width": 18.0,
+          "height": 20.0,
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": false,
+              "color": {
+                "hex": "#ffffff",
+                "rgb": {
+                  "r": 255,
+                  "g": 255,
+                  "b": 255
+                },
+                "alpha": 1.0
+              }
+            }
+          ],
+          "strokeWeight": 1.0,
+          "strokeAlign": "INSIDE"
+        },
+        "nodes": {
+          "Shopping cart page": {
+            "type": "VECTOR",
+            "width": 18.0,
+            "height": 20.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#000000",
+                  "rgb": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          }
+        }
+      },
+      "interactions": {
+        "root": [
+          {
+            "trigger": "ON_CLICK",
+            "actions": [
+              {
+                "type": "NODE",
+                "navigation": "NAVIGATE"
+              }
+            ]
+          }
+        ],
+        "nodes": {}
+      },
+      "imports": {
+        "local": [],
+        "external": []
+      }
+    },
+    {
+      "component_id": "4004:867",
+      "name": "Buttom",
+      "kind": "variant_set",
+      "suggested_file": "src/components/Buttom.tsx",
+      "variant_component_ids": [
+        "4004:866",
+        "4012:813",
+        "4004:868",
+        "4015:1275"
+      ],
+      "architecture": {
+        "props": [
+          {
+            "name": "buttom",
+            "figma_name": "Buttom",
+            "type": "string",
+            "default": "Buttom",
+            "source": "text",
+            "figma_declared": false,
+            "required": false
+          },
+          {
+            "name": "deletProduct",
+            "figma_name": "delet product",
+            "type": "string",
+            "default": "delet product",
+            "source": "text",
+            "figma_declared": false,
+            "required": false
+          },
+          {
+            "name": "addButtom",
+            "figma_name": "add buttom",
+            "type": "string",
+            "default": "+",
+            "source": "text",
+            "figma_declared": false,
+            "required": false
+          }
+        ],
+        "layout": "horizontal",
+        "has_image": false,
+        "has_text": true,
+        "external_deps": [
+          "@mui/icons-material"
+        ],
+        "children_structure": [
+          "Texte du bouton",
+          "Icône de flèche"
+        ],
+        "children_tree": {
+          "name": "Propriété 1=Par défaut",
+          "layoutMode": "HORIZONTAL",
+          "children": [
+            {
+              "type": "TEXT",
+              "name": "Buttom",
+              "textPreview": "Buttom"
+            },
+            {
+              "type": "FRAME",
+              "name": "material-symbols:arrow-back-ios-new",
+              "children": [
+                {
+                  "type": "VECTOR",
+                  "name": "Vector"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "styles": {
+        "root": {
+          "width": 355.0,
+          "height": 49.0,
+          "layout": {
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "FIXED",
+            "layoutWrap": "NO_WRAP",
+            "layoutSizingHorizontal": "FIXED",
+            "layoutSizingVertical": "FIXED",
+            "padding": {
+              "paddingLeft": 24.0,
+              "paddingRight": 24.0,
+              "paddingTop": 16.0,
+              "paddingBottom": 16.0
+            },
+            "itemSpacing": 10.0
+          },
+          "fills": [
+            {
+              "type": "SOLID",
+              "color": {
+                "hex": "#282828",
+                "rgb": {
+                  "r": 40,
+                  "g": 40,
+                  "b": 40
+                },
+                "alpha": 1.0
+              }
+            }
+          ],
+          "cornerRadius": 104.0,
+          "strokeWeight": 1.0,
+          "strokeAlign": "INSIDE"
+        },
+        "nodes": {
+          "Buttom": {
+            "type": "TEXT",
+            "fontFamily": "Oxygen",
+            "fontPostScriptName": "Oxygen-Bold",
+            "fontWeight": 700,
+            "fontSize": 18.0,
+            "textAlignHorizontal": "CENTER",
+            "textAlignVertical": "CENTER",
+            "letterSpacing": 0.0,
+            "lineHeightPx": 22.728515625,
+            "lineHeightPercent": 100.0,
+            "lineHeightUnit": "INTRINSIC_%",
+            "color": {
+              "hex": "#ffffff",
+              "rgb": {
+                "r": 255,
+                "g": 255,
+                "b": 255
+              },
+              "alpha": 1.0
+            },
+            "width": 64.0,
+            "height": 23.0
+          },
+          "material-symbols:arrow-back-ios-new": {
+            "type": "FRAME",
+            "width": 24.0,
+            "height": 24.0,
+            "layout": {
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0.0,
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "FIXED"
+            },
+            "fills": [
+              {
+                "type": "SOLID",
+                "visible": false,
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          },
+          "Vector": {
+            "type": "VECTOR",
+            "width": 9.0,
+            "height": 15.0,
+            "fills": [
+              {
+                "type": "SOLID",
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                }
+              }
+            ],
+            "strokeWeight": 1.0,
+            "strokeAlign": "INSIDE"
+          }
+        },
+        "styles_by_variant": {
+          "4004:866": {
+            "root": {
+              "width": 355.0,
+              "height": 49.0,
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "CENTER",
+                "primaryAxisSizingMode": "FIXED",
+                "counterAxisSizingMode": "FIXED",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "FIXED",
+                "layoutSizingVertical": "FIXED",
+                "padding": {
+                  "paddingLeft": 24.0,
+                  "paddingRight": 24.0,
+                  "paddingTop": 16.0,
+                  "paddingBottom": 16.0
+                },
+                "itemSpacing": 10.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#282828",
+                    "rgb": {
+                      "r": 40,
+                      "g": 40,
+                      "b": 40
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 104.0,
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "nodes": {
+              "Buttom": {
+                "type": "TEXT",
+                "fontFamily": "Oxygen",
+                "fontPostScriptName": "Oxygen-Bold",
+                "fontWeight": 700,
+                "fontSize": 18.0,
+                "textAlignHorizontal": "CENTER",
+                "textAlignVertical": "CENTER",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 22.728515625,
+                "lineHeightPercent": 100.0,
+                "lineHeightUnit": "INTRINSIC_%",
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                },
+                "width": 64.0,
+                "height": 23.0
+              },
+              "material-symbols:arrow-back-ios-new": {
+                "type": "FRAME",
+                "width": 24.0,
+                "height": 24.0,
+                "layout": {
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "FIXED",
+                  "layoutSizingVertical": "FIXED"
+                },
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "visible": false,
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Vector": {
+                "type": "VECTOR",
+                "width": 9.0,
+                "height": 15.0,
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              }
+            }
+          },
+          "4012:813": {
+            "root": {
+              "width": 130.0,
+              "height": 100.0,
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "CENTER",
+                "primaryAxisSizingMode": "FIXED",
+                "counterAxisSizingMode": "FIXED",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "FIXED",
+                "layoutSizingVertical": "FIXED",
+                "padding": {
+                  "paddingLeft": 24.0,
+                  "paddingRight": 24.0,
+                  "paddingTop": 16.0,
+                  "paddingBottom": 16.0
+                },
+                "itemSpacing": 10.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#282828",
+                    "rgb": {
+                      "r": 40,
+                      "g": 40,
+                      "b": 40
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 104.0,
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "nodes": {
+              "delet product": {
+                "type": "TEXT",
+                "fontFamily": "Oxygen",
+                "fontPostScriptName": "Oxygen-Bold",
+                "fontWeight": 700,
+                "fontSize": 18.0,
+                "textAlignHorizontal": "CENTER",
+                "textAlignVertical": "CENTER",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 22.728515625,
+                "lineHeightPercent": 100.0,
+                "lineHeightUnit": "INTRINSIC_%",
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                },
+                "width": 116.0,
+                "height": 23.0
+              },
+              "material-symbols:arrow-back-ios-new": {
+                "type": "FRAME",
+                "width": 24.0,
+                "height": 24.0,
+                "layout": {
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "FIXED",
+                  "layoutSizingVertical": "FIXED"
+                },
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "visible": false,
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Vector": {
+                "type": "VECTOR",
+                "width": 9.0,
+                "height": 15.0,
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              }
+            }
+          },
+          "4004:868": {
+            "root": {
+              "width": 498.0,
+              "height": 49.0,
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "CENTER",
+                "primaryAxisSizingMode": "FIXED",
+                "counterAxisSizingMode": "FIXED",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "FIXED",
+                "layoutSizingVertical": "FIXED",
+                "padding": {
+                  "paddingLeft": 24.0,
+                  "paddingRight": 24.0,
+                  "paddingTop": 16.0,
+                  "paddingBottom": 16.0
+                },
+                "itemSpacing": 10.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#282828",
+                    "rgb": {
+                      "r": 40,
+                      "g": 40,
+                      "b": 40
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 104.0,
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "nodes": {
+              "Buttom": {
+                "type": "TEXT",
+                "fontFamily": "Oxygen",
+                "fontPostScriptName": "Oxygen-Bold",
+                "fontWeight": 700,
+                "fontSize": 18.0,
+                "textAlignHorizontal": "CENTER",
+                "textAlignVertical": "CENTER",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 22.728515625,
+                "lineHeightPercent": 100.0,
+                "lineHeightUnit": "INTRINSIC_%",
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                },
+                "width": 64.0,
+                "height": 23.0
+              },
+              "material-symbols:arrow-back-ios-new": {
+                "type": "FRAME",
+                "width": 24.0,
+                "height": 24.0,
+                "layout": {
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "FIXED",
+                  "layoutSizingVertical": "FIXED"
+                },
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "visible": false,
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Vector": {
+                "type": "VECTOR",
+                "width": 9.0,
+                "height": 15.0,
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              }
+            }
+          },
+          "4015:1275": {
+            "root": {
+              "width": 34.0,
+              "height": 17.0,
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "CENTER",
+                "primaryAxisSizingMode": "FIXED",
+                "counterAxisSizingMode": "FIXED",
+                "layoutWrap": "NO_WRAP",
+                "layoutSizingHorizontal": "FIXED",
+                "layoutSizingVertical": "FIXED",
+                "padding": {
+                  "paddingLeft": 24.0,
+                  "paddingRight": 24.0,
+                  "paddingTop": 16.0,
+                  "paddingBottom": 16.0
+                },
+                "itemSpacing": 10.0
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "hex": "#282828",
+                    "rgb": {
+                      "r": 40,
+                      "g": 40,
+                      "b": 40
+                    },
+                    "alpha": 1.0
+                  }
+                }
+              ],
+              "cornerRadius": 104.0,
+              "strokeWeight": 1.0,
+              "strokeAlign": "INSIDE"
+            },
+            "nodes": {
+              "add buttom": {
+                "type": "TEXT",
+                "fontFamily": "Oxygen",
+                "fontPostScriptName": "Oxygen-Bold",
+                "fontWeight": 700,
+                "fontSize": 18.0,
+                "textAlignHorizontal": "CENTER",
+                "textAlignVertical": "CENTER",
+                "letterSpacing": 0.0,
+                "lineHeightPx": 22.728515625,
+                "lineHeightPercent": 100.0,
+                "lineHeightUnit": "INTRINSIC_%",
+                "color": {
+                  "hex": "#ffffff",
+                  "rgb": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "alpha": 1.0
+                },
+                "width": 11.0,
+                "height": 23.0
+              },
+              "material-symbols:arrow-back-ios-new": {
+                "type": "FRAME",
+                "width": 24.0,
+                "height": 24.0,
+                "layout": {
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0.0,
+                  "layoutSizingHorizontal": "FIXED",
+                  "layoutSizingVertical": "FIXED"
+                },
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "visible": false,
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              },
+              "Vector": {
+                "type": "VECTOR",
+                "width": 9.0,
+                "height": 15.0,
+                "fills": [
+                  {
+                    "type": "SOLID",
+                    "color": {
+                      "hex": "#ffffff",
+                      "rgb": {
+                        "r": 255,
+                        "g": 255,
+                        "b": 255
+                      },
+                      "alpha": 1.0
+                    }
+                  }
+                ],
+                "strokeWeight": 1.0,
+                "strokeAlign": "INSIDE"
+              }
+            }
+          }
+        }
+      },
+      "interactions": {
+        "root": [],
+        "nodes": {},
+        "interactions_by_variant": {
+          "4004:866": {
+            "root": [],
+            "nodes": {}
+          },
+          "4012:813": {
+            "root": [],
+            "nodes": {}
+          },
+          "4004:868": {
+            "root": [],
+            "nodes": {}
+          },
+          "4015:1275": {
+            "root": [],
+            "nodes": {}
+          }
+        }
+      },
+      "imports": {
+        "local": [],
+        "external": []
+      },
+      "component_set_id": "4004:867"
+    }
+  ]
+}

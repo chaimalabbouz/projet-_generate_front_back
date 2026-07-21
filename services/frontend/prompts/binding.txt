@@ -108,6 +108,15 @@ Le nom du param vient de page_context.navigate_to.passes.
 Si tu utilises navigate(...), déclare-le :
     import { useNavigate } from 'react-router-dom';
     const navigate = useNavigate();
+
+═══════════════════════════════════════
+INTERACTION SKILLS
+═══════════════════════════════════════
+Before writing the page, call list_skills() to see the available interaction
+patterns. If the page contains one of them, call read_skill(id) and follow it.
+
+Load a skill ONLY if the pattern is actually drawn in the page.
+Never invent an interaction that does not exist visually.
 ═══════════════════════════════════════
 OUTPUT
 ═══════════════════════════════════════

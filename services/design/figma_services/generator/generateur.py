@@ -260,23 +260,34 @@ INTERDIT : <div className="...">Search products...</div>
 CORRECT  : <input type="text" placeholder="Search products..."
                   className="... outline-none bg-transparent w-full" />
 
-17. COMPOSANTS INTERACTIFS : TOUJOURS EXPOSER LEUR API
-Un composant qui contient un <input> ou <textarea> DOIT exposer ces props,
-et les transmettre à l'élément natif :
-  name?: string;
-  value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  type?: string;
+17. COMPOSANTS INTERACTIFS : API OBLIGATOIRE (RÈGLE BLOQUANTE)
 
+Un composant est INVALIDE s'il contient un élément interactif sans exposer
+les props correspondantes ET les transmettre à l'élément natif.
+
+SAISIE — <input>, <textarea>, <select> :
+  name?: string; value?: string; type?: string; required?: boolean;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   <input name={name} value={value} onChange={onChange} type={type} ... />
 
-Un composant bouton DOIT exposer :
-  onClick?: () => void;
-  disabled?: boolean;
-  type?: "button" | "submit";
+BOUTON — tout <button> :
+  onClick?: () => void; disabled?: boolean;
 
-Sans ces props, le composant est décoratif et inutilisable : le parent ne peut
-ni lire la saisie, ni réagir au clic.
+COMPTEUR — un bloc avec "-", un nombre, "+" :
+  value?: number; onIncrement?: () => void; onDecrement?: () => void;
+  Le nombre affiché vient de {value}, jamais d'une valeur en dur.
+
+BASCULE — cœur, étoile, favori, switch :
+  active?: boolean; onToggle?: () => void;
+  Le style dépend de {active}, pas d'un useState interne.
+
+CARTE CLIQUABLE — un bloc entier menant ailleurs :
+  onClick?: () => void;
+
+Si un label Figma contient *, passe required={true} au champ.
+
+Sans ces props, le composant est décoratif : le parent ne peut ni lire son
+état ni réagir. Ne génère JAMAIS un composant interactif fermé.
 """.strip()
 
 
@@ -711,7 +722,7 @@ def generate_components(architecture: dict, llm: ChatMistralAI) -> None:
     name_map = {c["name"]: _sanitize_component_name(c["name"]) for c in components}
 
     generated = 0
-    skipped = 0
+   
 
     for name in ordered_names:
         
