@@ -1,96 +1,64 @@
 {
   "pages": [
     {
-      "id": "2:24400",
-      "name": "Homepage",
-      "suggested_file": "src/pages/Homepage.tsx",
+      "id": "1:4423",
+      "name": "HomePage",
+      "suggested_file": "src/pages/HomePage.tsx",
       "components_used": [
-        "navbarr",
-        "card"
+        "Navbar",
+        "ProductCard",
+        "Footer"
       ]
     },
     {
-      "id": "1:1422",
-      "name": "Contact",
-      "suggested_file": "src/pages/Contact.tsx",
+      "id": "1:4859",
+      "name": "ProductDetails",
+      "suggested_file": "src/pages/ProductDetails.tsx",
       "components_used": [
-        "getInToutchForm",
-        "navbarr"
+        "Navbar",
+        "ProductCard",
+        "SizePicker",
+        "Footer"
       ]
     },
     {
-      "id": "13:1749",
-      "name": "Login",
-      "suggested_file": "src/pages/Login.tsx",
+      "id": "1:5852",
+      "name": "Wishlist",
+      "suggested_file": "src/pages/Wishlist.tsx",
       "components_used": [
-        "navbarr"
+        "Navbar",
+        "ProductCard",
+        "Footer"
       ]
     },
     {
-      "id": "9:738",
-      "name": "ProductPage",
-      "suggested_file": "src/pages/ProductPage.tsx",
+      "id": "1:5987",
+      "name": "Orders",
+      "suggested_file": "src/pages/Orders.tsx",
       "components_used": [
-        "navbarr",
-        "card"
-      ]
-    },
-    {
-      "id": "9:3137",
-      "name": "ProductDetailsPage",
-      "suggested_file": "src/pages/ProductDetailsPage.tsx",
-      "components_used": [
-        "navbarr",
-        "card"
-      ]
-    },
-    {
-      "id": "11:4256",
-      "name": "CartPage",
-      "suggested_file": "src/pages/CartPage.tsx",
-      "components_used": [
-        "navbarr",
-        "card"
-      ]
-    },
-    {
-      "id": "12:1510",
-      "name": "CheckoutPage",
-      "suggested_file": "src/pages/CheckoutPage.tsx",
-      "components_used": [
-        "navbarr",
-        "bills"
-      ]
-    },
-    {
-      "id": "12:8652",
-      "name": "Blogs",
-      "suggested_file": "src/pages/Blogs.tsx",
-      "components_used": [
-        "navbarr"
+        "Navbar",
+        "ProductCard",
+        "Footer"
       ]
     }
   ],
   "project_structure": {
     "src/pages": [
-      "Homepage.tsx",
-      "Contact.tsx",
-      "Login.tsx",
-      "ProductPage.tsx",
-      "ProductDetailsPage.tsx",
-      "CartPage.tsx",
-      "CheckoutPage.tsx",
-      "Blogs.tsx"
+      "HomePage.tsx",
+      "ProductDetails.tsx",
+      "Wishlist.tsx",
+      "Orders.tsx"
     ],
     "src/components": [
-      "navbarr.tsx",
-      "card.tsx",
-      "getInToutchForm.tsx",
-      "bills.tsx"
+      "Navbar.tsx",
+      "ProductCard.tsx",
+      "SizePicker.tsx",
+      "Footer.tsx",
+      "AddToCartButton.tsx"
     ]
   },
   "summary": {
-    "total_pages": 8,
-    "total_components": 4
+    "total_pages": 4,
+    "total_components": 8
   }
 }

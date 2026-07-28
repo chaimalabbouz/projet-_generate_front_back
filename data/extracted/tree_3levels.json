@@ -4,543 +4,1551 @@
   "document": {
     "children": [
       {
-        "id": "0:1",
-        "name": "Design",
+        "id": "1:4227",
+        "name": "design",
         "type": "CANVAS",
         "children": [
           {
-            "id": "2:24400",
-            "name": "Homepage",
+            "id": "1:4423",
+            "name": "Home Page",
             "type": "FRAME",
-            "layoutMode": "VERTICAL",
             "children": [
               {
-                "id": "4003:792",
-                "name": "navbarr",
-                "type": "INSTANCE",
+                "id": "1:4442",
+                "name": "Frame 47725",
+                "type": "FRAME",
                 "layoutMode": "HORIZONTAL",
-                "componentId": "2004:792",
                 "children": [
                   {
-                    "id": "I4003:792;2004:774",
-                    "name": "Frame 1261155254",
-                    "type": "FRAME",
-                    "layoutMode": "HORIZONTAL",
+                    "id": "1:4445",
+                    "name": "Frame 89",
+                    "type": "INSTANCE",
+                    "componentId": "1:4259",
+                    "has_children": true,
+                    "children_count": 1
+                  },
+                  {
+                    "id": "1:4443",
+                    "name": "What Our Customer Says",
+                    "type": "INSTANCE",
+                    "componentId": "1:4257",
+                    "has_children": true,
+                    "children_count": 1
+                  },
+                  {
+                    "id": "1:4444",
+                    "name": "Frame 88",
+                    "type": "INSTANCE",
+                    "componentId": "1:4259",
+                    "has_children": true,
+                    "children_count": 1
+                  },
+                  {
+                    "id": "1:4446",
+                    "name": "Frame 90",
+                    "type": "INSTANCE",
+                    "componentId": "1:4259",
+                    "has_children": true,
+                    "children_count": 1
+                  },
+                  {
+                    "id": "1:4447",
+                    "name": "Group 71",
+                    "type": "GROUP",
+                    "has_children": true,
+                    "children_count": 2
+                  },
+                  {
+                    "id": "1:4451",
+                    "name": "Group 47595",
+                    "type": "GROUP",
                     "has_children": true,
                     "children_count": 2
                   }
                 ]
               },
               {
-                "id": "2:24916",
-                "name": "Frame 1000005643",
+                "id": "1:4455",
+                "name": "Frame 47711",
                 "type": "FRAME",
-                "layoutMode": "VERTICAL",
+                "layoutMode": "HORIZONTAL",
                 "children": [
                   {
-                    "id": "2:24917",
-                    "name": "Rectangle 1441",
+                    "id": "1:4457",
+                    "name": "Frame 96",
+                    "type": "INSTANCE",
+                    "componentId": "1:4277",
+                    "has_children": true,
+                    "children_count": 7
+                  },
+                  {
+                    "id": "1:4458",
+                    "name": "Frame 97",
+                    "type": "INSTANCE",
+                    "componentId": "1:4277",
+                    "has_children": true,
+                    "children_count": 7
+                  },
+                  {
+                    "id": "1:4459",
+                    "name": "Frame 98",
+                    "type": "INSTANCE",
+                    "componentId": "1:4277",
+                    "has_children": true,
+                    "children_count": 7
+                  },
+                  {
+                    "id": "1:4460",
+                    "name": "Frame 99",
+                    "type": "INSTANCE",
+                    "componentId": "1:4277",
+                    "has_children": true,
+                    "children_count": 7
+                  }
+                ]
+              },
+              {
+                "id": "1:4456",
+                "name": "Trending Now",
+                "type": "INSTANCE",
+                "componentId": "1:4275",
+                "children": [
+                  {
+                    "id": "I1:4456;1:4276",
+                    "name": "Trending Now",
+                    "type": "TEXT",
+                    "characters": "Trending Now"
+                  }
+                ]
+              },
+              {
+                "id": "1:4462",
+                "name": "Frame 47712",
+                "type": "FRAME",
+                "layoutMode": "HORIZONTAL",
+                "children": [
+                  {
+                    "id": "1:4463",
+                    "name": "Deals of the Day",
+                    "type": "INSTANCE",
+                    "componentId": "1:4288",
+                    "has_children": true,
+                    "children_count": 1
+                  },
+                  {
+                    "id": "1:4464",
+                    "name": "Frame 96",
+                    "type": "INSTANCE",
+                    "componentId": "1:4290",
+                    "has_children": true,
+                    "children_count": 3
+                  },
+                  {
+                    "id": "1:4465",
+                    "name": "Frame 101",
+                    "type": "INSTANCE",
+                    "componentId": "1:4290",
+                    "has_children": true,
+                    "children_count": 3
+                  },
+                  {
+                    "id": "1:4466",
+                    "name": "Frame 102",
+                    "type": "INSTANCE",
+                    "componentId": "1:4290",
+                    "has_children": true,
+                    "children_count": 3
+                  },
+                  {
+                    "id": "1:4467",
+                    "name": "Frame 103",
+                    "type": "INSTANCE",
+                    "componentId": "1:4290",
+                    "has_children": true,
+                    "children_count": 3
+                  }
+                ]
+              },
+              {
+                "id": "1:4468",
+                "name": "Group 47716",
+                "type": "GROUP",
+                "children": [
+                  {
+                    "id": "1:4469",
+                    "name": "Trending offers",
+                    "type": "INSTANCE",
+                    "componentId": "1:4298",
+                    "has_children": true,
+                    "children_count": 3
+                  },
+                  {
+                    "id": "1:4471",
+                    "name": "Group 47700",
+                    "type": "INSTANCE",
+                    "componentId": "1:4308",
+                    "has_children": true,
+                    "children_count": 3
+                  },
+                  {
+                    "id": "1:4472",
+                    "name": "Trending Offers",
+                    "type": "INSTANCE",
+                    "componentId": "1:4316",
+                    "has_children": true,
+                    "children_count": 1
+                  },
+                  {
+                    "id": "1:4473",
+                    "name": "Group 47715",
+                    "type": "GROUP",
+                    "has_children": true,
+                    "children_count": 1
+                  }
+                ]
+              },
+              {
+                "id": "1:4482",
+                "name": "Group 47722",
+                "type": "GROUP",
+                "children": [
+                  {
+                    "id": "1:4483",
+                    "name": "Group 47608",
+                    "type": "GROUP",
+                    "has_children": true,
+                    "children_count": 5
+                  },
+                  {
+                    "id": "1:4518",
+                    "name": "Featured Blogs",
+                    "type": "INSTANCE",
+                    "componentId": "1:4318",
+                    "has_children": true,
+                    "children_count": 1
+                  },
+                  {
+                    "id": "1:4519",
+                    "name": "Group 47708",
+                    "type": "INSTANCE",
+                    "componentId": "1:4320",
+                    "has_children": true,
+                    "children_count": 2
+                  },
+                  {
+                    "id": "1:4520",
+                    "name": "Group 47709",
+                    "type": "INSTANCE",
+                    "componentId": "1:4320",
+                    "has_children": true,
+                    "children_count": 2
+                  },
+                  {
+                    "id": "1:4521",
+                    "name": "Group 47710",
+                    "type": "INSTANCE",
+                    "componentId": "1:4320",
+                    "has_children": true,
+                    "children_count": 2
+                  },
+                  {
+                    "id": "1:4522",
+                    "name": "Explore CTA",
+                    "type": "INSTANCE",
+                    "componentId": "1:4332",
+                    "has_children": true,
+                    "children_count": 1
+                  }
+                ]
+              },
+              {
+                "id": "1:4431",
+                "name": "Group 47717",
+                "type": "GROUP",
+                "children": [
+                  {
+                    "id": "1:4438",
+                    "name": "Group 47706",
+                    "type": "INSTANCE",
+                    "componentId": "1:4240",
+                    "has_children": true,
+                    "children_count": 3
+                  }
+                ]
+              },
+              {
+                "id": "6106:1167",
+                "name": "navbar",
+                "type": "INSTANCE",
+                "layoutMode": "HORIZONTAL",
+                "componentId": "6106:1166",
+                "children": [
+                  {
+                    "id": "I6106:1167;1:6137",
+                    "name": "Vector",
+                    "type": "VECTOR"
+                  },
+                  {
+                    "id": "I6106:1167;1:6133",
+                    "name": "Home",
+                    "type": "TEXT",
+                    "characters": "Home "
+                  },
+                  {
+                    "id": "I6106:1167;1:6132",
+                    "name": "Product",
+                    "type": "TEXT",
+                    "characters": "Product"
+                  },
+                  {
+                    "id": "I6106:1167;1:6134",
+                    "name": "wishliste",
+                    "type": "TEXT",
+                    "characters": "wishliste"
+                  },
+                  {
+                    "id": "I6106:1167;1:6136",
+                    "name": "Orders",
+                    "type": "TEXT",
+                    "characters": "Orders"
+                  },
+                  {
+                    "id": "I6106:1167;1:6138",
+                    "name": "search bar",
+                    "type": "GROUP",
+                    "has_children": true,
+                    "children_count": 3
+                  }
+                ]
+              },
+              {
+                "id": "6106:1490",
+                "name": "footer",
+                "type": "INSTANCE",
+                "componentId": "6106:1489",
+                "children": [
+                  {
+                    "id": "I6106:1490;6106:1424",
+                    "name": "Vector",
+                    "type": "VECTOR"
+                  },
+                  {
+                    "id": "I6106:1490;6106:1425",
+                    "name": "Globex",
+                    "type": "TEXT",
+                    "characters": "Globex"
+                  },
+                  {
+                    "id": "I6106:1490;6106:1426",
+                    "name": "Frame 47684",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 6
+                  },
+                  {
+                    "id": "I6106:1490;6106:1433",
+                    "name": "Frame 47683",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 6
+                  },
+                  {
+                    "id": "I6106:1490;6106:1440",
+                    "name": "Frame 47682",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 6
+                  },
+                  {
+                    "id": "I6106:1490;6106:1447",
+                    "name": "Frame 47688",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 6
+                  },
+                  {
+                    "id": "I6106:1490;6106:1454",
+                    "name": "Frame 47685",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 6
+                  },
+                  {
+                    "id": "I6106:1490;6106:1461",
+                    "name": "Group 47687",
+                    "type": "GROUP",
+                    "has_children": true,
+                    "children_count": 3
+                  },
+                  {
+                    "id": "I6106:1490;6106:1471",
+                    "name": "Line 64",
+                    "type": "LINE"
+                  },
+                  {
+                    "id": "I6106:1490;6106:1472",
+                    "name": "Terms & Conditions",
+                    "type": "TEXT",
+                    "characters": "Terms & Conditions"
+                  },
+                  {
+                    "id": "I6106:1490;6106:1473",
+                    "name": "Privacy Policy",
+                    "type": "TEXT",
+                    "characters": "Privacy Policy"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "1:4859",
+            "name": "Product Details",
+            "type": "FRAME",
+            "children": [
+              {
+                "id": "1:4860",
+                "name": "Womens Denim Jacket (Blue)",
+                "type": "TEXT",
+                "characters": "Womens Denim Jacket (Blue)"
+              },
+              {
+                "id": "1:4861",
+                "name": "Brand Name",
+                "type": "TEXT",
+                "characters": "Brand Name"
+              },
+              {
+                "id": "1:4862",
+                "name": "Sold By : Sellers Name",
+                "type": "TEXT",
+                "characters": "Sold By : Sellers Name"
+              },
+              {
+                "id": "1:4863",
+                "name": "image product",
+                "type": "RECTANGLE"
+              },
+              {
+                "id": "1:4864",
+                "name": "image product",
+                "type": "RECTANGLE"
+              },
+              {
+                "id": "1:4865",
+                "name": "image product",
+                "type": "RECTANGLE"
+              },
+              {
+                "id": "1:4866",
+                "name": "image product",
+                "type": "RECTANGLE"
+              },
+              {
+                "id": "1:4867",
+                "name": "image product",
+                "type": "RECTANGLE"
+              },
+              {
+                "id": "1:4868",
+                "name": "image product",
+                "type": "RECTANGLE"
+              },
+              {
+                "id": "1:4873",
+                "name": "Select Size",
+                "type": "TEXT",
+                "characters": "Select Size"
+              },
+              {
+                "id": "1:4875",
+                "name": "Group 47558",
+                "type": "GROUP",
+                "children": [
+                  {
+                    "id": "1:4876",
+                    "name": "new price",
+                    "type": "TEXT",
+                    "characters": "Rs. 700"
+                  },
+                  {
+                    "id": "1:4877",
+                    "name": "old price",
+                    "type": "TEXT",
+                    "characters": "Rs. 1000"
+                  },
+                  {
+                    "id": "1:4878",
+                    "name": "discount",
+                    "type": "TEXT",
+                    "characters": "(30% off)"
+                  }
+                ]
+              },
+              {
+                "id": "1:4879",
+                "name": "Size chart",
+                "type": "GROUP",
+                "children": [
+                  {
+                    "id": "1:4880",
+                    "name": "Size Chart",
+                    "type": "TEXT",
+                    "characters": "Size Chart"
+                  },
+                  {
+                    "id": "1:4881",
+                    "name": "chevron-right",
+                    "type": "FRAME",
+                    "has_children": true,
+                    "children_count": 1
+                  }
+                ]
+              },
+              {
+                "id": "1:4898",
+                "name": "Group 47557",
+                "type": "GROUP",
+                "children": [
+                  {
+                    "id": "1:4899",
+                    "name": "36 Reviews",
+                    "type": "TEXT",
+                    "characters": "36 Reviews"
+                  },
+                  {
+                    "id": "1:4900",
+                    "name": "rate star",
+                    "type": "TEXT",
+                    "characters": "4.4"
+                  },
+                  {
+                    "id": "1:4901",
+                    "name": "star",
+                    "type": "FRAME",
+                    "has_children": true,
+                    "children_count": 1
+                  },
+                  {
+                    "id": "1:4903",
+                    "name": "star",
+                    "type": "FRAME",
+                    "has_children": true,
+                    "children_count": 1
+                  },
+                  {
+                    "id": "1:4905",
+                    "name": "star",
+                    "type": "FRAME",
+                    "has_children": true,
+                    "children_count": 1
+                  },
+                  {
+                    "id": "1:4907",
+                    "name": "star",
+                    "type": "FRAME",
+                    "has_children": true,
+                    "children_count": 1
+                  },
+                  {
+                    "id": "1:4909",
+                    "name": "star",
+                    "type": "FRAME",
+                    "has_children": true,
+                    "children_count": 1
+                  }
+                ]
+              },
+              {
+                "id": "1:4924",
+                "name": "Product Details",
+                "type": "TEXT",
+                "characters": "Product Details"
+              },
+              {
+                "id": "1:4927",
+                "name": "Line 33",
+                "type": "LINE"
+              },
+              {
+                "id": "1:4928",
+                "name": "Line 52",
+                "type": "LINE"
+              },
+              {
+                "id": "1:4929",
+                "name": "Group 47611",
+                "type": "GROUP",
+                "children": [
+                  {
+                    "id": "1:4930",
+                    "name": "Group 47546",
+                    "type": "GROUP",
+                    "has_children": true,
+                    "children_count": 2
+                  },
+                  {
+                    "id": "1:4936",
+                    "name": "Group 47544",
+                    "type": "GROUP",
+                    "has_children": true,
+                    "children_count": 2
+                  }
+                ]
+              },
+              {
+                "id": "1:4939",
+                "name": "Frame 47736",
+                "type": "FRAME",
+                "layoutMode": "HORIZONTAL",
+                "children": [
+                  {
+                    "id": "1:4941",
+                    "name": "Frame 96",
+                    "type": "INSTANCE",
+                    "componentId": "1:4277",
+                    "has_children": true,
+                    "children_count": 7
+                  },
+                  {
+                    "id": "1:4942",
+                    "name": "Frame 97",
+                    "type": "INSTANCE",
+                    "componentId": "1:4277",
+                    "has_children": true,
+                    "children_count": 7
+                  },
+                  {
+                    "id": "1:4943",
+                    "name": "Frame 98",
+                    "type": "INSTANCE",
+                    "componentId": "1:4277",
+                    "has_children": true,
+                    "children_count": 7
+                  }
+                ]
+              },
+              {
+                "id": "1:4940",
+                "name": "Trending Now",
+                "type": "INSTANCE",
+                "componentId": "1:4275",
+                "children": [
+                  {
+                    "id": "I1:4940;1:4276",
+                    "name": "Trending Now",
+                    "type": "TEXT",
+                    "characters": "Similar Products"
+                  }
+                ]
+              },
+              {
+                "id": "1:4946",
+                "name": "Group 47737",
+                "type": "GROUP",
+                "children": [
+                  {
+                    "id": "1:4947",
+                    "name": "Trending Now",
+                    "type": "INSTANCE",
+                    "componentId": "1:4275",
+                    "has_children": true,
+                    "children_count": 1
+                  },
+                  {
+                    "id": "1:4948",
+                    "name": "Frame 96",
+                    "type": "INSTANCE",
+                    "componentId": "1:4277",
+                    "has_children": true,
+                    "children_count": 7
+                  },
+                  {
+                    "id": "1:4949",
+                    "name": "Frame 97",
+                    "type": "INSTANCE",
+                    "componentId": "1:4277",
+                    "has_children": true,
+                    "children_count": 7
+                  },
+                  {
+                    "id": "1:4950",
+                    "name": "Frame 98",
+                    "type": "INSTANCE",
+                    "componentId": "1:4277",
+                    "has_children": true,
+                    "children_count": 7
+                  },
+                  {
+                    "id": "1:4951",
+                    "name": "Frame 99",
+                    "type": "INSTANCE",
+                    "componentId": "1:4277",
+                    "has_children": true,
+                    "children_count": 7
+                  },
+                  {
+                    "id": "1:4952",
+                    "name": "Frame 100",
+                    "type": "INSTANCE",
+                    "componentId": "1:4277",
+                    "has_children": true,
+                    "children_count": 7
+                  }
+                ]
+              },
+              {
+                "id": "6112:907",
+                "name": "Frame 47738",
+                "type": "FRAME",
+                "layoutMode": "HORIZONTAL",
+                "children": [
+                  {
+                    "id": "1:4954",
+                    "name": "add to cart",
+                    "type": "INSTANCE",
+                    "componentId": "1:4956",
+                    "has_children": true,
+                    "children_count": 1
+                  },
+                  {
+                    "id": "6112:904",
+                    "name": "add to cart",
+                    "type": "INSTANCE",
+                    "componentId": "1:4956",
+                    "has_children": true,
+                    "children_count": 1
+                  }
+                ]
+              },
+              {
+                "id": "6106:1179",
+                "name": "navbar",
+                "type": "INSTANCE",
+                "layoutMode": "HORIZONTAL",
+                "componentId": "6106:1166",
+                "children": [
+                  {
+                    "id": "I6106:1179;1:6137",
+                    "name": "Vector",
+                    "type": "VECTOR"
+                  },
+                  {
+                    "id": "I6106:1179;1:6133",
+                    "name": "Home",
+                    "type": "TEXT",
+                    "characters": "Home "
+                  },
+                  {
+                    "id": "I6106:1179;1:6132",
+                    "name": "Product",
+                    "type": "TEXT",
+                    "characters": "Product"
+                  },
+                  {
+                    "id": "I6106:1179;1:6134",
+                    "name": "wishliste",
+                    "type": "TEXT",
+                    "characters": "wishliste"
+                  },
+                  {
+                    "id": "I6106:1179;1:6136",
+                    "name": "Orders",
+                    "type": "TEXT",
+                    "characters": "Orders"
+                  },
+                  {
+                    "id": "I6106:1179;1:6138",
+                    "name": "search bar",
+                    "type": "GROUP",
+                    "has_children": true,
+                    "children_count": 3
+                  }
+                ]
+              },
+              {
+                "id": "6106:1541",
+                "name": "footer",
+                "type": "INSTANCE",
+                "componentId": "6106:1489",
+                "children": [
+                  {
+                    "id": "I6106:1541;6106:1424",
+                    "name": "Vector",
+                    "type": "VECTOR"
+                  },
+                  {
+                    "id": "I6106:1541;6106:1425",
+                    "name": "Globex",
+                    "type": "TEXT",
+                    "characters": "Globex"
+                  },
+                  {
+                    "id": "I6106:1541;6106:1426",
+                    "name": "Frame 47684",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 6
+                  },
+                  {
+                    "id": "I6106:1541;6106:1433",
+                    "name": "Frame 47683",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 6
+                  },
+                  {
+                    "id": "I6106:1541;6106:1440",
+                    "name": "Frame 47682",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 6
+                  },
+                  {
+                    "id": "I6106:1541;6106:1447",
+                    "name": "Frame 47688",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 6
+                  },
+                  {
+                    "id": "I6106:1541;6106:1454",
+                    "name": "Frame 47685",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 6
+                  },
+                  {
+                    "id": "I6106:1541;6106:1461",
+                    "name": "Group 47687",
+                    "type": "GROUP",
+                    "has_children": true,
+                    "children_count": 3
+                  },
+                  {
+                    "id": "I6106:1541;6106:1471",
+                    "name": "Line 64",
+                    "type": "LINE"
+                  },
+                  {
+                    "id": "I6106:1541;6106:1472",
+                    "name": "Terms & Conditions",
+                    "type": "TEXT",
+                    "characters": "Terms & Conditions"
+                  },
+                  {
+                    "id": "I6106:1541;6106:1473",
+                    "name": "Privacy Policy",
+                    "type": "TEXT",
+                    "characters": "Privacy Policy"
+                  }
+                ]
+              },
+              {
+                "id": "6110:870",
+                "name": "size picker",
+                "type": "INSTANCE",
+                "componentId": "6110:858",
+                "children": [
+                  {
+                    "id": "I6110:870;6110:846",
+                    "name": "XS",
+                    "type": "TEXT",
+                    "characters": "XS"
+                  },
+                  {
+                    "id": "I6110:870;6110:847",
+                    "name": "S",
+                    "type": "TEXT",
+                    "characters": "S"
+                  },
+                  {
+                    "id": "I6110:870;6110:848",
+                    "name": "M",
+                    "type": "TEXT",
+                    "characters": "M"
+                  },
+                  {
+                    "id": "I6110:870;6110:849",
+                    "name": "L",
+                    "type": "TEXT",
+                    "characters": "L"
+                  },
+                  {
+                    "id": "I6110:870;6110:850",
+                    "name": "XL",
+                    "type": "TEXT",
+                    "characters": "XL"
+                  },
+                  {
+                    "id": "I6110:870;6110:851",
+                    "name": "Ellipse 8",
+                    "type": "ELLIPSE"
+                  },
+                  {
+                    "id": "I6110:870;6110:852",
+                    "name": "Ellipse 9",
+                    "type": "ELLIPSE"
+                  },
+                  {
+                    "id": "I6110:870;6110:853",
+                    "name": "Ellipse 10",
+                    "type": "ELLIPSE"
+                  },
+                  {
+                    "id": "I6110:870;6110:854",
+                    "name": "Ellipse 11",
+                    "type": "ELLIPSE"
+                  },
+                  {
+                    "id": "I6110:870;6110:855",
+                    "name": "Ellipse 12",
+                    "type": "ELLIPSE"
+                  },
+                  {
+                    "id": "I6110:870;6110:856",
+                    "name": "Line 2",
+                    "type": "LINE"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "1:5852",
+            "name": "Wishlist",
+            "type": "FRAME",
+            "children": [
+              {
+                "id": "1:5887",
+                "name": "My Wishlist",
+                "type": "TEXT",
+                "characters": "My Wishlist"
+              },
+              {
+                "id": "1:5888",
+                "name": "Frame 90",
+                "type": "FRAME",
+                "children": [
+                  {
+                    "id": "1:5889",
+                    "name": "Womens Denim Jacket",
+                    "type": "TEXT",
+                    "characters": "Womens Denim Jacket"
+                  },
+                  {
+                    "id": "1:5890",
+                    "name": "Brand Name",
+                    "type": "TEXT",
+                    "characters": "Brand Name"
+                  },
+                  {
+                    "id": "1:5891",
+                    "name": "(30% off)",
+                    "type": "TEXT",
+                    "characters": "(30% off)"
+                  },
+                  {
+                    "id": "1:5892",
+                    "name": "Rs. 700",
+                    "type": "TEXT",
+                    "characters": "Rs. 700"
+                  },
+                  {
+                    "id": "1:5893",
+                    "name": "Rs. 1000",
+                    "type": "TEXT",
+                    "characters": "Rs. 1000"
+                  },
+                  {
+                    "id": "1:5894",
+                    "name": "Rectangle 375",
                     "type": "RECTANGLE"
                   },
                   {
-                    "id": "2:24918",
-                    "name": "Frame 1000005639",
+                    "id": "1:5895",
+                    "name": "4.4",
+                    "type": "TEXT",
+                    "characters": "4.4"
+                  },
+                  {
+                    "id": "1:5896",
+                    "name": "star",
                     "type": "FRAME",
-                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 1
+                  }
+                ]
+              },
+              {
+                "id": "1:5898",
+                "name": "Frame 91",
+                "type": "FRAME",
+                "children": [
+                  {
+                    "id": "1:5899",
+                    "name": "Womens Denim Jacket",
+                    "type": "TEXT",
+                    "characters": "Womens Denim Jacket"
+                  },
+                  {
+                    "id": "1:5900",
+                    "name": "Brand Name",
+                    "type": "TEXT",
+                    "characters": "Brand Name"
+                  },
+                  {
+                    "id": "1:5901",
+                    "name": "(30% off)",
+                    "type": "TEXT",
+                    "characters": "(30% off)"
+                  },
+                  {
+                    "id": "1:5902",
+                    "name": "Rs. 700",
+                    "type": "TEXT",
+                    "characters": "Rs. 700"
+                  },
+                  {
+                    "id": "1:5903",
+                    "name": "Rs. 1000",
+                    "type": "TEXT",
+                    "characters": "Rs. 1000"
+                  },
+                  {
+                    "id": "1:5904",
+                    "name": "Rectangle 375",
+                    "type": "RECTANGLE"
+                  },
+                  {
+                    "id": "1:5905",
+                    "name": "4.4",
+                    "type": "TEXT",
+                    "characters": "4.4"
+                  },
+                  {
+                    "id": "1:5906",
+                    "name": "star",
+                    "type": "FRAME",
+                    "has_children": true,
+                    "children_count": 1
+                  }
+                ]
+              },
+              {
+                "id": "1:5908",
+                "name": "Frame 92",
+                "type": "FRAME",
+                "children": [
+                  {
+                    "id": "1:5909",
+                    "name": "Womens Denim Jacket",
+                    "type": "TEXT",
+                    "characters": "Womens Denim Jacket"
+                  },
+                  {
+                    "id": "1:5910",
+                    "name": "Brand Name",
+                    "type": "TEXT",
+                    "characters": "Brand Name"
+                  },
+                  {
+                    "id": "1:5911",
+                    "name": "(30% off)",
+                    "type": "TEXT",
+                    "characters": "(30% off)"
+                  },
+                  {
+                    "id": "1:5912",
+                    "name": "Rs. 700",
+                    "type": "TEXT",
+                    "characters": "Rs. 700"
+                  },
+                  {
+                    "id": "1:5913",
+                    "name": "Rs. 1000",
+                    "type": "TEXT",
+                    "characters": "Rs. 1000"
+                  },
+                  {
+                    "id": "1:5914",
+                    "name": "Rectangle 375",
+                    "type": "RECTANGLE"
+                  },
+                  {
+                    "id": "1:5915",
+                    "name": "4.4",
+                    "type": "TEXT",
+                    "characters": "4.4"
+                  },
+                  {
+                    "id": "1:5916",
+                    "name": "star",
+                    "type": "FRAME",
+                    "has_children": true,
+                    "children_count": 1
+                  }
+                ]
+              },
+              {
+                "id": "1:5918",
+                "name": "Frame 93",
+                "type": "FRAME",
+                "children": [
+                  {
+                    "id": "1:5919",
+                    "name": "Womens Denim Jacket",
+                    "type": "TEXT",
+                    "characters": "Womens Denim Jacket"
+                  },
+                  {
+                    "id": "1:5920",
+                    "name": "Brand Name",
+                    "type": "TEXT",
+                    "characters": "Brand Name"
+                  },
+                  {
+                    "id": "1:5921",
+                    "name": "(30% off)",
+                    "type": "TEXT",
+                    "characters": "(30% off)"
+                  },
+                  {
+                    "id": "1:5922",
+                    "name": "Rs. 700",
+                    "type": "TEXT",
+                    "characters": "Rs. 700"
+                  },
+                  {
+                    "id": "1:5923",
+                    "name": "Rs. 1000",
+                    "type": "TEXT",
+                    "characters": "Rs. 1000"
+                  },
+                  {
+                    "id": "1:5924",
+                    "name": "Rectangle 375",
+                    "type": "RECTANGLE"
+                  },
+                  {
+                    "id": "1:5925",
+                    "name": "4.4",
+                    "type": "TEXT",
+                    "characters": "4.4"
+                  },
+                  {
+                    "id": "1:5926",
+                    "name": "star",
+                    "type": "FRAME",
+                    "has_children": true,
+                    "children_count": 1
+                  }
+                ]
+              },
+              {
+                "id": "6106:1203",
+                "name": "navbar",
+                "type": "INSTANCE",
+                "layoutMode": "HORIZONTAL",
+                "componentId": "6106:1166",
+                "children": [
+                  {
+                    "id": "I6106:1203;1:6137",
+                    "name": "Vector",
+                    "type": "VECTOR"
+                  },
+                  {
+                    "id": "I6106:1203;1:6133",
+                    "name": "Home",
+                    "type": "TEXT",
+                    "characters": "Home "
+                  },
+                  {
+                    "id": "I6106:1203;1:6132",
+                    "name": "Product",
+                    "type": "TEXT",
+                    "characters": "Product"
+                  },
+                  {
+                    "id": "I6106:1203;1:6134",
+                    "name": "wishliste",
+                    "type": "TEXT",
+                    "characters": "wishliste"
+                  },
+                  {
+                    "id": "I6106:1203;1:6136",
+                    "name": "Orders",
+                    "type": "TEXT",
+                    "characters": "Orders"
+                  },
+                  {
+                    "id": "I6106:1203;1:6138",
+                    "name": "search bar",
+                    "type": "GROUP",
                     "has_children": true,
                     "children_count": 3
                   }
                 ]
               },
               {
-                "id": "2:24421",
-                "name": "Frame 48095472",
-                "type": "FRAME",
-                "layoutMode": "VERTICAL",
-                "children": [
-                  {
-                    "id": "2:24439",
-                    "name": "Frame 1000005631",
-                    "type": "FRAME",
-                    "layoutMode": "VERTICAL",
-                    "has_children": true,
-                    "children_count": 2
-                  },
-                  {
-                    "id": "2:24448",
-                    "name": "Frame 1000005430",
-                    "type": "FRAME",
-                    "layoutMode": "VERTICAL",
-                    "has_children": true,
-                    "children_count": 2
-                  },
-                  {
-                    "id": "2:24465",
-                    "name": "Frame 1000005634",
-                    "type": "FRAME",
-                    "layoutMode": "VERTICAL",
-                    "has_children": true,
-                    "children_count": 2
-                  },
-                  {
-                    "id": "4:25246",
-                    "name": "Layout / 88 /",
-                    "type": "FRAME",
-                    "has_children": true,
-                    "children_count": 1
-                  },
-                  {
-                    "id": "5:25639",
-                    "name": "Frame 1000005656",
-                    "type": "FRAME",
-                    "layoutMode": "VERTICAL",
-                    "has_children": true,
-                    "children_count": 2
-                  },
-                  {
-                    "id": "5:25867",
-                    "name": "Frame 1000005572",
-                    "type": "FRAME",
-                    "layoutMode": "HORIZONTAL",
-                    "has_children": true,
-                    "children_count": 2
-                  },
-                  {
-                    "id": "9:607",
-                    "name": "Frame 275",
-                    "type": "FRAME",
-                    "layoutMode": "VERTICAL",
-                    "has_children": true,
-                    "children_count": 2
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "id": "1:1422",
-            "name": "Contact",
-            "type": "FRAME",
-            "layoutMode": "VERTICAL",
-            "children": [
-              {
-                "id": "12:9741",
-                "name": "Frame 1261155254",
-                "type": "FRAME",
-                "layoutMode": "HORIZONTAL",
-                "children": [
-                  {
-                    "id": "12:9742",
-                    "name": "Frame 1261155254",
-                    "type": "FRAME",
-                    "layoutMode": "HORIZONTAL",
-                    "has_children": true,
-                    "children_count": 2
-                  }
-                ]
-              },
-              {
-                "id": "4014:1203",
-                "name": "get in toutch form",
+                "id": "6106:1643",
+                "name": "footer",
                 "type": "INSTANCE",
-                "componentId": "4014:1202",
+                "componentId": "6106:1489",
                 "children": [
                   {
-                    "id": "I4014:1203;4014:1157",
-                    "name": "Frame 1261155253",
-                    "type": "FRAME",
-                    "has_children": true,
-                    "children_count": 1
+                    "id": "I6106:1643;6106:1424",
+                    "name": "Vector",
+                    "type": "VECTOR"
                   },
                   {
-                    "id": "I4014:1203;4014:1194",
-                    "name": "Frame 1261155246",
-                    "type": "FRAME",
-                    "has_children": true,
-                    "children_count": 2
-                  }
-                ]
-              },
-              {
-                "id": "12:9518",
-                "name": "Frame 275",
-                "type": "FRAME",
-                "layoutMode": "VERTICAL",
-                "children": [
-                  {
-                    "id": "12:9519",
-                    "name": "Frame 187",
-                    "type": "FRAME",
-                    "has_children": true,
-                    "children_count": 1
+                    "id": "I6106:1643;6106:1425",
+                    "name": "Globex",
+                    "type": "TEXT",
+                    "characters": "Globex"
                   },
                   {
-                    "id": "12:9529",
-                    "name": "Desktop - 4",
-                    "type": "FRAME",
-                    "has_children": true,
-                    "children_count": 1
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "id": "13:1749",
-            "name": "Login",
-            "type": "FRAME",
-            "layoutMode": "VERTICAL",
-            "children": [
-              {
-                "id": "13:1750",
-                "name": "Frame 1261155257",
-                "type": "FRAME",
-                "layoutMode": "VERTICAL",
-                "children": [
-                  {
-                    "id": "13:1751",
-                    "name": "Frame 1261155254",
-                    "type": "FRAME",
-                    "layoutMode": "HORIZONTAL",
-                    "has_children": true,
-                    "children_count": 1
-                  },
-                  {
-                    "id": "13:1769",
-                    "name": "Frame 1261155256",
-                    "type": "FRAME",
-                    "layoutMode": "HORIZONTAL",
-                    "has_children": true,
-                    "children_count": 2
-                  }
-                ]
-              },
-              {
-                "id": "13:1791",
-                "name": "Frame 275",
-                "type": "FRAME",
-                "layoutMode": "VERTICAL",
-                "children": [
-                  {
-                    "id": "13:1792",
-                    "name": "Frame 187",
-                    "type": "FRAME",
-                    "has_children": true,
-                    "children_count": 1
-                  },
-                  {
-                    "id": "13:1802",
-                    "name": "Desktop - 4",
-                    "type": "FRAME",
-                    "has_children": true,
-                    "children_count": 1
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "id": "9:738",
-            "name": "Product Page",
-            "type": "FRAME",
-            "layoutMode": "VERTICAL",
-            "children": [
-              {
-                "id": "2004:794",
-                "name": "navbarr",
-                "type": "INSTANCE",
-                "layoutMode": "HORIZONTAL",
-                "componentId": "2004:792",
-                "children": [
-                  {
-                    "id": "I2004:794;2004:774",
-                    "name": "Frame 1261155254",
-                    "type": "FRAME",
-                    "layoutMode": "HORIZONTAL",
-                    "has_children": true,
-                    "children_count": 2
-                  }
-                ]
-              },
-              {
-                "id": "9:3136",
-                "name": "Frame 1261155236",
-                "type": "FRAME",
-                "layoutMode": "VERTICAL",
-                "children": [
-                  {
-                    "id": "9:760",
-                    "name": "Frame 1000005557",
-                    "type": "FRAME",
-                    "layoutMode": "HORIZONTAL",
-                    "has_children": true,
-                    "children_count": 1
-                  },
-                  {
-                    "id": "9:3059",
-                    "name": "Frame 275",
+                    "id": "I6106:1643;6106:1426",
+                    "name": "Frame 47684",
                     "type": "FRAME",
                     "layoutMode": "VERTICAL",
                     "has_children": true,
-                    "children_count": 2
+                    "children_count": 6
+                  },
+                  {
+                    "id": "I6106:1643;6106:1433",
+                    "name": "Frame 47683",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 6
+                  },
+                  {
+                    "id": "I6106:1643;6106:1440",
+                    "name": "Frame 47682",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 6
+                  },
+                  {
+                    "id": "I6106:1643;6106:1447",
+                    "name": "Frame 47688",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 6
+                  },
+                  {
+                    "id": "I6106:1643;6106:1454",
+                    "name": "Frame 47685",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 6
+                  },
+                  {
+                    "id": "I6106:1643;6106:1461",
+                    "name": "Group 47687",
+                    "type": "GROUP",
+                    "has_children": true,
+                    "children_count": 3
+                  },
+                  {
+                    "id": "I6106:1643;6106:1471",
+                    "name": "Line 64",
+                    "type": "LINE"
+                  },
+                  {
+                    "id": "I6106:1643;6106:1472",
+                    "name": "Terms & Conditions",
+                    "type": "TEXT",
+                    "characters": "Terms & Conditions"
+                  },
+                  {
+                    "id": "I6106:1643;6106:1473",
+                    "name": "Privacy Policy",
+                    "type": "TEXT",
+                    "characters": "Privacy Policy"
                   }
                 ]
               }
             ]
           },
           {
-            "id": "9:3137",
-            "name": "Product Details Page",
+            "id": "1:5987",
+            "name": "Orders",
             "type": "FRAME",
-            "layoutMode": "VERTICAL",
             "children": [
               {
-                "id": "2004:813",
-                "name": "navbarr",
+                "id": "1:5988",
+                "name": "My Orders",
+                "type": "TEXT",
+                "characters": "My Orders "
+              },
+              {
+                "id": "1:5989",
+                "name": "(2 Items)",
+                "type": "TEXT",
+                "characters": "(2 Items)"
+              },
+              {
+                "id": "1:5990",
+                "name": "Frame 72",
+                "type": "FRAME",
+                "children": [
+                  {
+                    "id": "1:5991",
+                    "name": "Rectangle 52",
+                    "type": "RECTANGLE"
+                  },
+                  {
+                    "id": "1:5992",
+                    "name": "Womens Black Tshirt",
+                    "type": "TEXT",
+                    "characters": "Womens Black Tshirt"
+                  },
+                  {
+                    "id": "1:5993",
+                    "name": "Brand Name",
+                    "type": "TEXT",
+                    "characters": "Brand Name"
+                  },
+                  {
+                    "id": "1:5994",
+                    "name": "Order Placed on :",
+                    "type": "TEXT",
+                    "characters": "Order Placed on :"
+                  },
+                  {
+                    "id": "1:5996",
+                    "name": "Order Number :",
+                    "type": "TEXT",
+                    "characters": "Order Number :"
+                  },
+                  {
+                    "id": "1:5997",
+                    "name": "3 October 2020",
+                    "type": "TEXT",
+                    "characters": "3 October 2020"
+                  },
+                  {
+                    "id": "1:5999",
+                    "name": "#124-5660-9008",
+                    "type": "TEXT",
+                    "characters": "#124-5660-9008"
+                  },
+                  {
+                    "id": "1:6000",
+                    "name": "$100",
+                    "type": "TEXT",
+                    "characters": "$100"
+                  },
+                  {
+                    "id": "1:6001",
+                    "name": "Add to cart CTA",
+                    "type": "FRAME",
+                    "has_children": true,
+                    "children_count": 1
+                  }
+                ]
+              },
+              {
+                "id": "1:6005",
+                "name": "Frame 73",
+                "type": "FRAME",
+                "children": [
+                  {
+                    "id": "1:6006",
+                    "name": "Rectangle 52",
+                    "type": "RECTANGLE"
+                  },
+                  {
+                    "id": "1:6007",
+                    "name": "Womens White Skirt",
+                    "type": "TEXT",
+                    "characters": "Womens White Skirt"
+                  },
+                  {
+                    "id": "1:6008",
+                    "name": "Brand Name",
+                    "type": "TEXT",
+                    "characters": "Brand Name"
+                  },
+                  {
+                    "id": "1:6009",
+                    "name": "Order Placed on :",
+                    "type": "TEXT",
+                    "characters": "Order Placed on :"
+                  },
+                  {
+                    "id": "1:6011",
+                    "name": "Order Number :",
+                    "type": "TEXT",
+                    "characters": "Order Number :"
+                  },
+                  {
+                    "id": "1:6012",
+                    "name": "3 October 2020",
+                    "type": "TEXT",
+                    "characters": "3 October 2020"
+                  },
+                  {
+                    "id": "1:6014",
+                    "name": "#124-5660-9008",
+                    "type": "TEXT",
+                    "characters": "#124-5660-9008"
+                  },
+                  {
+                    "id": "1:6015",
+                    "name": "$100",
+                    "type": "TEXT",
+                    "characters": "$100"
+                  },
+                  {
+                    "id": "1:6016",
+                    "name": "Add to cart CTA",
+                    "type": "FRAME",
+                    "has_children": true,
+                    "children_count": 1
+                  }
+                ]
+              },
+              {
+                "id": "6106:1215",
+                "name": "navbar",
                 "type": "INSTANCE",
                 "layoutMode": "HORIZONTAL",
-                "componentId": "2004:792",
+                "componentId": "6106:1166",
                 "children": [
                   {
-                    "id": "I2004:813;2004:774",
-                    "name": "Frame 1261155254",
-                    "type": "FRAME",
-                    "layoutMode": "HORIZONTAL",
-                    "has_children": true,
-                    "children_count": 2
-                  }
-                ]
-              },
-              {
-                "id": "11:3796",
-                "name": "Frame 1261155241",
-                "type": "FRAME",
-                "layoutMode": "VERTICAL",
-                "children": [
-                  {
-                    "id": "11:3717",
-                    "name": "Frame 1261155240",
-                    "type": "FRAME",
-                    "layoutMode": "VERTICAL",
-                    "has_children": true,
-                    "children_count": 2
+                    "id": "I6106:1215;1:6137",
+                    "name": "Vector",
+                    "type": "VECTOR"
                   },
                   {
-                    "id": "11:3652",
-                    "name": "Frame 1000005631",
-                    "type": "FRAME",
-                    "layoutMode": "VERTICAL",
-                    "has_children": true,
-                    "children_count": 2
+                    "id": "I6106:1215;1:6133",
+                    "name": "Home",
+                    "type": "TEXT",
+                    "characters": "Home "
                   },
                   {
-                    "id": "11:3719",
-                    "name": "Frame 275",
-                    "type": "FRAME",
-                    "layoutMode": "VERTICAL",
-                    "has_children": true,
-                    "children_count": 2
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "id": "11:4256",
-            "name": "Cart Page",
-            "type": "FRAME",
-            "layoutMode": "VERTICAL",
-            "children": [
-              {
-                "id": "11:4771",
-                "name": "Frame 1261155245",
-                "type": "FRAME",
-                "layoutMode": "VERTICAL",
-                "children": [
-                  {
-                    "id": "12:9651",
-                    "name": "Frame 1261155245",
-                    "type": "FRAME",
-                    "layoutMode": "HORIZONTAL",
-                    "has_children": true,
-                    "children_count": 1
+                    "id": "I6106:1215;1:6132",
+                    "name": "Product",
+                    "type": "TEXT",
+                    "characters": "Product"
                   },
                   {
-                    "id": "11:4616",
-                    "name": "Frame 1261155244",
-                    "type": "FRAME",
-                    "layoutMode": "VERTICAL",
+                    "id": "I6106:1215;1:6134",
+                    "name": "wishliste",
+                    "type": "TEXT",
+                    "characters": "wishliste"
+                  },
+                  {
+                    "id": "I6106:1215;1:6136",
+                    "name": "Orders",
+                    "type": "TEXT",
+                    "characters": "Orders"
+                  },
+                  {
+                    "id": "I6106:1215;1:6138",
+                    "name": "search bar",
+                    "type": "GROUP",
                     "has_children": true,
                     "children_count": 3
                   }
                 ]
               },
               {
-                "id": "11:4694",
-                "name": "Frame 275",
-                "type": "FRAME",
-                "layoutMode": "VERTICAL",
+                "id": "6106:1694",
+                "name": "footer",
+                "type": "INSTANCE",
+                "componentId": "6106:1489",
                 "children": [
                   {
-                    "id": "11:4695",
-                    "name": "Frame 187",
-                    "type": "FRAME",
-                    "has_children": true,
-                    "children_count": 1
+                    "id": "I6106:1694;6106:1424",
+                    "name": "Vector",
+                    "type": "VECTOR"
                   },
                   {
-                    "id": "11:4705",
-                    "name": "Desktop - 4",
-                    "type": "FRAME",
-                    "has_children": true,
-                    "children_count": 1
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "id": "12:1510",
-            "name": "Checkout Page",
-            "type": "FRAME",
-            "children": [
-              {
-                "id": "12:8494",
-                "name": "Frame 275",
-                "type": "FRAME",
-                "layoutMode": "VERTICAL",
-                "children": [
-                  {
-                    "id": "12:8495",
-                    "name": "Frame 187",
-                    "type": "FRAME",
-                    "has_children": true,
-                    "children_count": 1
+                    "id": "I6106:1694;6106:1425",
+                    "name": "Globex",
+                    "type": "TEXT",
+                    "characters": "Globex"
                   },
                   {
-                    "id": "12:8505",
-                    "name": "Desktop - 4",
+                    "id": "I6106:1694;6106:1426",
+                    "name": "Frame 47684",
                     "type": "FRAME",
+                    "layoutMode": "VERTICAL",
                     "has_children": true,
-                    "children_count": 1
-                  }
-                ]
-              },
-              {
-                "id": "12:8029",
-                "name": "Frame 1261155248",
-                "type": "FRAME",
-                "children": [
+                    "children_count": 6
+                  },
                   {
-                    "id": "4014:1075",
-                    "name": "bills",
-                    "type": "INSTANCE",
-                    "componentId": "4014:1074",
+                    "id": "I6106:1694;6106:1433",
+                    "name": "Frame 47683",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 6
+                  },
+                  {
+                    "id": "I6106:1694;6106:1440",
+                    "name": "Frame 47682",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 6
+                  },
+                  {
+                    "id": "I6106:1694;6106:1447",
+                    "name": "Frame 47688",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 6
+                  },
+                  {
+                    "id": "I6106:1694;6106:1454",
+                    "name": "Frame 47685",
+                    "type": "FRAME",
+                    "layoutMode": "VERTICAL",
+                    "has_children": true,
+                    "children_count": 6
+                  },
+                  {
+                    "id": "I6106:1694;6106:1461",
+                    "name": "Group 47687",
+                    "type": "GROUP",
                     "has_children": true,
                     "children_count": 3
-                  }
-                ]
-              },
-              {
-                "id": "4017:881",
-                "name": "navbarr",
-                "type": "INSTANCE",
-                "layoutMode": "HORIZONTAL",
-                "componentId": "2004:792",
-                "children": [
-                  {
-                    "id": "I4017:881;2004:774",
-                    "name": "Frame 1261155254",
-                    "type": "FRAME",
-                    "layoutMode": "HORIZONTAL",
-                    "has_children": true,
-                    "children_count": 2
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "id": "12:8652",
-            "name": "Blogs",
-            "type": "FRAME",
-            "children": [
-              {
-                "id": "12:8768",
-                "name": "Frame 1261154948",
-                "type": "FRAME",
-                "layoutMode": "VERTICAL",
-                "children": [
-                  {
-                    "id": "12:8995",
-                    "name": "Frame 1261155250",
-                    "type": "FRAME",
-                    "layoutMode": "VERTICAL",
-                    "has_children": true,
-                    "children_count": 2
-                  }
-                ]
-              },
-              {
-                "id": "12:8833",
-                "name": "Frame 1261154947",
-                "type": "FRAME",
-                "layoutMode": "VERTICAL",
-                "children": [
-                  {
-                    "id": "12:8834",
-                    "name": "Frame 1000005673",
-                    "type": "FRAME",
-                    "layoutMode": "HORIZONTAL",
-                    "has_children": true,
-                    "children_count": 1
                   },
                   {
-                    "id": "12:8836",
-                    "name": "Frame 1000005681",
-                    "type": "FRAME",
-                    "layoutMode": "VERTICAL",
-                    "has_children": true,
-                    "children_count": 2
-                  }
-                ]
-              },
-              {
-                "id": "12:8918",
-                "name": "Frame 275",
-                "type": "FRAME",
-                "layoutMode": "VERTICAL",
-                "children": [
-                  {
-                    "id": "12:8919",
-                    "name": "Frame 187",
-                    "type": "FRAME",
-                    "has_children": true,
-                    "children_count": 1
+                    "id": "I6106:1694;6106:1471",
+                    "name": "Line 64",
+                    "type": "LINE"
                   },
                   {
-                    "id": "12:8929",
-                    "name": "Desktop - 4",
-                    "type": "FRAME",
-                    "has_children": true,
-                    "children_count": 1
-                  }
-                ]
-              },
-              {
-                "id": "4015:1497",
-                "name": "navbarr",
-                "type": "INSTANCE",
-                "layoutMode": "HORIZONTAL",
-                "componentId": "2004:792",
-                "children": [
+                    "id": "I6106:1694;6106:1472",
+                    "name": "Terms & Conditions",
+                    "type": "TEXT",
+                    "characters": "Terms & Conditions"
+                  },
                   {
-                    "id": "I4015:1497;2004:774",
-                    "name": "Frame 1261155254",
-                    "type": "FRAME",
-                    "layoutMode": "HORIZONTAL",
-                    "has_children": true,
-                    "children_count": 2
+                    "id": "I6106:1694;6106:1473",
+                    "name": "Privacy Policy",
+                    "type": "TEXT",
+                    "characters": "Privacy Policy"
                   }
                 ]
               }

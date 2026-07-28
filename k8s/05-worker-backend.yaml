@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: worker-backend
+  template:
+    metadata:
+      labels:
+        app: worker-backend
+    spec:
+      containers:
+        - name: worker
+          image: project_frontback-worker-backend:latest
+          imagePullPolicy: IfNotPresent
+          command: ["celery", "-A", "shared.celery_app", "worker", "-Q", "backend", "-l", "info"]
+          env:
+            - name: REDIS_URL
+              value: "redis://redis:6379/0"
+            - name: GENERATED_PROJECT_PATH
+              value: "/workspace/generated"
+            - name: DATA_PATH
+              value: "/workspace/data"
+            - name: MYSQL_HOST
+              value: "mysql"
+            - name: MYSQL_PORT
+              value: "3306"
+            - name: MYSQL_USER
+              value: "llm_user"
+            - name: MYSQL_DATABASE
+              value: "llm_config"
+          envFrom:
+            - secretRef:
+                name: moonpilot-secrets
+          volumeMounts:
+            - name: generated
+              mountPath: /workspace/generated
+            - name: data
+              mountPath: /workspace/data
+      volumes:
+        - name: generated
+          hostPath:
+            path: /run/desktop/mnt/host/c/Users/binitns/Desktop/generated_project
+            type: DirectoryOrCreate
+        - name: data
+          hostPath:
+            path: /run/desktop/mnt/host/c/Users/binitns/Desktop/project_front&back/data
+            type: DirectoryOrCreate

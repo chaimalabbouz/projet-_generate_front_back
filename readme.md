@@ -1,5 +1,7 @@
 pour activer le virtuel (venv):venv\Scripts\activate
 
+http://localhost:3000
+
 python -m services.design.run_local
 
 
